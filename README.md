@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="650" height="200" src="./Header.png">
+  <img width="650" height="200" src="./Assets/Header.png">
 </p>
 
 <h1 align="center">An Advanced Template for running macOS within QEMU/KVM</h1>
