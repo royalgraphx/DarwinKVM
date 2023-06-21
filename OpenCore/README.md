@@ -7,15 +7,13 @@
 
 ## About
 
-This tool automates the process of creating and setting up an OpenCore.img disk image for use with QEMU. 
-It also comes with ``mount.sh`` and ``unmount.sh`` to easily modify the contents.
-It performs the following actions:
+This tool automates the process of creating and setting up an OpenCore.img disk image for use with QEMU. It also comes with ``mount.sh`` and ``unmount.sh`` to easily modify the contents. It performs the following actions:
 
 - Creates an OpenCore.img disk image file.
 - Loads the nbd kernel module if not already loaded.
 - Connects /dev/nbd0 to the OpenCore.img disk image.
 - Formats the connected device as FAT32 with the label "OPENCORE".
-- Mounts the formatted device to the mnt directory with user as the owner.
+- Mounts the formatted device to the mnt directory with the user as the owner.
 - Optionally unmounts the image when done.
 
 ## Requirements
