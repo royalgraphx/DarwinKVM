@@ -17,7 +17,8 @@ echo -e "\e[31mDEBUG:\e[0m Wi-Fi not detected..."
 echo -e "\e[31mDEBUG:\e[0m Checking Ethernet status..."
 
 # Check if Ethernet is connected
-ethernet_interface=$(ip link show | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | tr -d '[:space:]') # Will return interface name if Ethernet is connected
+# ethernet_interface=$(ip link show | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | tr -d '[:space:]') # Will return interface name if Ethernet is connected
+ethernet_interface=$(ip link show | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2}' | head -n 1 | tr -d '[:space:]') # will return interface name without br0 detection
 echo -e "\e[31mDEBUG:\e[0m Variable ethernet_interface reports: $ethernet_interface ..."
 
 if [[ -z $ethernet_interface ]]; then
@@ -77,6 +78,17 @@ if [[ $answer == "y" || $answer == "Y" ]]; then
         echo "NetworkManager is already stopped."
     fi
 
+    # Check and stop systemd-networkd.socket if running
+    systemd_networkd_socket_status=$(systemctl is-active systemd-networkd.socket)
+
+    if [[ $systemd_networkd_socket_status == "active" ]]; then
+        echo "Stopping systemd-networkd.socket..."
+        sudo systemctl stop systemd-networkd.socket
+        echo "systemd-networkd.socket has been stopped."
+    else
+        echo "systemd-networkd.socket is already stopped."
+    fi
+
     # Check and stop systemd-networkd if running
     systemd_networkd_status=$(systemctl is-active systemd-networkd)
 
@@ -130,9 +142,23 @@ if [[ $answer == "y" || $answer == "Y" ]]; then
     sudo systemctl enable systemd-networkd
     echo "systemd-networkd has been enabled."
 
+    # Check and start systemd-networkd.socket if stopped
+    systemd_networkd_socket_status=$(systemctl is-active systemd-networkd.socket)
+
+    if [[ $systemd_networkd_socket_status == "inactive" ]]; then
+        echo "Starting systemd-networkd.socket..."
+        sudo systemctl start systemd-networkd.socket
+        echo "systemd-networkd.socket has been started."
+    else
+        echo "systemd-networkd.socket is already running."
+    fi
+
     echo "Starting systemd-networkd..."
     sudo systemctl start systemd-networkd
     echo "systemd-networkd has been started."
+
+    echo "Waiting on Bridge status..."
+    sleep 10
 
     # Check systemd-networkd logs
     echo "Checking systemd-networkd logs..."
@@ -140,21 +166,6 @@ if [[ $answer == "y" || $answer == "Y" ]]; then
         echo "br0 successfully acquired an IP address via DHCP."
     else
         echo "br0 failed to acquire a local IP via IPv4."
-    fi
-
-    # Check the route table
-    echo "Verifying route table..."
-    if route -n | grep -q 'default'; then
-        echo "Route table is okay."
-    else
-        echo "Route table does not have a default gateway."
-
-        read -p "Please enter your default gateway: " default_gateway
-
-        # Add default gateway to the route table
-        sudo route add default gw "$default_gateway"
-
-        echo "Default gateway has been added to the route table."
     fi
 
     # Perform a ping on google.com
