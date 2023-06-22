@@ -88,7 +88,7 @@ drwxr-xr-x 2 royalgraphx royalgraphx       4096 Dec 31  1969 mnt
 
 ``./unmount.sh``
 
-example output:
+Example output:
 
 ```
 [royalgraphx@hypervisor OpenCore]$ ./unmount.sh 
