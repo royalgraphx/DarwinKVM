@@ -1,32 +1,45 @@
 #!/bin/bash
 
-echo -e "\e[31mDEBUG:\e[0m Welcome to DKVM Bridge Networking..."
-echo -e "\e[31mDEBUG:\e[0m THIS IS A DEBUG BUILD, DO NOT USE IN PROD..."
-echo -e "\e[31mDEBUG:\e[0m Verbose enabled, displaying VARS..."
+# Detect the wlan interface
+wifi_interface=$(ip link show | awk -F: '$0 ~ "wl"{print $2; exit}' | tr -d '[:space:]') 
+echo -e "\e[31mDEBUG:\e[0m Variable wifi_interface reports: $wifi_interface ..."
 
-echo -e "\e[31mDEBUG:\e[0m Checking Wi-Fi status..."
-# Check if Wi-Fi is connected
-wifi_status=$(iw dev | awk '$1=="Interface"{print $2}') # Will return the interface name if Wi-Fi is connected
-echo -e "\e[31mDEBUG:\e[0m Variable wifi_status reports: $wifi_status..."
-if [[ -n $wifi_status ]]; then
-    echo "Wi-Fi connection detected. This script is intended to be used only when Ethernet is actively used and Wi-Fi is not active. Exiting..."
-    exit 1
+# Detect the state of the wlan interface only if it was found
+if [ -n "$wifi_interface" ]; then
+    wifi_state=$(ip link show $wifi_interface | grep -oP '(?<=state )[A-Z]+' 2>/dev/null)
+    echo -e "\e[31mDEBUG:\e[0m Variable wifi_state reports: $wifi_state ..."
+
+    # If wifi interface state is UP, end the script
+    if [ "$wifi_state" == "UP" ]; then
+        echo "This script is not intended to be used with an active WiFi connection."
+        exit 1
+    fi
+
+    # Notify that wifi was detected but not active
+    if [ "$wifi_state" == "DOWN" ]; then
+        echo "WiFi was detected but is not active."
+    fi
 fi
 
-echo -e "\e[31mDEBUG:\e[0m Wi-Fi not detected..."
-echo -e "\e[31mDEBUG:\e[0m Checking Ethernet status..."
-
-# Check if Ethernet is connected
-# ethernet_interface=$(ip link show | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2;getline}' | tr -d '[:space:]') # Will return interface name if Ethernet is connected
-ethernet_interface=$(ip link show | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2}' | head -n 1 | tr -d '[:space:]') # will return interface name without br0 detection
+# Detect the ethernet interface
+ethernet_interface=$(ip link show | awk -F: '$0 !~ "lo|vir|wl|^[^0-9]"{print $2; exit}' | tr -d '[:space:]') 
 echo -e "\e[31mDEBUG:\e[0m Variable ethernet_interface reports: $ethernet_interface ..."
 
-if [[ -z $ethernet_interface ]]; then
-    echo "No active Ethernet connection detected. Exiting..."
+# Detect the state of the ethernet interface
+ethernet_state=$(ip link show $ethernet_interface | grep -oP '(?<=state )[A-Z]+' 2>/dev/null)
+echo -e "\e[31mDEBUG:\e[0m Variable ethernet_state reports: $ethernet_state ..."
+
+# If ethernet state is DOWN, end the script
+if [ "$ethernet_state" == "DOWN" ]; then
+    echo "An active Ethernet connection is needed."
     exit 1
 fi
 
-echo "Ethernet connection detected, and no Wi-Fi connection is active. Proceeding with the script..."
+# The expected functionality
+if [ "$ethernet_state" == "UP" ] && ([ -z "$wifi_interface" ] || [ "$wifi_state" == "DOWN" ]); then
+    echo "Ethernet connection is active, WiFi interface is down. All checks passed!"
+fi
+
 
 # Rest of the script...
 
