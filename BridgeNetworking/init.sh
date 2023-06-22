@@ -144,7 +144,7 @@ if [[ $answer == "y" || $answer == "Y" ]]; then
 
     # Check the route table
     echo "Verifying route table..."
-    if route -n | grep -q '_gateway'; then
+    if route -n | grep -q 'default'; then
         echo "Route table is okay."
     else
         echo "Route table does not have a default gateway."
