@@ -34,25 +34,27 @@
   * [GenSMBios](https://github.com/corpnewt/GenSMBIOS)
   * [Hackintool](https://github.com/benbaker76/Hackintool)
   * [SSDTTime](https://github.com/corpnewt/SSDTTime)
-  * [UtilityKit](https://github.com/royalgraphx/UtilityKit)
-  * <b>PATIENCE! This is NOT a Pre-Built EFI! You are responsible for completing it!</b>
+
+<br>
+
+* <b>PATIENCE! This is NOT a Pre-Built EFI! You are responsible for completing it!</b>
 
 </br>
 <h1 align="center">What is this for?</h1>
 
-This repository and its contents are to be a continuation of my work on [LegacyOSXKVM](https://github.com/royalgraphx/LegacyOSXKVM). The goal of that project was to allow anyone to quickly revisit some of their favorite versions of Mac OS X as it was known to many for years with its various releases. Snow Leopard was the main focus of that project, and as such had the most effort put into it. Nowadays we need to be on modern versions of macOS to enjoy the latest and greatest offered from Apple. The focus has now shifted to providing an Up-to-Date, Out of Box (OOB), Clean EFI Template for creating Virtual Machines of the latest offered versions from Apple. As of writing this, you can create a powerful VM of macOS Ventura, Monterey, and even Sonoma works. The guides in this repository will help you continuously work on your virtual machine to make it the perfect experience. Things will not work right away, you will slowly keep fixing them as you discover what must be fixed.
+This repository and its contents are to be a continuation of my work on [LegacyOSXKVM](https://github.com/royalgraphx/LegacyOSXKVM). The goal of that project was to allow anyone to quickly revisit some of their favorite versions of Mac OS X as it was known to many for years with its various releases. Snow Leopard was the main focus of that project, and as such had the most effort put into it. Nowadays we need to be on modern versions of macOS to enjoy the latest and greatest offered from Apple. The focus has now shifted to providing an Up-to-Date, Out of Box (OOB), Clean Template for creating Virtual Machines of the latest versions offered by Apple. As of writing this, you can create a powerful VM of macOS Ventura, Monterey, and even Sonoma works. The guides in this repository will help you continuously work on your virtual machine to make it the perfect experience. Things will not work right away, you will slowly keep fixing them as you discover what must be fixed.
 
 </br>
 <h1 align="center">Who is this for?</h1>
 
-This is for experienced users. You should already be familiar with 3 core concepts: [Virtualization](https://libvirt.org/)/[QEMU], [OpenCore](https://dortania.github.io/OpenCore-Install-Guide/), and [macOS](https://en.wikipedia.org/wiki/MacOS). If you feel as though you are not up to speed on any of these concepts, please take the time to first gain adequate knowledge as it will vastly improve your chances of having a working system you can daily drive. This guide is written completely from my perspective as I've learned throughout my time in the Hackintosh community. What you would typically do if you wanted to run macOS on your system you would have to use the OpenCore bootloader to provide macOS with the necessary information it needs. A Virtual Machine is no different. In theory, what we are simply doing is creating an OpenCore disk image that acts as if it were the equivalent of a USB or an EFI partition post-installation. While there exist many projects that utilize QEMU/KVM, for daily driving you must have a compatible GPU. What this means for the user of any projects that are seen as the equivalent to "Prebuilt EFI's" is that there is no learning involved. This causes the user to not understand why certain things are broken on their system and possibly may never fix those issues, potentially leaving them in the background. This guide is for those who are looking to properly create a macOS Virtual Machine from the ground up. <b>PLEASE READ CAREFULLY.</b> Try not to ask for support before rereading, many times you will misread something on accident or are simply not paying enough attention to what it's instructing you to do. 
+This is for experienced users. You should already be familiar with 3 core concepts: [Virtualization](https://libvirt.org/)/[QEMU](https://www.qemu.org/docs/master/), [OpenCore](https://dortania.github.io/OpenCore-Install-Guide/), and [macOS](https://en.wikipedia.org/wiki/MacOS). If you feel as though you are not up to speed on any of these concepts, please take the time to first gain adequate knowledge as it will vastly improve your chances of having a working system you can daily drive. This guide is written completely from my perspective as I've learned throughout my time in the Hackintosh community. What you would typically do if you wanted to run macOS on your system you would have to use the OpenCore bootloader to provide macOS with the necessary information it needs. A Virtual Machine is no different. In theory, what we are simply doing is creating an OpenCore disk image that acts as if it were the equivalent of a USB or an EFI partition post-installation. While there exist many projects that utilize QEMU/KVM, for daily driving you must have a compatible GPU. What this means for the user of any projects that are seen as the equivalent to "Prebuilt EFI's" is that there is no learning involved. This causes the user to not understand why certain things are broken on their system and possibly may never fix those issues, potentially leaving them in the background. This guide is for those who are looking to properly create a macOS Virtual Machine from the ground up. <b>PLEASE READ CAREFULLY.</b> Try not to ask for support before rereading, many times you will misread something on accident or are simply not paying enough attention to what it's instructing you to do. 
 
 <br>
 <h1 align="center">Host Preparations</h1>
 
 <h2 align="center"><b>Part 1:</b> BIOS Settings</h2>
 <h4 align="center">Will depend on your Host Hardware.</h4>
-
+<h4 align="center">This section has been derived from the <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/1)-Preparations">Preparations</a> section via <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home">RisingPrism</a>.</h4>
 <br>
 
 Depending on your machine's CPU, you need to enable certain settings in your BIOS for your passthrough to succeed. Enable the settings listed in this table:
@@ -76,14 +78,18 @@ If you do not have any virtualization settings, like said before make sure your 
 
 <h2 align="center"><b>Part 2:</b> GRUB Configuration</h2>
 <h4 align="center">Enabling flags needed for Virtualization/QEMU/KVM/libvirtd</h4>
+<h4 align="center">This section has been derived from the <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/2)-Editing-GRUB">Editing GRUB</a> section via <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home">RisingPrism</a>.</h4>
+<br>
 
-Start by using your favorite terminal text editor. In this example we'll be using nano.
+<br>
+
+Start by using your favorite terminal text editor. In this example, we'll be using nano.
 
 ```
 sudo nano /etc/default/grub
 ```
 
-We'll need to check our GRUB CMD Line flags and add various depending on the users' hardware.
+We'll need to check our GRUB CMD Line flags and add various ones depending on the users' hardware.
 
 | AMD / AMD GPU  | Intel CPU | Needed Regardless|
 | ---- | ----- | ----- |
@@ -107,10 +113,12 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 <h2 align="center"><b>Part 3:</b> Bridge Networking</h2>
 <h4 align="center">Creation of the Bridge interface for your DKVM.</h4>
+<h4 align="center">This section has been derived from the <a href="https://github.com/royalgraphx/DarwinKVM/tree/main/BridgeNetworking">Bridge Networking</a> Submodule.</h4>
+<br>
 
 <br>
 
-<h2 align="center"><b>Overview</b></h2>
+<h3 align="center"><b>Overview</b></h3>
 
 <br>
 
@@ -121,10 +129,6 @@ First things first, I highly recommend you take the time out of your day to not 
 <h2 align="center"><b>A. Goal Examples</b></h2>
 
 <br>
-
-<p align="center">
-  <img src="./Assets/BridgeNetworkingRouterDash.png">
-</p>
 
 <h3 align="center">This is the guest macOS talking to devices on the broader network.</h3>
 
@@ -138,6 +142,10 @@ First things first, I highly recommend you take the time out of your day to not 
 
 <p align="center">
   <img src="./Assets/BridgeNetworkingRPI.png">
+</p>
+
+<p align="center">
+  <img src="./Assets/BridgeNetworkingRouterDash.png">
 </p>
 
 <br>
@@ -166,6 +174,9 @@ For more information and the completion of this section, refer to [Bridge Networ
 
 <h2 align="center"><b>Part 4:</b> Package Installation</h2>
 <h4 align="center">Package requirements for base DKVM.</h4>
+<h4 align="center">This section has been derived from the <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/4)-Configuration-of-libvirt">Configuration of libvirt
+</a> section via <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home">RisingPrism</a>.</h4>
+<br>
 
 Since everything in this guide is outlined for simply Arch, you may need to find the package equivalent to your system. Here is the command to install all required packages.
 
@@ -187,6 +198,9 @@ If you do encounter this kind of message, press y and enter to continue the inst
 
 <h2 align="center"><b>Part 5:</b> Libvirtd Configuration</h2>
 <h4 align="center">Necessary changes to use Virt-Manager via User.</h4>
+<h4 align="center">This section has been derived from the <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/4)-Configuration-of-libvirt">Configuration of libvirt
+</a> section via <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home">RisingPrism</a>.</h4>
+<br>
 
 <br>
 
@@ -279,10 +293,8 @@ You can read more about ACPI and it's spec [here](https://uefi.org/sites/default
 
  - Embedded controllers(EC)
    - All semi-modern Intel machines have an EC (usually called H_EC, ECDV, EC0, etc...) exposed in their DSDT, with many AMD systems also having it exposed. These controllers are generally not compatible with macOS and can cause a kernel panic, so they need to be hidden from macOS. macOS Catalina requires a device named EC to be present though, so a dummy EC is created.
-With laptops, the actual embedded controller still needs to be enabled for battery and hotkeys to work, and renaming the EC can additionally cause issues with Windows, so creating a fake EC without disabling the real embedded controller is preferable.
-
  - Plugin type
-   - This allows the use of XCPM providing native CPU power management on Intel Haswell and newer CPUs, the SSDT will connect to the first thread of the CPU. Not meant for AMD
+   - This allows the use of XCPM providing native CPU power management on Intel Haswell and newer CPUs, the SSDT will connect to the first thread of the CPU.
 
 
 For our Virtual Machine use case, we will be emulating an Intel Cascade-Lake CPU so regardless of the host architecture, the only ACPI's we require to boot macOS will be EC and PLUG.
@@ -292,7 +304,7 @@ You can view the CPU ACPI requirements by generation [here](https://dortania.git
 ``Note: Cascade Lake supersedes Skylake although not shown on the chart.``
 
 <br>
-<h2><b>The required files can be found in the DarwinOCPkg/Docs/ACPI folder.</b></h2>
+<h4><b>The required files can be found in the DarwinOCPkg/ACPI folder.</b></h4>
 
 <br>
 <h2 align="center"><b>Part 2:</b> Drivers</h2>
@@ -300,7 +312,7 @@ You can view the CPU ACPI requirements by generation [here](https://dortania.git
 <br>
 
 ``Now something you'll notice is that it comes with a bunch of files in Drivers and Tools folder, we don't want most of these:``
- - Keep the following from Drivers (if applicable) :
+ - Keep the following from Drivers (if applicable):
 
 | Driver  | Status | Description | 
 | ----- | ----- | ----- |
