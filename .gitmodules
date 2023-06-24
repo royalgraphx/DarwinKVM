@@ -1,3 +1,6 @@
 [submodule "DarwinOCPkg"]
 	path = DarwinOCPkg
 	url = https://github.com/royalgraphx/DarwinOCPkg.git
+[submodule "macrecovery"]
+	path = macrecovery
+	url = https://github.com/royalgraphx/macrecovery
