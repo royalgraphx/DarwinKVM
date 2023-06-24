@@ -40,6 +40,41 @@
 * <b>PATIENCE! This is NOT a Pre-Built EFI! You are responsible for completing it!</b>
 
 </br>
+<h1 align="center">Table of Contents</h1>
+
+- What is this for?
+
+- Who is this for?
+
+- Host Preparations
+  - Part 1 - BIOS Settings
+  - Part 2 - GRUB Configuration
+  - Part 3 - Bridge Networking
+  - Part 4 - Package Installation
+  - Part 5 - Libvirtd Configuration
+    - A. Modifying Files
+    - B. Libvirt Services
+
+- OpenCore Configuration
+  - Part 0 - Image Creation
+  - Part 1 - ACPI Tables
+  - Part 2 - Drivers
+  - Part 3 - Kexts
+  - Part 4 - Tools
+
+- Config.plist Configuration
+  - Part 0 - Required Tools / Brief Overview
+  - Part 1 - ACPI
+  - Part 2 - Booter
+  - Part 3 - Device Properties
+  - Part 4 - Kernel
+  - Part 5 - Misc
+  - Part 6 - NVRAM
+  - Part 7 - Platform Info
+  - Part 8 - UEFI
+
+
+</br>
 <h1 align="center">What is this for?</h1>
 
 This repository and its contents are to be a continuation of my work on [LegacyOSXKVM](https://github.com/royalgraphx/LegacyOSXKVM). The goal of that project was to allow anyone to quickly revisit some of their favorite versions of Mac OS X as it was known to many for years with its various releases. Snow Leopard was the main focus of that project, and as such had the most effort put into it. Nowadays we need to be on modern versions of macOS to enjoy the latest and greatest offered from Apple. The focus has now shifted to providing an Up-to-Date, Out of Box (OOB), Clean Template for creating Virtual Machines of the latest versions offered by Apple. As of writing this, you can create a powerful VM of macOS Ventura, Monterey, and even Sonoma works. The guides in this repository will help you continuously work on your virtual machine to make it the perfect experience. Things will not work right away, you will slowly keep fixing them as you discover what must be fixed.
@@ -279,6 +314,16 @@ sudo systemctl restart libvirtd
   <img src="./Assets/OpenCorePkgBase.png">
 </p>
 
+<h2 align="center"><b><span style="color:red">Part 0:</span></b> Image Creation</h2>
+<h4 align="center">Creation of the OpenCore .img for your DKVM.</h4>
+<h4 align="center">This section has been derived from the <a href="https://github.com/royalgraphx/DarwinKVM/tree/main/OpenCore">OpenCore</a> Submodule.</h4>
+<br>
+
+```
+This tool automates the process of creating and setting up an OpenCore.img disk image for use with QEMU. It also comes with mount.sh and unmount.sh to easily modify the contents.
+```
+
+Don't skip this section. To continue in this guide you will need an image file that will act as our OpenCore USB, holding all its contents. The fastest way to do this is by changing the directory into the OpenCore folder in this repository. You can quickly generate and mount a 1GB ``.img`` file to add to your Virtual Machine later. If you need any help understanding this section, please refer to the [README.md](https://github.com/royalgraphx/DarwinKVM/tree/main/OpenCore) for better context. You can now go ahead and transfer the EFI folder from [DarwinOCPkg](https://github.com/royalgraphx/DarwinKVM/tree/main/DarwinOCPkg) to the root of the image. The rest of the steps will outline adding the necessary files to build your EFI for your Virtual Machine.
 
 <br>
 <h2 align="center"><b>Part 1:</b> ACPI Tables</h2>
@@ -287,24 +332,28 @@ sudo systemctl restart libvirtd
 
 ``So what are DSDTs and SSDTs? Well, these are tables present in your firmware that outline hardware devices like USB controllers, CPU threads, embedded controllers, system clocks and such. A DSDT(Differentiated System Description Table) can be seen as the body holding most of the info with smaller bits of info being passed by the SSDT(Secondary System Description Table). You can think of the DSDT as the building blueprints with SSDTs being sticky notes outlining extra details to the project.``
 
-You can read more about ACPI and it's spec [here](https://uefi.org/sites/default/files/resources/ACPI_Spec_6_4_Jan22.pdf).
+You can read more about ACPI and it's specs [here](https://uefi.org/sites/default/files/resources/ACPI_Spec_6_4_Jan22.pdf).
 
 ``macOS can be very picky about the devices present in the DSDT and so our job is to correct it. The main devices that need to be corrected for macOS to work properly:``
 
  - Embedded controllers(EC)
    - All semi-modern Intel machines have an EC (usually called H_EC, ECDV, EC0, etc...) exposed in their DSDT, with many AMD systems also having it exposed. These controllers are generally not compatible with macOS and can cause a kernel panic, so they need to be hidden from macOS. macOS Catalina requires a device named EC to be present though, so a dummy EC is created.
+ - USBX
+   - For Skylake and newer plus AMD. This file is plug-and-play and requires no device configuration, do not use it on Broadwell and older.
  - Plugin type
    - This allows the use of XCPM providing native CPU power management on Intel Haswell and newer CPUs, the SSDT will connect to the first thread of the CPU.
 
 
-For our Virtual Machine use case, we will be emulating an Intel Cascade-Lake CPU so regardless of the host architecture, the only ACPI's we require to boot macOS will be EC and PLUG.
+For our Virtual Machine use case, we will be emulating an Intel Cascade Lake CPU so regardless of the host architecture, the only ACPI's we require to boot macOS will be EC-USBX and PLUG.
 
 You can view the CPU ACPI requirements by generation [here](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-platform.html#desktop). 
 
 ``Note: Cascade Lake supersedes Skylake although not shown on the chart.``
 
 <br>
-<h4><b>The required files can be found in the DarwinOCPkg/ACPI folder.</b></h4>
+<h4><b>The required files can be found in the DarwinOCPkg/X64/EFI/OC/ACPI folder.</b></h4>
+
+Thanks to [ExtremeXT](https://github.com/ExtremeXT) for allowing me to include his manually created EC-USBX which combines them into a single file, as well as the included PLUG file. We've both tested it and it works as expected, and I use it for my daily machine so I'm confident including it, feel free to manually make your own or possibly try the ones from acidanthera! As long as you complete this ACPI section, you can go ahead to the next step.
 
 <br>
 <h2 align="center"><b>Part 2:</b> Drivers</h2>
@@ -319,3 +368,424 @@ You can view the CPU ACPI requirements by generation [here](https://dortania.git
 | OpenRuntime.efi | Required | Required for proper operation |
 | ResetNvramEntry.efi | Required | Required to reset the system's NVRAM |
 | OpenHfsPlus.efi | Optional | Open sourced HFS Plus driver, quite slow so we recommend not using unless you know what you're doing |
+
+There are already base files included in the repository. You'll have to check with your hardware to see if you need anything additional. As outlined in [Gathering files -> Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers) you will see a table that states [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi) is a required Driver. Personally from my experience, I've been fine using OpenHfsPlus.efi but you should first try with [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi), please download and add that to your OpenCore EFI.
+
+<br>
+<h2 align="center"><b>Part 3:</b> Kexts</h2>
+<h4 align="center">This section has been derived from the <a href="https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts">Kexts</a> section via <a href="https://dortania.github.io/OpenCore-Install-Guide/ktext.html">Gathering files</a>. It may be out of date.</h4>
+<br>
+
+Here is a basic chart of a Kext, its use, and the status of the requirement. Check with the hardware you'll be passing through if you need any Kexts. For example, Samsung NVMe should be using NVMeFix.kext for better voltage and temperature management by macOS.
+
+| Kext  | Status | Description | 
+| ----- | ----- | ----- |
+| [Lilu](https://github.com/acidanthera/Lilu/releases) | Required | A kext to patch many processes, required for AppleALC, WhateverGreen, VirtualSMC and many other kexts. Without Lilu, they will not work. |
+| [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) | Required | Used for graphics patching, DRM fixes, board ID checks, framebuffer fixes, etc; all GPUs benefit from this kext. |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) | Required | Emulates the SMC chip found on real macs, without this macOS will not boot |
+| [AppleMCEReporterDisabler](https://github.com/acidanthera/bugtracker/files/3703498/AppleMCEReporterDisabler.kext.zip) | Required | Required on macOS 12.3 and later on AMD systems, and on macOS 10.15 and later on dual-socket Intel systems. |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases) | Optional | NVMeFix is a set of patches for the Apple NVMe storage driver, IONVMeFamily. Its goal is to improve compatibility with non-Apple SSDs. It may be used both on Apple and non-Apple computers. |
+| [RestrictEvents](https://github.com/acidanthera/RestrictEvents/releases) | Optional | Lilu Kernel extension for blocking unwanted processes causing compatibility issues on different hardware and unlocking the support for certain features restricted to other hardware. |
+| [RadeonSensor](https://github.com/aluveitie/RadeonSensor/releases) | Optional | Kext and Gadget to show Radeon GPU temperature on macOS. |
+| [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) | Optional | This is an AGPM (Apple Graphics Power Management) Injector kext generator. |
+
+<br>
+<h2 align="center"><b>Part 4:</b> Tools</h2>
+<h4 align="center">This section has been derived from the <a href="https://dortania.github.io/OpenCore-Install-Guide/installer-guide/opencore-efi.html">Adding The Base OpenCore Files</a>. It may be out of date.</h4>
+<br>
+
+As far as I'm concerned, you only need OpenShell.efi and even then, that's only for debugging. It's already included within [DarwinOCPkg](https://github.com/royalgraphx/DarwinKVM/tree/main/DarwinOCPkg).
+
+| Tool  | Status | Description | 
+| ----- | ----- | ----- |
+| OpenShell.efi | Optional | Recommended for easier debugging. |
+
+<br>
+<h2 align="center">You should now be able to continue to the continue to the config.</h2>
+
+
+<br>
+<br>
+<h1 align="center">Config.plist Configuration</h1>
+<h2 align="center">Virtual Machine Cascade Lake</h2>
+<p align="center">
+  <img src="./Assets/OpenCoreProperTree.png">
+</p>
+
+<h2 align="center"><b><span style="color:red">Part 0:</span></b> Required Tools / Brief Overview</h2>
+<h4 align="center">Download the following tools needed for modifications.</h4>
+<br>
+
+| Tool  | Status | Description | 
+| ----- | ----- | ----- |
+| [Python](https://www.python.org/downloads/) | Required | ADD TO PATH! MUST SELECT DURING INSTALL. |
+| [ProperTree](https://github.com/corpnewt/ProperTree) | Required | Software that required Python, provides GUI and Tools for config.plist |
+| [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) | Required | Must generate clean SMBIOS information for iServices |
+| [DarwinOCPkg](https://github.com/royalgraphx/DarwinKVM/tree/main/DarwinOCPkg/Docs/Sample.plist) | Required | Need Docs/Sample.plist renamed to config.plist in OC folder. |
+
+We'll first need a valid Python installation on our host. Don't forget to add Python to PATH. If for whatever reason you missed the option, restart the installer and select "Add to PATH". You'll then need to get your hands on ProperTree. 
+
+This will allow you to use tools like "OC Clean Snapshot" which will scan your OC folder and add the various files to your config.plist automatically and in the correct order. This is especially true when dealing with kext loading order. Essentially, you cannot load a dependency before the main Kext that needs it, is loaded... so to make sure we don't run into any issues we use the officially recommended method of OC Clean Snapshot and regular OC Snapshot when updating things in our folders. 
+
+GenSMBIOS will be very important because the Sample.plist does not contain any serial number. Meaning you cannot log into iServices until you properly generate MacPro7,1 SMBIOS information and use that on your config.plist
+
+Of course, the repository includes a custom Sample.plist that has been cleaned up and peer-reviewed for the proper configuration needed for QEMU/KVM. There is still a Config guide you must follow for the Virtual Machine platform, but it will do the same thing as the main Dortania guide Configs: teach you what makes your hack work.
+
+<br>
+<h2 align="center"><b>Part 1:</b> ACPI</h2>
+<p align="center">
+  <img src="./Assets/OpenCoreACPIAdd.png">
+</p>
+
+<h2 align="center"><b>Add</b></h2>
+
+This section of the config is meant to expose the various ACPI in your OC folder. This along with many of the other sections will be auto-filled by simply going to ``File -> OC Clean Snapshot`` and going to the OC folder in your OpenCore.img mount point.
+
+<h2 align="center"><b>Delete</b></h2>
+
+This blocks certain ACPI tables from loading, for us, we can ignore this.
+
+<h2 align="center"><b>Patch</b></h2>
+
+This section allows us to dynamically modify parts of the ACPI (DSDT, SSDT, etc.) via OpenCore. For us, our patches are handled by our SSDTs. This is a much cleaner solution as this will allow us to boot Windows and other OSes with OpenCore for dual or multi-boot configurations.
+
+<h2 align="center"><b>Quirks</b></h2>
+
+For settings relating to ACPI, leave everything here as default as we have no use for these quirks.
+
+<br>
+<br>
+<h2 align="center"><b>Part 2:</b> Booter</h2>
+<p align="center">
+  <img src="./Assets/OpenCoreBooterQuirks.png">
+</p>
+
+<h2 align="center"><b>MmioWhitelist</b></h2>
+
+This section is allowing spaces to be passthrough to macOS that are generally ignored, useful when paired with DevirtualiseMmio. We can ignore this for our Virtual Machine use cases generally.
+
+<h2 align="center"><b>Patch</b></h2>
+
+This contains general patches, for us, we can ignore this.
+
+<h2 align="center"><b><span style="color:gold">Quirks</span></b></h2>
+
+Don't skip over this section, we'll be changing the following:
+
+<br>
+
+| Quirk  | Value | Description | 
+| ----- | ----- | ----- |
+| EnableWriteUnprotector | False | This quirk and RebuildAppleMemoryMap can commonly conflict, recommended to enable the latter on newer platforms and disable this entry. |
+| RebuildAppleMemoryMap | True | Generates Memory Map compatible with macOS. |
+| SetupVirtualMap | False | Fixes SetVirtualAddresses calls to virtual addresses, required for Gigabyte boards to resolve early kernel panics. On Virtual Machine platforms, it isn't required. |
+| SyncRuntimePermissions | True | Fixes alignment with MAT tables and required to boot Windows and Linux with MAT tables, also recommended for macOS. Mainly relevant for RebuildAppleMemoryMap users. |
+
+<br>
+<br>
+<h2 align="center"><b>Part 3:</b> Device Properties</h2>
+<p align="center">
+  <img src="./Assets/OpenCoreDeviceProperties.png">
+</p>
+
+<h2 align="center"><b>Add</b></h2>
+
+This allows you to add properties to various devices using its PciRoot address. For now, and in most cases we can ignore this. An example would be: overriding an ethernet controller to appear as built-in so that macOS allows iServices to work. On Virtual Machines, we rarely have to override.
+
+<h2 align="center"><b>Delete</b></h2>
+
+This allows you to delete properties of various devices using its PciRoot address. For now, and in most cases we can ignore this.
+
+<br>
+<br>
+<h2 align="center"><b>Part 4:</b> Kernel</h2>
+<p align="center">
+  <img src="./Assets/OpenCoreKernel.png">
+</p>
+
+<h2 align="center"><b>Add</b></h2>
+
+This section of the config is meant to expose the various Kexts in your OC folder. This along with many of the other sections will be auto-filled by simply going to ``File -> OC Clean Snapshot`` and going to the OC folder in your OpenCore.img mount point.
+
+<h2 align="center"><b>Block</b></h2>
+
+Blocks certain kexts from loading. Not relevant for us.
+
+<h2 align="center"><b>Emulate</b></h2>
+
+Needed for spoofing unsupported CPUs like Pentiums and Celerons
+
+- Cpuid1Mask: Leave this blank
+- Cpuid1Data: Leave this blank
+
+<h2 align="center"><b>Force</b></h2>
+
+Used for loading kexts off system volume, only relevant for older operating systems where certain kexts are not present in the cache, i.e IONetworkingFamily in 10.6.
+
+For us, we can ignore.
+
+<h2 align="center"><b>Patch</b></h2>
+
+Patches both the kernel and Kexts. I've gone ahead and incorporated CaseySJ's PCI Bus Enum fix on KVM. For us, we can ignore this section.
+
+<h2 align="center"><b><span style="color:gold">Quirks</span></b></h2>
+
+<br>
+Don't skip over this section, we'll be changing the following:
+<br>
+<br>
+
+| Quirk  | Value | Description | 
+| ----- | ----- | ----- |
+| ForceSecureBootScheme | True | Whole reason why we go OpenCore. |
+| PanicNoKextDump | True | Allows for reading kernel panics logs when kernel panics occur. |
+| PowerTimeoutKernelPanic | True | Helps fix kernel panics relating to power changes with Apple drivers in macOS Catalina, most notably with digital audio. |
+| ProvideCurrentCpuInfo | True | Provides current CPU info to the kernel. This quirk works differently depending on the CPU: For KVM and other hypervisors it provides precomputed MSR 35h values solving kernel panic with ``-cpu host``. |
+
+<h2 align="center"><b>Scheme</b></h2>
+
+Settings related to legacy booting, we can change the following.
+
+| Key  | Type | Value | 
+| ----- | ----- | ----- |
+| CustomKernel | Boolean | False |
+| FuzzyMatch | Boolean | False |
+| KernelArch | String | x86_64 |
+| KernelCache | String | Prelinked |
+
+<br>
+<br>
+<h2 align="center"><b>Part 5:</b> Misc</h2>
+<p align="center">
+  <img src="./Assets/OpenCoreMisc.png">
+</p>
+
+<h2 align="center"><b>BlessOverride</b></h2>
+
+To be filled with plist string entries containing absolute UEFI paths to customised bootloaders such as \EFI\debian\grubx64.efi for the Debian bootloader. We do nothing here, nor will we ever.
+
+<h2 align="center"><b>Boot</b></h2>
+
+<br>
+Don't skip over this section, we'll be changing the following:
+<br>
+<br>
+
+| Key  | Type | Value | 
+| ----- | ----- | ----- |
+| HideAuxiliary | Boolean | False |
+| PollAppleHotKeys | Boolean | True |
+
+<h2 align="center"><b>Debug</b></h2>
+
+Helpful for debugging OpenCore boot issues.
+Don't skip over this section, we'll be changing the following:
+<br>
+<br>
+
+| Key  | Type | Value | 
+| ----- | ----- | ----- |
+| Target | Number | 67 |
+
+<h2 align="center"><b>Entries</b></h2>
+
+Used for specifying irregular boot paths that can't be found naturally with OpenCore. We do nothing here, nor will we ever.
+
+<h2 align="center"><b><span style="color:gold">Security</span></b></h2>
+
+Security is pretty self-explanatory, <b>do not skip</b>. Optional is a word, you must type it out. It IS case-sensitive. We'll be changing the following:
+
+| Key  | Type | Value | 
+| ----- | ----- | ----- |
+| AllowSetDefault | Boolean | True |
+| ExposeSensitiveData | Number | 15 |
+| ScanPolicy | Number | 0 |
+| Vault | String | <span style="color:red">Optional</span> |
+
+
+<h2 align="center"><b>Serial</b></h2>
+
+Used for serial debugging (Leave everything as default).
+
+<h2 align="center"><b>Tools</b></h2>
+
+This section of the config is meant to expose the various Tools in your OC folder. This along with many of the other sections will be auto-filled by simply going to ``File -> OC Clean Snapshot`` and going to the OC folder in your OpenCore.img mount point.
+
+
+<br>
+<h2 align="center"><b>Part 6:</b> NVRAM</h2>
+<p align="center">
+  <img src="./Assets/OpenCoreNVRAM.png">
+</p>
+
+
+<h2 align="center"><b>Add</b></h2>
+
+```
+7C436110-AB2A-4BBB-A880-FE41995C9F82
+```
+
+<br>
+
+We can use this dictionary to modify boot-args. Use the chart below for various arguments that possibly be useful later in the future. For the Recovery and Installation, before the GPU passthrough, you don't need to modify this section.
+
+<br>
+
+| boot-arg | Description | 
+| ----- | ----- |
+| -v | This enables verbose mode, which shows all the behind-the-scenes text that scrolls by as you're booting instead of the Apple logo and progress bar. It's invaluable to any Hackintosher, as it gives you an inside look at the boot process, and can help you identify issues, problem kexts, etc. |
+| debug=0x100	 | This disables macOS's watchdog which helps prevents a reboot on a kernel panic. That way you can hopefully glean some useful info and follow the breadcrumbs to get past the issues. |
+| keepsyms=1 | This is a companion setting to debug=0x100 that tells the OS to also print the symbols on a kernel panic. That can give some more helpful insight as to what's causing the panic itself. |
+| alcid=1 | Used for setting layout-id for AppleALC, see supported codecs to figure out which layout to use for your specific system. More info on this is covered in the OpenCore Guide |
+
+<br>
+
+GPU Related boot-args
+
+<br>
+
+| boot-arg | Description | 
+| ----- | ----- |
+| agdpmod=pikera | Used for disabling board ID checks on some Navi GPUs (RX 5000 & 6000 series), without this you'll get a black screen. Don't use if you don't have Navi (ie. Polaris and Vega cards shouldn't use this) |
+| -radcodec	| Used for allowing officially unsupported AMD GPUs (spoofed) to use the Hardware Video Encoder |
+| radpg=15 | Used for disabling some power-gating modes, helpful for properly initializing AMD Cape Verde based GPUs |
+| unfairgva=1 | Used for fixing hardware DRM support on supported AMD GPUs |
+
+<h2 align="center"><b>Delete</b></h2>
+
+Forcibly rewrites NVRAM variables, do note that Add will not overwrite values already present in NVRAM so values like boot-args should be left alone.
+
+<h2 align="center"><b>LegacyOverwrite</b></h2>
+
+For us, we can leave it to the default value of ``False``.
+
+<h2 align="center"><b>LegacySchema</b></h2>
+
+Used for assigning NVRAM variables, used with OpenVariableRuntimeDxe.efi. Only needed for systems without native NVRAM. We do nothing here, and never will.
+
+<h2 align="center"><b>WriteFlash</b></h2>
+
+Enables writing to flash memory for all added variables.
+
+| Key  | Type | Value | 
+| ----- | ----- | ----- |
+| WriteFlash | Boolean | True |
+
+<br>
+<br>
+<h2 align="center"><b>Part 7:</b> Platform Info</h2>
+<p align="center">
+  <img src="./Assets/OpenCorePlatformInfo.png">
+</p>
+
+
+<h2 align="center"><b>Automatic</b></h2>
+
+Leave as default.
+
+<h2 align="center"><b>CustomMemory</b></h2>
+
+Can be used later.
+
+<h2 align="center"><b><span style="color:gold">Generic</span></b></h2>
+
+At this point in the guide, you'll need to open a terminal and an instance of GenSMBIOS. Select option 1 for downloading MacSerial and Option 3 for selecting SMBIOS. For this Cascade Lake example, we'll choose the MacPro7,1 SMBIOS.
+
+This will give us output similar to the following:
+
+```
+  #######################################################
+ #               MacPro7,1 SMBIOS Info                 #
+#######################################################
+
+Type:         MacPro7,1
+Serial:       F0000000000M
+Board Serial: F0000000000000000F
+SmUUID:       90000006-3009-4004-B001-800000000008
+Apple ROM:    000000000005
+
+Press [enter] to return...
+```
+
+To fill out the information on your config.plist, refer to the following chart to convert across.
+
+| GenSMBIOS | config.plist | 
+| ----- | ----- |
+| Board Serial | MLB |
+| Apple ROM | ROM |
+| Type | SystemProductName |
+| Serial | SystemSerialNumber |
+| SmUUID | SystemUUID |
+
+<h2 align="center"><b>UpdateDataHub</b></h2>
+
+Update Data Hub fields. We can leave this default.
+
+<h2 align="center"><b>UpdateSMBIOS</b></h2>
+
+Updates SMBIOS fields. We can leave this default.
+
+<h2 align="center"><b>UpdateSMBIOSMode</b></h2>
+
+Replace the tables with newly allocated EfiReservedMemoryType. We can leave this default.
+
+<h2 align="center"><b>UseRawUuidEncoding</b></h2>
+
+Use raw encoding for SMBIOS UUIDs. We can leave this default.
+
+<br>
+<br>
+<h2 align="center"><b>Part 8:</b> UEFI</h2>
+<p align="center">
+  <img src="./Assets/OpenCoreUEFI.png">
+</p>
+
+
+<h2 align="center"><b>APFS</b></h2>
+
+By default, OpenCore only loads APFS drivers from macOS Big Sur and newer. If you are booting macOS Catalina or earlier, you may need to set a new minimum version/date. Not setting this can result in OpenCore not finding your macOS partition! For us, running Monterey, Ventura, or even Sonoma, we can skip this section.
+
+<h2 align="center"><b>Audio</b></h2>
+
+Related to AudioDxe settings, for us we'll be ignoring (leave as default). This is unrelated to audio support in macOS. This is mainly for adding back the Chime sound when macOS starts on bare metal situations.
+
+<h2 align="center"><b>ConnectDrivers</b></h2>
+
+Forces .efi drivers, change to NO will automatically connect added UEFI drivers. This can make booting slightly faster, but not all drivers connect themselves. E.g. certain file system drivers may not load. Leave it as default for our use case.
+
+<h2 align="center"><b>Drivers</b></h2>
+
+This section of the config is meant to expose the various Drivers in your OC folder. This along with many of the other sections will be auto-filled by simply going to ``File -> OC Clean Snapshot`` and going to the OC folder in your OpenCore.img mount point.
+
+<h2 align="center"><b>Input</b></h2>
+
+Related to boot.efi keyboard passthrough used for FileVault and Hotkey support, leave everything here as default as we have no use for these quirks.
+
+<h2 align="center"><b>Output</b></h2>
+
+Relating to OpenCore's visual output, leave everything here as default as we have no use for these quirks.
+
+<h2 align="center"><b>ProtocolOverrides</b></h2>
+
+Mainly relevant for Virtual Machines, legacy Macs and FileVault users. leave everything here as default as we have no use for these quirks.
+
+<h2 align="center"><b><span style="color:gold">Quirks</span></b></h2>
+
+Relating to quirks with the UEFI environment, for us we'll be changing the following:
+
+If missing, add it.
+
+| Key  | Type | Value | 
+| ----- | ----- | ----- |
+| ResizeUsePciRbIo | Boolean | False |
+
+<h2 align="center"><b>ReservedMemory</b></h2>
+
+Used for exempting certain memory regions from OSes to use, mainly relevant for Sandy Bridge iGPUs or systems with faulty memory. Use of this quirk is not covered in this guide. We also won't be needing it anyways, safely ignore.
+
+<br>
+<h2 align="center">Congratulations! You've built your EFI image!</h2>
+<p align="center">
+  <img src="./Assets/OpenCoreRGXExample.png">
+</p>
+
