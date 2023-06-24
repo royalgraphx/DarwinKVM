@@ -786,6 +786,6 @@ Used for exempting certain memory regions from OSes to use, mainly relevant for 
 <br>
 <h2 align="center">Congratulations! You've built your EFI image!</h2>
 <p align="center">
-  <img src="./Assets/OpenCoreRGXExample.png">
+  <img src="./Assets/OpenCoreEFIComplete.png">
 </p>
 

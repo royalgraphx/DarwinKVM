@@ -106,6 +106,20 @@ total 2084
 [royalgraphx@hypervisor OpenCore]$
 ```
 
+# Example usecases
+
+## Easily mounting and modifying
+
+<h3 align="center">After running the init.sh, the user has a new mnt folder that acts as the mount point.</h3>
+<p align="center">
+  <img src="../Assets/OpenCoreLocalCreation.png" width="90%" height="90%">
+</p>
+
+<h3 align="center">Before starting the Virtual Machine, always remember to unmount.</h3>
+<p align="center">
+  <img src="../Assets/OpenCoreUnmount.png" width="90%" height="90%">
+</p>
+
 ## Adding to Virt-Manager
 
 <h3 align="center">Make sure you add it as a VirtIO drive, with no cache and unmap.</h3>
