@@ -1,0 +1,3 @@
+[submodule "DarwinOCPkg"]
+	path = DarwinOCPkg
+	url = https://github.com/royalgraphx/DarwinOCPkg.git
