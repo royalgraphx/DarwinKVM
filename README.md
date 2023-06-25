@@ -308,11 +308,13 @@ Now enable and start the libvirtd Service to fully apply changes:
 sudo systemctl enable --start libvirtd
 ```
 
-We will also set the virtual networks to auto start on boot:
+If you did not set up the bridge interface and will be using Virt-Managers default NIC, you will also set the virtual networks to auto-start on boot:
 
 ```
 sudo virsh net-autostart default
 ```
+
+Skip this if you did set up the br0 interface.
 
 <br>
 <h1 align="center">OpenCore Configuration</h1>
