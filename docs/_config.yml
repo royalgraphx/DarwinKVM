@@ -30,12 +30,11 @@ github_username:  royalgraphx
 # Build settings
 # theme: minima
 
+theme: just-the-docs
 plugins:
   - jekyll-default-layout
   - jekyll-remote-theme
-
-remote_theme: just-the-docs/just-the-docs@v0.5.3
-
+  
 #plugins:
 #  - jekyll-feed
 
