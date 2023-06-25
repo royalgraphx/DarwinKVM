@@ -26,7 +26,7 @@ url: "https://royalgraphx.github.io"
 twitter_username: royalgraphx
 github_username: royalgraphx
 
-remote_theme: pmarsceill/just-the-docs@v0.11.0
+remote_theme: just-the-docs/just-the-docs@0.5.3
 plugins:
   - jekyll-remote-theme
 
