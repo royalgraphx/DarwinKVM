@@ -49,7 +49,7 @@ jobs:
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-artifact@v2
         with:
-          name: Jekyll Site
+          name: github-pages
           path: ./docs/_site
 
   # Deployment job
