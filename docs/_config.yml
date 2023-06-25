@@ -1,5 +1,5 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: DarwinKVM Documentation
+description: An Advanced Template for running macOS within QEMU/KVM. Run the latest macOS on QEMU/KVM with libvirtd/Virt-Manager, includes Single GPU Passthrough.
 theme: just-the-docs
 
 url: https://just-the-docs.github.io
