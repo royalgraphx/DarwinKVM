@@ -40,5 +40,5 @@
 source "https://rubygems.org"
 
 group :jekyll_plugins do
-  gem "just-the-docs", "~> 0.5.3"
+  gem "just-the-docs", git: "https://github.com/just-the-docs/just-the-docs.git", tag: "v0.5.3"
 end
