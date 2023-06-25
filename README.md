@@ -128,7 +128,7 @@ sudo nano /etc/default/grub
 We'll need to check our GRUB CMD Line flags and add various ones depending on the users' hardware.
 
 | AMD CPU  | Intel CPU | AMD GPU | Needed Regardless |
-| ---- | ----- | ----- |
+| ---- | ----- | ----- | ----- |
 | amd_iommu=on | intel_iommu=on | video=efifb:off | iommu=pt | 
 
 Example GRUB configuration for an AMD CPU + AMD GPU host:
@@ -237,6 +237,8 @@ If you do encounter this kind of message, press y and enter to continue the inst
 </a> section via <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home">RisingPrism</a>.</h4>
 <br>
 
+Note; Adding yourself to the libvirt group allows for password-less root both from the host and guest. If you are uncomfortable with that and want to avoid this, consider using [Polkit](https://wiki.archlinux.org/title/Polkit) instead which will prompt you for your password.
+
 <br>
 
 <h2 align="center"><b>A. Modifying Files</b></h2>
@@ -274,14 +276,16 @@ Use your favorite text editor to make the following changes:
 /etc/libvirt/qemu.conf
 ```
 
-``Read/Write permissions and Group - Uncomment and Edit the following lines.``
+``Read/Write permissions and Group - Uncomment and Edit the following lines to your username.``
 
 ```
 user = "root"
 group = "root"
+```
 
-To username:
+Example properly modified snippet:
 
+```
 user = "royalgraphx"
 group = "royalgraphx"
 ```
