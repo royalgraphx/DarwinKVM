@@ -418,7 +418,7 @@ As far as I'm concerned, you only need OpenShell.efi and even then, that's only 
 
 | Tool  | Status | Description | 
 | ----- | ----- | ----- |
-| [Python](https://www.python.org/downloads/) | Required | ADD TO PATH! MUST SELECT DURING INSTALL. |
+| [Python](https://www.python.org/downloads/) | Required | Needed as a dependency. |
 | [ProperTree](https://github.com/corpnewt/ProperTree) | Required | Software that required Python, provides GUI and Tools for config.plist |
 | [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) | Required | Must generate clean SMBIOS information for iServices |
 | [DarwinOCPkg](https://github.com/royalgraphx/DarwinKVM/tree/main/DarwinOCPkg/Docs/Sample.plist) | Required | Need Docs/Sample.plist renamed to config.plist in OC folder. |
@@ -789,3 +789,407 @@ Used for exempting certain memory regions from OSes to use, mainly relevant for 
   <img src="./Assets/OpenCoreEFIComplete.png">
 </p>
 
+<br>
+<br>
+<h1 align="center">Fetching BaseSystem.dmg</h1>
+<h2 align="center">Getting macOS images using macrecovery Submodule.</h2>
+
+<h2 align="center"><b><span style="color:red">Part 0:</span></b> Required Tools / Brief Overview</h2>
+<h4 align="center">Download the following tools needed for modifications.</h4>
+<br>
+
+| Tool  | Status | Description | 
+| ----- | ----- | ----- |
+| [Python](https://www.python.org/downloads/) | Required | Needed as a dependency. |
+| [macrecovery]() | Required | Allows you to fetch RecoveryOS images. |
+
+<br>
+<br>
+<h2 align="center"><b>Part 1:</b> Usage</h2>
+
+Open a terminal and navigate to the directory containing the script files.
+
+For this example, we'll be getting the latest macOS Ventura:
+
+``python3 macrecovery.py -b Mac-4B682C642B45593E -m 00000000000000000 download``
+
+<p align="center">
+  <img src="./Assets/macrecovery.png">
+</p>
+
+Notice that it will then create a folder ``com.apple.recovery.boot``, which you will need to copy over to the root of the OpenCore .img mount point. Refer to the image above for an example. It does load slower this way, but will persist so you will always have it around, you can delete it after if you'd like. You can also use dmg2img to convert the BaseSystem.dmg to a BaseSystem.img you can then mount via Virt-Manager.
+
+``dmg2img -i BaseSystem.dmg BaseSystem.img``
+
+Make sure to unmount your img when done modifying!
+
+<p align="center">
+  <img src="./Assets/OpenCoreUnmount.png">
+</p>
+
+<br>
+<br>
+<h1 align="center">Installing macOS</h1>
+<h2 align="center">This example will show the installation of macOS Sonoma.</h2>
+<h3 align="center">This applies for Monterey and Ventura as well.</h3>
+
+
+<br>
+<br>
+<h2 align="center"><b><span style="color:red">Part 0:</span></b> Importing the XML to Virt-Manager</h2>
+<h4 align="center">This imports a blank Virtual Machine titled "DarwinKVM" ready to be used for macOS Guests.</h4>
+<br>
+
+Run the following command in the root directory of DarwinKVM:
+
+``virsh --connect qemu:///system define DarwinKVM.xml``
+
+Which will now allow you to view it in Virt-Manager.
+
+<p align="center">
+  <img src="./Assets/VManTemplateImport.png">
+</p>
+
+Notice this template is missing a few things you must set up.
+
+- Has no default Display
+- Has no drives configured
+- Has no NIC configured
+
+Let's go through these steps quickly.
+
+<br>
+<br>
+<h2 align="center"><b>Part 1:</b> Configure VirtIO Display</h2>
+<h4 align="center">This is required to have a display.</h4>
+
+Select the "Add Hardware" button and navigate to Graphics. Select the ``Listen Type:`` to None. then select the "Finish" button.
+
+<p align="center">
+  <img src="./Assets/VManAddRecoveryDisplay1.png">
+</p>
+
+Select the Video tab on the left-hand side, and choose the ``Virtio`` model.
+
+<p align="center">
+  <img src="./Assets/VManAddRecoveryDisplay2.png">
+</p>
+
+
+<br>
+<br>
+<h2 align="center"><b>Part 2:</b> Configure OpenCore VirtIO Drive</h2>
+<h4 align="center">This is required to boot OpenCore.</h4>
+
+Select the "Add Hardware" button to bring up the Storage prompt. Select the OpenCore image via the "Manage..." button. The ``Bus type:`` should be set to VirtIO. Cache mode set to none, and Discard mode is set to unmap. If you're not going to passthrough an NVME drive to install macOS on, then this is the step to make a disk image.
+
+
+<p align="center">
+  <img src="./Assets/VManAddVirtIOInstallation2.png">
+</p>
+
+
+<p align="center">
+  <img src="./Assets/VManAddOpenCore1.png">
+</p>
+
+Don't forget to set it as your boot drive.
+
+<p align="center">
+  <img src="./Assets/VManAddOpenCore2.png">
+</p>
+
+Here you can see me creating the disk image I'll be installing macOS on.
+
+<p align="center">
+  <img src="./Assets/VManAddVirtIOInstallation.png">
+</p>
+
+<br>
+<br>
+<h2 align="center"><b>Part 3:</b> Configure VirtIO NIC</h2>
+<h4 align="center">This is required to download macOS via RecoveryOS.</h4>
+
+Select the "Add Hardware" button and choose the Network category on the left-hand side. You can now see your network source can be set to Bridge device. The device name given by the script is ``br0``. Of course don't forget to set the Device model as ``VirtIO``.
+
+<p align="center">
+  <img src="./Assets/VManAddBridgeNIC.png">
+</p>
+
+<br>
+<br>
+<h2 align="center"><b>Part 4:</b> Review!</h2>
+<h4 align="center">Notice the display, drives, and NIC added.</h4>
+
+<p align="center">
+  <img src="./Assets/VManExampleReadyToInstall.png">
+</p>
+
+<br>
+<br>
+<h2 align="center"><b>Part 5:</b> Installation</h2>
+<h4 align="center">You should now be ready to install macOS!</h4>
+<br>
+
+OpenCore Menu, shows RecoveryOS detected.
+
+<p align="center">
+  <img src="./Assets/OpenCoreVMBootRecovery.png">
+</p>
+
+macOS Ventura RecoveryOS booting
+
+<p align="center">
+  <img src="./Assets/BootingRecovery.png">
+</p>
+
+macOS Ventura Disk Utility showing OpenCore drive.
+
+<p align="center">
+  <img src="./Assets/macOSRecoveryDiskUtility.png">
+</p>
+
+From here on out, the screenshots will show macOS Sonoma because I had the USB prepared nearby and wanted to test everything working still even in Sonoma. This won't make a difference for you, it's the same for macOS Ventura.
+
+<p align="center">
+  <img src="./Assets/OpenCoreSonomaRecoveryBoot.png">
+</p>
+
+Open Disk Utility, and format the target drive to APFS.
+
+<p align="center">
+  <img src="./Assets/macOSRecoveryFormatInstallTarget.png">
+</p>
+
+<p align="center">
+  <img src="./Assets/macOSRecoveryFormatInstallTarget2.png">
+</p>
+
+<p align="center">
+  <img src="./Assets/macOSRecoveryFormatInstallTarget3.png">
+</p>
+
+You are now ready to proceed to the installation!
+
+<p align="center">
+  <img src="./Assets/OpenCoreSonomaRecoveryInstallation1.png">
+</p>
+
+<p align="center">
+  <img src="./Assets/OpenCoreSonomaRecoveryInstallation2.png">
+</p>
+
+Second Boot Phase
+
+<p align="center">
+  <img src="./Assets/OpenCoreSonomaSecondBootPhase.png">
+</p>
+
+Third Boot Phase, further unpacking.
+
+<p align="center">
+  <img src="./Assets/OpenCoreSonomaThirdBootPhase.png">
+</p>
+
+You may get a fourth reboot, if not, eventually, you will the proper name of your drive:
+
+<p align="center">
+  <img src="./Assets/OpenCoreSonomaInstallationComplete.png">
+</p>
+
+Here we are at the desktop of our Virtual Machine.
+
+<p align="center">
+  <img src="./Assets/macOSSonomaDesktop.png">
+</p>
+
+Our OpenCore image is mounted easily and recognized by macOS. Allowing easy modification within and out of the Virtual Machine. Any changes made here, can easily be viewed by mounting on the host. This can be useful for moving small files.
+
+<p align="center">
+  <img src="./Assets/macOSSonomaNoMountEFIneeded.png">
+</p>
+
+<br>
+<br>
+<h1 align="center">Single GPU Passthrough</h1>
+<h2 align="center">Script Installation thanks to RisingPrism</h2>
+<h4 align="center">If the <a href="">RisingPrism</a> scripts do not work, use the <a href="">akshaycodes</a> scripts instead.</h4>
+
+<br>
+<br>
+<h2 align="center"><b>Part 1:</b> Installation</h2>
+<h4 align="center">View the Gitlab from above.</h4>
+<br>
+
+We'll start by doing a ``git clone`` command to fetch the scripts.
+
+``git clone https://gitlab.com/risingprismtv/single-gpu-passthrough.git``
+
+In the newly created single-gpu-passthrough folder, run the installation as root:
+
+``sudo chmod +x install_hooks.sh``
+
+``sudo ./install_hooks.sh``
+
+Verify that the files are installed correctly. You should have files in the following location:
+
+```
+/etc/systemd/system/libvirt-nosleep@.service
+/bin/vfio-startup.sh
+/bin/vfio-teardown.sh
+/etc/libvirt/hooks/qemu
+```
+
+Because we previously set logs to output, you can find them here:
+
+```
+DarwinKVM.log    => /var/log/libvirt/qemu
+custom_hooks.log => /var/log/libvirt/
+libvirtd.log     => /var/log/libvirt/
+```
+
+But if the RisingPrism scripts aren't working well for you and you end up using akshaycodes, you can find the logs at:
+
+```
+custom_hooks.log => /var/tmp/vfio-script.log
+```
+
+<br>
+<br>
+<h2 align="center"><b>Part 2:</b> Hook Modification</h2>
+<h4 align="center">Use your favorite terminal text editor!</h4>
+<br>
+
+Modify the following file to add `` $OBJECT == "DarwinKVM" `` to the if statement. This will allow the hook to now pay attention to the DarwinKVM Virtual Machine. If for any reason you need to use the Virtual Machine without GPU passthrough, you should remove this modification to allow proper usage of the VirtIO Display when not doing passthrough willingly or for debugging reasons.
+
+```
+sudo nano /etc/libvirt/hooks/qemu
+```
+
+Example modified file:
+
+<p align="center">
+  <img src="./Assets/QEMUHookModification.png">
+</p>
+
+<br>
+<br>
+<h2 align="center"><b>Part 3:</b> Virt-Manager Modifications</h2>
+<h4 align="center">How to properly use GPU passthrough.</h4>
+<br>
+
+First things first, we must remove the ``Spice Display`` and ``Video Virtio`` from the left hand side in our Virt-Manager window for DarwinKVM. As you can see here, they are now removed.
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughRemoveVirtIODisplay.png">
+</p>
+
+Now let's go ahead and remove the recoveryOS Keyboard and Mouse as we'll now be passing through our actual USB controllers later. You'll have to select the ``Overview`` tab on your left-hand side, and swap to the XML tab at the top. Scroll to the very bottom and delete and save this change.
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughRemoveRecoveryKBM.png">
+</p>
+
+Depending on your CPU, you should enable either Topoext or SVM for your host OS. Here it is on an AMD host.
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughAddMultithreading.png">
+</p>
+
+Now here's the tricky bit. You'll need to check your IOMMU groups. This can be done within the DarwinKVM repository by simply issuing the command ``./iommu-check.sh``
+
+Sample Output, this is a host using [Zen Kernel](https://github.com/zen-kernel/zen-kernel) and [ACS Patches](https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Bypassing_the_IOMMU_groups_(ACS_override_patch)):
+
+Note that you will not get this output, you will see multiple devices within groups, <b>you can only pass through devices in a group, if you can pass the entire group</b>. This means that if your GPU and Ethernet are in the same group, you must pass through the entire group. This is where many people will run into issues. I do not want to go into great detail about it because I feel like it's common sense when reading the documentation I've linked above. If your IOMMU groups are not great, then consider the Zen Kernel, and ACS Patch.
+
+<b>And remember for later, DO NOT ADD BRIDGES to your VM, that means devices like PCI bridge [0604] in your groups. </b>
+
+```
+IOMMU Group 24:
+	08:00.0 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD/ATI] Navi 10 XL Upstream Port of PCI Express Switch [1002:1478] (rev c7)
+IOMMU Group 25:
+	09:00.0 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD/ATI] Navi 10 XL Downstream Port of PCI Express Switch [1002:1479]
+IOMMU Group 26:
+	0a:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Navi 23 [Radeon RX 6600/6600 XT/6600M] [1002:73ff] (rev c7)
+IOMMU Group 27:
+	0a:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Navi 21/23 HDMI/DP Audio Controller [1002:ab28]
+IOMMU Group 28:
+	0b:00.0 Non-Essential Instrumentation [1300]: Advanced Micro Devices, Inc. [AMD] Starship/Matisse PCIe Dummy Function [1022:148a]
+IOMMU Group 29:
+	0c:00.0 Non-Essential Instrumentation [1300]: Advanced Micro Devices, Inc. [AMD] Starship/Matisse Reserved SPP [1022:1485]
+```
+
+If everything seems fine, if you think that you can pass your USB controllers, and Graphics card + it's audio without issues, you can move on.
+
+<br>
+
+Let's go ahead and add the GPU and its Audio to our Virtual Machine.
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughAddGPU.png">
+</p>
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughAddGPUAudio.png">
+</p>
+
+Here's what a lot of people don't check. This will be required here as on macOS if you want your HDMI/DP Audio to work, this must be configured correctly. Windows doesn't care so it's not an issue.
+
+Essentially, your GPU and Audio must be on the same ``Bus`` in the Virtual Machine, but your Audio must be a ``Function`` of the Virtual Machines GPU. Thus creating a multifunction GPU in the VM which has an accompanying Audio device. This displays the GPU as a single unit. Allowing for HDMI/DP Audio in macOS.
+
+
+Go Ahead and select your GPU from the left-hand side. Note the Bus assigned.
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughFindGPUBus.png">
+</p>
+
+Go Ahead and select your Audio from the left-hand side. Note the Bus assigned does not line up with that which was assigned to the GPU. We will now correct it to the same value. You must also switch the ``0x0`` to ``0x1`` to assign the Audio as a ``Function`` of the GPU device.
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughCorrectAudioBusBefore.png">
+</p>
+
+The corrected Audio device:
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughCorrectAudioBusAfter.png">
+</p>
+
+Now you can see the GPU is a multifunction device.
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughCorrectedGPUMultifunction.png">
+</p>
+
+Go ahead and add your USB Controllers as you'll need to use your Keyboard and Mouse now.
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughAddUSBController1.png">
+</p>
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughAddUSBController2.png">
+</p>
+
+If you have two NVMEs in your system, and you'd like to dedicate one completely to the installation of macOS for maximum performance, you can add your NVME drive now. It still needs to be supported by macOS, or at least not reported to be problematic with macOS. I won't be adding it, but here it is for the example.
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughAddNVME.png">
+</p>
+
+If you've gone ahead and verified everything, your IOMMU groups, and your multifunction GPU, you are now ready! Here's an example of what a completed GPU Passthrough Virt-Manager will look like.
+
+<p align="center">
+  <img src="./Assets/VManGPUPassthroughCompletedExample.png">
+</p>
+
+<br>
+<br>
+<h1 align="center">Thanks for reading!</h1>
+<h2 align="center">For further customization please refer to Submodules</h2>
+<h4 align="center">Enjoy screenshots of Sonoma with GPU Accel. Don't forget to add the bootflag!</h4>
+
+<p align="center">
+  <img src="./Assets/macOSSonomaGPUAccel.png">
+</p>
