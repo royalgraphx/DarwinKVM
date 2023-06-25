@@ -119,7 +119,7 @@ If you do not have any virtualization settings, chances are they're already enab
 
 <br>
 
-Start by using your favorite terminal text editor. In this example, we'll be using nano.
+Start by using your favorite terminal text editor. In this example, we'll be using nano. Note: If you're not using GRUB, follow the same steps, but refer to the Arch Wiki on how to edit the config file.
 
 ```
 sudo nano /etc/default/grub
@@ -127,12 +127,11 @@ sudo nano /etc/default/grub
 
 We'll need to check our GRUB CMD Line flags and add various ones depending on the users' hardware.
 
-| AMD / AMD GPU  | Intel CPU | Needed Regardless|
+| AMD CPU  | Intel CPU | AMD GPU | Needed Regardless |
 | ---- | ----- | ----- |
-| amd_iommu=on | intel_iommu=on | iommu=pt |
-| video=efifb:off |  |  |
+| amd_iommu=on | intel_iommu=on | video=efifb:off | iommu=pt | 
 
-Example GRUB configuration for an AMD CPU host.
+Example GRUB configuration for an AMD CPU + AMD GPU host:
 
 ```
 amd_iommu=on iommu=pt video=efifb:off
@@ -293,20 +292,23 @@ group = "royalgraphx"
 
 <br>
 
-You now need to add your user to the libvirt group, to allow libvirt to write files properly.
+You now need to add your user to the kvm and libvirt groups, to allow libvirt to write files properly:
 
 ```
 sudo usermod -a -G kvm,libvirt $(whoami)
 ```
 
-Now enable, start, and restart the libvirtd Service to fully apply changes.
+Now enable and start the libvirtd Service to fully apply changes:
 
 ```
-sudo systemctl enable libvirtd
-sudo systemctl start libvirtd
-sudo systemctl restart libvirtd
+sudo systemctl enable --start libvirtd
 ```
 
+We will also set the virtual networks to auto start on boot:
+
+```
+sudo virsh net-autostart default
+```
 
 <br>
 <h1 align="center">OpenCore Configuration</h1>
@@ -337,15 +339,15 @@ You can read more about ACPI and it's specs [here](https://uefi.org/sites/defaul
 
 ``macOS can be very picky about the devices present in the DSDT and so our job is to correct it. The main devices that need to be corrected for macOS to work properly:``
 
- - Embedded controllers(EC)
-   - All semi-modern Intel machines have an EC (usually called H_EC, ECDV, EC0, etc...) exposed in their DSDT, with many AMD systems also having it exposed. These controllers are generally not compatible with macOS and can cause a kernel panic, so they need to be hidden from macOS. macOS Catalina requires a device named EC to be present though, so a dummy EC is created.
+ - Embedded controller (EC)
+   - macOS Catalina+ requires a device named EC to be present, so we create a dummy EC. The USBX devices (See next) also requires an EC device to work.
  - USBX
-   - For Skylake and newer plus AMD. This file is plug-and-play and requires no device configuration, do not use it on Broadwell and older.
+   - This sets the correct USB power properties for charging devices like phones.
  - Plugin type
-   - This allows the use of XCPM providing native CPU power management on Intel Haswell and newer CPUs, the SSDT will connect to the first thread of the CPU.
+   - This generally allows the use of XCPM providing native CPU power management on Intel CPUs. Our version will enable VMPlatformPlugin XCPM, exactly like a Parallels VM.
 
 
-For our Virtual Machine use case, we will be emulating an Intel Cascade Lake CPU so regardless of the host architecture, the only ACPI's we require to boot macOS will be EC-USBX and PLUG.
+For our Virtual Machine use case, we will be emulating an Intel Cascade Lake CPU so regardless of the host architecture, the only ACPI's we require to boot macOS will be SSDT-EC-USBX and SSDT-PLUG.
 
 You can view the CPU ACPI requirements by generation [here](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-platform.html#desktop). 
 
@@ -354,7 +356,7 @@ You can view the CPU ACPI requirements by generation [here](https://dortania.git
 <br>
 <h4><b>The required files can be found in the DarwinOCPkg/X64/EFI/OC/ACPI folder.</b></h4>
 
-Thanks to [ExtremeXT](https://github.com/ExtremeXT) for allowing me to include his manually created EC-USBX which combines them into a single file, as well as the included PLUG file. We've both tested it and it works as expected, and I use it for my daily machine so I'm confident including it, feel free to manually make your own or possibly try the ones from acidanthera! As long as you complete this ACPI section, you can go ahead to the next step.
+Thanks to [ExtremeXT](https://github.com/ExtremeXT) for allowing me to include his manually created SSDT-EC-USBX which combines them into a single file, as well as the included SSDT-PLUG file. We've both tested it and it works as expected, and I use it for my daily machine so I'm confident including it, feel free to manually make your own or possibly try the ones from Acidanthera! As long as you complete this ACPI section, you can go ahead to the next step.
 
 <br>
 <h2 align="center"><b>Part 2:</b> Drivers</h2>
@@ -366,9 +368,9 @@ Thanks to [ExtremeXT](https://github.com/ExtremeXT) for allowing me to include h
 
 | Driver  | Status | Description | 
 | ----- | ----- | ----- |
-| OpenRuntime.efi | Required | Required for proper operation |
+| OpenRuntime.efi | Required | Required for fixing NVRAM, power management, RTC, memory mapping etc |
 | ResetNvramEntry.efi | Required | Required to reset the system's NVRAM |
-| OpenHfsPlus.efi | Optional | Open sourced HFS Plus driver, quite slow so we recommend not using unless you know what you're doing |
+| OpenHfsPlus.efi | Optional | Open sourced HFS+ driver, but slower than Apple's proprietary driver |
 
 There are already base files included in the repository. You'll have to check with your hardware to see if you need anything additional. As outlined in [Gathering files -> Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers) you will see a table that states [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi) is a required Driver. Personally from my experience, I've been fine using OpenHfsPlus.efi but you should first try with [HfsPlus.efi](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi), please download and add that to your OpenCore EFI.
 
@@ -383,12 +385,12 @@ Here is a basic chart of a Kext, its use, and the status of the requirement. Che
 | ----- | ----- | ----- |
 | [Lilu](https://github.com/acidanthera/Lilu/releases) | Required | A kext to patch many processes, required for AppleALC, WhateverGreen, VirtualSMC and many other kexts. Without Lilu, they will not work. |
 | [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases) | Required | Used for graphics patching, DRM fixes, board ID checks, framebuffer fixes, etc; all GPUs benefit from this kext. |
-| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) | Required | Emulates the SMC chip found on real macs, without this macOS will not boot |
-| [AppleMCEReporterDisabler](https://github.com/acidanthera/bugtracker/files/3703498/AppleMCEReporterDisabler.kext.zip) | Required | Required on macOS 12.3 and later on AMD systems, and on macOS 10.15 and later on dual-socket Intel systems. |
-| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases) | Optional | NVMeFix is a set of patches for the Apple NVMe storage driver, IONVMeFamily. Its goal is to improve compatibility with non-Apple SSDs. It may be used both on Apple and non-Apple computers. |
-| [RestrictEvents](https://github.com/acidanthera/RestrictEvents/releases) | Optional | Lilu Kernel extension for blocking unwanted processes causing compatibility issues on different hardware and unlocking the support for certain features restricted to other hardware. |
-| [RadeonSensor](https://github.com/aluveitie/RadeonSensor/releases) | Optional | Kext and Gadget to show Radeon GPU temperature on macOS. |
-| [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) | Optional | This is an AGPM (Apple Graphics Power Management) Injector kext generator. |
+| [AppleMCEReporterDisabler](https://github.com/acidanthera/bugtracker/files/3703498/AppleMCEReporterDisabler.kext.zip) | Required | Required on macOS 12.3 and later on AMD systems and dual-socket Intel systems, and on KVM. |
+| [VirtualSMC](https://github.com/acidanthera/VirtualSMC/releases) | Optional | Emulates the SMC chip found on real macs, but we are already emulating it from the XML file, this might be useful for kexts that send temperature info to the SMC, like SMCRadeonGPU. |
+| [NVMeFix](https://github.com/acidanthera/NVMeFix/releases) | Optional | NVMeFix is a set of patches for the Apple NVMe storage driver, IONVMeFamily. Its goal is to improve compatibility with non-Apple SSDs. It may be used both on Apple and non-Apple computers. Note: Does not work on Sonoma as of now. |
+| [RestrictEvents](https://github.com/acidanthera/RestrictEvents/releases) | Optional | Lilu plugin for blocking unwanted processes causing compatibility issues on different hardware and unlocking the support for certain features restricted to other hardware. We will mainly use it for changing the name of the CPU cosmetically. |
+| [RadeonSensor](https://github.com/NootInc/RadeonSensor/releases) | Optional | Kext and Gadget to show AMD GPU temperature on macOS. |
+| [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) | Optional | Injects AGPM (Apple Graphics Power Management) to our non-Apple GPUs. |
 
 <br>
 <h2 align="center"><b>Part 4:</b> Tools</h2>
@@ -478,9 +480,9 @@ Don't skip over this section, we'll be changing the following:
 | Quirk  | Value | Description | 
 | ----- | ----- | ----- |
 | EnableWriteUnprotector | False | This quirk and RebuildAppleMemoryMap can commonly conflict, recommended to enable the latter on newer platforms and disable this entry. |
-| RebuildAppleMemoryMap | True | Generates Memory Map compatible with macOS. |
-| SetupVirtualMap | False | Fixes SetVirtualAddresses calls to virtual addresses, required for Gigabyte boards to resolve early kernel panics. On Virtual Machine platforms, it isn't required. |
-| SyncRuntimePermissions | True | Fixes alignment with MAT tables and required to boot Windows and Linux with MAT tables, also recommended for macOS. Mainly relevant for RebuildAppleMemoryMap users. |
+| RebuildAppleMemoryMap | True | Rebuilds the memory map to a macOS-compatible one. |
+| SetupVirtualMap | False | Fixes SetVirtualAddresses calls to virtual addresses, VMs don't require it. |
+| SyncRuntimePermissions | True | Fixes MAT table alignment and required to boot Windows and Linux with MAT tables, also recommended for macOS. Mainly relevant for RebuildAppleMemoryMap users. |
 
 <br>
 <br>
@@ -514,7 +516,7 @@ Blocks certain kexts from loading. Not relevant for us.
 
 <h2 align="center"><b>Emulate</b></h2>
 
-Needed for spoofing unsupported CPUs like Pentiums and Celerons
+Needed for spoofing unsupported CPUs like Pentiums and Celerons. We are already spoofing the CPU to CascadeLake in the XML, so we won't need this.
 
 - Cpuid1Mask: Leave this blank
 - Cpuid1Data: Leave this blank
@@ -527,7 +529,7 @@ For us, we can ignore.
 
 <h2 align="center"><b>Patch</b></h2>
 
-Patches both the kernel and Kexts. I've gone ahead and incorporated CaseySJ's PCI Bus Enum fix on KVM. For us, we can ignore this section.
+Patches both the kernel and Kexts. I've gone ahead and incorporated CaseySJ's PCI Bus Enumeration fix on KVM. For us, we can ignore this section.
 
 <h2 align="center"><b><span style="color:gold">Quirks</span></b></h2>
 
@@ -538,7 +540,7 @@ Don't skip over this section, we'll be changing the following:
 
 | Quirk  | Value | Description | 
 | ----- | ----- | ----- |
-| ForceSecureBootScheme | True | Whole reason why we go OpenCore. |
+| ForceSecureBootScheme | True | Forces the x86 scheme for IMG4 verification in Apple Secure Boot initialization. |
 | PanicNoKextDump | True | Allows for reading kernel panics logs when kernel panics occur. |
 | PowerTimeoutKernelPanic | True | Helps fix kernel panics relating to power changes with Apple drivers in macOS Catalina, most notably with digital audio. |
 | ProvideCurrentCpuInfo | True | Provides current CPU info to the kernel. This quirk works differently depending on the CPU: For KVM and other hypervisors it provides precomputed MSR 35h values solving kernel panic with ``-cpu host``. |
@@ -574,7 +576,7 @@ Don't skip over this section, we'll be changing the following:
 
 | Key  | Type | Value | 
 | ----- | ----- | ----- |
-| HideAuxiliary | Boolean | False |
+| HideAuxiliary | Boolean | True |
 | PollAppleHotKeys | Boolean | True |
 
 <h2 align="center"><b>Debug</b></h2>
@@ -637,7 +639,6 @@ We can use this dictionary to modify boot-args. Use the chart below for various 
 | -v | This enables verbose mode, which shows all the behind-the-scenes text that scrolls by as you're booting instead of the Apple logo and progress bar. It's invaluable to any Hackintosher, as it gives you an inside look at the boot process, and can help you identify issues, problem kexts, etc. |
 | debug=0x100	 | This disables macOS's watchdog which helps prevents a reboot on a kernel panic. That way you can hopefully glean some useful info and follow the breadcrumbs to get past the issues. |
 | keepsyms=1 | This is a companion setting to debug=0x100 that tells the OS to also print the symbols on a kernel panic. That can give some more helpful insight as to what's causing the panic itself. |
-| alcid=1 | Used for setting layout-id for AppleALC, see supported codecs to figure out which layout to use for your specific system. More info on this is covered in the OpenCore Guide |
 
 <br>
 
@@ -662,7 +663,7 @@ For us, we can leave it to the default value of ``False``.
 
 <h2 align="center"><b>LegacySchema</b></h2>
 
-Used for assigning NVRAM variables, used with OpenVariableRuntimeDxe.efi. Only needed for systems without native NVRAM. We do nothing here, and never will.
+Used for assigning NVRAM variables, used with OpenVariableRuntimeDxe.efi. Only needed for systems without native NVRAM. The values under this can be deleted safely.
 
 <h2 align="center"><b>WriteFlash</b></h2>
 
@@ -772,13 +773,7 @@ Mainly relevant for Virtual Machines, legacy Macs and FileVault users. leave eve
 
 <h2 align="center"><b><span style="color:gold">Quirks</span></b></h2>
 
-Relating to quirks with the UEFI environment, for us we'll be changing the following:
-
-If missing, add it.
-
-| Key  | Type | Value | 
-| ----- | ----- | ----- |
-| ResizeUsePciRbIo | Boolean | False |
+Relating to quirks with the UEFI environment, leave everything here as default as we have no use for these quirks:
 
 <h2 align="center"><b>ReservedMemory</b></h2>
 
