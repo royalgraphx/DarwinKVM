@@ -37,18 +37,8 @@
 #
 #
 
-
-
 source "https://rubygems.org"
 
-gem "github-pages", group: :jekyll_plugins
-gem "jekyll-default-layout"
-
-# Add any additional gems you need for your site here
-
-# Uncomment the following line if you have other plugins or gems that require bundler
-# gem "bundler", "~> 2.0"
-
 group :jekyll_plugins do
-  gem "just-the-docs"
+  gem "just-the-docs", "~> 0.11.0"
 end

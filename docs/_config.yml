@@ -20,21 +20,16 @@
 
 title: DarwinKVM Virtual Machine Guide
 email: no-reply@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  An Advanced Template for running macOS within QEMU/KVM. Run the latest macOS on QEMU/KVM with libvirtd/Virt-Manager, includes Single GPU Passthrough.
-baseurl: /DarwinKVM/docs
-url: https://royalgraphx.github.io/DarwinKVM/docs
+description: An Advanced Template for running macOS within QEMU/KVM. Run the latest macOS on QEMU/KVM with libvirtd/Virt-Manager, includes Single GPU Passthrough.
+baseurl: "/DarwinKVM/docs"
+url: "https://royalgraphx.github.io"
 twitter_username: royalgraphx
-github_username:  royalgraphx
+github_username: royalgraphx
 
-# Build settings
-# theme: minima
-
-theme: just-the-docs
+remote_theme: pmarsceill/just-the-docs@v0.11.0
 plugins:
-  - jekyll-default-layout
   - jekyll-remote-theme
-  
+
 #plugins:
 #  - jekyll-feed
 
