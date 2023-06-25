@@ -21,14 +21,17 @@
 title: DarwinKVM Virtual Machine Guide
 email: no-reply@gmail.com
 description: An Advanced Template for running macOS within QEMU/KVM. Run the latest macOS on QEMU/KVM with libvirtd/Virt-Manager, includes Single GPU Passthrough.
-baseurl: "/DarwinKVM/docs"
-url: "https://royalgraphx.github.io"
+baseurl: /DarwinKVM/docs
+url: https://royalgraphx.github.io/DarwinKVM/docs
 twitter_username: royalgraphx
 github_username: royalgraphx
 
-remote_theme: just-the-docs/just-the-docs@0.5.3
+# Build settings
+theme: just-the-docs
+
 plugins:
   - jekyll-remote-theme
+
 
 #plugins:
 #  - jekyll-feed
