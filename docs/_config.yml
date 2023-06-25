@@ -31,6 +31,7 @@ github_username:  royalgraphx
 # theme: minima
 
 plugins:
+  - jekyll-default-layout
   - jekyll-remote-theme
 
 remote_theme: just-the-docs/just-the-docs@v0.5.3

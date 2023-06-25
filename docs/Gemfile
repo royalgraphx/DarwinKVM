@@ -42,7 +42,7 @@
 source "https://rubygems.org"
 
 gem "github-pages", group: :jekyll_plugins
-gem "just-the-docs"
+gem "jekyll-default-layout"
 
 # Add any additional gems you need for your site here
 
