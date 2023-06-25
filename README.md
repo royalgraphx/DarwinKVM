@@ -101,7 +101,7 @@ Depending on your machine's CPU, you need to enable certain settings in your BIO
 | AMD  | Intel |
 | ---- | ----- |
 | IOMMU | VT-d |
-| NX Mode | XD (Execute Disable) Bit |
+| NX Mode | XD (eXecute Disable) Bit |
 | SVM Mode | VT-x |
 
 <br>
@@ -312,7 +312,7 @@ sudo virsh net-autostart default
 
 <br>
 <h1 align="center">OpenCore Configuration</h1>
-<h2 align="center">Current OpenCorePkg supported: 0.8.8</h2>
+<h2 align="center">Current OpenCorePkg supported: 0.9.3</h2>
 <p align="center">
   <img src="./Assets/OpenCorePkgBase.png">
 </p>
