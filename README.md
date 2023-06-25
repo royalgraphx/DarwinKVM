@@ -17,11 +17,11 @@
   * ArcoLinuxB Plasma
   * Pure Arch
 
-* A CPU with Intel VT-x / AMD SVM support is required (`grep -e vmx -e svm /proc/cpuinfo`)
+* A CPU with Intel VT-x or AMD SVM support is required (`grep -e vmx -e svm /proc/cpuinfo`)
 
 * A CPU with SSE4.1 support is required for >= macOS Sierra
 
-* A CPU with AVX2 support is required for >= macOS Mojave
+* A CPU with AVX2 support is required for >= macOS Ventura; but you can bypass the limitation with CryptexFixup as of now.
 
 * Previous experience creating an EFI for your bare metal system and/or reading/understanding the [Dortania OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/)
 
@@ -100,14 +100,13 @@ Depending on your machine's CPU, you need to enable certain settings in your BIO
 
 | AMD  | Intel |
 | ---- | ----- |
-| IOMMU | VT-D |
-| NX Mode | VT-X |
-| SVM Mode | No Equivalent |
+| IOMMU | VT-d |
+| NX Mode | XD (Execute Disable) Bit |
+| SVM Mode | VT-x |
 
 <br>
 
-<b>Note for Intel:</b> You may not have both options, in that case, just enable the one available to you.
-If you do not have any virtualization settings, like said before make sure your BIOS is up to date, and that your CPU and motherboard support virtualization.
+If you do not have any virtualization settings, chances are they're already enabled, but double check that your BIOS is up to date, and that your CPU and motherboard support virtualization.
 
 <br>
 <br>
