@@ -323,7 +323,7 @@ sudo systemctl restart libvirtd
 This tool automates the process of creating and setting up an OpenCore.img disk image for use with QEMU. It also comes with mount.sh and unmount.sh to easily modify the contents.
 ```
 
-Don't skip this section. To continue in this guide you will need an image file that will act as our OpenCore USB, holding all its contents. The fastest way to do this is by changing the directory into the OpenCore folder in this repository. You can quickly generate and mount a 1GB ``.img`` file to add to your Virtual Machine later. If you need any help understanding this section, please refer to the [README.md](https://github.com/royalgraphx/DarwinKVM/tree/main/OpenCore) for better context. You can now go ahead and transfer the EFI folder from [DarwinOCPkg](https://github.com/royalgraphx/DarwinKVM/tree/main/DarwinOCPkg) to the root of the image. The rest of the steps will outline adding the necessary files to build your EFI for your Virtual Machine.
+Don't skip this section. To continue in this guide you will need an image file that will act as our OpenCore USB, holding all its contents. The fastest way to do this is by changing the directory into the OpenCore folder in this repository. You can quickly generate and mount a 1GB ``.img`` file to add to your Virtual Machine later. If you need any help understanding this section, please refer to the [README.md](https://github.com/royalgraphx/DarwinKVM/tree/main/OpenCore) for better context. You can now go ahead and transfer the EFI folder from [DarwinOCPkg](https://github.com/royalgraphx/DarwinOCPkg) to the root of the image. The rest of the steps will outline adding the necessary files to build your EFI for your Virtual Machine.
 
 <br>
 <h2 align="center"><b>Part 1:</b> ACPI Tables</h2>
@@ -394,7 +394,7 @@ Here is a basic chart of a Kext, its use, and the status of the requirement. Che
 <h4 align="center">This section has been derived from the <a href="https://dortania.github.io/OpenCore-Install-Guide/installer-guide/opencore-efi.html">Adding The Base OpenCore Files</a>. It may be out of date.</h4>
 <br>
 
-As far as I'm concerned, you only need OpenShell.efi and even then, that's only for debugging. It's already included within [DarwinOCPkg](https://github.com/royalgraphx/DarwinKVM/tree/main/DarwinOCPkg).
+As far as I'm concerned, you only need OpenShell.efi and even then, that's only for debugging. It's already included within [DarwinOCPkg](https://github.com/royalgraphx/DarwinOCPkg).
 
 | Tool  | Status | Description | 
 | ----- | ----- | ----- |
@@ -421,7 +421,7 @@ As far as I'm concerned, you only need OpenShell.efi and even then, that's only 
 | [Python](https://www.python.org/downloads/) | Required | Needed as a dependency. |
 | [ProperTree](https://github.com/corpnewt/ProperTree) | Required | Software that required Python, provides GUI and Tools for config.plist |
 | [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) | Required | Must generate clean SMBIOS information for iServices |
-| [DarwinOCPkg](https://github.com/royalgraphx/DarwinKVM/tree/main/DarwinOCPkg/Docs/Sample.plist) | Required | Need Docs/Sample.plist renamed to config.plist in OC folder. |
+| [DarwinOCPkg](https://github.com/royalgraphx/DarwinOCPkg/blob/main/Docs/Sample.plist) | Required | Need Docs/Sample.plist renamed to config.plist in OC folder. |
 
 We'll first need a valid Python installation on our host. Don't forget to add Python to PATH. If for whatever reason you missed the option, restart the installer and select "Add to PATH". You'll then need to get your hands on ProperTree. 
 
