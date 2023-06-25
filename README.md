@@ -44,37 +44,59 @@
 </br>
 <h1 align="center">Table of Contents</h1>
 
-- What is this for?
+- [What is this for?](https://github.com/royalgraphx/DarwinKVM#what-is-this-for)
 
-- Who is this for?
+- [Who is this for?](https://github.com/royalgraphx/DarwinKVM#who-is-this-for)
 
-- Host Preparations
-  - Part 1 - BIOS Settings
-  - Part 2 - GRUB Configuration
-  - Part 3 - Bridge Networking
-  - Part 4 - Package Installation
-  - Part 5 - Libvirtd Configuration
-    - A. Modifying Files
-    - B. Libvirt Services
+- [Host Preparations](https://github.com/royalgraphx/DarwinKVM#host-preparations)
+  - [Part 1 - BIOS Settings](https://github.com/royalgraphx/DarwinKVM#part-1-bios-settings)
+  - [Part 2 - GRUB Configuration](https://github.com/royalgraphx/DarwinKVM#part-2-grub-configuration)
+  - [Part 3 - Bridge Networking](https://github.com/royalgraphx/DarwinKVM#part-3-bridge-networking)
+    - [A. Goal Examples](https://github.com/royalgraphx/DarwinKVM#a-goal-examples)
+    - [B. Prerequisites to the script](https://github.com/royalgraphx/DarwinKVM#b-prerequisites-to-the-script) 
+  - [Part 4 - Package Installation](https://github.com/royalgraphx/DarwinKVM#part-4-package-installation)
+  - [Part 5 - Libvirtd Configuration](https://github.com/royalgraphx/DarwinKVM#part-5-libvirtd-configuration)
+    - [A. Modifying Files](https://github.com/royalgraphx/DarwinKVM#a-modifying-files)
+    - [B. Libvirt Services](https://github.com/royalgraphx/DarwinKVM#b-libvirtd-services)
 
-- OpenCore Configuration
-  - Part 0 - Image Creation
-  - Part 1 - ACPI Tables
-  - Part 2 - Drivers
-  - Part 3 - Kexts
-  - Part 4 - Tools
+- [OpenCore Configuration](https://github.com/royalgraphx/DarwinKVM#opencore-configuration)
+  - [Part 0 - Image Creation](https://github.com/royalgraphx/DarwinKVM#part-0-image-creation)
+  - [Part 1 - ACPI Tables](https://github.com/royalgraphx/DarwinKVM#part-1-acpi-tables)
+  - [Part 2 - Drivers](https://github.com/royalgraphx/DarwinKVM#part-2-drivers)
+  - [Part 3 - Kexts](https://github.com/royalgraphx/DarwinKVM#part-3-kexts)
+  - [Part 4 - Tools](https://github.com/royalgraphx/DarwinKVM#part-4-tools)
 
-- Config.plist Configuration
-  - Part 0 - Required Tools / Brief Overview
-  - Part 1 - ACPI
-  - Part 2 - Booter
-  - Part 3 - Device Properties
-  - Part 4 - Kernel
-  - Part 5 - Misc
-  - Part 6 - NVRAM
-  - Part 7 - Platform Info
-  - Part 8 - UEFI
+- [Config.plist Configuration](https://github.com/royalgraphx/DarwinKVM#configplist-configuration)
+  - [Part 0 - Required Tools / Brief Overview](https://github.com/royalgraphx/DarwinKVM#part-0-required-tools--brief-overview)
+  - [Part 1 - ACPI](https://github.com/royalgraphx/DarwinKVM#part-1-acpi)
+  - [Part 2 - Booter](https://github.com/royalgraphx/DarwinKVM#part-2-booter)
+  - [Part 3 - Device Properties](https://github.com/royalgraphx/DarwinKVM#part-3-device-properties)
+  - [Part 4 - Kernel](https://github.com/royalgraphx/DarwinKVM#part-4-kernel)
+  - [Part 5 - Misc](https://github.com/royalgraphx/DarwinKVM#part-5-misc)
+  - [Part 6 - NVRAM](https://github.com/royalgraphx/DarwinKVM#part-6-nvram)
+  - [Part 7 - Platform Info](https://github.com/royalgraphx/DarwinKVM#part-7-platform-info)
+  - [Part 8 - UEFI](https://github.com/royalgraphx/DarwinKVM#part-8-uefi)
 
+- [Congratulations! EFI Complete](https://github.com/royalgraphx/DarwinKVM#congratulations-youve-built-your-efi-image)
+
+- [Fetching BaseSystem.dmg](https://github.com/royalgraphx/DarwinKVM#fetching-basesystemdmg)
+  - [Part 0 - Required Tools / Brief Overview](https://github.com/royalgraphx/DarwinKVM#part-0-image-creation)
+  - [Part 1 - Usage](https://github.com/royalgraphx/DarwinKVM#part-1-acpi-tables)
+
+- [Installing macOS](https://github.com/royalgraphx/DarwinKVM#installing-macos)
+  - [Part 0 - Importing the XML to Virt-Manager](https://github.com/royalgraphx/DarwinKVM#part-0-importing-the-xml-to-virt-manager)
+  - [Part 1 - Configure VirtIO Display](https://github.com/royalgraphx/DarwinKVM#part-1-configure-virtio-display)
+  - [Part 2 - Configure OpenCore VirtIO Drive](https://github.com/royalgraphx/DarwinKVM#part-2-configure-opencore-virtio-drive)
+  - [Part 3 - Configure VirtIO NIC](https://github.com/royalgraphx/DarwinKVM#part-3-configure-virtio-nic)
+  - [Part 4 - Review!](https://github.com/royalgraphx/DarwinKVM#part-4-review)
+  - [Part 5 - Installation](https://github.com/royalgraphx/DarwinKVM#part-5-installation)
+
+- [Single GPU Passthrough](https://github.com/royalgraphx/DarwinKVM#single-gpu-passthrough)
+  - [Part 1 - Installation](https://github.com/royalgraphx/DarwinKVM#part-1-installation)
+  - [Part 2 - Hook Modification](https://github.com/royalgraphx/DarwinKVM#part-2-hook-modification)
+  - [Part 3 - Virt-Manager Modifications](https://github.com/royalgraphx/DarwinKVM#part-3-virt-manager-modifications)
+
+- [Thanks for reading!](https://github.com/royalgraphx/DarwinKVM#thanks-for-reading)
 
 </br>
 <h1 align="center">What is this for?</h1>
