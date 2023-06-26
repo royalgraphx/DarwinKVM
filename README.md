@@ -803,14 +803,14 @@ Mainly relevant for Virtual Machines, legacy Macs and FileVault users. leave eve
 
 <h2 align="center"><b><span style="color:gold">Quirks</span></b></h2>
 
-Relating to quirks with the UEFI environment, leave everything here as default as we have no use for these quirks:
+Relating to quirks with the UEFI environment, leave everything here as default as we have no use for these quirks.
 
 <h2 align="center"><b>ReservedMemory</b></h2>
 
 Used for exempting certain memory regions from OSes to use, mainly relevant for Sandy Bridge iGPUs or systems with faulty memory. Use of this quirk is not covered in this guide. We also won't be needing it anyways, safely ignore.
 
 <br>
-<h2 align="center">Congratulations! You've built your EFI image!</h2>
+<h2 align="center">Congratulations! You've configured your Config.plist!</h2>
 <p align="center">
   <img src="./Assets/OpenCoreEFIComplete.png">
 </p>
