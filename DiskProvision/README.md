@@ -39,7 +39,7 @@ Open a terminal and navigate to the directory containing the script files.
 example output:
 
 ```
-[royalgraphx@hypervisor OpenCore]$ ./init.sh 
+[royalgraphx@hypervisor DiskProvision]$ ./init.sh 
 Formatting 'OpenCore.img', fmt=raw size=1073741824
 OpenCore Image created!
 Mounting and formatting...
@@ -52,7 +52,7 @@ Created 'mnt' directory.
 Image mounted to 'mnt' directory with desired ownership successfully.
 Do you want to unmount the image? (y/n): n
 Image kept mounted. Remember to unmount it later when you're done.
-[royalgraphx@hypervisor OpenCore]$
+[royalgraphx@hypervisor DiskProvision]$
 ```
 
 ## Mounting to edit OC EFI
@@ -66,7 +66,7 @@ As expected, the tools do as described. Here is some example output.
 example output:
 
 ```
-[royalgraphx@hypervisor OpenCore]$ ./mount.sh 
+[royalgraphx@hypervisor DiskProvision]$ ./mount.sh 
 nbd module is already loaded. Proceeding...
 /dev/nbd0 is already connected. Disconnecting...
 /dev/nbd0 disconnected
@@ -81,7 +81,7 @@ drwxr-xr-x 2 royalgraphx royalgraphx       4096 Dec 31  1969 mnt
 -rw-r--r-- 1 royalgraphx royalgraphx 1073741824 Jun 17 21:04 OpenCore.img
 -rw-r--r-- 1 royalgraphx royalgraphx        564 Jun 17 20:48 README.md
 -rwxr-xr-x 1 royalgraphx royalgraphx        269 Jun 17 19:54 unmount.sh
-[royalgraphx@hypervisor OpenCore]$
+[royalgraphx@hypervisor DiskProvision]$
 ```
 
 2. Unmounting the OpenCore.img:
@@ -91,19 +91,19 @@ drwxr-xr-x 2 royalgraphx royalgraphx       4096 Dec 31  1969 mnt
 Example output:
 
 ```
-[royalgraphx@hypervisor OpenCore]$ ./unmount.sh 
+[royalgraphx@hypervisor DiskProvision]$ ./unmount.sh 
 Image unmounted.
 /dev/nbd0 disconnected
 NBD device disconnected.
 Directory 'mnt' removed.
-[royalgraphx@hypervisor OpenCore]$ ls -l
+[royalgraphx@hypervisor DiskProvision]$ ls -l
 total 2084
 -rwxr-xr-x 1 royalgraphx royalgraphx       1920 Jun 17 20:09 init.sh
 -rwxr-xr-x 1 royalgraphx royalgraphx        820 Jun 17 20:04 mount.sh
 -rw-r--r-- 1 royalgraphx royalgraphx 1073741824 Jun 17 21:05 OpenCore.img
 -rw-r--r-- 1 royalgraphx royalgraphx        564 Jun 17 20:48 README.md
 -rwxr-xr-x 1 royalgraphx royalgraphx        269 Jun 17 19:54 unmount.sh
-[royalgraphx@hypervisor OpenCore]$
+[royalgraphx@hypervisor DiskProvision]$
 ```
 
 # Example usecases
