@@ -120,4 +120,5 @@ permalink: /
 
 - Thanks for reading!
 
+
 <h1>You can now proceed to the <a href="docs/01-About.html">About</a> section!</h1>

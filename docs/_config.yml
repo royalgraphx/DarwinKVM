@@ -7,6 +7,23 @@ favicon_ico: "/assets/favicon.ico"
 
 url: https://royalgraphx.github.io/DarwinKVM/docs
 
+callouts_opacity: 0.4
+callouts:
+  highlight:
+    color: canary
+  important:
+    title: Important
+    color: blueish
+  new:
+    title: New
+    color: teal
+  note:
+    title: Note
+    color: grey-lt
+  warning:
+    title: Warning
+    color: reddish
+
 include:
  - docs
  - _sass

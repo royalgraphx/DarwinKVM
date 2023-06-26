@@ -130,7 +130,7 @@ Depending on your machine's CPU, you need to enable certain settings in your BIO
 
 <br>
 
-If you do not have any virtualization settings, chances are they're already enabled, but double check that your BIOS is up to date, and that your CPU and motherboard support virtualization.
+If you do not have any virtualization settings, chances are they're already enabled, but double-check that your BIOS is up to date and that your CPU and motherboard support virtualization.
 
 <br>
 <br>

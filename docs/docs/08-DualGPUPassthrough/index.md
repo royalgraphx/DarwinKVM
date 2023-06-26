@@ -10,4 +10,4 @@ has_toc: false
   <img width="650" height="200" src="../../assets/HeaderDGPU.png">
 </p>
 
-Support for this section is in development.
+Support for this section is in development. The README will be available first, then it will be converted to display properly here as well. Click here to go back <a href="../01-About.html/">home</a>.
