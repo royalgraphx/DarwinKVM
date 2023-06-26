@@ -827,7 +827,7 @@ Used for exempting certain memory regions from OSes to use, mainly relevant for 
 | Tool  | Status | Description | 
 | ----- | ----- | ----- |
 | [Python](https://www.python.org/downloads/) | Required | Needed as a dependency. |
-| [macrecovery]() | Required | Allows you to fetch RecoveryOS images. |
+| [macrecovery](https://github.com/royalgraphx/macrecovery) | Required | Allows you to fetch RecoveryOS images. |
 
 <br>
 <br>
