@@ -9,12 +9,12 @@ permalink: /
 <style>
   .alignment_img {
     position: relative;
-    left: +10px;
+    left: -20px;
   }
 
   .alignment_img_alt {
     position: relative;
-    left: +15px;
+    left: -15px;
     bottom: +15px;
   }
 </style>
