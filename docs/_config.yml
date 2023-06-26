@@ -2,6 +2,18 @@ title: DarwinKVM Docs
 description: An Advanced Template for running macOS within QEMU/KVM. Run the latest macOS on QEMU/KVM with libvirtd/Virt-Manager, includes Single GPU Passthrough.
 theme: just-the-docs
 # Color scheme supports "light" (default) and "dark"
-color_scheme: dark
+color_scheme: custom
+favicon_ico: "/assets/favicon.ico"
 
 url: https://royalgraphx.github.io/DarwinKVM/docs
+
+include:
+ - docs
+
+# Aux links for the upper right navigation
+aux_links:
+  "View on Github":
+    - "//github.com/royalgraphx/DarwinKVM/tree/main"
+
+# Makes Aux links open in a new tab. Default is false
+aux_links_new_tab: false

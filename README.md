@@ -1,7 +1,9 @@
-<h1 align="center">This is Pre-Release information! It is still WIP.</h1>
+<p align="center">
+  <img src="./Assets/DarwinKVMLogo.png" width="50%" height="50%" >
+</p>
 
 <p align="center">
-  <img width="650" height="200" src="./Assets/Header.png">
+  <img width="650" height="200" src="./Assets/HeaderTextOnly.png">
 </p>
 
 <h1 align="center">An Advanced Template for running macOS within QEMU/KVM</h1>
@@ -347,14 +349,14 @@ Skip this if you did set up the br0 interface.
 
 <h2 align="center"><b><span style="color:red">Part 0:</span></b> Image Creation</h2>
 <h4 align="center">Creation of the OpenCore .img for your DKVM.</h4>
-<h4 align="center">This section has been derived from the <a href="https://github.com/royalgraphx/DarwinKVM/tree/main/OpenCore">OpenCore</a> Submodule.</h4>
+<h4 align="center">This section has been derived from the <a href="https://github.com/royalgraphx/DarwinKVM/tree/main/DiskProvision">DiskProvision</a> Submodule.</h4>
 <br>
 
 ```
 This tool automates the process of creating and setting up an OpenCore.img disk image for use with QEMU. It also comes with mount.sh and unmount.sh to easily modify the contents.
 ```
 
-Don't skip this section. To continue in this guide you will need an image file that will act as our OpenCore USB, holding all its contents. The fastest way to do this is by changing the directory into the OpenCore folder in this repository. You can quickly generate and mount a 1GB ``.img`` file to add to your Virtual Machine later. If you need any help understanding this section, please refer to the [README.md](https://github.com/royalgraphx/DarwinKVM/tree/main/OpenCore) for better context. You can now go ahead and transfer the EFI folder from [DarwinOCPkg](https://github.com/royalgraphx/DarwinOCPkg) to the root of the image. The rest of the steps will outline adding the necessary files to build your EFI for your Virtual Machine.
+Don't skip this section. To continue in this guide you will need an image file that will act as our OpenCore USB, holding all its contents. The fastest way to do this is by changing the directory into the OpenCore folder in this repository. You can quickly generate and mount a 1GB ``.img`` file to add to your Virtual Machine later. If you need any help understanding this section, please refer to the [README.md](https://github.com/royalgraphx/DarwinKVM/tree/main/DiskProvision) for better context. You can now go ahead and transfer the EFI folder from [DarwinOCPkg](https://github.com/royalgraphx/DarwinOCPkg) to the root of the image. The rest of the steps will outline adding the necessary files to build your EFI for your Virtual Machine.
 
 <br>
 <h2 align="center"><b>Part 1:</b> ACPI Tables</h2>

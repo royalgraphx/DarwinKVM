@@ -1,32 +1,123 @@
 ---
-title: Home
-layout: home
+layout: default
+title: Welcome
+nav_order: 1
+description: "Landing page for DarwinKVM Documentation!"
+permalink: /
 ---
 
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
+<style>
+  .alignment_img {
+    position: relative;
+    left: +10px;
+  }
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+  .alignment_img_alt {
+    position: relative;
+    left: +15px;
+    bottom: +15px;
+  }
+</style>
 
-More specifically, the created site:
+<p align="center">
+  <img src="./assets/DarwinKVMLogo.png" width="40%" height="40%" class="alignment_img">
+</p>
 
-- uses a gem-based approach, i.e. uses a `Gemfile` and loads the `just-the-docs` gem
-- uses the [GitHub Pages / Actions workflow] to build and publish the site on GitHub Pages
+<p align="center">
+  <img width="650" height="200" src="./assets/HeaderTextOnly.png" class="alignment_img_alt">
+</p>
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+<h4 align="center">Features: Clean EFI Template for maximum customizability before boot, Compatibility with RisingPrism's Single GPU Passthrough, DisplayOverrides for repairing incompatible monitors, Custom Memory Mapping, Custom USB Mapping, Fake Core Count for incompatible CPU Topology, Host CPU Overclocking, Host Network Bridge for VM visibility, AMD GPU Zero-RPM Disable and custom sPPT Fan Curve! as well as many more advanced tutorials ready to further perfect your experience!</h4>
 
-[Browse our documentation][Just the Docs] to learn more about how to use this theme.
+<h1 align="center">Requirements</h1>
 
-To get started with creating a site, just click "[use this template]"!
+* A compatible graphics card. <b>This is a must, don't bother if you're not getting GPU Accel.</b> please reference this [list](https://dortania.github.io/GPU-Buyers-Guide/) to verify.
+  * There are some exceptions, if you're crazy and want to use a legacy NVIDIA GPU, please reference this [list](https://elitemacx86.com/threads/nvidia-gpu-compatibility-list-for-macos.614/) to check macOS/OCLP compatibility. If it's supported, there is a section down for Legacy NVIDIA Patching.
 
-If you want to maintain your docs in the `docs` directory of an existing project repo, see [Hosting your docs from an existing project repo](https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md#hosting-your-docs-from-an-existing-project-repo) in the template README.
+* A modern Linux distribution. E.g. Arch Based for the latest packages, my personally tested and working are:
+  * EndeavourOS
+  * ArcoLinuxB Plasma
+  * Pure Arch
 
-----
+* A CPU with Intel VT-x or AMD SVM support is required (`grep -e vmx -e svm /proc/cpuinfo`)
 
-[^1]: [It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#creating-your-site).
+* A CPU with SSE4.1 support is required for >= macOS Sierra
 
-[Just the Docs]: https://just-the-docs.github.io/just-the-docs/
-[GitHub Pages]: https://docs.github.com/en/pages
-[README]: https://github.com/just-the-docs/just-the-docs-template/blob/main/README.md
-[Jekyll]: https://jekyllrb.com
-[GitHub Pages / Actions workflow]: https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/
-[use this template]: https://github.com/just-the-docs/just-the-docs-template/generate
+* A CPU with AVX2 support is required for >= macOS Ventura; but you can bypass the limitation with CryptexFixup as of now.
+
+* Previous experience creating an EFI for your bare metal system and/or reading/understanding the [Dortania OpenCore Guide](https://dortania.github.io/OpenCore-Install-Guide/)
+
+* Various Software/Packages, some optional, some not:
+  * qemu
+  * libvirtd/virtmanager
+  * Python 3 installed with the tkinter package
+  * dmg2img
+  * qemu-img
+  * [RisingPrism's Single GPU Passthrough Scripts](https://gitlab.com/risingprismtv/single-gpu-passthrough)
+  * [ProperTree](https://github.com/corpnewt/ProperTree)
+  * [GenSMBios](https://github.com/corpnewt/GenSMBIOS)
+  * [Hackintool](https://github.com/benbaker76/Hackintool)
+  * [SSDTTime](https://github.com/corpnewt/SSDTTime)
+
+<br>
+
+* <b>PATIENCE! This is NOT a Pre-Built EFI! You are responsible for completing it!</b>
+
+<h1 align="center">Table of Contents</h1>
+
+
+- What is this for?
+
+- Who is this for?
+
+- Host Preparations
+  - Part 1 - BIOS Settings
+  - Part 2 - GRUB Configuration
+  - Part 3 - Bridge Networking
+    - A. Goal Examples
+    - B. Prerequisites to the script
+  - Part 4 - Package Installation
+  - Part 5 - Libvirtd Configuration
+    - A. Modifying Files
+    - B. Libvirt Services
+
+- OpenCore Configuration
+  - Part 0 - Image Creation
+  - Part 1 - ACPI Tables
+  - Part 2 - Drivers
+  - Part 3 - Kexts
+  - Part 4 - Tools
+
+- Config.plist Configuration
+  - Part 0 - Required Tools / Brief Overview
+  - Part 1 - ACPI
+  - Part 2 - Booter
+  - Part 3 - Device Properties
+  - Part 4 - Kernel
+  - Part 5 - Misc
+  - Part 6 - NVRAM
+  - Part 7 - Platform Info
+  - Part 8 - UEFI
+
+- Congratulations! EFI Complete
+
+- Fetching BaseSystem.dmg
+  - Part 0 - Required Tools / Brief Overview
+  - Part 1 - Usage
+
+- Installing macOS
+  - Part 0 - Importing the XML to Virt-Manager
+  - Part 1 - Configure VirtIO Display
+  - Part 2 - Configure OpenCore VirtIO Drive
+  - Part 3 - Configure VirtIO NIC
+  - Part 4 - Review!
+  - Part 5 - Installation
+
+- Single GPU Passthrough
+  - Part 1 - Installation
+  - Part 2 - Hook Modification
+  - Part 3 - Virt-Manager Modifications
+
+- Thanks for reading!
+
+<h1>You can now proceed to the <a href="/docs/01-About">About</a> section!</h1>
