@@ -3,6 +3,3 @@ description: An Advanced Template for running macOS within QEMU/KVM. Run the lat
 theme: just-the-docs
 
 url: https://royalgraphx.github.io/DarwinKVM/docs
-
-aux_links:
-  Template Repository: https://github.com/royalgraphx/DarwinKVM/docs
