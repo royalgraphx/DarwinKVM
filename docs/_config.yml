@@ -9,6 +9,7 @@ url: https://royalgraphx.github.io/DarwinKVM/docs
 
 include:
  - docs
+ - _sass
 
 # Aux links for the upper right navigation
 aux_links:
