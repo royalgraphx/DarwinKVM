@@ -24,6 +24,33 @@ callouts:
     title: Warning
     color: reddish
 
+# set up collections
+
+# Define Jekyll collections
+collections:
+  # Define a collection named "writeups", its documents reside in the "_writeups" directory
+  writeups:
+    permalink: "/:collection/:path/"
+    output: true
+
+just_the_docs:
+  # Define which collections are used in just-the-docs
+  collections:
+    # Reference the "tests" collection
+    writeups:
+      # Give the collection a name
+      name: Writeups
+      # Exclude the collection from the navigation
+      # Supports true or false (default)
+      nav_exclude: false
+      # Fold the collection in the navigation
+      # Supports true or false (default)
+      nav_fold: false  # note: this option is new in v0.4
+      # Exclude the collection from the search
+      # Supports true or false (default)
+      search_exclude: false
+
+# Set up includes
 include:
  - docs
  - _sass
