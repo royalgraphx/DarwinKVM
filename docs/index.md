@@ -74,14 +74,14 @@ permalink: /
   - Part 1 - BIOS Settings
   - Part 2 - GRUB Configuration
   - Part 3 - Bridge Networking
-    - A. Goal Examples
-    - B. Prerequisites to the script
+    - A. Prerequisites to the script
+    - B. Usage of script
   - Part 4 - Package Installation
   - Part 5 - Libvirtd Configuration
     - A. Modifying Files
     - B. Libvirt Services
 
-- OpenCore Configuration
+- Gathering Files
   - Part 0 - Image Creation
   - Part 1 - ACPI Tables
   - Part 2 - Drivers
@@ -89,17 +89,16 @@ permalink: /
   - Part 4 - Tools
 
 - Config.plist Configuration
-  - Part 0 - Required Tools / Brief Overview
-  - Part 1 - ACPI
-  - Part 2 - Booter
-  - Part 3 - Device Properties
-  - Part 4 - Kernel
-  - Part 5 - Misc
-  - Part 6 - NVRAM
-  - Part 7 - Platform Info
-  - Part 8 - UEFI
-
-- Congratulations! EFI Complete
+  - Virtual Machine Cascade Lake
+    - Part 0 - Required Tools / Brief Overview
+    - Part 1 - ACPI
+    - Part 2 - Booter
+    - Part 3 - Device Properties
+    - Part 4 - Kernel
+    - Part 5 - Misc
+    - Part 6 - NVRAM
+    - Part 7 - Platform Info
+    - Part 8 - UEFI
 
 - Fetching BaseSystem.dmg
   - Part 0 - Required Tools / Brief Overview
