@@ -2,7 +2,7 @@
 layout: default
 title: Welcome
 nav_order: 1
-description: "Landing page for DarwinKVM Documentation!"
+description: "An advanced guide to run the latest macOS on QEMU/KVM with libvirtd/Virt-Manager, Includes GPU Passthrough. Follows the OpenCore/Dortania Rules/Philosophy for guides."
 permalink: /
 ---
 
@@ -32,7 +32,7 @@ permalink: /
 <h1 align="center">Requirements</h1>
 
 * A compatible graphics card. <b>This is a must, don't bother if you're not getting GPU Accel.</b> please reference this [list](https://dortania.github.io/GPU-Buyers-Guide/) to verify.
-  * There are some exceptions, if you're crazy and want to use a legacy NVIDIA GPU, please reference this [list](https://elitemacx86.com/threads/nvidia-gpu-compatibility-list-for-macos.614/) to check macOS/OCLP compatibility. If it's supported, there is a section down for Legacy NVIDIA Patching.
+  * There are some exceptions, if you're crazy and want to use a legacy NVIDIA GPU, please reference this [list](https://elitemacx86.com/threads/nvidia-gpu-compatibility-list-for-macos.614/) to check macOS/OCLP compatibility. If it's supported, there is a writeup for Legacy NVIDIA Patching.
 
 * A modern Linux distribution. E.g. Arch Based for the latest packages, my personally tested and working are:
   * EndeavourOS
@@ -62,62 +62,5 @@ permalink: /
 <br>
 
 * <b>PATIENCE! This is NOT a Pre-Built EFI! You are responsible for completing it!</b>
-
-<h1 align="center">Table of Contents</h1>
-
-
-- What is this for?
-
-- Who is this for?
-
-- Host Preparations
-  - Part 1 - BIOS Settings
-  - Part 2 - GRUB Configuration
-  - Part 3 - Bridge Networking
-    - A. Prerequisites to the script
-    - B. Usage of script
-  - Part 4 - Package Installation
-  - Part 5 - Libvirtd Configuration
-    - A. Modifying Files
-    - B. Libvirt Services
-
-- Gathering Files
-  - Part 0 - Image Creation
-  - Part 1 - ACPI Tables
-  - Part 2 - Drivers
-  - Part 3 - Kexts
-  - Part 4 - Tools
-
-- Config.plist Configuration
-  - Virtual Machine Cascade Lake
-    - Part 0 - Required Tools / Brief Overview
-    - Part 1 - ACPI
-    - Part 2 - Booter
-    - Part 3 - Device Properties
-    - Part 4 - Kernel
-    - Part 5 - Misc
-    - Part 6 - NVRAM
-    - Part 7 - Platform Info
-    - Part 8 - UEFI
-
-- Fetching BaseSystem.dmg
-  - Part 0 - Required Tools / Brief Overview
-  - Part 1 - Usage
-
-- Installing macOS
-  - Part 0 - Importing the XML to Virt-Manager
-  - Part 1 - Configure VirtIO Display
-  - Part 2 - Configure OpenCore VirtIO Drive
-  - Part 3 - Configure VirtIO NIC
-  - Part 4 - Review!
-  - Part 5 - Installation
-
-- Single GPU Passthrough
-  - Part 1 - Installation
-  - Part 2 - Hook Modification
-  - Part 3 - Virt-Manager Modifications
-
-- Thanks for reading!
-
 
 <h1>You can now proceed to the <a href="docs/01-About.html">About</a> section!</h1>
