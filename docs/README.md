@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./Assets/DarwinKVMLogo.png" width="50%" height="50%" >
+  <img src="../Assets/DarwinKVMLogo.png" width="50%" height="50%" >
 </p>
 
 <p align="center">
-  <img width="650" height="200" src="./Assets/HeaderTextOnly.png">
+  <img width="650" height="200" src="../Assets/HeaderTextOnly.png">
 </p>
 
 <h1 align="center">This is the git repo, follow the guide <a href="">here!</a></h1>
