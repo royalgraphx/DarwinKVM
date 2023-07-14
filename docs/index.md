@@ -2,7 +2,7 @@
 layout: default
 title: Welcome
 nav_order: 1
-description: "An advanced guide to run the latest macOS on QEMU/KVM with libvirtd/Virt-Manager, Includes GPU Passthrough. Follows the OpenCore/Dortania Rules/Philosophy for guides."
+description: "An advanced guide to run the latest macOS on QEMU/KVM with libvirtd/Virt-Manager, Includes GPU Passthrough, and various write-ups."
 permalink: /
 ---
 
@@ -62,5 +62,9 @@ permalink: /
 <br>
 
 * <b>PATIENCE! This is NOT a Pre-Built EFI! You are responsible for completing it!</b>
+
+If you run into any issues during your initial setup prior to GPU passthrough, you can ask for support in the following Telegram group under Virtualization.
+
+<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-discussion="NootInc/423409" data-comments-limit="5" data-colorful="1" data-color="7CBAE3" data-dark="1"></script>
 
 <h1>You can now proceed to the <a href="docs/01-About.html">About</a> section!</h1>
