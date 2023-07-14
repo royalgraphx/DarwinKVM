@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Part 2. GRUB Configuration
-parent: Host Preparations
-nav_order: 2
+title: GRUB Configuration
+parent: Part 2. Kernel Parameters
+grand_parent: Host Preparations
+nav_order: 1
 ---
 
 # GRUB Configuration
@@ -17,14 +18,14 @@ sudo nano /etc/default/grub
 
 We'll need to check our GRUB CMD Line flags and add various ones depending on the users' hardware.
 
-| AMD CPU  | Intel CPU | AMD GPU | Needed Regardless |
-| ---- | ----- | ----- | ----- |
-| amd_iommu=on | intel_iommu=on | video=efifb:off | iommu=pt | 
+| Intel CPU | AMD GPU | Needed Regardless |
+| ----- | ----- | ----- |
+| intel_iommu=on | video=efifb:off | iommu=pt | 
 
 Example GRUB configuration for an AMD CPU + AMD GPU host:
 
 ```
-amd_iommu=on iommu=pt video=efifb:off
+iommu=pt video=efifb:off
 ```
 
 When you're done make sure you use ``grub-mkconfig`` to update the GRUB Bootloader. Restart Required.
@@ -33,4 +34,4 @@ When you're done make sure you use ``grub-mkconfig`` to update the GRUB Bootload
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-## You can now continue to the next <a href="03-Networking.html">page</a>.
+## You can now continue to the next <a href="../03-Networking.html">page</a>.
