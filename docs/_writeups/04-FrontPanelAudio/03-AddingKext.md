@@ -32,4 +32,10 @@ The chart is always changing to support more codecs, which is why it is not hard
   <img src="../../../assets/HWCheckALCReference.png">
 </p>
 
+Eventually, when you've gotten the right setup, your audio should work as expected!
+
+<p align="center">
+  <img src="../../../assets/macOSACLID.png">
+</p>
+
 ## You can now continue to the next <a href="../04-FinalTouches">page</a>.

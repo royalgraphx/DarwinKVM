@@ -11,4 +11,4 @@ has_toc: false
 </p>
 
 {: .warning }
-Support for this section is in development. The README will be available first, then it will be converted to display properly here as well. Click here to go back <a href="../01-About.html/">home</a>.
+Support for this section is in development. The README will be available first, then it will be converted to display properly here as well. Click here to go back <a href="../../">home</a>.

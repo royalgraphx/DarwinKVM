@@ -72,7 +72,4 @@ Now enable and start the libvirtd Service to fully apply changes:
 sudo systemctl enable --start libvirtd
 ```
 
-{: .important }
-If you did not set up the bridge interface and will be using Virt-Managers default NIC, you will also set the virtual networks to auto-start on boot: ```sudo virsh net-autostart default```. Skip this if you did set up the br0 interface.
-
 ## You can now continue to the next <a href="../03-GatheringFiles/">page</a>.

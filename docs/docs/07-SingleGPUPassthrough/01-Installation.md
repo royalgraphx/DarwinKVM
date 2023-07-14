@@ -9,7 +9,7 @@ nav_order: 1
 #### Script Installation thanks to RisingPrism!
 
 {: .important }
-If the <a href="">RisingPrism</a> scripts do not work, use the <a href="">akshaycodes</a> scripts instead.
+If the <a href="">RisingPrism</a> scripts do not work, use the <a href="https://gitlab.com/akshaycodes/vfio-script">akshaycodes</a> scripts instead.
 
 We'll start by doing a ``git clone`` command to fetch the scripts.
 
