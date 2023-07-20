@@ -54,6 +54,8 @@ just_the_docs:
 include:
  - docs
  - _sass
+ - _layouts
+ - _includes
 
 # External navigation links
 nav_external_links:
