@@ -22,7 +22,7 @@ Can be ignored for now. Documentation in progress.
 
 ## Generic
 
-At this point in the guide, you'll need to open a terminal and an instance of GenSMBIOS. Select option 1 for downloading MacSerial and Option 3 for selecting SMBIOS. For this Cascade Lake example, we'll choose the MacPro7,1 SMBIOS.
+At this point in the guide, you'll need to open a terminal and an instance of [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Select option 1 for downloading MacSerial and Option 3 for selecting SMBIOS. For this Cascade Lake example, we'll choose the MacPro7,1 SMBIOS.
 
 This will give us output similar to the following:
 
@@ -39,6 +39,9 @@ Apple ROM:    000000000005
 
 Press [enter] to return...
 ```
+
+{: .warning }
+Make sure that you are using an invalid serial number! When visiting the [Check Device Coverage](https://checkcoverage.apple.com/) page on Apple's website, your serial number should not report an exising Mac, and you should get an error message such as "Please enter a valid serial number".
 
 To fill out the information on your config.plist, refer to the following chart to convert across.
 

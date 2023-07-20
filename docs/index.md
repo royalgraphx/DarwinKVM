@@ -31,8 +31,8 @@ permalink: /
 
 <h1 align="center">Requirements</h1>
 
-* A compatible graphics card. <b>This is a must, don't bother if you're not getting GPU Accel.</b> please reference this [list](https://dortania.github.io/GPU-Buyers-Guide/) to verify.
-  * There are some exceptions, if you're crazy and want to use a legacy NVIDIA GPU, please reference this [list](https://elitemacx86.com/threads/nvidia-gpu-compatibility-list-for-macos.614/) to check macOS/OCLP compatibility. If it's supported, there is a writeup for Legacy NVIDIA Patching.
+* A compatible graphics card. <b>This is a must, don't bother if you're not getting GPU Accel.</b> please reference this <a href="docs/11-GPUSupport/01-AMD">chart</a> to verify.
+  * There are some exceptions, if you're crazy and want to use a legacy NVIDIA GPU, please reference this <a href="docs/11-GPUSupport/02-NVIDIA">chart</a> to check macOS/OCLP compatibility. If it's supported, there is a writeup for Legacy NVIDIA Patching.
 
 * A modern Linux distribution. E.g. Arch Based for the latest packages, my personally tested and working are:
   * EndeavourOS

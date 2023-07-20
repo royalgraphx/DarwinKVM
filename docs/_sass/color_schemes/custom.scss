@@ -1,3 +1,53 @@
-@import "./color_schemes/dark";
+//@import "./color_schemes/dark";
 
 $link-color: $blueish-300;
+
+#site-nav {
+    /* Other CSS properties */
+  
+    padding-top: 0; /* Set padding-top to 0 to remove it */
+  }  
+
+//.main, .background-color {
+//    background-color: #da3636;
+//}
+
+$body-background-color: $different-black-400;
+$body-heading-color: $grey-lt-000;
+$body-text-color: $grey-lt-300;
+//$link-color: $blue-000;
+$nav-child-link-color: $grey-dk-000;
+$sidebar-color: $different-black-400;
+$base-button-color: $grey-dk-250;
+$btn-primary-color: $blue-200;
+$code-background-color: $different-black-200; // OneDarkJekyll default for syntax-one-dark-vivid
+$code-linenumber-color: #dee2f7; // OneDarkJekyll .nf for syntax-one-dark-vivid
+$feedback-color: darken($sidebar-color, 3%);
+$table-background-color: $different-black-300;
+$search-background-color: $different-black-400;
+$search-result-preview-color: $grey-dk-000;
+$border-color: $different-black-200;
+
+@import "./vendor/OneDarkJekyll/syntax"; // this is the one-dark-vivid atom syntax theme
+
+
+/* Styling for the scrollbar track */
+::-webkit-scrollbar {
+    width: 6px; /* Adjust the width of the scrollbar track */
+  }
+  
+  /* Styling for the scrollbar handle (thumb) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #737373; /* Color of the scrollbar handle */
+    border-radius: 3px; /* Round the edges of the scrollbar handle */
+  }
+  
+  /* Styling for the scrollbar track when the handle is being hovered */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #A6A6A6; /* Color of the scrollbar handle on hover */
+  }
+  
+  /* Styling for the scrollbar track when the handle is being dragged */
+  ::-webkit-scrollbar-thumb:active {
+    background-color: #CCCCCC; /* Color of the scrollbar handle when active (dragged) */
+  }

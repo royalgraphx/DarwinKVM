@@ -10,7 +10,7 @@ nav_order: 1
 #### Enabling flags needed for Virtualization/QEMU/KVM/libvirtd
 #### This section has been derived from the <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/2)-Editing-GRUB">Editing GRUB</a> section via <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home">RisingPrism</a>.
 
-Start by using your favorite terminal text editor. In this example, we'll be using nano. Note: If you're not using GRUB, follow the same steps, but refer to the Arch Wiki on how to edit the config file.
+Start by using your favorite terminal text editor. In this example, we'll be using nano.
 
 ```
 sudo nano /etc/default/grub

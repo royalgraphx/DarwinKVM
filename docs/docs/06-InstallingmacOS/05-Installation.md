@@ -88,4 +88,4 @@ Our OpenCore image is mounted easily and recognized by macOS. Allowing easy modi
   <img src="../../assets/macOSSonomaNoMountEFIneeded.png">
 </p>
 
-<h1>You can now proceed to the <a href="../07-SingleGPUPassthrough/">Single GPU Passthrough</a> section! You can also follow the <a href="../08-DualGPUPassthrough/">Dual GPU Passthrough</a> section.</h1>
+<h1>You can now proceed to the <a href="../07-SingleGPUPassthrough/">Single GPU Passthrough</a> section! More support being added.</h1>
