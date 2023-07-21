@@ -59,9 +59,12 @@ include:
 
 # External navigation links
 nav_external_links:
+  - title: Support on Discord
+    url: https://discord.gg/ryQFC8Vk7b
+    hide_icon: false
   - title: Support on Telegram
     url: https://t.me/NootInc
-    hide_icon: false # set to true to hide the external link icon - defaults to false
+    hide_icon: false
 
 # Aux links for the upper right navigation
 aux_links:
