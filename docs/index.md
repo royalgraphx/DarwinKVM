@@ -67,7 +67,7 @@ If you run into any issues, you can join the DarwinKVM Discord server!
 
 <iframe src="https://discord.com/widget?id=1131552514412654683&theme=dark" width="700" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
-you can also ask for support in the following Telegram group under Virtualization.
+I’m also active in the Virtualization topic of this Telegram supergroup.
 
 <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-discussion="NootInc/423409" data-comments-limit="5" data-colorful="1" data-color="7CBAE3" data-dark="1"></script>
 
