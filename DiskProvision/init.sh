@@ -1,6 +1,11 @@
 #!/bin/bash
 
 # Welcome! Hello to anyone reading, you can do this manually and define it however you want.
+#
+#  Copyright (c) 2023 RoyalGraphX
+#  BSD 3-Clause License
+#
+
 
 # Check if "mnt" directory exists and unmount it if necessary
 if test -d "mnt"; then

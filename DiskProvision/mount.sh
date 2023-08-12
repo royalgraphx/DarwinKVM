@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#
+#  Copyright (c) 2023 RoyalGraphX
+#  BSD 3-Clause License
+#
+
+
 # Check if nbd module is already loaded
 if lsmod | grep -q "^nbd"; then
     echo "nbd module is already loaded. Proceeding..."
