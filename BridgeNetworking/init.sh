@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#
+#  Copyright (c) 2023 RoyalGraphX
+#  BSD 3-Clause License
+#
+
 # Detect the wlan interface
 wifi_interface=$(ip link show | awk -F: '$0 ~ "wl"{print $2; exit}' | tr -d '[:space:]') 
 echo -e "\e[31mDEBUG:\e[0m Variable wifi_interface reports: $wifi_interface ..."
