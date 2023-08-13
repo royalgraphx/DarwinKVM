@@ -13,17 +13,17 @@ For this example, we'll be getting the latest macOS Ventura:
 
 ``python3 macrecovery.py -b Mac-4B682C642B45593E -m 00000000000000000 download``
 
+Notice that it will then create a folder ``com.apple.recovery.boot`` where the ``BaseSystem.dmg`` is located. Since the image is compressed, we have to convert it to standard (hfsplus) image. It can be achieved by using a tool like `dmg2img`:
+
+``dmg2img -i BaseSystem.dmg BaseSystem.img``
+
+## If you'd like to persist recovery in OpenCore.img
+
+Copy ``com.apple.recovery.boot`` folder over to the root of the OpenCore .img mount point. Do note that this way it loads greatly slower compared to attaching converted image directly to the Virtual Machine.
+
 <p align="center">
   <img src="../../assets/macrecovery.png">
 </p>
-
-Notice that it will then create a folder ``com.apple.recovery.boot``, which you will need to copy over to the root of the OpenCore .img mount point. Refer to the image above for an example. It does load slower this way, but will persist so you will always have it around, you can delete it after if you'd like. You can also use dmg2img to convert the BaseSystem.dmg to a BaseSystem.img you can then mount via Virt-Manager.
-
-## If you'd like to convert to an img
-
-If for whatever reason you'd like to mount this directly to the Virtual Machine, you'll have to convert the dmg to an img file. You can do this using ``dmg2img`` the following way
-
-``dmg2img -i BaseSystem.dmg BaseSystem.img``
 
 ## List of downloadable BaseSystems
 

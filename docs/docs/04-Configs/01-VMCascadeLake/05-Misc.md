@@ -20,7 +20,7 @@ To be filled with plist string entries containing absolute UEFI paths to customi
 
 Don't skip over this section, we'll be changing the following:
 
-| Key  | Type | Value | 
+| Key  | Type | Value |
 | ----- | ----- | ----- |
 | HideAuxiliary | Boolean | True |
 | PollAppleHotKeys | Boolean | True |
@@ -30,7 +30,7 @@ Don't skip over this section, we'll be changing the following:
 Helpful for debugging OpenCore boot issues.
 Don't skip over this section, we'll be changing the following:
 
-| Key  | Type | Value | 
+| Key  | Type | Value |
 | ----- | ----- | ----- |
 | Target | Number | 67 |
 
@@ -43,14 +43,17 @@ Used for specifying irregular boot paths that can't be found naturally with Open
 Security is pretty self-explanatory, <b>do not skip</b>. We'll be changing the following:
 
 {: .warning }
-Optional is a word, you must type it out. It IS case-sensitive.
+Pay attention to values in red; those are case-sensitive.
 
-| Key  | Type | Value | 
+| Key  | Type | Value |
 | ----- | ----- | ----- |
 | AllowSetDefault | Boolean | True |
 | ExposeSensitiveData | Number | 15 |
 | ScanPolicy | Number | 0 |
+| SecureBootModel | String | <span style="color:red">Disabled</span> |
 | Vault | String | <span style="color:red">Optional</span> |
+
+SecurityBootModel (not to be confused with Secure Boot) can be set back to Default after successful install. We're disabling it for now to allow booting BaseSystem.img.
 
 ## Serial
 

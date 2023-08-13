@@ -27,6 +27,10 @@ Don't forget to set it as your boot drive.
   <img src="../../assets/VManAddOpenCore2.png">
 </p>
 
+## Adding recoveryOS Drive
+
+Unless you had embedded the recovery in OpenCore.img, you don't need this step. Add the drive the same way you've added the OpenCore Drive.
+
 ## Creating a Virtual SSD for installation
 
 If you're not going to passthrough an NVME drive to install macOS on, then this is the step to make a disk image. You can choose any size you'd like but I suggest the standard 128G, 256GB, 500GB, 1000GB.
