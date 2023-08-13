@@ -12,7 +12,7 @@ nav_order: 4
 Since everything in this guide is outlined for simply Arch, you may need to find the package equivalent to your system. Here is the command to install all required packages.
 
 ```
-sudo pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf
+sudo pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf dmg2img
 ```
 
 Please note: Conflicts may happen when installing these programs.
