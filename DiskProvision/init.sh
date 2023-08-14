@@ -6,6 +6,8 @@
 #  BSD 3-Clause License
 #
 
+DEFAULT_IMG_FILE="OpenCore.img"
+IMG_FILE="${1:-$DEFAULT_IMG_FILE}"
 
 # Check if "mnt" directory exists and unmount it if necessary
 if test -d "mnt"; then
@@ -14,13 +16,17 @@ if test -d "mnt"; then
 fi
 
 # Check if OpenCore.img file exists and remove it if necessary
-if test -f "OpenCore.img"; then
-    echo "OpenCore.img already exists. Removing it..."
-    rm -rf OpenCore.img
+if test -f "$IMG_FILE"; then
+    read -r -p "$IMG_FILE already exists. Do you want to remove it? (y/n): " choice
+    if [[ $choice == "y" || $choice == "Y" ]]; then
+      rm -rf OpenCore.img
+    else
+      exit
+    fi
 fi
 
-qemu-img create -f raw OpenCore.img 1G
-echo "OpenCore Image created!"
+qemu-img create -f raw "$IMG_FILE" 1G
+echo "$IMG_FILE created!"
 echo "Mounting and formatting..."
 
 # Check if nbd module is already loaded
@@ -37,7 +43,7 @@ if lsblk -o NAME | grep -q "^nbd0$"; then
     sudo qemu-nbd --disconnect /dev/nbd0
 fi
 
-sudo qemu-nbd --connect=/dev/nbd0 -f raw OpenCore.img
+sudo qemu-nbd --connect=/dev/nbd0 -f raw "$IMG_FILE"
 
 sudo mkfs.fat -F 32 -n "OPENCORE" -I /dev/nbd0
 echo "Formatting complete!"
