@@ -8,6 +8,11 @@
 DEFAULT_IMG_FILE="OpenCore.img"
 IMG_FILE="${1:-$DEFAULT_IMG_FILE}"
 
+if [ ! -d "$IMG_FILE" ]; then
+    echo "$IMG_FILE not found! Create it by running: ./init.sh $IMG_FILE"
+    exit 1
+fi
+
 # Check if nbd module is already loaded
 if lsmod | grep -q "^nbd"; then
     echo "nbd module is already loaded. Proceeding..."

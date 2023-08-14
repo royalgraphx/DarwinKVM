@@ -5,6 +5,11 @@
 #  BSD 3-Clause License
 #
 
+if [ ! -d "mnt" ]; then
+    echo "Nothing to unmount."
+    exit 1
+fi
+
 # Unmount the image from the "mnt" directory
 sudo umount mnt
 echo "Image unmounted."
