@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Part 1 - Finding ALC Layout
-parent: Front Panel Audio
+parent: Motherboard Audio
 nav_order: 1
 ---
 

@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Front Panel Audio
+title: Motherboard Audio
 nav_order: 4
 has_children: true
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/HeaderFPA.png">
+  <img width="650" height="200" src="../../../assets/HeaderMoboAudio.png">
 </p>
 
 {: .important }

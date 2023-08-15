@@ -1,13 +1,9 @@
 ---
 layout: default
-title: Part 3. Networking
+title: Part 4. Default Network
 parent: Host Preparations
-nav_order: 3
+nav_order: 4
 ---
-
-<p align="center">
-  <img width="650" height="200" src="../../assets/HeaderNetworking.png">
-</p>
 
 # Default Network
 #### Using libvirtd's default NAT Virtio NIC for your DKVM.
@@ -35,4 +31,4 @@ sudo virsh net-start default
 
 If you are looking for more advanced Virtual Machine networking, such as to achieve broader network access, you can check out the <a href="../../writeups/05-Bridge/index/">Bridge Networking</a> write-up for more information!
 
-## You can now continue to the next <a href="04-PackageInstall.html">page</a>.
+## You can now continue to the next <a href="05-Libvirtd.html">page</a>.

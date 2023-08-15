@@ -6,7 +6,7 @@ nav_order: 3
 ---
 
 # Configure VirtIO Drives
-#### This is required to boot OpenCore.
+#### This is required to boot OpenCore and recoveryOS.
 
 ## Adding OpenCore Drive
 
@@ -29,7 +29,10 @@ Don't forget to set it as your boot drive.
 
 ## Creating a Virtual SSD for installation
 
-If you're not going to passthrough an NVME drive to install macOS on, then this is the step to make a disk image. You can choose any size you'd like but I suggest the standard 128G, 256GB, 500GB, 1000GB.
+{: .important }
+If you're looking to passthrough a secondary NVMe drive on your system to act as the main storage for the Virtual Machine, follow the write-up for using NVMe's on Virt-Manager. Requires compatible NVMe.
+
+To create a virtual SSD, when selecting the "Add Hardware" button to bring up the Storage prompt, there is a + button in the current libvirt images directory. You can choose any size you'd like but I suggest the standard 128G, 256GB, 500GB, 1000GB.
 
 Here you can see me creating the disk image I'll be installing macOS on.
 

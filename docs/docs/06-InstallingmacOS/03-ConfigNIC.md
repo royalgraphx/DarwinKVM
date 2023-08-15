@@ -6,7 +6,7 @@ nav_order: 4
 ---
 
 # Configure Virtual Machine NIC
-#### This is required to download macOS via RecoveryOS, as well as will be the general ethernet connection in the Virtual Machine.
+#### This is required to download macOS via recoveryOS, as well as will be the general ethernet connection in the Virtual Machine.
 
 ## Using the Default Network
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Part 2 - Adding to Virt-Manager
-parent: Front Panel Audio
+parent: Motherboard Audio
 nav_order: 2
 ---
 

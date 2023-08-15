@@ -34,4 +34,4 @@ When you're done make sure you use ``grub-mkconfig`` to update the GRUB Bootload
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-## You can now continue to the next <a href="../03-Networking.html">page</a>.
+## You can now continue to the next <a href="../03-PackageInstall.html">page</a>.

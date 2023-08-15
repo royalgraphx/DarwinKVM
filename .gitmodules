@@ -4,3 +4,6 @@
 [submodule "macrecovery"]
 	path = macrecovery
 	url = https://github.com/royalgraphx/macrecovery
+[submodule "macos-display-overrides"]
+	path = macos-display-overrides
+	url = https://github.com/mafredri/macos-display-overrides.git

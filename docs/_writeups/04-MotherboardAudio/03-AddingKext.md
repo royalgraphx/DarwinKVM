@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Part 3 - Adding Kext + Finding Layout ID
-parent: Front Panel Audio
+parent: Motherboard Audio
 nav_order: 3
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Part 4 - Final Touches
-parent: Front Panel Audio
+parent: Motherboard Audio
 nav_order: 4
 ---
 

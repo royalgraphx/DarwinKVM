@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Part 4. Package Installation
+title: Part 3. Package Installation
 parent: Host Preparations
-nav_order: 4
+nav_order: 3
 ---
 
 # Package Installation
@@ -24,4 +24,4 @@ iptables and iptables-nft are in conflict. Remove iptables? [y/N]
 
 If you do encounter this kind of message, press y and enter to continue the installation.
 
-## You can now continue to the next <a href="05-Libvirtd.html">page</a>.
+## You can now continue to the next <a href="04-Networking.html">page</a>.

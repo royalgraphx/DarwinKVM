@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Part 1 - Configure Display for recoveryOS
+title: Part 1 - Configure Virtio Display
 parent: Installing macOS
 nav_order: 2
 ---

@@ -2,7 +2,7 @@
 layout: default
 title: Part 3 - Virt-Manager Configuration
 parent: Single GPU Passthrough
-nav_order: 3
+nav_order: 4
 ---
 
 # Virt-Manager Modifications
@@ -116,7 +116,7 @@ Go ahead and add your USB Controllers as you'll need to use your Keyboard and Mo
 
 ## Adding NVME (Optional)
 
-If you have two NVMEs in your system, and you'd like to dedicate one completely to the installation of macOS for maximum performance, you can add your NVME drive now. It still needs to be supported by macOS, or at least not reported to be problematic with macOS. I won't be adding it, but here it is for the example.
+If you have two NVMEs in your system, and you'd like to dedicate one completely to the installation of macOS for maximum performance, you can add your NVME drive. It still needs to be supported by macOS, or at least not reported to be problematic with macOS. I won't be adding it, but here it is for the example. For more information about whether or not or how you can pass your NVMe drive, please refer to the following [write-up]().
 
 <p align="center">
   <img src="../../assets/VManGPUPassthroughAddNVME.png">
@@ -124,10 +124,10 @@ If you have two NVMEs in your system, and you'd like to dedicate one completely 
 
 ## Example VM ready to start
 
-If you've gone ahead and verified everything, your IOMMU groups, and your multifunction GPU, you are now ready! Here's an example of what a completed GPU Passthrough Virt-Manager will look like.
+If you've gone ahead and verified everything, your IOMMU groups, and your multifunction GPU, you are now ready! Here's an example of what a completed GPU Passthrough Virt-Manager will look like. Note that in this example image, the BaseSystem.dmg is still included within the OPENCORE image.
 
 <p align="center">
   <img src="../../assets/VManGPUPassthroughCompletedExample.png">
 </p>
 
-<h1>You can now proceed to the <a href="../09-Finish.html">Finish!</a> page.</h1>
+<h1>You can now proceed to the <a href="../10-Finish.html">Finish!</a> page.</h1>

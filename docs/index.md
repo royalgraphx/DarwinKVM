@@ -61,14 +61,10 @@ permalink: /
 
 * <b>PATIENCE! This is NOT a Pre-Built EFI! You are responsible for completing it!</b>
 
-# Support Channels
+# Support and Help
 
-If you run into any issues, you can join the DarwinKVM Discord server!
+If you run into any issues, you can join the DarwinKVM Discord server! Feel free to ping the @Helpers role within a help channel for support, and [Hexley](https://github.com/royalgraphx/Hexley), the one and only bot provides our discord users with a multitude of commands to assist anyone who may need specific actions performed.
 
-<iframe src="https://discord.com/widget?id=1131552514412654683&theme=dark" width="700" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-
-I’m also active in the Virtualization topic of this Telegram supergroup.
-
-<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-discussion="NootInc/423409" data-comments-limit="5" data-colorful="1" data-color="7CBAE3" data-dark="1"></script>
+<iframe src="https://discord.com/widget?id=1131552514412654683&theme=dark" width="400" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 
 <h1>You can now proceed to the <a href="docs/01-About.html">About</a> section!</h1>
