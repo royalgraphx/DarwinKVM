@@ -13,6 +13,11 @@ if [ ! -f "$IMG_FILE" ]; then
     exit 1
 fi
 
+if [ -d "mnt" ]; then
+  echo "Image already mounted or 'mnt' directory exists. Please unmount or/and remove 'mnt'."
+  exit 1
+fi
+
 # Check if nbd module is already loaded
 if lsmod | grep -q "^nbd"; then
     echo "nbd module is already loaded. Proceeding..."
