@@ -61,7 +61,7 @@ permalink: /
 
 * <b>PATIENCE! This is NOT a Pre-Built EFI! You are responsible for completing it!</b>
 
-# Support and Help
+# Support
 
 If you run into any issues, you can join the DarwinKVM Discord server! Feel free to ping the @Helpers role within a help channel for support, and [Hexley](https://github.com/royalgraphx/Hexley), the one and only bot provides our discord users with a multitude of commands to assist anyone who may need specific actions performed.
 

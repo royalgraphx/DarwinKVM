@@ -15,7 +15,7 @@ Because we'd like to maintain SecureBootModel and various other aspects for secu
 With this, you can later boot Base System.
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/BaseSystemInstallLegacyScreenshot.png">
+  <img width="650" height="200" src="../../assets/BaseSystemInstallLegacyScreenshot.png">
 </p>
 
 <h1>You can now proceed to the <a href="../06-InstallingmacOS/">Installing macOS</a> section!</h1>
