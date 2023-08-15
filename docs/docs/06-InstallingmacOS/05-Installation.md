@@ -8,13 +8,13 @@ nav_order: 6
 # Installing macOS via recoveryOS
 #### You should now be ready to install macOS!
 
-OpenCore Menu, shows RecoveryOS detected.
+OpenCore Menu, shows recoveryOS detected.
 
 <p align="center">
   <img src="../../assets/OpenCoreVMBootRecovery.png">
 </p>
 
-macOS Ventura RecoveryOS booting
+macOS Ventura recoveryOS booting
 
 <p align="center">
   <img src="../../assets/BootingRecovery.png">

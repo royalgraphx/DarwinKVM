@@ -2,7 +2,7 @@
 layout: default
 title: Part 1 - Script Installation
 parent: Single GPU Passthrough
-nav_order: 1
+nav_order: 2
 ---
 
 # Installation of Scripts

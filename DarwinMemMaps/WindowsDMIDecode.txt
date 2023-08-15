@@ -1,0 +1,95 @@
+C:\Users\RoyalGraphX\Downloads\dmidecode\sbin>dmidecode.exe -t memory
+# dmidecode 2.10
+SMBIOS 3.2 present.
+
+Handle 0x0030, DMI type 16, 23 bytes
+Physical Memory Array
+        Location: System Board Or Motherboard
+        Use: System Memory
+        Error Correction Type: None
+        Maximum Capacity: Unknown
+        Error Information Handle: 0x002F
+        Number Of Devices: 4
+
+Handle 0x0038, DMI type 17, 84 bytes
+Memory Device
+        Array Handle: 0x0030
+        Error Information Handle: 0x0037
+        Total Width: 64 bits
+        Data Width: 64 bits
+        Size: 16384 MB
+        Form Factor: DIMM
+        Set: None
+        Locator: DIMM_A1
+        Bank Locator: BANK 0
+        Type: <OUT OF SPEC>
+        Type Detail: Synchronous
+        Speed: 3600 MHz
+        Manufacturer: G-Skill
+        Serial Number: 00000000
+        Asset Tag: Not Specified
+        Part Number: F4-3600C16-16GTZNC
+        Rank: 2
+
+Handle 0x003B, DMI type 17, 84 bytes
+Memory Device
+        Array Handle: 0x0030
+        Error Information Handle: 0x003A
+        Total Width: 64 bits
+        Data Width: 64 bits
+        Size: 16384 MB
+        Form Factor: DIMM
+        Set: None
+        Locator: DIMM_A2
+        Bank Locator: BANK 1
+        Type: <OUT OF SPEC>
+        Type Detail: Synchronous
+        Speed: 3600 MHz
+        Manufacturer: G-Skill
+        Serial Number: 00000000
+        Asset Tag: Not Specified
+        Part Number: F4-3600C16-16GTZNC
+        Rank: 2
+
+Handle 0x003E, DMI type 17, 84 bytes
+Memory Device
+        Array Handle: 0x0030
+        Error Information Handle: 0x003D
+        Total Width: 64 bits
+        Data Width: 64 bits
+        Size: 16384 MB
+        Form Factor: DIMM
+        Set: None
+        Locator: DIMM_B1
+        Bank Locator: BANK 2
+        Type: <OUT OF SPEC>
+        Type Detail: Synchronous
+        Speed: 3600 MHz
+        Manufacturer: G-Skill
+        Serial Number: 00000000
+        Asset Tag: Not Specified
+        Part Number: F4-3600C16-16GTZNC
+        Rank: 2
+
+Handle 0x0041, DMI type 17, 84 bytes
+Memory Device
+        Array Handle: 0x0030
+        Error Information Handle: 0x0040
+        Total Width: 64 bits
+        Data Width: 64 bits
+        Size: 16384 MB
+        Form Factor: DIMM
+        Set: None
+        Locator: DIMM_B2
+        Bank Locator: BANK 3
+        Type: <OUT OF SPEC>
+        Type Detail: Synchronous
+        Speed: 3600 MHz
+        Manufacturer: G-Skill
+        Serial Number: 00000000
+        Asset Tag: Not Specified
+        Part Number: F4-3600C16-16GTZNC
+        Rank: 2
+
+
+C:\Users\RoyalGraphX\Downloads\dmidecode\sbin>

@@ -9,5 +9,5 @@ has_children: true
   <img width="650" height="200" src="../../../assets/HeaderHostOC.png">
 </p>
 
-{: .warning }
-This section is under construction. It may have missing or incomplete information! Wait until this warning is no longer present, to follow the writeup.
+{: .new }
+This write up utilizes ``linux-tools`` to quickly apply Scaling Governors via ``cpupower``! There is a script that will walk through applying a governor! Simply execute ``./cpuOC.sh``!

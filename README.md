@@ -8,7 +8,7 @@
 
 <h1 align="center">An Advanced Guide for running macOS within QEMU/KVM</h1>
 
-<h4 align="center">Features: Clean EFI Template for maximum customizability before boot, Compatibility with RisingPrism's Single GPU Passthrough, DisplayOverrides for repairing incompatible monitors, Custom Memory Mapping, Custom USB Mapping, Fake Core Count for incompatible CPU Topology, Host CPU Overclocking, Host Network Bridge for VM visibility, AMD GPU Zero-RPM Disable and custom sPPT Fan Curve! as well as many more advanced tutorials ready to further perfect your experience!</h4>
+<h4 align="center">Features: Clean EFI Guide for maximum customizability before boot, Compatibility with RisingPrism's Single GPU Passthrough, Display Overrides for repairing incompatible monitors, Custom Memory Mapping, Custom USB Mapping, Fake Core Count for incompatible CPU Topology, Host CPU Overclocking, Host Network Bridge for VM visibility, AMD GPU Zero-RPM Disable and custom sPPT Fan Curve! as well as many more advanced tutorials ready to further perfect your experience!</h4>
 
 <h1 align="center">This is the git repo, follow the guide <a href="https://royalgraphx.github.io/DarwinKVM/">here!</a></h1>
 
@@ -48,7 +48,15 @@
 
 </br>
 
+# Support
+
+If you run into any issues, you can join the [DarwinKVM Discord](https://discord.gg/ryQFC8Vk7b) server! Feel free to ping the @Helpers role within a help channel for support, and [Hexley](https://github.com/royalgraphx/Hexley), the one and only bot provides our discord users with a multitude of commands to assist anyone who may need specific actions performed.
+
 <h1 align="center">Gallery</h1>
+
+<p align="center">
+  <img src="./Assets/GalleryHacProKVM2.png">
+</p>
 
 <p align="center">
   <img src="./Assets/macOSSonomaGPUAccel.png">

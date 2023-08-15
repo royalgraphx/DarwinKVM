@@ -12,6 +12,9 @@ nav_order: 8
   <img src="../../../assets/OpenCorePlatformInfo.png">
 </p>
 
+{: .new }
+Did you know? Hexley, DarwinKVM's Discord bot, can generate Platform Information! Join the server to make this and many other tools easily accessible, everywhere Discord is!
+
 ## Automatic
 
 Leave as default.
@@ -22,7 +25,7 @@ Can be ignored for now. Documentation in progress.
 
 ## Generic
 
-At this point in the guide, you'll need to open a terminal and an instance of [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Select option 1 for downloading MacSerial and Option 3 for selecting SMBIOS. For this Cascade Lake example, we'll choose the MacPro7,1 SMBIOS.
+At this point in the guide, you'll need to open a terminal and an instance of [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). Select option 1 for downloading MacSerial and Option 3 for generating SMBIOS. For this Cascade Lake example, we'll choose the MacPro7,1 SMBIOS.
 
 This will give us output similar to the following:
 
