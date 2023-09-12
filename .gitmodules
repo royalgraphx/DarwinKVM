@@ -7,3 +7,6 @@
 [submodule "macos-display-overrides"]
 	path = macos-display-overrides
 	url = https://github.com/mafredri/macos-display-overrides.git
+[submodule "DiskProvision"]
+	path = DiskProvision
+	url = https://github.com/royalgraphx/DiskProvision.git
