@@ -7,36 +7,47 @@ nav_order: 1
 
 # OpenCore Image Creation
 #### Creation of the OpenCore .img for your DKVM.
-#### This section has been derived from the <a href="https://github.com/royalgraphx/DarwinKVM/tree/main/DiskProvision">DiskProvision</a> Submodule.
+#### This section has been derived from the <a href="https://github.com/royalgraphx/DiskProvision">DiskProvision</a> Github.
 
 {: .new }
-DiskProvision automates the process of creating and setting up a disk image for use with QEMU. It also comes with mount.sh and unmount.sh to easily modify the contents.
+DiskProvision automates the process of creating and formatting a disk image for use with QEMU. It can also mount and unmount an image to easily modify the contents.
 
-Don't skip this section. To continue in this guide you will need an image file that will act as our OpenCore USB, holding all its contents. The fastest way to do this is by changing the directory to the DiskProvision folder in this repository. You can quickly generate and mount a 1GB ``.img`` file to add to your Virtual Machine later. If you need any help understanding this section, please refer to the [README.md](https://github.com/royalgraphx/DarwinKVM/tree/main/DiskProvision) for better context. You can now go ahead and transfer the EFI folder from [DarwinOCPkg](https://github.com/royalgraphx/DarwinOCPkg) to the root of the image. The rest of the steps will outline adding the necessary files to build your EFI for your Virtual Machine.
+To continue in this guide you will need a disk image that will act as the OpenCore disk for booting macOS. In this page you'll get a basic overview on how to utilize the DiskProvision tool that's in DarwinKVM. First, navigate to the DiskProvision/build directory so you can use the executable. If you need any help understanding this section, please refer to the DiskProvision [README.md](https://github.com/royalgraphx/DiskProvision/blob/main/README.md) for better context.
 
-## Basic Usage
+## Basic Walkthrough
 
-```
-[royalgraphx@hypervisor DiskProvision]$ ./init.sh 
-Formatting 'OpenCore.img', fmt=raw size=1073741824
-OpenCore Image created!
-Mounting and formatting...
-nbd module is already loaded. Proceeding...
-[sudo] password for royalgraphx: 
-/dev/nbd0 disconnected
-mkfs.fat 4.2 (2021-01-31)
-Formatting complete!
-Created 'mnt' directory.
-Image mounted to 'mnt' directory with desired ownership successfully.
-Do you want to unmount the image? (y/n): n
-Image kept mounted. Remember to unmount it later when you're done.
-[royalgraphx@hypervisor DiskProvision]$
-```
-
-## Example
+When you first head into the build/ folder, you'll see an executable you can launch via a terminal, you will be presented with a menu with a few options.
 
 <p align="center">
-  <img src="../../assets/OpenCoreLocalCreation.png">
+  <img src="../../assets/DiskProvisionMainMenu.png">
+</p>
+
+To get started, you can select option 1 which will begin the creation of a new disk image. Feel free to call it as you'd like, as it doesn't have to be "OpenCore".
+
+<p align="center">
+  <img src="../../assets/DiskProvisionCreatingOCImage.png">
+</p>
+
+You will now see a new Disk Image created for you in the images folder.
+
+<p align="center">
+  <img src="../../assets/DiskProvisionPostImageCreation.png">
+</p>
+
+Go ahead and mount the disk image you created. You can do this by selection option 3 and choosing the image to mount, this will create an mnt/ folder which acts as the image mount point.
+
+<p align="center">
+  <img src="../../assets/DiskProvisionMountingDiskImage.png">
+</p>
+
+<p align="center">
+  <img src="../../assets/DiskProvisionPostImageMount.png">
+</p>
+
+You can now go ahead and transfer the EFI folder from [DarwinOCPkg](https://github.com/royalgraphx/DarwinOCPkg) to the root of the image. The rest of the steps will outline adding the necessary files to build your EFI for your Virtual Machine.
+
+<p align="center">
+  <img src="../../assets/DiskProvisionAddingOCAlternative.png">
 </p>
 
 ## You can now continue to the next <a href="01-ACPITables.html">page</a>.

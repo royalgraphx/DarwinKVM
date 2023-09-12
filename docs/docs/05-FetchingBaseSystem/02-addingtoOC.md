@@ -18,4 +18,6 @@ With this, you can later boot Base System.
   <img width="650" height="200" src="../../assets/BaseSystemInstallLegacyScreenshot.png">
 </p>
 
+Now that you've completed configuring your OpenCore disk image, **DO NOT FORGET TO UNMOUNT**, before continuing.
+
 <h1>You can now proceed to the <a href="../06-InstallingmacOS/">Installing macOS</a> section!</h1>
