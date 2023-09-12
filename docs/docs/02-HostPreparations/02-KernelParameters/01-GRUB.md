@@ -12,7 +12,7 @@ nav_order: 1
 
 Start by using your favorite terminal text editor. In this example, we'll be using nano.
 
-```
+```bash
 sudo nano /etc/default/grub
 ```
 
@@ -24,13 +24,13 @@ We'll need to check our GRUB CMD Line flags and add various ones depending on th
 
 Example GRUB configuration for an AMD CPU + AMD GPU host:
 
-```
+```bash
 iommu=pt video=efifb:off
 ```
 
 When you're done make sure you use ``grub-mkconfig`` to update the GRUB Bootloader. Restart Required.
 
-```
+```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 

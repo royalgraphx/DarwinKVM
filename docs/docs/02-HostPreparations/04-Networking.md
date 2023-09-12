@@ -27,8 +27,8 @@ If you prefer not to have the virtual machine network start up automatically on 
 sudo virsh net-start default
 ```
 
-## Alternative Networking
+## Advanced Bridged Networking
 
-If you are looking for more advanced Virtual Machine networking, such as to achieve broader network access, you can check out the <a href="../../writeups/05-Bridge/index/">Bridge Networking</a> write-up for more information!
+If you are looking for more advanced Virtual Machine networking, such as to achieve broader network access, faster speeds and more stable performance, it is highly recommended you check out the <a href="../../writeups/05-Bridge/index/">Bridge Networking</a> write-up for more information and tutorial for set up! I understand many may not want to, or simply cannot because they're not on ethernet so I include the original default network instructions, but I personally do this every time I set up Linux.
 
 ## You can now continue to the next <a href="05-Libvirtd.html">page</a>.

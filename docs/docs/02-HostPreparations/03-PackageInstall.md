@@ -11,14 +11,14 @@ nav_order: 3
 
 Since everything in this guide is outlined for simply Arch, you may need to find the package equivalent to your system. Here is the command to install all required packages.
 
-```
+```bash
 sudo pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf
 ```
 
 Please note: Conflicts may happen when installing these programs.
 A warning like the below example may appear in your terminal:
 
-```
+```bash
 iptables and iptables-nft are in conflict. Remove iptables? [y/N]
 ```
 
