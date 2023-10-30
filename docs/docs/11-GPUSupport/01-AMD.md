@@ -46,6 +46,8 @@ Needs the NootRX kernel extension to function
 | --- | --- | --- | --- |
 | RX 6700 | Monterey (12.1) | Sonoma (14) |  |
 | RX 6700 XT | Monterey (12.1) | Sonoma (14) |  |
+| RX 6750 XT | Monterey (12.1) | Sonoma (14) |  |
+| RX 6750 GRE (both models) | Monterey (12.1) | Sonoma (14) |  |
 
 # Navi 23
 
