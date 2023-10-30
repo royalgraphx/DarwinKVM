@@ -16,14 +16,14 @@ Must add agdpmod=pikera to get a display out.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 5500 | Catalina (10.15.1) | Ventura (13) |  |
-| RX 5500 XT | Catalina (10.15.1) | Ventura (13) |  |
-| RX 5600 | Catalina (10.15.1) | Ventura (13) |  |
-| RX 5600 XT | Catalina (10.15.1) | Ventura (13) |  |
-| RX 5700 | Catalina (10.15.1) | Ventura (13) |  |
-| RX 5700 XT | Catalina (10.15.1) | Ventura (13) |  |
-| Radeon Pro W5500 | Catalina (10.15.1) | Ventura (13) |  |
-| Radeon Pro W5700 | Catalina (10.15.1) | Ventura (13) |  |
+| RX 5500 | Catalina (10.15.1) | Sonoma (14) |  |
+| RX 5500 XT | Catalina (10.15.1) | Sonoma (14) |  |
+| RX 5600 | Catalina (10.15.1) | Sonoma (14) |  |
+| RX 5600 XT | Catalina (10.15.1) | Sonoma (14) |  |
+| RX 5700 | Catalina (10.15.1) | Sonoma (14) |  |
+| RX 5700 XT | Catalina (10.15.1) | Sonoma (14) |  |
+| Radeon Pro W5500 | Catalina (10.15.1) | Sonoma (14) |  |
+| Radeon Pro W5700 | Catalina (10.15.1) | Sonoma (14) |  |
 
 # Navi 21
 
@@ -32,10 +32,20 @@ Must add agdpmod=pikera to get a display out.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6800 | Big Sur (11.4) | Ventura (13) |  |
-| RX 6800 XT | Big Sur (11.4) | Ventura (13) |  |
-| RX 6900 XT | Big Sur (11.4) | Ventura (13) |  |
-| RX 6900 XTXH | Big Sur (11.4) | Ventura (13) | If your card has Device ID: 0x73AF, spoofing device-id to 0x73BF will allow support. |
+| RX 6800 | Big Sur (11.4) | Sonoma (14) |  |
+| RX 6800 XT | Big Sur (11.4) | Sonoma (14) |  |
+| RX 6900 XT | Big Sur (11.4) | Sonoma (14) |  |
+| RX 6900 XTXH | Big Sur (11.4) | Sonoma (14) | If your card has Device ID: 0x73AF, spoofing device-id to 0x73BF will allow support. NootRX can be used instead of spoofing. |
+
+# Navi 22
+
+{: .note }
+Needs the NootRX kernel extension to function
+
+| Card | Initial Support | Latest Support | Notes |
+| --- | --- | --- | --- |
+| RX 6700 | Monterey (12.1) | Sonoma (14) |  |
+| RX 6700 XT | Monterey (12.1) | Sonoma (14) |  |
 
 # Navi 23
 
@@ -44,8 +54,9 @@ Must add agdpmod=pikera to get a display out.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6600 | Monterey (12.1) | Ventura (13) |  |
-| RX 6600 XT | Monterey (12.1) | Ventura (13) |  |
+| RX 6600 | Monterey (12.1) | Sonoma (14) |  |
+| RX 6600 XT | Monterey (12.1) | Sonoma (14) |  |
+| RX 6650 XT | Monterey (12.1) | Sonoma (14) | Needs a device-id spoof to the 6600 XT without NootRX, NootRX can be used here |
 
 # Vega 20
 
@@ -54,7 +65,7 @@ All Vega based dedicated GPUs are natively supported in macOS with Vega 20 GPUs 
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| Radeon VII | Mojave (10.14.5) | Ventura (13) |  |
+| Radeon VII | Mojave (10.14.5) | Sonoma (14) |  |
 
 # Vega 10
 
@@ -64,34 +75,48 @@ All Vega based dedicated GPUs are natively supported in macOS with Vega 20 GPUs 
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| Vega 56 | High Sierra (10.13) | Ventura (13) |  |
-| Vega 64 | High Sierra (10.13) | Ventura (13) |  |
-| Radeon Pro: Vega Frontier Edition | High Sierra (10.13) | Ventura (13) |  |
-| Radeon Pro WX 9100 | High Sierra (10.13) | Ventura (13) |  |
+| Vega 56 | High Sierra (10.13) | Sonoma (14) |  |
+| Vega 64 | High Sierra (10.13) | Sonoma (14) |  |
+| Radeon Pro: Vega Frontier Edition | High Sierra (10.13) | Sonoma (14) |  |
+| Radeon Pro WX 9100 | High Sierra (10.13) | Sonoma (14) |  |
 
 # Polaris 10 and 20
 
 {: .warning }
-"Regarding Polaris, basically every model of card is supported as long as it’s running either a Polaris or Baffin core. Lower end cards like the RX 550 may run a Lexa core, meaning no support in macOS, the only brands you should avoid with the Polaris series would be XFX (460/560 models), PowerColor, HIS and VisionTek as many users have had bootloader and macOS boot issues". In this case, they do work on the latest macOS and you can proceed.
+"Regarding Polaris, basically every model of card is supported as long as it’s running either a Polaris or Baffin core. The only brands you should avoid with the Polaris series would be XFX (460/560 models), PowerColor, HIS and VisionTek as many users have had bootloader and macOS boot issues". In this case, they do work on the latest macOS and you can proceed.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 460 | Sierra (10.12) | Ventura (13) |  |
-| RX 470 | Sierra (10.12) | Ventura (13) |  |
-| RX 470D | Sierra (10.12) | Ventura (13) |  |
-| RX 480 | Sierra (10.12) | Ventura (13) |  |
-| RX 550 | Sierra (10.12) | Ventura (13) | Baffin Core |
-| RX 560 | Sierra (10.12) | Ventura (13) |  |
-| RX 560X | Sierra (10.12) | Ventura (13) |  |
-| RX 570 | Sierra (10.12) | Ventura (13) |  |
-| RX 570X | Sierra (10.12) | Ventura (13) |  |
-| RX 580 | Sierra (10.12) | Ventura (13) |  |
-| RX 580X | Sierra (10.12) | Ventura (13) |  |
-| RX 590 | Sierra (10.12) | Ventura (13) |  |
-| Radeon Pro: E9550 | Sierra (10.12) | Ventura (13) |  |
-| Radeon Pro: WX 4100 | Sierra (10.12) | Ventura (13) |  |
-| Radeon Pro: WX 5100 | Sierra (10.12) | Ventura (13) |  |
-| Radeon Pro: WX 7100 | Sierra (10.12) | Ventura (13) |  |
+| RX 460 | Sierra (10.12) | Sonoma (14) |  |
+| RX 470 | Sierra (10.12) | Sonoma (14) |  |
+| RX 470D | Sierra (10.12) | Sonoma (14) |  |
+| RX 480 | Sierra (10.12) | Sonoma (14) |  |
+| RX 550 | Sierra (10.12) | Sonoma (14) | Baffin Core |
+| RX 560 | Sierra (10.12) | Sonoma (14) |  |
+| RX 560X | Sierra (10.12) | Sonoma (14) |  |
+| RX 570 | Sierra (10.12) | Sonoma (14) |  |
+| RX 570X | Sierra (10.12) | Sonoma (14) |  |
+| RX 580 | Sierra (10.12) | Sonoma (14) |  |
+| RX 580X | Sierra (10.12) | Sonoma (14) |  |
+| RX 590 | Sierra (10.12) | Sonoma (14) |  |
+| Radeon Pro: E9550 | Sierra (10.12) | Sonoma (14) |  |
+| Radeon Pro: WX 4100 | Sierra (10.12) | Sonoma (14) |  |
+| Radeon Pro: WX 5100 | Sierra (10.12) | Sonoma (14) |  |
+| Radeon Pro: WX 7100 | Sierra (10.12) | Sonoma (14) |  |
+
+## Lexa core based GPUs
+
+{: .note }
+Lexa based GPUs require a device-id property spoof to get the accelerator to match, the driver itself actually supports these cards yet there's no accelerator class. 
+
+| Card | Initial Support | Latest Support | Notes |
+| --- | --- | --- | --- |
+| RX 540 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
+| RX 540X | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
+| RX 550 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
+| RX 550X | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
+| WX 2100 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
+| WX 3100 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
 
 # Unsupported GPU's
 
@@ -107,20 +132,7 @@ While Navi 21 and Navi 23 are supported, Navi 22, Navi 24 and Navi 3X based grap
 | --- | --- | --- | --- |
 | RX 6400 | None | None |  |
 | RX 6500 XT | None | None |  |
-| RX 6700 XT | None | None |  |
-| RX 6750 XT | None | None |  |
 | RX 7900 XT | None | None |  |
 | RX 7900 XTX | None | None |  |
-
-## Lexa Cores
-
-| Card | Initial Support | Latest Support | Notes |
-| --- | --- | --- | --- |
-| RX 540 | None | None |  |
-| RX 540X | None | None |  |
-| RX 550 | None | None | Lexa Core Variant is Unsupported |
-| RX 550X | None | None | Lexa Core Variant is Unsupported |
-| WX 2100 | None | None |  |
-| WX 3100 | None | None |  |
 
 <h1>Take me <a href="../../../">back</a>!</h1>
