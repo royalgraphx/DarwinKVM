@@ -83,7 +83,7 @@ This one is quite interesting, NVIDIA ended up releasing a driver for some Volta
 | GTX 770 | Mountain Lion (10.8) | Big Sur (11) |  |
 | GTX 760 Ti | Mountain Lion (10.8) | Big Sur (11) |  |
 | GTX 760 | Mountain Lion (10.8) | Big Sur (11) |  |
-| GT 740 (GK107 core) | Mountain Lion (10.8) | Big Sur (11) |  |
+| GT 740 | Mountain Lion (10.8) | Big Sur (11) | GK106 core versions have a memory leak problem |
 | GT 730 (GK208 core) | Mountain Lion (10.8) | Big Sur (11) |  |
 | GT 720 | Mountain Lion (10.8) | Big Sur (11) |  |
 | GT 710 (GK208 core) | Mountain Lion (10.8) | Big Sur (11) |  |
@@ -92,7 +92,9 @@ This one is quite interesting, NVIDIA ended up releasing a driver for some Volta
 | GTX 670 | Mountain Lion (10.8) | Big Sur (11) | |
 | GTX 660 Ti | Mountain Lion (10.8) | Big Sur (11) | |
 | GTX 660 | Mountain Lion (10.8) | Big Sur (11) | Needs to be a GK104 core card. |
-| GTX 650 (GK107 core) | Mountain Lion (10.8) | Big Sur (11) | |
+| GTX 650 Ti | Mountain Lion (10.8) | Big Sur (11) | Suffers from a memory leak problem |
+| GTX 650 | Mountain Lion (10.8) | Big Sur (11) | GK106 core versions have a memory leak problem |
+| GTX 645 | Mountain Lion (10.8) | Big Sur (11) | GK106 core versions have a memory leak problem |
 | GT 640 (GK107/GK208 core) | Mountain Lion (10.8) | Big Sur (11) | |
 | GT 635 | Mountain Lion (10.8) | Big Sur (11) | |
 | GT 630 (GK107/GK208 core) | Mountain Lion (10.8) | Big Sur (11) | |
@@ -100,6 +102,7 @@ This one is quite interesting, NVIDIA ended up releasing a driver for some Volta
 | Quadro K5200 | Mountain Lion (10.8) | Big Sur (11) |  |
 | Quadro K5000 | Mountain Lion (10.8) | Big Sur (11) |  |
 | Quadro K4200 | Mountain Lion (10.8) | Big Sur (11) |  |
+| Quadro K4000 | Mountain Lion (10.8) | Big Sur (11) | Suffers from a memory leak problem |
 | Quadro K2000D | Mountain Lion (10.8) | Big Sur (11) |  |
 | Quadro K2000 | Mountain Lion (10.8) | Big Sur (11) |  |
 | Quadro K600 | Mountain Lion (10.8) | Big Sur (11) |  |
