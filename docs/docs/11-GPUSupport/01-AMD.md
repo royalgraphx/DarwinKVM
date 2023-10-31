@@ -40,7 +40,7 @@ Must add agdpmod=pikera to get a display out.
 # Navi 22
 
 {: .note }
-Needs the NootRX kernel extension to function
+Needs the [NootRX](https://github.com/ChefKissInc/NootRX) kernel extension to function
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
@@ -113,12 +113,12 @@ Lexa based GPUs require a device-id property spoof to get the accelerator to mat
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 540 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
-| RX 540X | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
-| RX 550 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
-| RX 550X | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
-| WX 2100 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
-| WX 3100 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-sppof propetry will also have to be enabled |
+| RX 540 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-spoof propetry will also have to be enabled |
+| RX 540X | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-spoof propetry will also have to be enabled |
+| RX 550 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-spoof propetry will also have to be enabled |
+| RX 550X | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-spoof propetry will also have to be enabled |
+| WX 2100 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-spoof propetry will also have to be enabled |
+| WX 3100 | None | None | Needs device-id spoof to 0x67FF, WhateverGreen's no-gfx-spoof propetry will also have to be enabled |
 
 # Unsupported GPU's
 
