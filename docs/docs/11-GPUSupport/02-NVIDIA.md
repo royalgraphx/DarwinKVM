@@ -117,13 +117,13 @@ On a more serious note, these GPUs break NVIDIA's naming scheme. Good job NVIDIA
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| GT 730 (GF108 core) | Lion (10.7) | Big Sur (11) |  |
-| GT 720A | Lion (10.7) | Big Sur (11) |  |
-| GT 710 (GF119 core) | Lion (10.7) | Big Sur (11) |  |
-| GT 705 | Lion (10.7) | Big Sur (11) |  |
-| GT 640 (GF108/GF116 core) | Lion (10.7) | Big Sur (11) |  |
-| GT 630 (GF108 core) | Lion (10.7) | Big Sur (11) |  |
-| GT 620 | Lion (10.7) | Big Sur (11) |  |
-| GT 610 | Lion (10.7) | Big Sur (11) |  |
+| GT 730 (GF108 core) | Lion (10.7) | High Sierra (10.13.6) |  |
+| GT 720A | Lion (10.7) | High Sierra (10.13.6) |  |
+| GT 710 (GF119 core) | Lion (10.7) | High Sierra (10.13.6) |  |
+| GT 705 | Lion (10.7) | High Sierra (10.13.6) |  |
+| GT 640 (GF108/GF116 core) | Lion (10.7) | High Sierra (10.13.6) |  |
+| GT 630 (GF108 core) | Lion (10.7) | High Sierra (10.13.6) |  |
+| GT 620 | Lion (10.7) | High Sierra (10.13.6) |  |
+| GT 610 | Lion (10.7) | High Sierra (10.13.6) |  |
 
 <h1>Take me <a href="../../../">back</a>!</h1>
