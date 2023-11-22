@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Part 3 - Virt-Manager Configuration
+title: Part 2 - Virt-Manager Configuration
 parent: Single GPU Passthrough
-nav_order: 4
+nav_order: 3
 ---
 
 # Virt-Manager Modifications

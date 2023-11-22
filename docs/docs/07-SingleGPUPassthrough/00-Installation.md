@@ -1,15 +1,17 @@
 ---
 layout: default
-title: Part 1 - Script Installation
+title: Part 0 - Script Installation
 parent: Single GPU Passthrough
-nav_order: 2
+nav_order: 1
 ---
 
 # Installation of Scripts
 #### Script Installation thanks to RisingPrism!
 
 {: .important }
-If the <a href="">RisingPrism</a> scripts do not work, use the <a href="https://gitlab.com/akshaycodes/vfio-script">akshaycodes</a> scripts instead.
+If the <a href="">RisingPrism</a> scripts do not work, **or if you have an AMD card with the reset bug**, use the <a href="https://gitlab.com/akshaycodes/vfio-script">akshaycodes</a> scripts instead.
+
+All AMD GPUs but the rDNA 2-based ones have the reset but.
 
 We'll start by doing a ``git clone`` command to fetch the scripts.
 

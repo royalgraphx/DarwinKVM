@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Part 2 - Hook Modification
+title: Part 1 - Hook Modification
 parent: Single GPU Passthrough
-nav_order: 3
+nav_order: 2
 ---
 
 # Hook Modification
