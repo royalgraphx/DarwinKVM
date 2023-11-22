@@ -26,7 +26,8 @@ We can use this dictionary to modify boot-args. Use the chart below for various 
 | ----- | ----- |
 | -v | This enables verbose mode, which shows all the behind-the-scenes text that scrolls by as you're booting instead of the Apple logo and progress bar. It's invaluable to any Hackintosher, as it gives you an inside look at the boot process, and can help you identify issues, problem kexts, etc. |
 | keepsyms=1 | This is a companion setting to debug=0x100 that tells the OS to also print the symbols on a kernel panic. That can give some more helpful insight as to what's causing the panic itself. |
-| debug=0x100	 | This disables macOS's watchdog which helps prevents a reboot on a kernel panic. That way you can hopefully glean some useful info and follow the breadcrumbs to get past the issues. |
+| debug=0x100	| This disables macOS's watchdog which helps prevents a reboot on a kernel panic. That way you can hopefully glean some useful info and follow the breadcrumbs to get past the issues. |
+| revpatch=cpuname,sbvmm | This enables CPU name and VMM patching by RestrictEvents, which will fix updates on macOS Sonoma and allow for changing CPU name. |
 
 ### GPU Related Boot-Args
 
