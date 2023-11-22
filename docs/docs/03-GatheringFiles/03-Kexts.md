@@ -20,6 +20,5 @@ Here is a basic chart of a Kext, its use, and the status of the requirement. Che
 | [NVMeFix](https://github.com/acidanthera/NVMeFix/releases) | Optional | NVMeFix is a set of patches for the Apple NVMe storage driver, IONVMeFamily. Its goal is to improve compatibility with non-Apple SSDs. It may be used both on Apple and non-Apple computers. Note: Does not work on Sonoma as of now. |
 | [RestrictEvents](https://github.com/acidanthera/RestrictEvents/releases) | Optional | Lilu plugin for blocking unwanted processes causing compatibility issues on different hardware and unlocking the support for certain features restricted to other hardware. We will mainly use it for changing the name of the CPU cosmetically. |
 | [RadeonSensor](https://github.com/NootInc/RadeonSensor/releases) | Optional | Kext and Gadget to show AMD GPU temperature on macOS. |
-| [AGPMInjector](https://github.com/Pavo-IM/AGPMInjector/releases) | Optional | Injects AGPM (Apple Graphics Power Management) to our non-Apple GPUs. |
 
 ## You can now continue to the next <a href="04-Tools.html">page</a>.
