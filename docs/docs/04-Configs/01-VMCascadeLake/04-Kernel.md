@@ -43,20 +43,20 @@ Don't skip over this section, we'll be changing the following:
 
 | Quirk  | Value | Description | 
 | ----- | ----- | ----- |
-| ForceSecureBootScheme | True | Forces the x86 scheme for IMG4 verification in Apple Secure Boot initialization. |
-| PanicNoKextDump | True | Allows for reading kernel panics logs when kernel panics occur. |
-| PowerTimeoutKernelPanic | True | Helps fix kernel panics relating to power changes with Apple drivers in macOS Catalina, most notably with digital audio. |
-| ProvideCurrentCpuInfo | True | Provides current CPU info to the kernel. This quirk works differently depending on the CPU: For KVM and other hypervisors it provides precomputed MSR 35h values solving kernel panic with ``-cpu host``. |
+| ForceSecureBootScheme | True | Forces a compatible scheme for Apple Secure Boot Image verification. |
+| PanicNoKextDump | True | Disables dumping of the loaded kexts when a kernel panic occurs, greatly helps with reading the panic output and debugging. |
+| PowerTimeoutKernelPanic | True | Helps fix kernel panics relating to power timeouts with Apple drivers in macOS Catalina and above, most notably with digital audio. |
+| ProvideCurrentCpuInfo | True | Provides current CPU info to the kernel. On KVM and other hypervisors it provides precomputed MSR 35h values to avoid some kernel panics. |
 
 ## Scheme
 
 Settings related to legacy booting, but we can change the following.
 
-| Key  | Type | Value | 
-| ----- | ----- | ----- |
-| CustomKernel | Boolean | False |
-| FuzzyMatch | Boolean | False |
-| KernelArch | String | x86_64 |
-| KernelCache | String | Prelinked |
+| Key  | Type | Value | Description | 
+| ----- | ----- | ----- | | ----- |
+| CustomKernel | Boolean | False | Loads a custom kernel, usually used for unsupported CPUs. Here we spoof the CPU with QEMU so we do not require this. |
+| FuzzyMatch | Boolean | False | Improves Mac OS X 10.6 (Snow Leopard) booting times by utilizing a different algorithm, if you don't care about ancient macOS/Mac OS X versions, disable this. |
+| KernelArch | String | x86_64 | Slightly improves boot performance by hardcoding that we're booting the kernel in AMD64 mode instead of x86. |
+| KernelCache | String | Auto | Specifies the kernel cache type used, on modern macOS versions, this can be hardcoded to Prelinked to speed up boot times. |
 
 ## You can now continue to the next <a href="05-Misc.html">page</a>.
