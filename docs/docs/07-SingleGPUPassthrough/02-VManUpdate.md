@@ -24,9 +24,9 @@ Now let's go ahead and remove the recoveryOS Keyboard and Mouse as we'll now be 
   <img src="../../assets/VManGPUPassthroughRemoveRecoveryKBM.png">
 </p>
 
-## Enabling Topoext / SVM for Multithreading
+## Enabling Topoext / AMD Simultaneous Multithreading (SMT) for Multithreading
 
-Depending on your CPU, you should enable either Topoext or SVM for your host OS. Here it is on an AMD host.
+If you have an AMD CPU, you should enable Topoext / AMD Simultaneous Multithreading (SMT) for the guest.
 
 <p align="center">
   <img src="../../assets/VManGPUPassthroughAddMultithreading.png">
