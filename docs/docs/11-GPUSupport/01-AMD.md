@@ -28,37 +28,37 @@ Must add agdpmod=pikera to get a display out.
 # Navi 21
 
 {: .note }
-Must add agdpmod=pikera to get a display out.
+NootRX is recommended for these GPUs.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6800 | Big Sur (11.4) | Sonoma (14) |  |
-| RX 6800 XT | Big Sur (11.4) | Sonoma (14) |  |
-| RX 6900 XT | Big Sur (11.4) | Sonoma (14) |  |
-| RX 6900 XTXH | Big Sur (11.4) | Sonoma (14) | If your card has Device ID: 0x73AF, spoofing device-id to 0x73BF will allow support. NootRX can be used instead of spoofing. |
+| RX 6800 | Big Sur (11) | Sonoma (14) |  |
+| RX 6800 XT | Big Sur (11) | Sonoma (14) |  |
+| RX 6900 XT | Big Sur (11) | Sonoma (14) |  |
+| RX 6900 XTXH | Big Sur (11) | Sonoma (14) | |
 
 # Navi 22
 
 {: .note }
-Needs the [NootRX](https://github.com/ChefKissInc/NootRX) kernel extension to function
+NootRX is necessary for these GPUs.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6700 | Monterey (12.1) | Sonoma (14) |  |
-| RX 6700 XT | Monterey (12.1) | Sonoma (14) |  |
-| RX 6750 XT | Monterey (12.1) | Sonoma (14) |  |
-| RX 6750 GRE (both models) | Monterey (12.1) | Sonoma (14) |  |
+| RX 6700 | Monterey (12) | Sonoma (14) |  |
+| RX 6700 XT | Monterey (12) | Sonoma (14) |  |
+| RX 6750 XT | Monterey (12) | Sonoma (14) |  |
+| RX 6750 GRE | Monterey (12) | Sonoma (14) |  |
 
 # Navi 23
 
 {: .note }
-Must add agdpmod=pikera to get a display out.
+NootRX is recommended for these GPUs.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6600 | Monterey (12.1) | Sonoma (14) |  |
-| RX 6600 XT | Monterey (12.1) | Sonoma (14) |  |
-| RX 6650 XT | Monterey (12.1) | Sonoma (14) | Needs a device-id spoof to the 6600 XT without NootRX, NootRX can be used here |
+| RX 6600 | Monterey (12) | Sonoma (14) |  |
+| RX 6600 XT | Monterey (12) | Sonoma (14) |  |
+| RX 6650 XT | Monterey (12) | Sonoma (14) |  |
 
 # Vega 20
 
@@ -85,7 +85,7 @@ All Vega based dedicated GPUs are natively supported in macOS with Vega 20 GPUs 
 # Polaris 10 and 20
 
 {: .warning }
-"Regarding Polaris, basically every model of card is supported as long as it’s running either a Polaris or Baffin core. The only brands you should avoid with the Polaris series would be XFX (460/560 models), PowerColor, HIS and VisionTek as many users have had bootloader and macOS boot issues". In this case, they do work on the latest macOS and you can proceed.
+"Regarding Polaris, basically every model is supported. The only brands you should avoid with the Polaris series would be XFX, PowerColor, HIS and VisionTek as many users have had bootloader and macOS boot issues. In this case, they do work on the latest macOS and you can proceed.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
@@ -93,7 +93,7 @@ All Vega based dedicated GPUs are natively supported in macOS with Vega 20 GPUs 
 | RX 470 | Sierra (10.12) | Sonoma (14) |  |
 | RX 470D | Sierra (10.12) | Sonoma (14) |  |
 | RX 480 | Sierra (10.12) | Sonoma (14) |  |
-| RX 550 | Sierra (10.12) | Sonoma (14) | Baffin Core |
+| RX 550 | Sierra (10.12) | Sonoma (14) |  |
 | RX 560 | Sierra (10.12) | Sonoma (14) |  |
 | RX 560X | Sierra (10.12) | Sonoma (14) |  |
 | RX 570 | Sierra (10.12) | Sonoma (14) |  |
@@ -128,7 +128,7 @@ While there are other GPU's that are supported up to Monterey and Big Sur, this 
 ## Navi 2X and Navi 3X
 
 {: .note }
-While Navi 21 and Navi 23 are supported, Navi 22, Navi 24 and Navi 3X based graphic cards are not at the time of writing. No guarantee can be made for future support.
+While Navi 21, 22 and Navi 23 are supported, Navi 24 and Navi 3X based graphic cards are not at the time of writing. No guarantee can be made for future support.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
