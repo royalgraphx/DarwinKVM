@@ -46,8 +46,6 @@
     <memballoon model='none'/>
   </devices>
   <qemu:commandline>
-    <qemu:arg value='-global'/>
-    <qemu:arg value='ICH9-LPC.acpi-pci-hotplug-with-bridge-support=off'/>
     <qemu:arg value='-device'/>
     <qemu:arg value='isa-applesmc,osk=ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc'/>
     <qemu:arg value='-usb'/>
