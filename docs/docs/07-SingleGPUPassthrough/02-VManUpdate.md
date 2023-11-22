@@ -114,9 +114,9 @@ Go ahead and add your USB Controllers as you'll need to use your Keyboard and Mo
   <img src="../../assets/VManGPUPassthroughAddUSBController2.png">
 </p>
 
-## Adding NVME (Optional)
+## Adding NVMe (Optional)
 
-If you have two NVMEs in your system, and you'd like to dedicate one completely to the installation of macOS for maximum performance, you can add your NVME drive. It still needs to be supported by macOS, or at least not reported to be problematic with macOS. I won't be adding it, but here it is for the example. For more information about whether or not or how you can pass your NVMe drive, please refer to the following [write-up]().
+If you have two NVMe drives in your system, and you'd like to dedicate one completely to the installation of macOS for maximum performance, you can add your NVMe drive. It still needs to be supported by macOS, or at least not reported to be problematic with macOS. I won't be adding it, but here it is for the example. For more information about whether or not or how you can pass your NVMe drive, please refer to the following [write-up]().
 
 <p align="center">
   <img src="../../assets/VManGPUPassthroughAddNVME.png">
