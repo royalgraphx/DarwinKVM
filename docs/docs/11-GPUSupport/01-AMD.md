@@ -71,9 +71,8 @@ All Vega based dedicated GPUs are natively supported in macOS with Vega 20 GPUs 
 
 # Vega 10
 
-{: .highlight }
-> Vega 10 GPUs are natively supported in macOS. In this case, they do work on the latest macOS and you can proceed. 
-> "The only brand of GPUs to avoid with Vega 10 is XFX. The reason is VBIOS communication issues which can't be easily solved with a reference BIOS due to how Vega's powerplay table interacts with the OS and GPU."
+{: .note }
+Vega 10 GPUs are natively supported in macOS. In this case, they do work on the latest macOS and you can proceed. The only brand of GPUs to avoid with Vega 10 is XFX, due to VBIOS communication issues, which can't be easily solved with a reference BIOS as the Vega's powerplay table interacts with the OS and GPU differently.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
@@ -84,8 +83,8 @@ All Vega based dedicated GPUs are natively supported in macOS with Vega 20 GPUs 
 
 # Polaris 10 and 20
 
-{: .warning }
-"Regarding Polaris, basically every model is supported. The only brands you should avoid with the Polaris series would be XFX, PowerColor, HIS and VisionTek as many users have had bootloader and macOS boot issues. In this case, they do work on the latest macOS and you can proceed.
+{: .note }
+For Polaris, basically every model is supported. The only brands you should avoid with the Polaris series would be XFX, PowerColor, HIS and VisionTek as many users have had bootloader and macOS boot issues. In this case, they do work on the latest macOS and you can proceed.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
@@ -109,7 +108,7 @@ All Vega based dedicated GPUs are natively supported in macOS with Vega 20 GPUs 
 ## Lexa core based GPUs
 
 {: .note }
-Lexa based GPUs require a device-id property spoof to get the accelerator to match, the driver itself actually supports these cards yet there's no accelerator class. 
+Lexa based GPUs require a device-id property spoof to get the accelerator to match, the driver itself actually supports these cards yet there's no accelerator class.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
