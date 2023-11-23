@@ -14,7 +14,7 @@ nav_order: 6
 
 ## BlessOverride
 
-To be filled with plist string entries containing absolute UEFI paths to customised bootloaders such as \EFI\debian\grubx64.efi for the Debian bootloader. We do nothing here, nor will we ever.
+To be filled with plist string entries containing absolute UEFI paths to customised bootloaders such as \EFI\debian\grubx64.efi for the Debian bootloader. As our VM is strictly macOS only, we do nothing here, nor will we ever.
 
 ## Boot
 
@@ -22,7 +22,6 @@ Don't skip over this section, we'll be changing the following:
 
 | Key  | Type | Value | 
 | ----- | ----- | ----- |
-| HideAuxiliary | Boolean | True |
 | PollAppleHotKeys | Boolean | True |
 
 ## Debug
@@ -32,6 +31,9 @@ Don't skip over this section, we'll be changing the following:
 
 | Key  | Type | Value | 
 | ----- | ----- | ----- |
+| AppleDebug | Boolean | True |
+| ApplePanic | Boolean | True |
+| DisableWatchDog | Boolean | True |
 | Target | Number | 67 |
 
 ## Entries

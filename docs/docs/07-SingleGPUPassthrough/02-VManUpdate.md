@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Part 3 - Virt-Manager Configuration
+title: Part 2 - Virt-Manager Configuration
 parent: Single GPU Passthrough
-nav_order: 4
+nav_order: 3
 ---
 
 # Virt-Manager Modifications
@@ -24,9 +24,9 @@ Now let's go ahead and remove the recoveryOS Keyboard and Mouse as we'll now be 
   <img src="../../assets/VManGPUPassthroughRemoveRecoveryKBM.png">
 </p>
 
-## Enabling Topoext / SVM for Multithreading
+## Enabling Topoext / AMD Simultaneous Multithreading (SMT) for Multithreading
 
-Depending on your CPU, you should enable either Topoext or SVM for your host OS. Here it is on an AMD host.
+If you have an AMD CPU, you should enable Topoext / AMD Simultaneous Multithreading (SMT) for the guest.
 
 <p align="center">
   <img src="../../assets/VManGPUPassthroughAddMultithreading.png">
@@ -75,7 +75,7 @@ Let's go ahead and add the GPU and its Audio to our Virtual Machine.
 
 Here's what a lot of people don't check. This will be required here as on macOS if you want your HDMI/DP Audio to work, this must be configured correctly. Windows doesn't care so it's not an issue.
 
-Essentially, your GPU and Audio must be on the same ``Bus`` in the Virtual Machine, but your Audio must be a ``Function`` of the Virtual Machines GPU. Thus creating a multifunction GPU in the VM which has an accompanying Audio device. This displays the GPU as a single unit. Allowing for HDMI/DP Audio in macOS.
+Essentially, your GPU and Audio must be on the same ``Bus`` in the Virtual Machine, but your Audio must be a ``Function`` of the GPU. Thus creating a multifunction GPU in the VM which has an accompanying Audio device. This displays the GPU as a single unit. Allowing for HDMI/DP Audio in macOS.
 
 
 Go Ahead and select your GPU from the left-hand side. Note the Bus assigned.
@@ -114,9 +114,9 @@ Go ahead and add your USB Controllers as you'll need to use your Keyboard and Mo
   <img src="../../assets/VManGPUPassthroughAddUSBController2.png">
 </p>
 
-## Adding NVME (Optional)
+## Adding NVMe (Optional)
 
-If you have two NVMEs in your system, and you'd like to dedicate one completely to the installation of macOS for maximum performance, you can add your NVME drive. It still needs to be supported by macOS, or at least not reported to be problematic with macOS. I won't be adding it, but here it is for the example. For more information about whether or not or how you can pass your NVMe drive, please refer to the following [write-up]().
+If you have two NVMe drives in your system, and you'd like to dedicate one completely to the installation of macOS for maximum performance, you can add your NVMe drive. It still needs to be supported by macOS, or at least not reported to be problematic with macOS. I won't be adding it, but here it is for the example. For more information about whether or not or how you can pass your NVMe drive, please refer to the following [write-up]().
 
 <p align="center">
   <img src="../../assets/VManGPUPassthroughAddNVME.png">
@@ -124,7 +124,7 @@ If you have two NVMEs in your system, and you'd like to dedicate one completely 
 
 ## Example VM ready to start
 
-If you've gone ahead and verified everything, your IOMMU groups, and your multifunction GPU, you are now ready! Here's an example of what a completed GPU Passthrough Virt-Manager will look like. Note that in this example image, the BaseSystem.dmg is still included within the OPENCORE image.
+If you've gone ahead and verified everything, your IOMMU groups, and your multifunction GPU, you are now ready! Here's an example of what a completed GPU Passthrough Virt-Manager will look like. Note that in this example image, the BaseSystem.dmg is still included within the OpenCore image.
 
 <p align="center">
   <img src="../../assets/VManGPUPassthroughCompletedExample.png">
