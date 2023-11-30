@@ -23,7 +23,7 @@
 
 <h3 align="center">macOS Sonoma 14.1 (Credits: @Haxi0)</h3>
 <p align="center">
-  <img src="./showcase/Haxi0DKVM.png">
+  <img src="./showcase/haxi0DKVM.png">
 </p>
 
 <h3 align="center">macOS Sonoma 14.0</h3>
