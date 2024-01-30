@@ -1,5 +1,5 @@
 title: DarwinKVM Docs
-description: An advanced guide to run macOS on QEMU/KVM with libvirtd/Virt-Manager, includes GPU Passthrough.
+description: An advanced guide for running Mac OS / Mac OS X / macOS on QEMU/KVM with GPU Passthrough.
 theme: just-the-docs
 color_scheme: custom
 favicon_ico: "/assets/favicon.ico"
@@ -22,31 +22,40 @@ callouts:
   warning:
     title: Warning
     color: reddish
+  headsup:
+    title: Heads Up!
+    color: heads-up
 
 # set up collections
 
 # Define Jekyll collections
 collections:
-  # Define a collection named "writeups", its documents reside in the "_writeups" directory
+  infocenter:
+    permalink: "/:collection/:path/"
+    output: true
+  installguides:
+    permalink: "/:collection/:path/"
+    output: true
   writeups:
     permalink: "/:collection/:path/"
     output: true
 
 just_the_docs:
-  # Define which collections are used in just-the-docs
   collections:
-    # Reference the "tests" collection
-    writeups:
-      # Give the collection a name
-      name: Writeups
-      # Exclude the collection from the navigation
-      # Supports true or false (default)
+    infocenter:
+      name: INFO CENTER
       nav_exclude: false
-      # Fold the collection in the navigation
-      # Supports true or false (default)
-      nav_fold: false  # note: this option is new in v0.4
-      # Exclude the collection from the search
-      # Supports true or false (default)
+      nav_fold: false
+      search_exclude: false
+    installguides:
+      name: INSTALL GUIDES
+      nav_exclude: false
+      nav_fold: false
+      search_exclude: false
+    writeups:
+      name: WRITE UPS
+      nav_exclude: false
+      nav_fold: false
       search_exclude: false
 
 # Set up includes
@@ -58,7 +67,7 @@ include:
 
 # External navigation links
 nav_external_links:
-  - title: Support on Discord
+  - title: Support via Discord
     url: https://discord.gg/ryQFC8Vk7b
     hide_icon: false
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Part 1. BIOS Settings
+title: BIOS Settings
 parent: Host Preparations
 nav_order: 1
 ---
@@ -19,4 +19,16 @@ Depending on your machine's CPU, you need to enable certain settings in your BIO
 
 If you do not have any virtualization settings, chances are they're already enabled, but double-check that your BIOS is up to date and that your CPU and motherboard support virtualization.
 
-## You can now continue to the next <a href="02-KernelParameters">page</a>.
+When you've rebooted and returned back to your terminal, you can issue the following command to check if Virtualization is enabled and supported on your system:
+
+```bash
+lscpu | grep Virtualization
+```
+
+Example Output:
+
+```bash
+Virtualization: AMD-V
+```
+
+<h2 align="center">You can now proceed to the <a href="02-KernelParameters">Kernel Parameters</a> section!</h2>

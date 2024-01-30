@@ -1,9 +1,9 @@
 <p align="center">
-  <img width="40%" height="40%" src="./Assets/DarwinKVMLogo.png">
+  <img width="40%" height="40%" src="./assets/DarwinKVMLogo.png">
 </p>
 
 <p align="center">
-  <img width="80%" height="80%" src="./Assets/HeaderTextOnly.png">
+  <img width="80%" height="80%" src="./assets/HeaderTextOnly.png">
 </p>
 
 <h3 align="center">An Advanced Guide for running macOS within QEMU/KVM</h3>
@@ -14,7 +14,14 @@
 
 </br>
 
-<h1 align="center">Gallery</h1>
+<p align="center">
+  <img width="650" height="200" src="./assets/HeaderGallery.png">
+</p>
+
+<h3 align="center">macOS Sonoma 14.2.1 (Credits: @heliokroger)</h3>
+<p align="center">
+  <img src="./showcase/Helio1421.png">
+</p>
 
 <h3 align="center">macOS Sonoma 14.1</h3>
 <p align="center">
@@ -56,7 +63,7 @@
 <h1 align="center">Need Help?</h1>
 </br>
 <p align="center">
-  <img width="50%" height="50%" src="./Assets/discord-logo-white.png">
+  <img width="50%" height="50%" src="./assets/discord-logo-white.png">
 </p>
 <h4 align="center">If you run into any issues, you can join the <a href="https://discord.gg/ryQFC8Vk7b">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. <a href="https://github.com/royalgraphx/Hexley">Hexley</a> provides our discord users with a multitude of commands to assist anyone who may need specific actions performed. Such features that Hexley offers aim to speed up the process with command such as:</h4>
 
