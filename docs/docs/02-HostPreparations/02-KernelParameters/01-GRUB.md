@@ -1,7 +1,7 @@
 ---
 layout: default
 title: GRUB Configuration
-parent: Part 2. Kernel Parameters
+parent: Kernel Parameters
 grand_parent: Host Preparations
 nav_order: 1
 ---
@@ -34,4 +34,4 @@ When you're done make sure you use ``grub-mkconfig`` to update the GRUB Bootload
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-## You can now continue to the next <a href="../03-PackageInstall.html">page</a>.
+## You can now continue to the next <a href="../03-PackageInstall">page</a>.

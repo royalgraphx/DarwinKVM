@@ -1,7 +1,7 @@
 ---
 layout: default
 title: systemd-boot
-parent: Part 2. Kernel Parameters
+parent: Kernel Parameters
 grand_parent: Host Preparations
 nav_order: 2
 ---
@@ -73,4 +73,4 @@ Example output
 zswap.enabled=0 rw rootfstype-ext4 iommu=pt video=efifb:off
 ```
 
-## You can now continue to the next <a href="../03-PackageInstall.html">page</a>.
+## You can now continue to the next <a href="../03-PackageInstall">page</a>.

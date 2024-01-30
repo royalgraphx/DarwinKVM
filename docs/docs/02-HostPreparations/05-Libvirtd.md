@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Part 5. Libvirtd Configuration
+title: Libvirtd Configuration
 parent: Host Preparations
 nav_order: 5
 ---
@@ -71,7 +71,7 @@ sudo usermod -a -G kvm,libvirt $(whoami)
 Now enable and start the libvirtd Service to fully apply changes:
 
 ```bash
-sudo systemctl enable --start libvirtd
+sudo systemctl enable --now libvirtd
 ```
 
-## You can now continue to the next <a href="../03-GatheringFiles/">page</a>.
+## You can now continue to the next <a href="06-IOMMU.html">page</a>.

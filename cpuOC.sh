@@ -2,7 +2,7 @@
 
 # CPU Governor OC Script. Can be automatically applied on boot.
 #
-# Copyright (c) 2023 RoyalGraphX
+# Copyright (c) 2024 RoyalGraphX
 # BSD 3-Clause License
 #
 
