@@ -1,12 +1,9 @@
 [submodule "DarwinOCPkg"]
 	path = DarwinOCPkg
 	url = https://github.com/royalgraphx/DarwinOCPkg.git
-[submodule "macrecovery"]
-	path = macrecovery
-	url = https://github.com/royalgraphx/macrecovery
-[submodule "macos-display-overrides"]
-	path = macos-display-overrides
-	url = https://github.com/mafredri/macos-display-overrides.git
 [submodule "DiskProvision"]
 	path = DiskProvision
 	url = https://github.com/royalgraphx/DiskProvision.git
+[submodule "DarwinFetch"]
+	path = DarwinFetch
+	url = https://github.com/royalgraphx/DarwinFetch
