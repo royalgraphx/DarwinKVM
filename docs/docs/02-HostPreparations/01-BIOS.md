@@ -7,17 +7,26 @@ nav_order: 1
 
 # BIOS Settings
 #### Will depend on your Host Hardware.
-#### This section has been derived from the <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/1)-Preparations">Preparations</a> section via <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home">RisingPrism</a>.
 
 Depending on your machine's CPU, you need to enable certain settings in your BIOS for virtualization to succeed. Enable the settings listed in this table as needed:
 
-| AMD  | Intel |
-| ---- | ----- |
+| AMD | Intel |
+| ---- | ---- |
 | IOMMU | VT-d |
 | NX Mode | XD (eXecute Disable) Bit |
 | SVM Mode | VT-x |
 
 If you do not have any virtualization settings, chances are they're already enabled, but double-check that your BIOS is up to date and that your CPU and motherboard support virtualization.
+
+You will now have to disable the following settings from your BIOS:
+
+| Setting | Note |
+| ---- | ---- |
+| Above 4G Decoding | Does not work within macOS |
+| Resizable BAR | Does not work within macOS |
+| Smart Access Memory (SAM/CAM) | Can possibly be called this on Intel systems | 
+
+There are currently workarounds possible to set the BAR size back to the default 256MB even with A4GD and RB enabled, but at the moment no write-up has been complete for it. For now, it's recommended to disable such BIOS settings, if you cannot manually set your BAR sizes without a guide (here, currently).
 
 When you've rebooted and returned back to your terminal, you can issue the following command to check if Virtualization is enabled and supported on your system:
 
