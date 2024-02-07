@@ -10,7 +10,7 @@ nav_order: 1
 #### Package requirements for base DKVM.
 
 ```bash
-sudo pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf qemu-utils dosfstools
+sudo pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf qemu-tools dosfstools
 ```
 
 Please note: Conflicts may happen when installing these programs.
