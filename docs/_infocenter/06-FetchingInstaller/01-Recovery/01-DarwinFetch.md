@@ -13,26 +13,18 @@ Open a terminal and navigate to the DarwinFetch directory.
 
 You can now run ``src/main.py`` or use ``./DarwinFetch.sh`` to attempt to autolaunch.
 
-<p align="center">
-  <img src="../../../../assets/DarwinFetchMainMenu.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DarwinFetchMainMenu.png"><img src="../../../../assets/DarwinFetchMainMenu.png" alt=""></a>
 
 Selecting the second option will take you to a submenu to select a version to fetch.
 
 For this example, we'll be getting the latest macOS Sonoma 14.3 RecoveryOS image.
 
-<p align="center">
-  <img src="../../../../assets/DarwinFetchRecoverySources.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DarwinFetchRecoverySources.png"><img src="../../../../assets/DarwinFetchRecoverySources.png" alt=""></a>
 
-<p align="center">
-  <img src="../../../../assets/DarwinFetchRecoverySonoma.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DarwinFetchRecoverySonoma.png"><img src="../../../../assets/DarwinFetchRecoverySonoma.png" alt=""></a>
 
 After some time, and a verification of the accompanying chunklist, you will be ready!
 
-<p align="center">
-  <img src="../../../../assets/DarwinFetchDirectoryRecovery.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DarwinFetchDirectoryRecovery.png"><img src="../../../../assets/DarwinFetchDirectoryRecovery.png" alt=""></a>
 
 ## You can now continue to the next <a href="../02-addingtoOC">page</a>.

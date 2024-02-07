@@ -7,9 +7,7 @@ nav_order: 6
 
 # Misc
 
-<p align="center">
-  <img src="../../../assets/OpenCoreMisc.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreMisc.png"><img src="../../../assets/OpenCoreMisc.png" alt=""></a>
 
 ## BlessOverride
 

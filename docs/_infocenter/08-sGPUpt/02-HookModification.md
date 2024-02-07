@@ -16,8 +16,6 @@ sudo nano /etc/libvirt/hooks/qemu
 
 Example modified file:
 
-<p align="center">
-  <img src="../../../assets/QEMUHookModification.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/QEMUHookModification.png"><img src="../../../assets/QEMUHookModification.png" alt=""></a>
 
 ## You can now continue to the next <a href="../03-VManUpdate">page</a>.

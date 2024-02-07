@@ -7,7 +7,6 @@ nav_order: 4
 
 # Networking in a Virtual Machine
 #### Using libvirtd's default NAT Virtio NIC for your DKVM to get Internet Access.
-#### This section has been derived from the <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/4)-Configuration-of-libvirt">Configuration of libvirt</a> section via <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home">RisingPrism</a>.
 
 ## Libvirtd's Default Virtual Network
 

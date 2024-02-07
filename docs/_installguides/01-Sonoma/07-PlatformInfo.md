@@ -7,9 +7,7 @@ nav_order: 8
 
 # Platform Info
 
-<p align="center">
-  <img src="../../../assets/OpenCorePlatformInfo.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCorePlatformInfo.png"><img src="../../../assets/OpenCorePlatformInfo.png" alt=""></a>
 
 ## Automatic
 

@@ -12,20 +12,13 @@ nav_order: 3
 
 Select the "Add Hardware" button to bring up the Storage prompt. Select the OpenCore image via the "Manage..." button. The ``Bus type:`` should be set to VirtIO. Cache mode set to none, and Discard mode is set to unmap.
 
-<p align="center">
-  <img src="../../../assets/VManAddVirtIOInstallation2.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/VManAddVirtIOInstallation2.png"><img src="../../../assets/VManAddVirtIOInstallation2.png" alt=""></a>
 
-
-<p align="center">
-  <img src="../../../assets/VManAddOpenCore1.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/VManAddOpenCore1.png"><img src="../../../assets/VManAddOpenCore1.png" alt=""></a>
 
 Don't forget to set it as your boot drive.
 
-<p align="center">
-  <img src="../../../assets/VManAddOpenCore2.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/VManAddOpenCore2.png"><img src="../../../assets/VManAddOpenCore2.png" alt=""></a>
 
 ## Creating a Virtual SSD for installation
 
@@ -36,8 +29,6 @@ To create a virtual SSD, when selecting the "Add Hardware" button to bring up th
 
 Here you can see me creating the disk image I'll be installing macOS on.
 
-<p align="center">
-  <img src="../../../assets/VManAddVirtIOInstallation.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/VManAddVirtIOInstallation.png"><img src="../../../assets/VManAddVirtIOInstallation.png" alt=""></a>
 
 ## You can now continue to the next <a href="../03-ConfigNIC">page</a>.

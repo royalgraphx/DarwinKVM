@@ -7,9 +7,7 @@ nav_order: 3
 
 # Booter
 
-<p align="center">
-  <img src="../../../assets/OpenCoreBooterQuirks.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreBooterQuirks.png"><img src="../../../assets/OpenCoreBooterQuirks.png" alt=""></a>
 
 ## MmioWhitelist
 

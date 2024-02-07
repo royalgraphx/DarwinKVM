@@ -7,9 +7,7 @@ nav_order: 7
 
 # NVRAM
 
-<p align="center">
-  <img src="../../../assets/OpenCoreNVRAM.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreNVRAM.png"><img src="../../../assets/OpenCoreNVRAM.png" alt=""></a>
 
 ## Add
 

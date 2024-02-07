@@ -13,3 +13,5 @@ UEFI Shell is already provided by TianoCore / EDK2 UEFI BIOS. No Tools needed, t
 | Tool  | Status | Description | 
 | ----- | ----- | ----- |
 |  |  |  |
+
+<h2 align="center">You can now proceed to the <a href="../../../docs/04-GuestSupport/index">Guest Support Table</a>!</h2>

@@ -10,6 +10,12 @@ has_toc: false
   <img width="650" height="200" src="../../assets/HeaderGallery.png">
 </p>
 
+<h3 align="center">macOS Sonoma 14.4 Beta</h3>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/HacProKVM144Beta.png"><img src="../../showcase/HacProKVM144Beta.png" alt=""></a>
+
+<h3 align="center">macOS Sonoma 14.3</h3>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/HacProKVM143.png"><img src="../../showcase/HacProKVM143.png" alt=""></a>
+
 <h3 align="center">macOS Sonoma 14.2.1 (Credits: @heliokroger)</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/Helio1421.png"><img src="../../showcase/Helio1421.png" alt=""></a>
 

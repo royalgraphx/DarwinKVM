@@ -7,9 +7,7 @@ nav_order: 5
 
 # Kernel
 
-<p align="center">
-  <img src="../../../assets/OpenCoreKernel.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreKernel.png"><img src="../../../assets/OpenCoreKernel.png" alt=""></a>
 
 ## Add
 

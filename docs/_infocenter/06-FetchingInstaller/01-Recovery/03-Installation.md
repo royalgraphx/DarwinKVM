@@ -11,83 +11,58 @@ nav_order: 4
 
 OpenCore Menu, shows recoveryOS detected.
 
-<p align="center">
-  <img src="../../../../assets/OpenCoreVMBootRecovery.png">
-</p>
+{: .headsup }
+Booting from the RecoveryOS image on the OpenCore Disk Image, is known to take anywhere from a few seconds, to a minute to load! You are not frozen. Simply wait for macOS to finish loading.
+
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreVMBootRecovery.png"><img src="../../../../assets/OpenCoreVMBootRecovery.png" alt=""></a>
 
 macOS Ventura recoveryOS booting
 
-<p align="center">
-  <img src="../../../../assets/BootingRecovery.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/BootingRecovery.png"><img src="../../../../assets/BootingRecovery.png" alt=""></a>
 
 macOS Ventura Disk Utility showing OpenCore drive.
 
-<p align="center">
-  <img src="../../../../assets/macOSRecoveryDiskUtility.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/macOSRecoveryDiskUtility.png"><img src="../../../../assets/macOSRecoveryDiskUtility.png" alt=""></a>
 
 {: .highlight }
 From here on out, the screenshots will show macOS Sonoma because I had the USB prepared nearby and wanted to test everything working still even in Sonoma. This won't make a difference for you, it's the same for macOS Ventura.
 
-<p align="center">
-  <img src="../../../../assets/OpenCoreSonomaRecoveryBoot.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreSonomaRecoveryBoot.png"><img src="../../../../assets/OpenCoreSonomaRecoveryBoot.png" alt=""></a>
 
 Open Disk Utility, and format the target drive to APFS.
 
-<p align="center">
-  <img src="../../../../assets/macOSRecoveryFormatInstallTarget.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/macOSRecoveryFormatInstallTarget.png"><img src="../../../../assets/macOSRecoveryFormatInstallTarget.png" alt=""></a>
 
-<p align="center">
-  <img src="../../../../assets/macOSRecoveryFormatInstallTarget2.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/macOSRecoveryFormatInstallTarget2.png"><img src="../../../../assets/macOSRecoveryFormatInstallTarget2.png" alt=""></a>
 
-<p align="center">
-  <img src="../../../../assets/macOSRecoveryFormatInstallTarget3.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/macOSRecoveryFormatInstallTarget3.png"><img src="../../../../assets/macOSRecoveryFormatInstallTarget3.png" alt=""></a>
 
 You are now ready to proceed to the installation!
 
-<p align="center">
-  <img src="../../../../assets/OpenCoreSonomaRecoveryInstallation1.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreSonomaRecoveryInstallation1.png"><img src="../../../../assets/OpenCoreSonomaRecoveryInstallation1.png" alt=""></a>
 
-<p align="center">
-  <img src="../../../../assets/OpenCoreSonomaRecoveryInstallation2.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreSonomaRecoveryInstallation2.png"><img src="../../../../assets/OpenCoreSonomaRecoveryInstallation2.png" alt=""></a>
 
 Second Boot Phase
 
-<p align="center">
-  <img src="../../../../assets/OpenCoreSonomaSecondBootPhase.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreSonomaSecondBootPhase.png"><img src="../../../../assets/OpenCoreSonomaSecondBootPhase.png" alt=""></a>
 
 Third Boot Phase, further unpacking.
 
-<p align="center">
-  <img src="../../../../assets/OpenCoreSonomaThirdBootPhase.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreSonomaThirdBootPhase.png"><img src="../../../../assets/OpenCoreSonomaThirdBootPhase.png" alt=""></a>
 
 {: .note }
 You may get a fourth reboot, if not, eventually, you will the proper name of your drive:
 
-<p align="center">
-  <img src="../../../../assets/OpenCoreSonomaInstallationComplete.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreSonomaInstallationComplete.png"><img src="../../../../assets/OpenCoreSonomaInstallationComplete.png" alt=""></a>
 
 Here we are at the desktop of our Virtual Machine.
 
-<p align="center">
-  <img src="../../../../assets/macOSSonomaDesktop.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/macOSSonomaDesktop.png"><img src="../../../../assets/macOSSonomaDesktop.png" alt=""></a>
 
 Our OpenCore image is mounted easily and recognized by macOS. Allowing easy modification within and out of the Virtual Machine. Any changes made here, can easily be viewed by mounting on the host. This can be useful for moving small files.
 
-<p align="center">
-  <img src="../../../../assets/macOSSonomaNoMountEFIneeded.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/macOSSonomaNoMountEFIneeded.png"><img src="../../../../assets/macOSSonomaNoMountEFIneeded.png" alt=""></a>
 
 <h2 align="center">Now that macOS is installed, we can now do GPU Passthrough!</h2>
 

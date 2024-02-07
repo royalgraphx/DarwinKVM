@@ -8,9 +8,7 @@ nav_order: 5
 # Finished Example
 #### Notice the display, drives, and NIC added.
 
-<p align="center">
-  <img src="../../../assets/VManExampleReadyToInstall.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/VManExampleReadyToInstall.png"><img src="../../../assets/VManExampleReadyToInstall.png" alt=""></a>
 
 <h2 align="center">Depending on your decision of using the Recovery or Offline Installer, you may now proceed to installing the OS.</h2>
 

@@ -20,6 +20,6 @@ Here is a basic chart of a Kext, its use, and the status of the requirement. Che
 | [RestrictEvents](https://github.com/ExtremeXT/RestrictEvents) | Recommended | Lilu plugin for blocking unwanted processes causing compatibility issues on different hardware and unlocking the support for certain features restricted to other hardware. We will use it for changing the name of the CPU cosmetically and fixing Bluetooth support on macOS Sonoma. |
 | [VirtualSMC](https://github.com/acidanthera/VirtualSMC) | Optional | Emulates the SMC chip found on real macs, but we are already emulating it from the XML file, only use it for kexts that send temperature info to the SMC, like SMCRadeonGPU. |
 | [RadeonSensor](https://github.com/NootInc/RadeonSensor) | Optional | Kext and Gadget to show AMD GPU temperature on macOS. |
-| [AppleALC](https://github.com/acidanthera/AppleALC) | Optional | Used for [Motherboard Audio](../../writeups/04-MotherboardAudio/index), Additional setup required! |
+| [AppleALC](https://github.com/acidanthera/AppleALC) | Optional | Used for [Motherboard Audio](../../../writeups/05-MotherboardAudio/index), Additional setup required! |
 
 ## You can now continue to the next <a href="../04-Tools">page</a>.

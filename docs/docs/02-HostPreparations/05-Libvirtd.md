@@ -7,7 +7,6 @@ nav_order: 5
 
 # Libvirtd Configuration
 #### Necessary changes to use Virt-Manager via User.
-#### This section has been derived from the <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/4)-Configuration-of-libvirt">Configuration of libvirt</a> section via <a href="https://gitlab.com/risingprismtv/single-gpu-passthrough/-/wikis/home">RisingPrism</a>.
 
 {: .warning }
 Adding yourself to the libvirt group allows for password-less root both from the host and guest. If you are uncomfortable with that and want to avoid this, consider using [Polkit](https://wiki.archlinux.org/title/Polkit) instead which will prompt you for your password. While this is safe for our use case, be aware of what you're doing when following guides online.

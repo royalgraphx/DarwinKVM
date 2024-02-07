@@ -7,9 +7,7 @@ nav_order: 9
 
 # UEFI
 
-<p align="center">
-  <img src="../../../assets/OpenCoreUEFI.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreUEFI.png"><img src="../../../assets/OpenCoreUEFI.png" alt=""></a>
 
 ## APFS
 

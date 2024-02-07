@@ -30,10 +30,14 @@ nav_order: 5
   - Introduction and Learning
   - Create OpenCore Disk Image
 
-**4. Configure OpenCore for target macOS**
+**4. [Gathering Files for OpenCore](../../infocenter/01-FileOverview/index)**
+  - Read through what all of the directories do
+  - There is a section dedicated to determine needed kexts
+
+**4. [Configure OpenCore for target macOS](../04-GuestSupport/index)**
   - Simply choose an Install Guide from the left-hand side!
 
-**5. Fetching Installer**
+**5. [Fetching Installer](../../infocenter/06-FetchingInstaller/index)**
   - You may either get a [Recovery](../../infocenter/06-FetchingInstaller/01-Recovery/index) or [Offline](../../infocenter/06-FetchingInstaller/02-Offline/index) based Installer.
 
 **6. [Import XML and Configure Virtual Machine](../../infocenter/07-XML/index)**

@@ -7,9 +7,7 @@ nav_order: 2
 
 # ACPI
 
-<p align="center">
-  <img src="../../../assets/OpenCoreACPIAdd.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreACPIAdd.png"><img src="../../../assets/OpenCoreACPIAdd.png" alt=""></a>
 
 ## Add
 

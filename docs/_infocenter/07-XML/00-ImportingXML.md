@@ -14,9 +14,7 @@ Run the following command in the root directory of DarwinKVM:
 
 Which will now allow you to view it in Virt-Manager.
 
-<p align="center">
-  <img src="../../../assets/VManTemplateImport.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/VManTemplateImport.png"><img src="../../../assets/VManTemplateImport.png" alt=""></a>
 
 Notice this template is missing a few things you must set up.
 

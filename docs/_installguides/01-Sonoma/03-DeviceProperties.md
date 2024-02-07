@@ -7,9 +7,7 @@ nav_order: 4
 
 # Device Properties
 
-<p align="center">
-  <img src="../../../assets/OpenCoreDeviceProperties.png">
-</p>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreDeviceProperties.png"><img src="../../../assets/OpenCoreDeviceProperties.png" alt=""></a>
 
 ## Add
 
