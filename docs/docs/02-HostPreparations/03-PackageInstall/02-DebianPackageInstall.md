@@ -16,4 +16,4 @@ While Debian based distributions do run QEMU/KVM, they are for the most part not
 sudo apt install qemu-system-x86 qemu-utils libvirt-clients libvirt-daemon-system libvirt-daemon-config-network bridge-utils virt-manager ovmf dosfstools
 ```
 
-## You can now continue to the next <a href="../04-Networking.html">page</a>.
+## You can now continue to the next <a href="../04-PkgConf.html">page</a>.

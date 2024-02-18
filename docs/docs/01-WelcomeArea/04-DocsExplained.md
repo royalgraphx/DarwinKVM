@@ -9,7 +9,7 @@ nav_order: 5
   <img width="650" height="200" src="../../assets/HeaderDocsLayout.png">
 </p>
 
-<h3 align="center">The basic flow of a user attempting to use DarwinKVM would typically go like this:</h3>
+<h3 align="center">If you lose your spot, reference this typical workflow for latest macOS:</h3>
 
 <br>
 

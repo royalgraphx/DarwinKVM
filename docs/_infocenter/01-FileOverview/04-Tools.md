@@ -10,7 +10,7 @@ nav_order: 5
 
 UEFI Shell is already provided by TianoCore / EDK2 UEFI BIOS. No Tools needed, the folder is not included or needed.
 
-| Tool  | Status | Description | 
+| Tool  | Status | Description |
 | ----- | ----- | ----- |
 |  |  |  |
 

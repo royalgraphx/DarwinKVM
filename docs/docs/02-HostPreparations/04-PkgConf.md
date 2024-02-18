@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Libvirtd Configuration
+title: Package Configuration
 parent: Host Preparations
-nav_order: 5
+nav_order: 4
 ---
 
-# Libvirtd Configuration
-#### Necessary changes to use Virt-Manager via User.
+# Package Configuration
+#### Necessary changes to config files to use Virt-Manager via User.
 
 {: .warning }
 Adding yourself to the libvirt group allows for password-less root both from the host and guest. If you are uncomfortable with that and want to avoid this, consider using [Polkit](https://wiki.archlinux.org/title/Polkit) instead which will prompt you for your password. While this is safe for our use case, be aware of what you're doing when following guides online.
@@ -73,4 +73,4 @@ Now enable and start the libvirtd Service to fully apply changes:
 sudo systemctl enable --now libvirtd
 ```
 
-## You can now continue to the next <a href="06-IOMMU.html">page</a>.
+## You can now continue to the next <a href="05-Networking.html">page</a>.

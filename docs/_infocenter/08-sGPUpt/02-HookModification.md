@@ -18,4 +18,4 @@ Example modified file:
 
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/QEMUHookModification.png"><img src="../../../assets/QEMUHookModification.png" alt=""></a>
 
-## You can now continue to the next <a href="../03-VManUpdate">page</a>.
+## You can now continue to the next <a href="../03-VirtManConf">page</a>.

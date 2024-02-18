@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Virt-Manager Configuration
+title: Configuring Virt-Manager
 parent: Single GPU Passthrough
 nav_order: 3
 ---
@@ -23,6 +23,10 @@ Now let's go ahead and remove the recoveryOS Keyboard and Mouse as we'll now be 
 ## Enabling Topoext / AMD Simultaneous Multithreading (SMT) for Multithreading
 
 If you have an AMD CPU, you should enable Topoext / AMD Simultaneous Multithreading (SMT) for the guest.
+
+```
+<feature policy='require' name='topoext'/>
+```
 
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/VManGPUPassthroughAddMultithreading.png"><img src="../../../assets/VManGPUPassthroughAddMultithreading.png" alt=""></a>
 

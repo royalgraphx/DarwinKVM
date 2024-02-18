@@ -10,7 +10,7 @@ nav_order: 1
 #### Package requirements for base DKVM.
 
 ```bash
-sudo pacman -S virt-manager qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf qemu-tools dosfstools
+sudo pacman -S git base-devel python-click python-tqdm virt-manager qemu-full vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf qemu-tools dosfstools tk
 ```
 
 Please note: Conflicts may happen when installing these programs.
@@ -22,4 +22,4 @@ iptables and iptables-nft are in conflict. Remove iptables? [y/N]
 
 If you do encounter this kind of message, press y and enter to continue the installation.
 
-## You can now continue to the next <a href="../04-Networking.html">page</a>.
+## You can now continue to the next <a href="../04-PkgConf.html">page</a>.

@@ -12,7 +12,7 @@ Now something you'll notice is that it comes with a bunch of files in Drivers an
 
 - Keep the following from Drivers (if applicable):
 
-| Driver  | Status | Description | 
+| Driver  | Status | Description |
 | ----- | ----- | ----- |
 | OpenRuntime.efi | Required | Required for fixing NVRAM, power management, RTC, memory mapping etc. |
 | ResetNvramEntry.efi | Required | Required to reset the system's NVRAM |

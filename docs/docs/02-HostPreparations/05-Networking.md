@@ -2,7 +2,7 @@
 layout: default
 title: Networking
 parent: Host Preparations
-nav_order: 4
+nav_order: 5
 ---
 
 # Networking in a Virtual Machine
@@ -26,7 +26,7 @@ If you prefer not to have the virtual machine network start up automatically on 
 sudo virsh net-start default
 ```
 
-## You can now continue to the next <a href="05-Libvirtd.html">page</a>.
+## You can now continue to the next <a href="06-IOMMU.html">page</a>.
 #### More advanced networking is explained below if you need it.
 
 ## Bridged Networking using systemd
