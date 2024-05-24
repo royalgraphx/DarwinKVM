@@ -18,6 +18,11 @@
   <img width="650" height="200" src="./Assets/HeaderGallery.png">
 </p>
 
+<h3 align="center">macOS Sonoma 14.5</h3>
+<p align="center">
+  <img src="./showcase/HacProKVM145.png">
+</p>
+
 <h3 align="center">macOS Sonoma 14.4 Beta</h3>
 <p align="center">
   <img src="./showcase/HacProKVM144Beta.png">
