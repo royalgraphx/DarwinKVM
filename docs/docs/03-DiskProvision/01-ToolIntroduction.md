@@ -9,11 +9,11 @@ nav_order: 1
 #### Created for DarwinKVM, works universally.
 #### This section has been derived from the <a href="https://github.com/royalgraphx/DiskProvision">DiskProvision</a> Github.
 
-{: .new }
-Legacy Bash Scripts have been re-added! Please use those in the meantime.
+<p align="center">
+  <img width="80%" height="80%" src="../../assets/DiskProvisionHeroImage.png">
+</p>
 
-DiskProvision is a set of bash scripts that are in the process of being made into an actual standalone program. It's main use is in DarwinKVM, <span style="color: #ffab52;">to quickly create disk images</span> that work between Windows, Linux, and macOS systems <span style="color: #ffab52;">by preformatting them as FAT32, mimicking USB Drives.</span> In this context, it allows us to create an OpenCore bootable image for our Virtual Machine to use as an EFI.
-
-There are plenty of ways to do this manually! If you for whatever reason run into issues with DiskProvision, or its Legacy Bash Scripts, please refer to the [source code](https://github.com/royalgraphx/DiskProvision) on Github!
+<br>
+DiskProvision is a Python script. It's main use in DarwinKVM is to <span style="color: #ffab52;">quickly create disk images</span> that work with QEMU. <span style="color: #ffab52;">By having the ability to format them as FAT32, mimicking USB Drives</span>, it allows us to create an OpenCore disk image for our Virtual Machine to use as an EFI partition.
 
 ## You can now continue to the next <a href="02-ImageCreation">page</a>.

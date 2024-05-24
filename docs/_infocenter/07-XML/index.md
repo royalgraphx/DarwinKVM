@@ -9,4 +9,4 @@ has_children: true
   <img width="650" height="200" src="../../../assets/HeaderXMLUsage.png">
 </p>
 
-<h3 align="center">How to use and configure the DarwinKVM XML</h3>
+<h3 align="center">How to use and configure the various XMLs included</h3>

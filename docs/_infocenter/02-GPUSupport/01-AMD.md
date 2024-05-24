@@ -8,22 +8,28 @@ nav_order: 1
 # macOS AMD GPU Support Table
 #### This section has been derived from various sources.
 
-# Navi 10
+# Navi 23
 
 {: .note }
-
-Must add agdpmod=pikera to get a display out.
+Not much to say, this card has native support OOB.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 5500 | Catalina (10.15.1) | Sonoma (14) |  |
-| RX 5500 XT | Catalina (10.15.1) | Sonoma (14) |  |
-| RX 5600 | Catalina (10.15.1) | Sonoma (14) |  |
-| RX 5600 XT | Catalina (10.15.1) | Sonoma (14) |  |
-| RX 5700 | Catalina (10.15.1) | Sonoma (14) |  |
-| RX 5700 XT | Catalina (10.15.1) | Sonoma (14) |  |
-| Radeon Pro W5500 | Catalina (10.15.1) | Sonoma (14) |  |
-| Radeon Pro W5700 | Catalina (10.15.1) | Sonoma (14) |  |
+| RX 6600 | Monterey (12) | Sonoma (14) | Does not require any kexts to work |
+| RX 6600 XT | Monterey (12) | Sonoma (14) | Does not require any kexts to work |
+| RX 6650 XT | Monterey (12) | Sonoma (14) | Needs device-id spoof to 0x73ff, <br> NRX negates this though. |
+
+# Navi 22
+
+{: .headsup }
+NootRX is required for these GPUs to function, they have no native macOS support. Be thankful!
+
+| Card | Initial Support | Latest Support | Notes |
+| --- | --- | --- | --- |
+| RX 6700 | Monterey (12) | Sonoma (14) |  |
+| RX 6700 XT | Monterey (12) | Sonoma (14) |  |
+| RX 6750 XT | Monterey (12) | Sonoma (14) |  |
+| RX 6750 GRE | Monterey (12) | Sonoma (14) |  |
 
 # Navi 21
 
@@ -36,29 +42,24 @@ NootRX is recommended for these GPUs.
 | RX 6800 XT | Big Sur (11) | Sonoma (14) |  |
 | RX 6900 XT | Big Sur (11) | Sonoma (14) |  |
 | RX 6900 XTXH | Big Sur (11) | Sonoma (14) | |
+| RX 6950 XT | Big Sur (11) | Sonoma (14) | Needs device-id spoof to 0x73bf, <br> NRX negates this though. |
 
-# Navi 22
+# Navi 10
 
 {: .note }
-NootRX is necessary for these GPUs.
+
+WhateverGreen is required for these GPUs.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6700 | Monterey (12) | Sonoma (14) |  |
-| RX 6700 XT | Monterey (12) | Sonoma (14) |  |
-| RX 6750 XT | Monterey (12) | Sonoma (14) |  |
-| RX 6750 GRE | Monterey (12) | Sonoma (14) |  |
-
-# Navi 23
-
-{: .note }
-NootRX is recommended for these GPUs.
-
-| Card | Initial Support | Latest Support | Notes |
-| --- | --- | --- | --- |
-| RX 6600 | Monterey (12) | Sonoma (14) |  |
-| RX 6600 XT | Monterey (12) | Sonoma (14) |  |
-| RX 6650 XT | Monterey (12) | Sonoma (14) | NRX required for no device-id spoof |
+| RX 5500 | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
+| RX 5500 XT | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
+| RX 5600 | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
+| RX 5600 XT | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
+| RX 5700 | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
+| RX 5700 XT | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
+| Radeon Pro W5500 | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
+| Radeon Pro W5700 | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
 
 # Vega 20
 
@@ -170,15 +171,17 @@ Several other GPUs deriving from the Tahiti/Pitcairn architecture can likely be 
 | --- | --- | --- | --- |
 | FirePro W7000 | Yosemite (10.10) | Monterey (12) |  |
 
-# Unsupported GPU's
+# Unsupported GPUs
+
+## Older AMD GPU's and Non-mentioned Cards
 
 {: .important }
-While there are other GPU's that are supported up to Monterey and Big Sur, this guide focuses on the latest macOS, and unfortunately these cards below and others not mentioned, will not work in this guide without the user doing more manual modification, even as far as flashing custom VBIOS' which is out of the scope of this guide.
+While there are other GPU's that are supported, unfortunately cards not mentioned, will not work in this guide without the user doing more manual modification, even as far as flashing custom VBIOS' which is out of the scope of this guide. This is due to older AMD cards potentially not having UEFI, thus GPU Passthrough via VFIO is not viable. Solutions like adding UEFI GOP to ROMs of older AMD GPU's are also out of the scope of the guide, but no discouragement is in order, it may work! If tested, these cards can be added to the support table once confirmed working.
 
 ## Navi 2X and Navi 3X
 
 {: .note }
-While Navi 21, 22 and Navi 23 are supported, Navi 24 and Navi 3X based graphic cards are not at the time of writing. No guarantee can be made for future support.
+While Navi 21, 22 and Navi 23 are supported, Navi 24 and Navi 3X based graphic cards are not at the time of writing. No guarantee can be made for future support. No Steam Deck for u.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
@@ -186,5 +189,3 @@ While Navi 21, 22 and Navi 23 are supported, Navi 24 and Navi 3X based graphic c
 | RX 6500 XT | None | None |  |
 | RX 7900 XT | None | None |  |
 | RX 7900 XTX | None | None |  |
-
-<h1>Take me <a href="../../../">back</a>!</h1>

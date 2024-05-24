@@ -11,6 +11,7 @@ has_toc: true
 </p>
 
 <h3 align="center">This guide targets the latest version of Cheetah!</h3>
+<br>
 
-{: .warning }
-This section is under construction. It may have missing or incomplete information! Wait until this warning is no longer present, to follow the writeup.
+{: .headsup }
+The ToC is to select a method for emulating this target!

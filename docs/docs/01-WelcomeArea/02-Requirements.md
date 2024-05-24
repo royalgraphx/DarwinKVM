@@ -21,8 +21,9 @@ nav_order: 3
 1. **A Compatible Graphics Card.**
    - <span style="color: #ffab52;">This is a must, don't bother if you're not getting GPU Acceleration, it's not worth it.</span>
      - Eventually we will add support for those without supported GPU's, but highly experimental.
-   - [AMD GPU Support Table](../../infocenter/02-GPUSupport/01-AMD/) - Recommended for all, runs latest macOS.
+   - [AMD GPU Support Table](../../infocenter/02-GPUSupport/01-AMD/) - Recommended for all, runs latest macOS and older OS X releases.
    - [NVIDIA GPU Support Table](../../infocenter/02-GPUSupport/01-AMD/) - For Legacy OS X. <span style="color: #ffab52;">Highest Supported Version: High Sierra</span>
+   - [Intel iGPU Support Table](../../infocenter/02-GPUSupport/03-Intel) - For Intel Laptops/Desktops with GVT-d/IOMMU/MUX Support
 
 2. **A Host running a Linux Distribution.**
    - For best results, an Arch based distribution is recommended.
@@ -46,5 +47,18 @@ nav_order: 3
    - Reading/Understanding of the config.plist by OpenCore.
 
 4. **Patience! Lots of it.**<span style="color: #ffab52;"> **It's worth it.**</span>
+
+<br>
+<h2 class="welcome-text">If you're interested in DarwinPPC, the following is enough:</h2>
+
+1. **A Host capable of running qemu-system-ppc.**
+   - Virtualization (KVM Mode) only supported on PowerPC Hosts. Yes, they still exist. 
+   - For best results, an Arch based distribution is recommended.
+   - <span style="color: #ffab52;">Utilizing Virt-manager is optional</span>, this means <span style="color: #ffab52;">Windows hosts can use the CLI instructions</span>.
+   - Sound is known to not work and slow down emulation.
+
+2. **Previous PowerMac and QEMU Experience is helpful!**
+   - Experience using legacy OS X releases for PowerPC in general.
+   - Understanding the management of drives in Virt-Manager/CLI.
 
 <h2 align="center">You can now proceed to the <a href="03-SettingExpectations.html">Setting Expectations</a> section!</h2>

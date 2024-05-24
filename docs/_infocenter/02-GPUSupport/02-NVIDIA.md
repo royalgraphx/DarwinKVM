@@ -8,11 +8,13 @@ nav_order: 2
 # macOS NVIDIA GPU Support Table
 #### This section has been derived from various sources.
 
+<br>
+
 {: .warning }
 If your card falls under the Hopper, Ada Lovelace, Ampere or Turing generations, your card is completely unsupported (get a Navi card instead)
 
-{: .note }
-Most of the cards listed can use OCLP to get them running on Big Sur/Monterey and newer, due to the nature of it however, it won't be a nice experience.
+{: .important }
+We know. Most of the cards listed can use OCLP to get them running on Big Sur/Monterey and newer, but due to the nature of it however, it won't be a nice experience. No support provided.
 
 ## Volta
 
@@ -128,5 +130,3 @@ On a more serious note, these GPUs break NVIDIA's naming scheme. Good job NVIDIA
 | GT 630 (GF108 core) | Lion (10.7) | High Sierra (10.13.6) |  |
 | GT 620 | Lion (10.7) | High Sierra (10.13.6) |  |
 | GT 610 | Lion (10.7) | High Sierra (10.13.6) |  |
-
-<h1>Take me <a href="../../../">back</a>!</h1>

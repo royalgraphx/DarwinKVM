@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Prerequisites
-parent: Restrict Events Usage
+parent: RestrictEvents Usage
 nav_order: 1
 ---
 

@@ -16,7 +16,7 @@ Booting from the RecoveryOS image on the OpenCore Disk Image, is known to take a
 
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreVMBootRecovery.png"><img src="../../../../assets/OpenCoreVMBootRecovery.png" alt=""></a>
 
-macOS Ventura recoveryOS booting
+macOS Ventura recoveryOS booting, vm_shared_region warnings can be ignored.
 
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/BootingRecovery.png"><img src="../../../../assets/BootingRecovery.png" alt=""></a>
 

@@ -59,4 +59,29 @@ nav_order: 5
 
 <h5 align="center">If you are attempting to run the latest macOS, the above flow is what it would look like for you. If you are attempting to do legacy copies of Mac OS or Mac OS X your workflow may look a little different. I hope that giving a basic outline of the steps helps those understand where to go after creating and mounting their OpenCore disk image file. If you're ready to begin, go ahead!</h5>
 
+<br>
+<h3 align="center">Please, reference this workflow for PowerPC Virtual Machines:</h3>
+<br>
+
+**1. Welcome to DarwinKVM!**
+   - You could've used any other source
+   - Thanks for coming here!
+
+**2. [Host Preparations](../02-HostPreparations/index)**
+   - Check and Enable BIOS Settings
+   - Set Kernel Parameters according to your system (if on Linux)
+   - Package Installation according to your system (if on Linux)
+   - Virtual Machine Networking explained (if on Linux)
+   - Libvirtd Configuration (if on Linux)
+
+**2. View [Guest Support Table](../04-GuestSupport/index)**
+   - Choose your target supported version of OS X for PowerPC Architecture 
+
+**3. Follow instructions for your choice of method!**
+   - Create a disk image for OS X to install to
+   - May involve downloading more than one install disk image
+   - CLI is applicable for all host operating systems
+   - Make sure you are following PPC instructions for Universal installers
+
+<br>
 <h2 align="center">You can now proceed to the <a href="../02-HostPreparations/">Host Preparations</a> section!</h2>

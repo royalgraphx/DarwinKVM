@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Restrict Events Usage
+title: RestrictEvents Usage
 nav_order: 8
 has_children: true
 ---

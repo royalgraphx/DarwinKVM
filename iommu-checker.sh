@@ -1,4 +1,4 @@
-# Derived from RisingPrism's Wiki
+# Derived from Arch Wiki
 
 #!/bin/bash
 shopt -s nullglob

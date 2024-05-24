@@ -9,9 +9,11 @@ nav_order: 2
 # Using DarwinFetch
 #### Quick look at downloading recoveryOS images.
 
+<br>
+
 Open a terminal and navigate to the DarwinFetch directory.
 
-You can now run ``src/main.py`` or use ``./DarwinFetch.sh`` to attempt to autolaunch.
+You can now run ``./DarwinFetch.sh`` to attempt to launch by automatically probing for the correct command, and automatically installing dependencies.
 
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DarwinFetchMainMenu.png"><img src="../../../../assets/DarwinFetchMainMenu.png" alt=""></a>
 

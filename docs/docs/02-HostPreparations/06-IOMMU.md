@@ -8,6 +8,9 @@ nav_order: 6
 # IOMMU Viability
 #### How to read and understand your IOMMU groups for viability.
 
+{: .important }
+If you intend to focus on DarwinPPC, **you can skip this entire page unless you are on real PowerPC hardware**, and are utilizing KVM + PCI Device Passthrough.
+
 {: .warning }
 ACS Patches do **NOT** physically change your IOMMU groups. They simply trick the Linux kernel into thinking objects (PCI Devices) are in seperate groups, thus QEMU does not complain. Be aware that because this is a software-side modification, there are always risks to using patches like these. While it is safe to use, even daily, be aware that DarwinKVM is not responsible for any sort of corruption that can occur. i.e forcing nonviable NVMe drives into your guest, leading to corruption in the event of any sort of PCI bus error or any other shenanigans.
 
@@ -164,7 +167,7 @@ IOMMU Group 9:
 {: .headsup}
 If you've reviewed your IOMMU Groups and validated their Viability... you may continue to the next page. You do not need to read the rest of the page.
 
-## You can now continue to the next <a href="../03-DiskProvision/">page</a>.
+## You can now continue to the next <a href="07-TargetDecision.html">page</a>.
 
 # Using ACS Patches to re-order IOMMU Groups
 
@@ -257,4 +260,4 @@ PCI
 
 As you can see, with software kernel patches, we can quickly get around some non-viable situations and setups. Please remember the initial notes and warnings at the top of the page, this is not a permanent solution! If your motherboard IOMMU Groups are wonky, a BIOS update could potentially reorder them. Remember to use caution when attempting such things and be aware that this is a hardware limitation you may hit and there is not much to do but get a different motherboard with better IOMMU support. Plenty of other VFIO places with suggestions for better hardware compatbility!
 
-## You can now continue to the next <a href="../03-DiskProvision/">page</a>.
+## You can now continue to the next <a href="07-TargetDecision.html">page</a>.

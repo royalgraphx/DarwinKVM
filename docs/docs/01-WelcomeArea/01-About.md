@@ -15,19 +15,27 @@ nav_order: 2
 
 <h2 align="center">Who is this for?</h2>
 
-<h5 align="center">This is for experienced users! People in the help channels are not looking to handhold/explain/teach ideas to you! That's not really helping, especially when all of the information is here already most likely (you'll get a link as a reply to the appropriate section). For optimal results, you should already be decently familiar with the following 3 core concepts and how the subtopics relate to this project:</h5>
+<h5 align="center">This is for experienced users! People in the help channels are not looking to handhold/explain/teach ideas to you! That's not really helping, especially when all of the information is here already most likely (you'll get a link as a reply to the appropriate section). For optimal results, you should already be decently familiar with the following 4 core concepts and how the subtopics relate to this project:</h5>
 
-1. [**QEMU**](https://www.qemu.org/)
+1. [**Linux**](https://en.wikipedia.org/wiki/Linux)
+   - <span style="color: #ffab52;">The commandline/terminal.</span>
+   - File and folder movement through commandline/terminal.
+   - File and folder permissions and ownership.
+   - File and folder structure of linux.
+   - File editing from the commandline (nano, vim, or anything else).
+
+2. [**QEMU**](https://www.qemu.org/)
+   - [Virtual Machine Manager](https://virt-manager.org/) & Libvirtd in general.
    - [Basic understanding of manual QEMU VM creation](https://www.qemu.org/docs/master/)
    - [Kernel-Based Virtual Machines](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine)
    - How [Virtualization](https://en.wikipedia.org/wiki/Virtualization) works in general.
 
-2. [**OpenCore**](https://github.com/acidanthera/OpenCorePkg)
+3. [**OpenCore Bootloader**](https://github.com/acidanthera/OpenCorePkg)
   - Previous experience with [Dortania's OpenCore Installation Guide](https://dortania.github.io/OpenCore-Install-Guide/).
   - [Why Opencore? What's wrong with other bootloaders?](https://dortania.github.io/OpenCore-Install-Guide/why-oc.html)
   - How [Creating a Bootable USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/) relates to us creating an .img file.
 
-3. [**macOS**](https://en.wikipedia.org/wiki/MacOS)
+4. [**The "Mac" Operating System**](https://en.wikipedia.org/wiki/MacOS)
   - [Property List Format](https://en.wikipedia.org/wiki/Property_list) for understanding .plist files and modifying them.
   - [Kext File Format](http://www.macbreaker.com/2012/01/what-are-kexts.html#:~:text=Kext%20files%20are%20essentially%20drivers,loaded%20when%20your%20computer%20boots.)
   - <span style="color: #ffab52;">Previous Mac OS X / macOS experience is <b>very</b> helpful.</span>

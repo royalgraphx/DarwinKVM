@@ -19,6 +19,7 @@ Download the following tools needed for modifications.
 | Tool  | Status | Description | 
 | ----- | ----- | ----- |
 | [Python](https://www.python.org/downloads/) | Required | Needed as a dependency. |
+| [Pip](https://pip.pypa.io/en/stable/installation/) | Required | Needed to install modules for dependencies. |
 | [DarwinFetch](https://github.com/royalgraphx/DarwinFetch) | Required | Allows you to fetch recoveryOS images. |
 
 ## You can now continue to the next <a href="../01-DarwinFetch">page</a>.

@@ -24,15 +24,15 @@ macOS can be very picky about the devices present in the DSDT and so our job is 
  - Plugin type
    - This generally allows the use of XCPM providing native CPU power management on Intel CPUs. Our version will enable VMPlatformPlugin XCPM, exactly like a Parallels VM.
 
-For our Virtual Machine use case, we will be emulating an Intel Cascade Lake CPU so regardless of the host architecture, the only ACPI's we require to boot macOS will be SSDT-EC-USBX and SSDT-PLUG.
+For our Virtual Machine use case, we will be emulating an Intel Cascade Lake CPU <span style="color: #ffab52;">so regardless of the host architecture, the only ACPI's we require to boot macOS will be SSDT-EC-USBX and SSDT-PLUG.</span>
 
 Thanks to [ExtremeXT](https://github.com/ExtremeXT) for allowing me to include his manually created SSDT-EC-USBX which combines them into a single file, as well as the included SSDT-PLUG file. We've both tested it and it works as expected, and I use it for my daily machine so I'm confident including it, feel free to manually make your own or possibly try the ones from Acidanthera! As long as you complete this ACPI section, you can go ahead to the next step.
 
-You can view the CPU ACPI requirements by generation [here](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-platform.html#desktop).
+You can view the baremetal CPU ACPI requirements by generation [here](https://dortania.github.io/Getting-Started-With-ACPI/ssdt-platform.html#desktop).
 
 {: .note }
 Cascade Lake supersedes Skylake although not shown on the chart.
 
-### The required files can be found in the DarwinOCPkg/X64/EFI/OC/ACPI folder.
+<h3><span style="color: #ffab52;">The required files can be found in the DarwinOCPkg/X64/EFI/OC/ACPI folder.</span></h3>
 
 ## You can now continue to the next <a href="../02-Drivers">page</a>.

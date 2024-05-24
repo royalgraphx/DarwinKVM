@@ -1,0 +1,70 @@
+<!--
+      Copyright (c) 2024 RoyalGraphX, BSD 3-Clause License
+-->
+
+<domain type='qemu' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+  <name>DarwinPPC</name>
+  <uuid>3373b602-5793-4349-8511-45a436f617e6</uuid>
+  <metadata>
+    <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
+      <libosinfo:os id="http://apple.com/macosx/10.0"/>
+    </libosinfo:libosinfo>
+  </metadata>
+  <memory unit='KiB'>2097152</memory>
+  <currentMemory unit='KiB'>2097152</currentMemory>
+  <vcpu placement='static'>1</vcpu>
+  <os>
+    <type arch='ppc' machine='mac99'>hvm</type>
+    <boot dev='hd'/>
+    <bootmenu enable='yes'/>
+  </os>
+  <clock offset='utc'/>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>destroy</on_crash>
+  <devices>
+    <emulator>/usr/bin/qemu-system-ppc</emulator>
+    <controller type='usb' index='0' model='piix3-uhci'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
+    </controller>
+    <controller type='pci' index='0' model='pci-root'/>
+    <graphics type='spice'>
+      <listen type='none'/>
+      <image compression='off'/>
+      <gl enable='no'/>
+    </graphics>
+    <audio id='1' type='none'/>
+    <video>
+      <model type='none'/>
+    </video>
+    <memballoon model='none'/>
+  </devices>
+  <qemu:commandline>
+    <qemu:arg value="-M"/>
+    <qemu:arg value="mac99"/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='ide-hd,bus=ide.0,drive=Macintosh'/>
+    <qemu:arg value='-drive'/>
+    <qemu:arg value='if=none,format=raw,media=disk,id=Macintosh,file=/home/user/DarwinKVM/DiskProvision/,discard=unmap,detect-zeroes=unmap'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='ide-cd,bus=ide.0,drive=Installer'/>
+    <qemu:arg value='-drive'/>
+    <qemu:arg value='if=none,format=raw,media=disk,id=Installer,file=/home/user/DarwinKVM/DarwinFetch/downloads/,discard=unmap,detect-zeroes=unmap'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='sungem,mac=2A:84:84:06:3E:78,netdev=net0'/>
+    <qemu:arg value='-netdev'/>
+    <qemu:arg value='user,id=net0'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='VGA,edid=on'/>
+    <qemu:arg value='-prom-env'/>
+    <qemu:arg value='boot-args=-v'/>
+    <qemu:arg value='-prom-env'/>
+    <qemu:arg value='vga-ndrv?=true'/>
+    <qemu:arg value='-prom-env'/>
+    <qemu:arg value='auto-boot?=true'/>
+    <qemu:arg value='-g'/>
+    <qemu:arg value='1920x1080x32'/>
+    <qemu:arg value='-boot'/>
+    <qemu:arg value='c'/>
+  </qemu:commandline>
+</domain>
