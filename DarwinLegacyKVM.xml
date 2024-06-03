@@ -1,0 +1,61 @@
+<!--
+      Copyright (c) 2024 RoyalGraphX, BSD 3-Clause License
+      Requires DUDK-Firmware package installed, to use custom OvmfPkg.
+-->
+
+<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+  <name>DarwinLegacyKVM</name>
+  <uuid>8faaaa11-1203-4c31-82d2-13bedb5955c8</uuid>
+  <memory unit='KiB'>8388608</memory>
+  <currentMemory unit='KiB'>8388608</currentMemory>
+  <memoryBacking>
+    <nosharepages/>
+  </memoryBacking>
+  <vcpu placement='static'>8</vcpu>
+  <os firmware='efi'>
+    <type arch='x86_64' machine='q35'>hvm</type>
+    <firmware>
+      <feature enabled='no' name='enrolled-keys'/>
+      <feature enabled='no' name='secure-boot'/>
+    </firmware>
+    <loader readonly='yes' type='pflash'>/usr/share/DarwinUDK/x64/DUDK_CODE.fd</loader>
+    <nvram template='/usr/share/DarwinUDK/x64/DUDK_VARS.fd'>/var/lib/libvirt/qemu/nvram/DarwinLegacyKVM_VARS.fd</nvram>
+    <boot dev="hd"/>
+    <bootmenu enable='yes'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+  </features>
+  <cpu mode='host-passthrough' check='none' migratable='on'>
+    <topology sockets='1' dies='1' cores='4' threads='2'/>
+    <cache mode='passthrough'/>
+  </cpu>
+  <clock offset='utc'>
+    <timer name='rtc' tickpolicy='catchup'/>
+    <timer name='pit' tickpolicy='delay'/>
+    <timer name='hpet' present='yes'/>
+    <timer name='tsc' present='yes' mode='native'/>
+  </clock>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>restart</on_crash>
+  <devices>
+    <emulator>/usr/bin/qemu-system-x86_64</emulator>
+    <watchdog model='itco' action='none'/>
+    <memballoon model='none'/>
+  </devices>
+  <qemu:commandline>
+    <qemu:arg value='-global'/>
+    <qemu:arg value='ICH9-LPC.acpi-pci-hotplug-with-bridge-support=off'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='isa-applesmc,osk=ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc'/>
+    <qemu:arg value='-cpu'/>
+    <qemu:arg value='Westmere-v2,vendor=GenuineIntel,+rdrand'/>
+    <qemu:arg value='-usb'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='usb-tablet'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='usb-kbd'/>
+  </qemu:commandline>
+</domain>

@@ -75,20 +75,55 @@
 
 <h3 align="center">Mac OS X High Sierra 10.13.6</h3>
 <p align="center">
-  <img src="./showcase/HacProKVM10136.png">
+  <img src="./showcase/ProMacHighSierra.png">
 </p>
 
-<h3 align="center">Mac OS X Snow Leopard 10.6.0</h3>
+<h3 align="center">Mac OS X Sierra 10.12</h3>
+<p align="center">
+  <img src="./showcase/ProMacSierra.png">
+</p>
+
+<h3 align="center">Mac OS X El Capitan 10.11.6</h3>
+<p align="center">
+  <img src="./showcase/ProMacTheCaptain.png">
+</p>
+
+<h3 align="center">Mac OS X Yosemite 10.10</h3>
+<p align="center">
+  <img src="./showcase/ProMacYosemite.png">
+</p>
+
+<h3 align="center">Mac OS X Mavericks 10.9.5</h3>
+<p align="center">
+  <img src="./showcase/ProMacMavericks.png">
+</p>
+
+<h3 align="center">Mac OS X Mountain Lion 10.8.5</h3>
+<p align="center">
+  <img src="./showcase/ProMacMountainLion.png">
+</p>
+
+<h3 align="center">Mac OS X Lion 10.7.5</h3>
+<p align="center">
+  <img src="./showcase/ProMacLion.png">
+</p>
+
+<h3 align="center">Mac OS X Snow Leopard 10.6.8 on x86_64</h3>
+<p align="center">
+  <img src="./showcase/ProMacSnowLeopard.png">
+</p>
+
+<h3 align="center">Mac OS X Snow Leopard 10.6 on PowerPC</h3>
 <p align="center">
   <img src="./showcase/PowerMacSnowLeopard.png">
 </p>
 
-<h3 align="center">Mac OS X Leopard 10.5.4</h3>
+<h3 align="center">Mac OS X Leopard 10.5.4 on PowerPC</h3>
 <p align="center">
   <img src="./showcase/PowerMacLeopard.png">
 </p>
 
-<h3 align="center">Mac OS X Tiger 10.4.11</h3>
+<h3 align="center">Mac OS X Tiger 10.4.11 on PowerPC</h3>
 <p align="center">
   <img src="./showcase/PowerMacTiger.png">
 </p>
