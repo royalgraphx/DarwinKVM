@@ -73,6 +73,31 @@
   <img src="./showcase/HacProKVM134.png">
 </p>
 
+<h3 align="center">Mac OS X Monterey 12.7.5</h3>
+<p align="center">
+  <img src="./showcase/ProMacMonterey.png">
+</p>
+
+<h3 align="center">Mac OS X Big Sur 11.7.10</h3>
+<p align="center">
+  <img src="./showcase/ProMacBigSur.png">
+</p>
+
+<h3 align="center">Mac OS X Catalina 10.15.7</h3>
+<p align="center">
+  <img src="./showcase/ProMacCatalina.png">
+</p>
+
+<h3 align="center">Mac OS X Mojave 10.14.4</h3>
+<p align="center">
+  <img src="./showcase/ProMacMojave.png">
+</p>
+
+<h3 align="center">Mac OS X High Sierra 10.13.6 + NVIDIA GPU</h3>
+<p align="center">
+  <img src="./showcase/HacProKVM10136.png">
+</p>
+
 <h3 align="center">Mac OS X High Sierra 10.13.6</h3>
 <p align="center">
   <img src="./showcase/ProMacHighSierra.png">
