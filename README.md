@@ -73,12 +73,12 @@
   <img src="./showcase/HacProKVM134.png">
 </p>
 
-<h3 align="center">Mac OS X Monterey 12.7.5</h3>
+<h3 align="center">macOS Monterey 12.7.5</h3>
 <p align="center">
   <img src="./showcase/ProMacMonterey.png">
 </p>
 
-<h3 align="center">Mac OS X Big Sur 11.7.10</h3>
+<h3 align="center">macOS Big Sur 11.7.10</h3>
 <p align="center">
   <img src="./showcase/ProMacBigSur.png">
 </p>
