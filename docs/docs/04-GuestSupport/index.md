@@ -16,6 +16,7 @@ has_toc: false
 
 | Build Name | Architecture | Configuration | Status | Model | 
 | --- | --- | --- | --- | --- |
+| Sequoia | x86_64 | [View Guide](../../../installguides/00-Sequoia/index) | <span style="color: #91ff73;">Complete</span> | MacPro7,1 |
 | Sonoma | x86_64 | [View Guide](../../../installguides/01-Sonoma/index) | <span style="color: #91ff73;">Complete</span> | MacPro7,1 |
 | Ventura | x86_64 | [View Guide](../../../installguides/02-Ventura/index) | <span style="color: #91ff73;">Complete</span> | MacPro7,1 |
 | Monterey | x86_64 | [View Guide](../../../installguides/03-Monterey/index) | <span style="color: #91ff73;">Complete</span> | MacPro7,1 |

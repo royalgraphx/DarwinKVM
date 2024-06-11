@@ -18,6 +18,12 @@
   <img width="650" height="200" src="./Assets/HeaderGallery.png">
 </p>
 
+<h3 align="center">macOS Sequoia 15.0 Beta 1</h3>
+<p align="center">
+  <img src="./showcase/HacProKVM15Beta.png">
+  <img src="./showcase/HacProKVM15BetaAlt.png">
+</p>
+
 <h3 align="center">macOS Sonoma 14.5</h3>
 <p align="center">
   <img src="./showcase/HacProKVM145.png">
@@ -93,14 +99,9 @@
   <img src="./showcase/ProMacMojave.png">
 </p>
 
-<h3 align="center">Mac OS X High Sierra 10.13.6 + NVIDIA GPU</h3>
-<p align="center">
-  <img src="./showcase/HacProKVM10136.png">
-</p>
-
 <h3 align="center">Mac OS X High Sierra 10.13.6</h3>
 <p align="center">
-  <img src="./showcase/ProMacHighSierra.png">
+  <img src="./showcase/HacProKVM10136.png">
 </p>
 
 <h3 align="center">Mac OS X Sierra 10.12</h3>

@@ -15,9 +15,9 @@ Not much to say, this card has native support OOB.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6600 | Monterey (12) | Sonoma (14) | Does not require any kexts to work |
-| RX 6600 XT | Monterey (12) | Sonoma (14) | Does not require any kexts to work |
-| RX 6650 XT | Monterey (12) | Sonoma (14) | Needs device-id spoof to 0x73ff, <br> NRX negates this though. |
+| RX 6600 | Monterey (12) | Sequoia (15) | Does not require any kexts to work |
+| RX 6600 XT | Monterey (12) | Sequoia (15) | Does not require any kexts to work |
+| RX 6650 XT | Monterey (12) | Sequoia (15) | Needs device-id spoof to 0x73ff, <br> NRX negates this though. |
 
 # Navi 22
 
@@ -26,10 +26,10 @@ NootRX is required for these GPUs to function, they have no native macOS support
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6700 | Monterey (12) | Sonoma (14) |  |
-| RX 6700 XT | Monterey (12) | Sonoma (14) |  |
-| RX 6750 XT | Monterey (12) | Sonoma (14) |  |
-| RX 6750 GRE | Monterey (12) | Sonoma (14) |  |
+| RX 6700 | Monterey (12) | Sequoia (15) |  |
+| RX 6700 XT | Monterey (12) | Sequoia (15) |  |
+| RX 6750 XT | Monterey (12) | Sequoia (15) |  |
+| RX 6750 GRE | Monterey (12) | Sequoia (15) |  |
 
 # Navi 21
 
@@ -38,11 +38,11 @@ NootRX is recommended for these GPUs.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6800 | Big Sur (11) | Sonoma (14) |  |
-| RX 6800 XT | Big Sur (11) | Sonoma (14) |  |
-| RX 6900 XT | Big Sur (11) | Sonoma (14) |  |
-| RX 6900 XTXH | Big Sur (11) | Sonoma (14) | |
-| RX 6950 XT | Big Sur (11) | Sonoma (14) | Needs device-id spoof to 0x73bf, <br> NRX negates this though. |
+| RX 6800 | Big Sur (11) | Sequoia (15) |  |
+| RX 6800 XT | Big Sur (11) | Sequoia (15) |  |
+| RX 6900 XT | Big Sur (11) | Sequoia (15) |  |
+| RX 6900 XTXH | Big Sur (11) | Sequoia (15) | |
+| RX 6950 XT | Big Sur (11) | Sequoia (15) | Needs device-id spoof to 0x73bf, <br> NRX negates this though. |
 
 # Navi 10
 
@@ -52,14 +52,14 @@ WhateverGreen is required for these GPUs.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 5500 | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
-| RX 5500 XT | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
-| RX 5600 | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
-| RX 5600 XT | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
-| RX 5700 | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
-| RX 5700 XT | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
-| Radeon Pro W5500 | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
-| Radeon Pro W5700 | Catalina (10.15.1) | Sonoma (14) | Add agdpmod=pikera boot flag. |
+| RX 5500 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
+| RX 5500 XT | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
+| RX 5600 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
+| RX 5600 XT | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
+| RX 5700 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
+| RX 5700 XT | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
+| Radeon Pro W5500 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
+| Radeon Pro W5700 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
 
 # Vega 20
 
@@ -68,7 +68,7 @@ All Vega based dedicated GPUs are natively supported in macOS with Vega 20 GPUs 
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| Radeon VII | Mojave (10.14.5) | Sonoma (14) |  |
+| Radeon VII | Mojave (10.14.5) | Sequoia (15) |  |
 
 # Vega 10
 
@@ -77,10 +77,10 @@ Vega 10 GPUs are natively supported in macOS. In this case, they do work on the 
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| Vega 56 | High Sierra (10.13) | Sonoma (14) |  |
-| Vega 64 | High Sierra (10.13) | Sonoma (14) |  |
-| Radeon Pro: Vega Frontier Edition | High Sierra (10.13) | Sonoma (14) |  |
-| Radeon Pro WX 9100 | High Sierra (10.13) | Sonoma (14) |  |
+| Vega 56 | High Sierra (10.13) | Sequoia (15) |  |
+| Vega 64 | High Sierra (10.13) | Sequoia (15) |  |
+| Radeon Pro: Vega Frontier Edition | High Sierra (10.13) | Sequoia (15) |  |
+| Radeon Pro WX 9100 | High Sierra (10.13) | Sequoia (15) |  |
 
 # Polaris 10 and 20
 
@@ -89,22 +89,22 @@ For Polaris, basically every model is supported. The only brands you should avoi
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 460 | Sierra (10.12) | Sonoma (14) |  |
-| RX 470 | Sierra (10.12) | Sonoma (14) |  |
-| RX 470D | Sierra (10.12) | Sonoma (14) |  |
-| RX 480 | Sierra (10.12) | Sonoma (14) |  |
-| RX 550 | Sierra (10.12) | Sonoma (14) |  |
-| RX 560 | Sierra (10.12) | Sonoma (14) |  |
-| RX 560X | Sierra (10.12) | Sonoma (14) |  |
-| RX 570 | Sierra (10.12) | Sonoma (14) |  |
-| RX 570X | Sierra (10.12) | Sonoma (14) |  |
-| RX 580 | Sierra (10.12) | Sonoma (14) |  |
-| RX 580X | Sierra (10.12) | Sonoma (14) |  |
-| RX 590 | Sierra (10.12) | Sonoma (14) |  |
-| Radeon Pro: E9550 | Sierra (10.12) | Sonoma (14) |  |
-| Radeon Pro: WX 4100 | Sierra (10.12) | Sonoma (14) |  |
-| Radeon Pro: WX 5100 | Sierra (10.12) | Sonoma (14) |  |
-| Radeon Pro: WX 7100 | Sierra (10.12) | Sonoma (14) |  |
+| RX 460 | Sierra (10.12) | Sequoia (15) |  |
+| RX 470 | Sierra (10.12) | Sequoia (15) |  |
+| RX 470D | Sierra (10.12) | Sequoia (15) |  |
+| RX 480 | Sierra (10.12) | Sequoia (15) |  |
+| RX 550 | Sierra (10.12) | Sequoia (15) |  |
+| RX 560 | Sierra (10.12) | Sequoia (15) |  |
+| RX 560X | Sierra (10.12) | Sequoia (15) |  |
+| RX 570 | Sierra (10.12) | Sequoia (15) |  |
+| RX 570X | Sierra (10.12) | Sequoia (15) |  |
+| RX 580 | Sierra (10.12) | Sequoia (15) |  |
+| RX 580X | Sierra (10.12) | Sequoia (15) |  |
+| RX 590 | Sierra (10.12) | Sequoia (15) |  |
+| Radeon Pro: E9550 | Sierra (10.12) | Sequoia (15) |  |
+| Radeon Pro: WX 4100 | Sierra (10.12) | Sequoia (15) |  |
+| Radeon Pro: WX 5100 | Sierra (10.12) | Sequoia (15) |  |
+| Radeon Pro: WX 7100 | Sierra (10.12) | Sequoia (15) |  |
 
 ## Lexa core based GPUs
 

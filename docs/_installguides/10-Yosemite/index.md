@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Yosemite
-nav_order: 10
+nav_order: 11
 has_children: true
 has_toc: true
 ---
