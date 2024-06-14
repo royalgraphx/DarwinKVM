@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Configuring XML Paths
-parent: Using Virt-Manager
+parent: PowerPC (Virt-Manager)
+grand_parent: Leopard
 nav_order: 4
 ---
 
@@ -13,7 +14,7 @@ This will not go through the installation process! It simply goes over pointing 
 
 To begin, confirm you have downloaded the correct Install Disks for Leopard.
 
-<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DarwinFetchPowerPCSources.png"><img src="../../../../assets/DarwinFetchPowerPCSources.png" alt=""></a>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DarwinFetchPowerPCSources.png"><img src="../../../../../assets/DarwinFetchPowerPCSources.png" alt=""></a>
 
 Let's begin by updating the Machine Type to the following mac99 with via=pmu flag. We must also enable the USB Controller.
 
@@ -24,7 +25,7 @@ Let's begin by updating the Machine Type to the following mac99 with via=pmu fla
 
 You can now edit the XML paths to define your named Hard Disk image.
 
-<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DiskProvisionPowerPCImagesDB.png"><img src="../../../../assets/DiskProvisionPowerPCImagesDB.png" alt=""></a>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DiskProvisionPowerPCImagesDB.png"><img src="../../../../../assets/DiskProvisionPowerPCImagesDB.png" alt=""></a>
 
 In this example image, you can see I named my image Macintosh.img, so you will update the path to reflect that.
 

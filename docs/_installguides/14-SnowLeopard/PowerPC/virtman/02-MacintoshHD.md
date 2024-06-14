@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Creating Macintosh HD
-parent: Using Virt-Manager
+parent: PowerPC (Virt-Manager)
+grand_parent: Snow Leopard
 nav_order: 3
 ---
 
@@ -18,19 +19,19 @@ First, navigate to the DiskProvision directory so you can use the launcher. If y
 
 When you first cd into the ``DiskProvision/`` folder, run ``./DiskProvision``, you will then be presented with a menu with a few options.
 
-<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DiskProvisionMainMenu.png"><img src="../../../../assets/DiskProvisionMainMenu.png" alt=""></a>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DiskProvisionMainMenu.png"><img src="../../../../../assets/DiskProvisionMainMenu.png" alt=""></a>
 
 To get started, enter 1 to create a new blank disk image. You will be asked a few questions about the Name, Size, and type of image.
 
 {: .note }
 Feel free to call it as you'd like, as it doesn't have to be "Macintosh", You can also use a QCOW2 if you'd like. Recommended to make the image atleast 16GB in size for comfortable operation.
 
-<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DiskProvisionCreatingPPCHDD.png"><img src="../../../../assets/DiskProvisionCreatingPPCHDD.png" alt=""></a>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DiskProvisionCreatingPPCHDD.png"><img src="../../../../../assets/DiskProvisionCreatingPPCHDD.png" alt=""></a>
 
-<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DiskProvisionPowerPCImagesDB.png"><img src="../../../../assets/DiskProvisionPowerPCImagesDB.png" alt=""></a>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DiskProvisionPowerPCImagesDB.png"><img src="../../../../../assets/DiskProvisionPowerPCImagesDB.png" alt=""></a>
 
 You will be brought back to the main menu afterwards. We're done! We can now use this image within DarwinPPC's XML.
 
-<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DiskProvisionMainMenu.png"><img src="../../../../assets/DiskProvisionMainMenu.png" alt=""></a>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/DiskProvisionMainMenu.png"><img src="../../../../../assets/DiskProvisionMainMenu.png" alt=""></a>
 
 ## You can now continue to the next <a href="../03-ConfiguringXML">page</a>.

@@ -3,7 +3,7 @@ layout: default
 title: PowerPC (Virt-Manager)
 parent: Leopard
 has_children: true
-nav_order: 3
+nav_order: 2
 ---
 
 <p align="center">

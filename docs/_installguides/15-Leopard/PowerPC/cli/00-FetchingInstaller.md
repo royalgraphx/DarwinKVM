@@ -2,11 +2,12 @@
 layout: default
 title: Fetching Install Disks
 parent: PowerPC (CLI)
+grand_parent: Leopard
 nav_order: 1
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../../../assets/HeaderFetchingInstaller.png">
+  <img width="650" height="200" src="../../../../../assets/HeaderFetchingInstaller.png">
 </p>
 
 {: .headsup }

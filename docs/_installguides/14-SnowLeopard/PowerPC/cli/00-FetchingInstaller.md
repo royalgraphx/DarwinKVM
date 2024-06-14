@@ -2,11 +2,12 @@
 layout: default
 title: Fetching Install Disks
 parent: PowerPC (CLI)
+grand_parent: Snow Leopard
 nav_order: 1
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../../../assets/HeaderFetchingInstaller.png">
+  <img width="650" height="200" src="../../../../../assets/HeaderFetchingInstaller.png">
 </p>
 
 {: .headsup }
@@ -18,6 +19,6 @@ QEMU can take paths for:
 
 ``.iso``, ``.img``, ``.qcow2``, ``.cdr``, and even ``.toast`` image files!
 
-Visit the [following section](../../../../infocenter/06-FetchingInstaller/03-PowerPC/00-Introduction/) for instructions on how to use and fetch the install files for this release. Then return once completed.
+Visit the [following section](../../../../../infocenter/06-FetchingInstaller/03-PowerPC/00-Introduction/) for instructions on how to use and fetch the install files for this release. Then return once completed.
 
 ## You can now continue to the next <a href="../01-MacintoshHD">page</a>.

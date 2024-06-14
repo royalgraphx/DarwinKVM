@@ -3,7 +3,7 @@ layout: default
 title: PowerPC (CLI)
 parent: Snow Leopard
 has_children: true
-nav_order: 2
+nav_order: 3
 ---
 
 <p align="center">

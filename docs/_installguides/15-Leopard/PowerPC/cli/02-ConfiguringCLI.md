@@ -2,6 +2,7 @@
 layout: default
 title: Configuring QEMU
 parent: PowerPC (CLI)
+grand_parent: Leopard
 nav_order: 3
 ---
 
