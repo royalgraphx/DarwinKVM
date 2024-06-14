@@ -7,3 +7,6 @@
 [submodule "DarwinFetch"]
 	path = DarwinFetch
 	url = https://github.com/royalgraphx/DarwinFetch
+[submodule "DarwinUDK"]
+	path = DarwinUDK
+	url = https://github.com/royalgraphx/DUDK-Firmware.git

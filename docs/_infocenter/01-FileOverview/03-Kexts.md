@@ -8,7 +8,18 @@ nav_order: 4
 # Kexts
 #### This section has been derived from the <a href="https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts">Kexts</a> section via <a href="https://dortania.github.io/OpenCore-Install-Guide/ktext.html">Gathering files</a>. It may be out of date. Please refer to latest documentation when possible.
 
-Here is a basic chart of a Kext, its use, and the status of the requirement. Check with the hardware you'll be passing through if you need any Kexts. For example, Samsung NVMe should be using NVMeFix.kext for better voltage and temperature management by macOS.
+Here is a basic chart of a Kext, its use, and the status of the requirement. 
+
+For those starting off, it's highly recommended to only use the following kexts to simply boot and install Mac OS X / macOS.
+
+| Kext | Target | Description |
+| ----- | ----- | ----- |
+| [AppleMCEReporterDisabler](https://github.com/acidanthera/bugtracker/files/3703498/AppleMCEReporterDisabler.kext.zip) | MacPro7,1 | Required on macOS 12.3 and later on AMD systems and dual-socket Intel systems, and on KVM VMs. |
+| [Lilu](https://github.com/acidanthera/Lilu) | MacPro7,1 / MacPro5,1 | A "patch engine", a lot of kexts depend on it for patching frameworks at kernel runtime. Required for AppleALC, WhateverGreen, VirtualSMC and many other kexts. Without Lilu, they will fail to inject. |
+
+Once you've reached the desktop and are preparing for GPU Passthrough, come back and check with the hardware you'll be passing through if you need any Kexts. 
+
+For example, Samsung NVMe should be using NVMeFix.kext for better voltage and temperature management by macOS.
 
 | Kext  | Status | Description |
 | ----- | ----- | ----- |

@@ -12,7 +12,7 @@ nav_order: 4
 OpenCore Menu, shows recoveryOS detected.
 
 {: .headsup }
-Booting from the RecoveryOS image on the OpenCore Disk Image, is known to take anywhere from a few seconds, to a minute to load! You are not frozen. Simply wait for macOS to finish loading.
+Booting from the RecoveryOS image on the OpenCore Disk Image, is known to take anywhere from a few seconds, to 2 minutes to load! You are not frozen. Simply wait for macOS to finish loading. OpenCore is copying the DMG to RAM, and this process can take a while.
 
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreVMBootRecovery.png"><img src="../../../../assets/OpenCoreVMBootRecovery.png" alt=""></a>
 

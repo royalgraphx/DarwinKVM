@@ -54,18 +54,29 @@ nav_order: 4
 <h5 align="center">In this repository depending on the architecture...</h5>
 <br>
 
-<h3 align="center"><b>For Intel</b></h3>
+<h3 align="center"><b>For x86_64</b></h3>
 
-1. ``// TODO``
-   - ``// TODO``
+1. [**DarwinLegacyKVM.xml**](https://github.com/royalgraphx/DarwinKVM/blob/main/DarwinLegacyKVM.xml), which is a prepared Virt-Manager importable XML.
+   - Uses latest Q35 Machine Type provided by QEMU.
+   - Uses Intel Westmere E56XX CPU Vendor String.
+   - Added Apple SMC chip for DSMOS, with it's key.
+   - Stripped of redundant controllers and devices.
+   - Disabled ACPI PCI Hotplug with Bridge Support.
+   - Requires the use of custom OvmfPkg for Legacy Darwin targets.
 
-2. ``// TODO``
-   - ``// TODO``
+2. [**DarwinOCPkg**](https://github.com/royalgraphx/DarwinOCPkg), a fork of [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) for KVM's.
+   - ACPI Folder preconfigured with SSDT's for QEMU Q35 Virtual Machines.
 
-3. ``// TODO``
-   - ``// TODO``
+3. [**DarwinUDK**](https://github.com/royalgraphx/DarwinUDK), a fork of [AUDK](https://github.com/acidanthera/audk) for KVM's.
+   - Relaxed security settings which allow for loading of older OS X boot.efi's which are seen as unsafe to boot. This can be built without modification by DarwinKVM contributors.
+   - Custom Boot Splash Icon for DarwinKVM representation.
+   - Supports both Arch and Debian based distributions, comes with both Pacman and APT packages!
 
-<h5 align="center">Placeholder text, explaining how legacy Mac OS X on Intel is supported in DarwinKVM.</h5>
+4. [**DarwinFetch**](https://github.com/royalgraphx/DarwinFetch), an all-in-one Mac OS installer downloader and image builder.
+   - Has support for downloading older Legacy Offline Installation disks.
+   - Maintains a list of direct download links of Apple's CDN for OS X / macOS files.
+
+<h5 align="center">We are creating a Westmere E56XX based Virtual Machine, which will use an OpenCore EFI .img we create with DiskProvision, that will then allow us to boot our custom Virtual Machine configuration and install legacy Mac OS X releases. Even though we are all following the same general outline... difference in hardware will still exist. Different GPU's, Audio Controllers, Host OS, Displays, IOMMU Groups... various things can and will be different so we must go in and further refine our machine. If for whatever reason you find something is broken on your system, take the time and effort to read the write-ups to continue perfecting your Virtual Machine.</h5>
 
 <br>
 <h3 align="center"><b>For PowerPC</b></h3>

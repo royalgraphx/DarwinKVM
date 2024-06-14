@@ -12,12 +12,8 @@
     <nosharepages/>
   </memoryBacking>
   <vcpu placement='static'>8</vcpu>
-  <os firmware='efi'>
+  <os>
     <type arch='x86_64' machine='q35'>hvm</type>
-    <firmware>
-      <feature enabled='no' name='enrolled-keys'/>
-      <feature enabled='no' name='secure-boot'/>
-    </firmware>
     <loader readonly='yes' type='pflash'>/usr/share/DarwinUDK/x64/DUDK_CODE.fd</loader>
     <nvram template='/usr/share/DarwinUDK/x64/DUDK_VARS.fd'>/var/lib/libvirt/qemu/nvram/DarwinLegacyKVM_VARS.fd</nvram>
     <boot dev="hd"/>
@@ -42,7 +38,6 @@
   <on_crash>restart</on_crash>
   <devices>
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
-    <watchdog model='itco' action='none'/>
     <memballoon model='none'/>
   </devices>
   <qemu:commandline>

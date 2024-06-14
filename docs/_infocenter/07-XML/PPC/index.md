@@ -3,7 +3,7 @@ layout: default
 title: DarwinPPC.xml
 parent: XML Import/Usage
 has_children: true
-nav_order: 1
+nav_order: 3
 ---
 
 <p align="center">

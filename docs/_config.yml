@@ -3,6 +3,7 @@ description: An advanced guide for running Mac OS / Mac OS X / macOS on QEMU/KVM
 theme: just-the-docs
 color_scheme: custom
 favicon_ico: "/assets/favicon.ico"
+nav_sort: case_sensitive
 
 url: https://royalgraphx.github.io/DarwinKVM/docs
 

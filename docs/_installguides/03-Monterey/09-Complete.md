@@ -11,7 +11,7 @@ nav_order: 10
 
 
 <p align="center">
-  <img src="../../../assets/OpenCoreEFIComplete.png">
+  <img src="../../../assets/OpenCoreEFIComplete2.png">
 </p>
 
 <h2 align="center">Congratulations! You've configured your config.plist!</h2>

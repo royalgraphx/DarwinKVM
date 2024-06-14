@@ -47,9 +47,6 @@ permalink: /
   }
 </style>
 
-{: .headsup }
-The docs are currently undergoing a massive rewrite! While the current guide is still fully functional for the latest version of macOS, there are many changes being made to support a wider range of installation versions! During this transition, you may mix up information with other installation targets, please be aware of what you are following! Version 2.0.0 completion soon!
-
 <p align="center">
   <img src="./assets/DarwinKVMLogo.png" width="40%" height="40%" class="alignment_img">
 </p>

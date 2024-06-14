@@ -9,7 +9,7 @@ nav_order: 10
   <img width="650" height="200" src="../../../assets/HeaderCongrats.png">
 </p>
 
-<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreEFIComplete.png"><img src="../../../assets/OpenCoreEFIComplete.png" alt=""></a>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/assets/OpenCoreEFIComplete2.png"><img src="../../../assets/OpenCoreEFIComplete2.png" alt=""></a>
 
 <h2 align="center">Congratulations! You've configured your config.plist!</h2>
 

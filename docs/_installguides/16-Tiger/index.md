@@ -13,4 +13,4 @@ has_toc: true
 <h3 align="center">This guide targets the latest version of Tiger!</h3>
 
 {: .headsup }
-The ToC is to select a method for emulating this target!
+The ToC is to select a method for emulating or virtualizing this target!
