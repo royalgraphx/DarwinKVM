@@ -105,7 +105,6 @@ has_toc: false
 
 <h3 align="center">Mac OS X Snow Leopard 10.6.8 on x86_64</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/ProMacSnowLeopard.png"><img src="../../showcase/ProMacSnowLeopard.png" alt=""></a>
-<hr>
 
 <h3 align="center">Mac OS X Snow Leopard 10.6 on PowerPC</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/PowerMacSnowLeopard.png"><img src="../../showcase/PowerMacSnowLeopard.png" alt=""></a>
@@ -114,6 +113,9 @@ has_toc: false
 <h3 align="center">Mac OS X Leopard 10.5.4 on PowerPC</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/PowerMacLeopard.png"><img src="../../showcase/PowerMacLeopard.png" alt=""></a>
 <hr>
+
+<h3 align="center">Mac OS X Tiger 10.4.11 on x86_64</h3>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/MacPro21Tiger10411.png"><img src="../../showcase/MacPro21Tiger10411.png" alt=""></a>
 
 <h3 align="center">Mac OS X Tiger 10.4.11 on PowerPC</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/PowerMacTiger.png"><img src="../../showcase/PowerMacTiger.png" alt=""></a>

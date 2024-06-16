@@ -149,6 +149,11 @@
   <img src="./showcase/PowerMacLeopard.png">
 </p>
 
+<h3 align="center">Mac OS X Tiger 10.4.11 on x86_64</h3>
+<p align="center">
+  <img src="./showcase/MacPro21Tiger10411.png">
+</p>
+
 <h3 align="center">Mac OS X Tiger 10.4.11 on PowerPC</h3>
 <p align="center">
   <img src="./showcase/PowerMacTiger.png">
