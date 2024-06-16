@@ -139,9 +139,24 @@
   <img src="./showcase/ProMacSnowLeopard.png">
 </p>
 
-<h3 align="center">Mac OS X Snow Leopard 10.6 on PowerPC</h3>
+<h3 align="center">Mac OS X Server Snow Leopard 10.6.8 on x86_64</h3>
+<p align="center">
+  <img src="./showcase/ProMacSnowLeopardServer.png">
+</p>
+
+<h3 align="center">Mac OS X Snow Leopard Developer Preview 10A190 (10.6) on PowerPC</h3>
 <p align="center">
   <img src="./showcase/PowerMacSnowLeopard.png">
+</p>
+
+<h3 align="center">Mac OS X Leopard 10.5.8 on x86_64</h3>
+<p align="center">
+  <img src="./showcase/MacPro41Leopard1058.png">
+</p>
+
+<h3 align="center">Mac OS X Server Leopard 10.5 on x86_64</h3>
+<p align="center">
+  <img src="./showcase/MacPro41LeopardServer105.png">
 </p>
 
 <h3 align="center">Mac OS X Leopard 10.5.4 on PowerPC</h3>
@@ -152,6 +167,16 @@
 <h3 align="center">Mac OS X Tiger 10.4.11 on x86_64</h3>
 <p align="center">
   <img src="./showcase/MacPro21Tiger10411.png">
+</p>
+
+<h3 align="center">Mac OS X Server Tiger 10.4.11 on x86_64</h3>
+<p align="center">
+  <img src="./showcase/MacPro11TigerServer10411.png">
+</p>
+
+<h3 align="center">Mac OS X Tiger 10.4.7 on x86_64</h3>
+<p align="center">
+  <img src="./showcase/MacPro11Tiger1047.png">
 </p>
 
 <h3 align="center">Mac OS X Tiger 10.4.11 on PowerPC</h3>

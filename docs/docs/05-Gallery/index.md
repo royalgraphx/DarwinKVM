@@ -106,9 +106,18 @@ has_toc: false
 <h3 align="center">Mac OS X Snow Leopard 10.6.8 on x86_64</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/ProMacSnowLeopard.png"><img src="../../showcase/ProMacSnowLeopard.png" alt=""></a>
 
-<h3 align="center">Mac OS X Snow Leopard 10.6 on PowerPC</h3>
+<h3 align="center">Mac OS X Server Snow Leopard 10.6.8 on x86_64</h3>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/ProMacSnowLeopardServer.png"><img src="../../showcase/ProMacSnowLeopardServer.png" alt=""></a>
+
+<h3 align="center">Mac OS X Snow Leopard Developer Preview 10A190 (10.6) on PowerPC</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/PowerMacSnowLeopard.png"><img src="../../showcase/PowerMacSnowLeopard.png" alt=""></a>
 <hr>
+
+<h3 align="center">Mac OS X Leopard 10.5.8 on x86_64</h3>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/MacPro41Leopard1058.png"><img src="../../showcase/MacPro41Leopard1058.png" alt=""></a>
+
+<h3 align="center">Mac OS X Server Leopard 10.5 on x86_64</h3>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/MacPro41LeopardServer105.png"><img src="../../showcase/MacPro41LeopardServer105.png" alt=""></a>
 
 <h3 align="center">Mac OS X Leopard 10.5.4 on PowerPC</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/PowerMacLeopard.png"><img src="../../showcase/PowerMacLeopard.png" alt=""></a>
@@ -116,6 +125,12 @@ has_toc: false
 
 <h3 align="center">Mac OS X Tiger 10.4.11 on x86_64</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/MacPro21Tiger10411.png"><img src="../../showcase/MacPro21Tiger10411.png" alt=""></a>
+
+<h3 align="center">Mac OS X Server Tiger 10.4.11 on x86_64</h3>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/MacPro11TigerServer10411.png"><img src="../../showcase/MacPro11TigerServer10411.png" alt=""></a>
+
+<h3 align="center">Mac OS X Tiger 10.4.7 on x86_64</h3>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/MacPro11Tiger1047.png"><img src="../../showcase/MacPro11Tiger1047.png" alt=""></a>
 
 <h3 align="center">Mac OS X Tiger 10.4.11 on PowerPC</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/PowerMacTiger.png"><img src="../../showcase/PowerMacTiger.png" alt=""></a>
