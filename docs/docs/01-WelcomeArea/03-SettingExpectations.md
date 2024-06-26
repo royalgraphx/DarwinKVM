@@ -59,6 +59,7 @@ nav_order: 4
 1. [**DarwinLegacyKVM.xml**](https://github.com/royalgraphx/DarwinKVM/blob/main/DarwinLegacyKVM.xml), which is a prepared Virt-Manager importable XML.
    - Uses latest Q35 Machine Type provided by QEMU.
    - Uses Intel Westmere E56XX CPU Vendor String.
+   - Can swap for Intel Celeron (Conroe/Merom) CPU Vendor String.
    - Added Apple SMC chip for DSMOS, with it's key.
    - Stripped of redundant controllers and devices.
    - Disabled ACPI PCI Hotplug with Bridge Support.
@@ -76,7 +77,7 @@ nav_order: 4
    - Has support for downloading older Legacy Offline Installation disks.
    - Maintains a list of direct download links of Apple's CDN for OS X / macOS files.
 
-<h5 align="center">We are creating a Westmere E56XX based Virtual Machine, which will use an OpenCore EFI .img we create with DiskProvision, that will then allow us to boot our custom Virtual Machine configuration and install legacy Mac OS X releases. Even though we are all following the same general outline... difference in hardware will still exist. Different GPU's, Audio Controllers, Host OS, Displays, IOMMU Groups... various things can and will be different so we must go in and further refine our machine. If for whatever reason you find something is broken on your system, take the time and effort to read the write-ups to continue perfecting your Virtual Machine.</h5>
+<h5 align="center">We are creating a Westmere E56XX (or Celeron Conroe/Merom) based Virtual Machine, which will use an OpenCore EFI .img we create with DiskProvision, that will then allow us to boot our custom Virtual Machine configuration and install legacy Mac OS X releases. Even though we are all following the same general outline... difference in hardware will still exist. Different GPU's, Audio Controllers, Host OS, Displays, IOMMU Groups... various things can and will be different so we must go in and further refine our machine. If for whatever reason you find something is broken on your system, take the time and effort to read the write-ups to continue perfecting your Virtual Machine.</h5>
 
 <br>
 <h3 align="center"><b>For PowerPC</b></h3>

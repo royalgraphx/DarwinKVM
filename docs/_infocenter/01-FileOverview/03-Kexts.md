@@ -15,9 +15,9 @@ For those starting off, it's highly recommended to only use the following kexts 
 | Kext | Target | Description |
 | ----- | ----- | ----- |
 | [AppleMCEReporterDisabler](https://github.com/acidanthera/bugtracker/files/3703498/AppleMCEReporterDisabler.kext.zip) | MacPro7,1 | Required on macOS 12.3 and later on AMD systems and dual-socket Intel systems, and on KVM VMs. |
-| [Lilu](https://github.com/acidanthera/Lilu) | MacPro7,1 / MacPro5,1 | A "patch engine", a lot of kexts depend on it for patching frameworks at kernel runtime. Required for AppleALC, WhateverGreen, VirtualSMC and many other kexts. Without Lilu, they will fail to inject. |
+| [Lilu](https://github.com/acidanthera/Lilu) | All Configurations | A "patch engine", a lot of kexts depend on it for patching frameworks at kernel runtime. Required for AppleALC, WhateverGreen, VirtualSMC and many other kexts. Without Lilu, they will fail to inject. |
 
-Once you've reached the desktop and are preparing for GPU Passthrough, come back and check with the hardware you'll be passing through if you need any Kexts. 
+**Once you've reached the desktop and are preparing for GPU Passthrough**, come back and check with the hardware you'll be passing through if you need any Kexts. 
 
 For example, Samsung NVMe should be using NVMeFix.kext for better voltage and temperature management by macOS.
 

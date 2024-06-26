@@ -28,20 +28,20 @@ To begin, this section is called ``CPU Tune``. We can add this below whichever w
 
 ```xml
 <cputune>
-  <vcpupin vcpu="0" cpuset="2"/>
-  <vcpupin vcpu="1" cpuset="3"/>
-  <vcpupin vcpu="2" cpuset="4"/>
-  <vcpupin vcpu="3" cpuset="5"/>
-  <vcpupin vcpu="4" cpuset="6"/>
-  <vcpupin vcpu="5" cpuset="7"/>
-  <vcpupin vcpu="6" cpuset="8"/>
-  <vcpupin vcpu="7" cpuset="9"/>
-  <vcpupin vcpu="8" cpuset="10"/>
-  <vcpupin vcpu="9" cpuset="11"/>
-  <vcpupin vcpu="10" cpuset="12"/>
-  <vcpupin vcpu="11" cpuset="13"/>
-  <vcpupin vcpu="12" cpuset="14"/>
-  <vcpupin vcpu="13" cpuset="15"/>
+  <vcpupin vcpu='0' cpuset='1'/>
+  <vcpupin vcpu='1' cpuset='9'/>
+  <vcpupin vcpu='2' cpuset='2'/>
+  <vcpupin vcpu='3' cpuset='10'/>
+  <vcpupin vcpu='4' cpuset='3'/>
+  <vcpupin vcpu='5' cpuset='11'/>
+  <vcpupin vcpu='6' cpuset='4'/>
+  <vcpupin vcpu='7' cpuset='12'/>
+  <vcpupin vcpu='8' cpuset='5'/>
+  <vcpupin vcpu='9' cpuset='13'/>
+  <vcpupin vcpu='10' cpuset='6'/>
+  <vcpupin vcpu='11' cpuset='14'/>
+  <vcpupin vcpu='12' cpuset='7'/>
+  <vcpupin vcpu='13' cpuset='15'/>
   ...
   ...
 </cputune>
@@ -65,14 +65,14 @@ In the first example, we're only using 8 threads or (vCPU's) so we would do
 
 ```xml
 <cputune>
-  <vcpupin vcpu="0" cpuset="2"/>
-  <vcpupin vcpu="1" cpuset="3"/>
-  <vcpupin vcpu="2" cpuset="4"/>
-  <vcpupin vcpu="3" cpuset="5"/>
-  <vcpupin vcpu="4" cpuset="6"/>
-  <vcpupin vcpu="5" cpuset="7"/>
-  <vcpupin vcpu="6" cpuset="8"/>
-  <vcpupin vcpu="7" cpuset="9"/>
+  <vcpupin vcpu='0' cpuset='1'/>
+  <vcpupin vcpu='1' cpuset='9'/>
+  <vcpupin vcpu='2' cpuset='2'/>
+  <vcpupin vcpu='3' cpuset='10'/>
+  <vcpupin vcpu='4' cpuset='3'/>
+  <vcpupin vcpu='5' cpuset='11'/>
+  <vcpupin vcpu='6' cpuset='4'/>
+  <vcpupin vcpu='7' cpuset='12'/>
   ...
   ...
 </cputune>
@@ -85,20 +85,20 @@ In the second example, it was a 14 Thread Virtual Machine, so the following is u
 
 ```xml
 <cputune>
-  <vcpupin vcpu="0" cpuset="2"/>
-  <vcpupin vcpu="1" cpuset="3"/>
-  <vcpupin vcpu="2" cpuset="4"/>
-  <vcpupin vcpu="3" cpuset="5"/>
-  <vcpupin vcpu="4" cpuset="6"/>
-  <vcpupin vcpu="5" cpuset="7"/>
-  <vcpupin vcpu="6" cpuset="8"/>
-  <vcpupin vcpu="7" cpuset="9"/>
-  <vcpupin vcpu="8" cpuset="10"/>
-  <vcpupin vcpu="9" cpuset="11"/>
-  <vcpupin vcpu="10" cpuset="12"/>
-  <vcpupin vcpu="11" cpuset="13"/>
-  <vcpupin vcpu="12" cpuset="14"/>
-  <vcpupin vcpu="13" cpuset="15"/>
+  <vcpupin vcpu='0' cpuset='1'/>
+  <vcpupin vcpu='1' cpuset='9'/>
+  <vcpupin vcpu='2' cpuset='2'/>
+  <vcpupin vcpu='3' cpuset='10'/>
+  <vcpupin vcpu='4' cpuset='3'/>
+  <vcpupin vcpu='5' cpuset='11'/>
+  <vcpupin vcpu='6' cpuset='4'/>
+  <vcpupin vcpu='7' cpuset='12'/>
+  <vcpupin vcpu='8' cpuset='5'/>
+  <vcpupin vcpu='9' cpuset='13'/>
+  <vcpupin vcpu='10' cpuset='6'/>
+  <vcpupin vcpu='11' cpuset='14'/>
+  <vcpupin vcpu='12' cpuset='7'/>
+  <vcpupin vcpu='13' cpuset='15'/>
   ...
   ...
 </cputune>

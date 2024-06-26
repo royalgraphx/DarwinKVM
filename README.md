@@ -104,6 +104,11 @@
   <img src="./showcase/HacProKVM10136.png">
 </p>
 
+<h3 align="center">Mac OS X Sierra 10.12.5 (AppleInternal Phoenix 16F5049f)</h3>
+<p align="center">
+  <img src="./showcase/ProMacSierraInternal.png">
+</p>
+
 <h3 align="center">Mac OS X Sierra 10.12</h3>
 <p align="center">
   <img src="./showcase/ProMacSierra.png">
@@ -177,6 +182,11 @@
 <h3 align="center">Mac OS X Tiger 10.4.7 on x86_64</h3>
 <p align="center">
   <img src="./showcase/MacPro11Tiger1047.png">
+</p>
+
+<h3 align="center">Mac OS X Tiger 10.4.1 (8B1025, ADP2,1) on x86_64</h3>
+<p align="center">
+  <img src="./showcase/ADP21-1041.png">
 </p>
 
 <h3 align="center">Mac OS X Tiger 10.4.11 on PowerPC</h3>

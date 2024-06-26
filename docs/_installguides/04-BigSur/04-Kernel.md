@@ -19,10 +19,12 @@ Blocks certain Kexts from loading. Not relevant for us.
 
 ## Emulate
 
-Needed for spoofing unsupported CPUs like Pentiums and Celerons. We are already spoofing the CPU to CascadeLake in the XML, so we won't need this.
+Needed for spoofing unsupported CPUs like Pentiums and Celerons. We won't need those options.
 
-- Cpuid1Mask: Leave this blank
-- Cpuid1Data: Leave this blank
+| Key  | Type | Value |
+| Cpuid1Data | Data | <> |
+| Cpuid1Mask | Data | <> |
+| DummyPowerManagement | Boolean | False |
 
 ## Force
 

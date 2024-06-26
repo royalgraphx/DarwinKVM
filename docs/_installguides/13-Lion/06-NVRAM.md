@@ -22,7 +22,7 @@ We can use this dictionary to modify boot-args. Use the chart below for various 
 | ----- | ----- |
 | -v | This enables verbose mode, which shows all the behind-the-scenes text that scrolls by as you're booting instead of the Apple logo and progress bar. It's invaluable to any Hackintosher, as it gives you an inside look at the boot process, and can help you identify issues, problem kexts, etc. |
 | keepsyms=1 | This is a companion setting to debug=0x100 that tells the OS to also print the symbols on a kernel panic. That can give some more helpful insight as to what's causing the panic itself. |
-| nehalem_error_disable	| This disables AppleTyMCEDriver so the virtual RAM on MacPro5,1 does not cause a kernel panic. |
+| nehalem_error_disable | This disables AppleTyMCEDriver so the virtual RAM on MacPro5,1 / MacPro4,1 does not cause a kernel panic. |
 
 ### GPU Related Boot-Args
 

@@ -31,8 +31,8 @@ has_toc: false
 | Mountain Lion | x86_64 | [View Guide](../../../installguides/12-MountainLion/index) | <span style="color: #91ff73;">Complete</span>  | MacPro5,1 |
 | Lion | x86_64 | [View Guide](../../../installguides/13-Lion/index) | <span style="color: #91ff73;">Complete</span>  | MacPro5,1 |
 | Snow Leopard | x86_64/PowerPC | [View Guide](../../../installguides/14-SnowLeopard/index) | <span style="color: #ffe985;">x86_64</span> | MacPro5,1/PowerMac3,1 |
-| Leopard | x86_64/PowerPC | [View Guide](../../../installguides/15-Leopard/index) | <span style="color: #ffe985;">PowerPC</span> | MacPro4,1/PowerMac3,1 |
-| Tiger | x86_64/PowerPC | [View Guide](../../../installguides/16-Tiger/index) | <span style="color: #ffe985;">PowerPC</span> | MacPro2,1/PowerMac3,1 |
+| Leopard | x86_64/PowerPC | [View Guide](../../../installguides/15-Leopard/index) | <span style="color: #91ff73;">Complete</span> | MacPro4,1/PowerMac3,1 |
+| Tiger | x86_64/PowerPC | [View Guide](../../../installguides/16-Tiger/index) | <span style="color: #91ff73;">Complete</span> | MacPro2,1/PowerMac3,1 |
 | Panther | PowerPC | [View Guide](../../../installguides/17-Panther/index) | <span style="color: #91ff73;">Complete</span> | PowerMac3,1 |
 | Jaguar | PowerPC | [View Guide](../../../installguides/18-Jaguar/index) | <span style="color: #91ff73;">Complete</span> | PowerMac3,1 |
 | Puma | PowerPC | [View Guide](../../../installguides/19-Puma/index) | <span style="color: #91ff73;">Complete</span> | PowerMac3,1 |

@@ -37,6 +37,16 @@ log_filters="3:qemu 1:libvirt"
 log_outputs="2:file:/var/log/libvirt/libvirtd.log"
 ```
 
+{: .headsup }
+If your distribution uses AppArmor, or SELinux do not forget to change the following line to disable them for Libvirt. Mostly an issue on Debian based systems. Skip if you don't know.
+
+``Security Driver - As a last resort it is possible to disable security protection libvirt wide.``
+
+```bash
+# security_driver = [ "selinux", "apparmor" ]
+security_driver = "none"
+```
+
 ### qemu.conf
 
 Use your favorite text editor to make the following changes:

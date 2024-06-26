@@ -33,7 +33,7 @@ For our use case on MacPro7,1 we will be emulating an Intel Cascade Lake CPU <sp
  - Embedded controller (EC)
    - Mac OS X requires a device named EC to be present, so we create a dummy EC.
 
-For our use case on MacPro5,1 we will be emulating an Intel Westmere E56XX CPU <span style="color: #ffab52;">so regardless of the host architecture, the only ACPI file we require to boot will be SSDT-EC.</span>
+For our use case on MacPro5,1 / MacPro4,1 and MacPro2,1 we will be emulating an Intel Westmere E56XX CPU, or an Intel Celeron (Conroe/Merom) on older models <span style="color: #ffab52;">so regardless of the host architecture, the only ACPI file we require to boot will be SSDT-EC.</span>
 
 <hr>
 
@@ -42,6 +42,8 @@ Thanks to [ExtremeXT](https://github.com/ExtremeXT) for allowing me to include h
 Thanks to [CorpNewt](https://github.com/CorpNewt) for [SSDTTime](https://github.com/corpnewt/SSDTTime), which was used on a DarwinKVM VM booted in to Arch Linux, to dump and create SSDT-EC.
 
 I've tested all files and it works as expected, and I use it for my daily machine so I'm confident including it, feel free to manually make your own or possibly try the ones from Acidanthera! As long as you complete this ACPI section for your target installation, you can go ahead to the next step.
+
+It's been brought to my attention that the EC device is potentially not even required when running in virtualized environments, I haven't had time to personally confirm that, but wanted to include it in here that this is a real possibility and this page may look very different before 2.0.0 releases fully!
 
 <h3><span style="color: #ffab52;">The required files can be found in the DarwinOCPkg/Docs folder.</span></h3>
 

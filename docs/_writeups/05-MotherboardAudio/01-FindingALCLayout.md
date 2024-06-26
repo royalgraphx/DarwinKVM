@@ -8,7 +8,11 @@ nav_order: 1
 # Finding ALC Layout
 #### Used later when adding aclid to boot-args
 
-We'll need to have ``pciutils`` to be able to use the following command. Ensure you're using the audio device and/or it's active.
+We'll need to have ``pciutils`` (On Arch) package installed to be able to use the following command.
+
+Other distributions can find the equivalent package that holds the ``aplay`` command.
+
+Ensure you're using the audio device and/or it's active.
 
 Let's go ahead and issue the following command into a terminal:
 

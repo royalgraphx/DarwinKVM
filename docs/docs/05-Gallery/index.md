@@ -17,27 +17,21 @@ has_toc: false
 
 <h3 align="center">macOS Sonoma 14.5</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/HacProKVM145.png"><img src="../../showcase/HacProKVM145.png" alt=""></a>
-<hr>
 
 <h3 align="center">macOS Sonoma 14.4 Beta</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/HacProKVM144Beta.png"><img src="../../showcase/HacProKVM144Beta.png" alt=""></a>
-<hr>
 
 <h3 align="center">macOS Sonoma 14.3</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/HacProKVM143.png"><img src="../../showcase/HacProKVM143.png" alt=""></a>
-<hr>
 
 <h3 align="center">macOS Sonoma 14.2.1 (Credits: @heliokroger)</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/Helio1421.png"><img src="../../showcase/Helio1421.png" alt=""></a>
-<hr>
 
 <h3 align="center">macOS Sonoma 14.1</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/HacProKVM141.png"><img src="../../showcase/HacProKVM141.png" alt=""></a>
-<hr>
 
 <h3 align="center">macOS Sonoma 14.1 (Credits: @Haxi0)</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/haxi0DKVM.png"><img src="../../showcase/haxi0DKVM.png" alt=""></a>
-<hr>
 
 <h3 align="center">macOS Sonoma 14.0</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/HacProKVM140.png"><img src="../../showcase/HacProKVM140.png" alt=""></a>
@@ -45,15 +39,12 @@ has_toc: false
 
 <h3 align="center">macOS Ventura 13.5.1</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/HacProKVM1351.png"><img src="../../showcase/HacProKVM1351.png" alt=""></a>
-<hr>
 
 <h3 align="center">macOS Ventura 13.5 + NVIDIA GPU (Credits: @Zormeister)</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/ZormDKVMnvidia.png"><img src="../../showcase/ZormDKVMnvidia.png" alt=""></a>
-<hr>
 
 <h3 align="center">macOS Ventura 13.5 (Credits: @Rowlul)</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/kaggsterDKVM135.png"><img src="../../showcase/kaggsterDKVM135.png" alt=""></a>
-<hr>
 
 <h3 align="center">macOS Ventura 13.4</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/HacProKVM134.png"><img src="../../showcase/HacProKVM134.png" alt=""></a>
@@ -78,6 +69,9 @@ has_toc: false
 <h3 align="center">Mac OS X High Sierra 10.13.6</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/HacProKVM10136.png"><img src="../../showcase/HacProKVM10136.png" alt=""></a>
 <hr>
+
+<h3 align="center">Mac OS X Sierra 10.12.5 (AppleInternal Phoenix 16F5049f)</h3>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/ProMacSierraInternal.png"><img src="../../showcase/ProMacSierraInternal.png" alt=""></a>
 
 <h3 align="center">Mac OS X Sierra 10.12</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/ProMacSierra.png"><img src="../../showcase/ProMacSierra.png" alt=""></a>
@@ -131,6 +125,9 @@ has_toc: false
 
 <h3 align="center">Mac OS X Tiger 10.4.7 on x86_64</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/MacPro11Tiger1047.png"><img src="../../showcase/MacPro11Tiger1047.png" alt=""></a>
+
+<h3 align="center">Mac OS X Tiger 10.4.1 (8B1025, ADP2,1) on x86_64</h3>
+<a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/ADP21-1041.png"><img src="../../showcase/ADP21-1041.png" alt=""></a>
 
 <h3 align="center">Mac OS X Tiger 10.4.11 on PowerPC</h3>
 <a href="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/main/docs/showcase/PowerMacTiger.png"><img src="../../showcase/PowerMacTiger.png" alt=""></a>

@@ -15,11 +15,11 @@ nav_order: 3
 We'll now go ahead and add the ``AppleALC.kext`` into our OpenCore image. To use it properly, we must first ``OC Snapshot`` to make sure it's added to our config.plist kexts. Next, we must go to the boot arguments and add the following:
 
 ```
-aclid=xxx
+alcid=xxx
 ```
 Where, ``xxx`` is the Layout ID that corresponds with your ALC Codec from the previous page.
 
-In the screenshot above, you can see the use of ``aclid=1``. This was determined from the following chart:
+In the screenshot above, you can see the use of ``alcid=1``. This was determined from the following chart:
 
 [Acidanthera, AppleALC Supported Codecs](https://github.com/acidanthera/AppleALC/wiki/Supported-codecs)
 

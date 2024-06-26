@@ -10,4 +10,4 @@ nav_order: 1
   <img width="650" height="200" src="../../../../assets/HeaderAMD64.png">
 </p>
 
-<h3 align="center">This guide targets the latest version of Leopard!</h3>
+<h3 align="center">This guide targets the latest version of Snow Leopard!</h3>

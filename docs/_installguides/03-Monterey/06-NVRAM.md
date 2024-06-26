@@ -13,7 +13,6 @@ nav_order: 7
 
 ## Add
 
-
 {: .highlight }
 7C436110-AB2A-4BBB-A880-FE41995C9F82
 
@@ -25,13 +24,29 @@ We can use this dictionary to modify boot-args. Use the chart below for various 
 | ----- | ----- |
 | -v | This enables verbose mode, which shows all the behind-the-scenes text that scrolls by as you're booting instead of the Apple logo and progress bar. It's invaluable to any Hackintosher, as it gives you an inside look at the boot process, and can help you identify issues, problem kexts, etc. |
 | keepsyms=1 | This is a companion setting to debug=0x100 that tells the OS to also print the symbols on a kernel panic. That can give some more helpful insight as to what's causing the panic itself. |
-| debug=0x100	| This disables macOS's watchdog which helps prevents a reboot on a kernel panic. That way you can hopefully glean some useful info and follow the breadcrumbs to get past the issues. |
+| debug=0x100 | This disables macOS's watchdog which helps prevents a reboot on a kernel panic. That way you can hopefully glean some useful info and follow the breadcrumbs to get past the issues. |
 
 ### GPU Related Boot-Args
 
+{: .headsup }
+The following boot-args are WhateverGreen boot args! They require the kext to be in use.
+
 | boot-arg | Description | 
 | ----- | ----- |
+| agdpmod=vit9696 | Disables board-id check, may be needed for when screen turns black after finishing booting. |
 | agdpmod=pikera | Used for disabling board ID checks on some Navi GPUs (RX 5000 & 6000 series). Don't use if you use NootRX. |
+| radpg=15 | Fixes initialization for HD 7730/7750/7770/R7 250/R7 250X |
+| raddvi | Fixes DVI connector-type for 290X, 370, etc |
+| radvesa | Forces GPU into VESA mode(no GPU acceleration), useful for troubleshooting. |
+| igfxvesa | Forces Intel iGPU into VESA mode |
+
+{: .headsup }
+The following boot-args are Apple boot flags and will work without WEG.
+
+| boot-arg | Description | 
+| ----- | ----- |
+| nv_disable=1 | Forces GPU into VESA mode. |
+| amd_no_dgpu_accel | Forces GPU into VESA mode. |
 
 ## Delete
 
