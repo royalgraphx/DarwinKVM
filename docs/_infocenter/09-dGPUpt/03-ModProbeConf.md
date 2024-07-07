@@ -20,7 +20,7 @@ In this new file, you can begin to build your custom vfio configuration. For sta
 
 ```bash
 options vfio-pci ids=10de:06cd,10de:0be5
-softdep nvidia pre: vfio-pci
+softdep amdgpu pre: vfio-pci
 ```
 
 To apply these changes, we'll need to use ``mkinitcpio`` to rebuild the initial ramdisk environment.
