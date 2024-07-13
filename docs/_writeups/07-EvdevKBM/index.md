@@ -1,13 +1,12 @@
 ---
 layout: default
-title: KBM Via Evdev
+title: KB/M sharing with Evdev
 nav_order: 7
 has_children: true
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/HeaderEvdevKBM.png">
+  <img width="650" height="200" src="../../assets/HeaderEvdevKBM.png">
 </p>
 
-{: .warning }
-This section is under construction. It may have missing or incomplete information! Wait until this warning is no longer present, to follow the writeup.
+This guide will show you how to configure Evdev to allow the host (Linux) and the guest (OS X/macOS) to share a mouse and keyboard with a simple keyboard shortcut!
