@@ -7,7 +7,7 @@ nav_order: 4
 ## Adding VoodooPS2
 
 {: .headsup }
-> For **OSX 10.11** (El Capitan) and lower, you will instead need to download the original PS2 driver by **RehabMan** <a href="https://bitbucket.org/RehabMan/os-x-voodoo-ps2-controller/downloads/">here</a>. Note that these older drivers are built for x64 systems, but you can manually build the x32 versions in Xcode with the source code <a href="https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller/">here</a>.
+> For **OS X 10.11** (El Capitan) and lower, you will instead need to download the original PS2 driver by **RehabMan** <a href="https://bitbucket.org/RehabMan/os-x-voodoo-ps2-controller/downloads/">here</a>. Note that these older drivers are built for x64 systems, but you can manually build the x32 versions in Xcode with the source code <a href="https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller/">here</a>.
 
 Start by downloading the latest release version of ``VoodooPS2`` from <a href="https://github.com/acidanthera/VoodooPS2/releases/">here</a> (for macOS 10.12 Sierra and higher).
 
