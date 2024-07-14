@@ -5,7 +5,7 @@ parent: KB/M sharing with Evdev
 nav_order: 2
 ---
 
-# Editing Config Files
+## Editing Config Files
 
 Use your favorite text editor to make the following changes to:
 
@@ -54,4 +54,4 @@ Save the file, then restart the libvirtd service.
 systemctl restart libvirtd
 ```
 
-## You can now continue to the next <a href="./03-AddingToXML">page</a>.
+## You can now continue to the next <a href="../03-XML">page</a>.

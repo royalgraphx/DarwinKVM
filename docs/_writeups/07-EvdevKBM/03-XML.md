@@ -7,15 +7,15 @@ nav_order: 3
 
 # XML Modifications
 
-> [!WARNING]
+{: .warning }
 > In order to use ``evdev``, we will need to **remove the USB controller from our machine**. Otherwise, the controller will capture the USB (and input) devices first, thus removing the files from ``/dev/input/by-id/``.
 >
-> If you really want to pass in USB devices, try passing in the USB devices directly via USB passthrough, or utilize a secondary USB controller for passthrough.
+> If you really want to pass in USB devices, try utilizing a secondary USB controller for passthrough. Using USB Host Device is not recommended. QEMU's USB Controllers are non compliant and on OS X / macOS do not provide proper functionality for basics such as iPhone Sync, and the likes.
 
 First, let's remove the USB controller from the virtual machine.
 
 <p align="center">
-    <img src="../../assets/VManRemoveUSBController.png"/>
+    <img src="../../../assets/VManRemoveUSBController.png"/>
 </p>
 
 Now, we need to edit the XML of the virtual machine. Go to Overview > XML, and scroll down until you see the following lines:
@@ -36,7 +36,7 @@ Now, **before** the mouse and keyboard XML, copy and paste the following XML to 
 </input>
 ```
 
-> [!NOTE]
+{: .note }
 > The ``grabToggle`` option will be the keyboard shortcut to switch the keyboard and mouse focus from host (Linux) and guest (macOS). This can be configured to the keyboard shortcut that you prefer. By default, it will be ``'ctrl-ctrl'``, but this option can be configured to the following options:
 > - ``'alt-alt'``
 > - ``'shift-shift'``
@@ -46,10 +46,10 @@ Now, **before** the mouse and keyboard XML, copy and paste the following XML to 
 
 
 <p align="center">
-    <img src="../../assets/VManAddingEvdevDevices.png"/>
+    <img src="../../../assets/VManAddingEvdevDevices.png"/>
 </p>
 
-> [!NOTE]
+{: .note }
 > Remember to **'Apply'** when you finish!
 
 You should then see two 'Input' devices in the sidebar!
@@ -57,13 +57,13 @@ You should then see two 'Input' devices in the sidebar!
 Sample configuration for the mouse (should be similar for keyboard as well):
 
 <p align="center">
-    <img src="../../assets/VManEvdevInputDetails.png"/>
+    <img src="../../../assets/VManEvdevInputDetails.png"/>
 </p>
 
 <p align="center">
-    <img src="../../assets/VManEvdevInputXML.png"/>
+    <img src="../../../assets/VManEvdevInputXML.png"/>
 </p>
 
 **Do not boot into DarwinKVM yet! We still need to configure the driver/kext for KB/M!**
 
-## You can now continue to the next <a href="./04-AddingToKext">page</a>.
+## You can now continue to the next <a href="../04-VoodooPS2">page</a>.
