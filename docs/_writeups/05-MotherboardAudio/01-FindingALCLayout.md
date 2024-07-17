@@ -8,7 +8,7 @@ nav_order: 1
 # Finding ALC Layout
 #### Used later when adding aclid to boot-args
 
-We'll need to have ``pciutils`` (On Arch) package installed to be able to use the following command.
+We'll need to have ``alsa-utils`` (On Arch) package installed to be able to use the following command.
 
 Other distributions can find the equivalent package that holds the ``aplay`` command.
 
