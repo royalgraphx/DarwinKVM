@@ -31,6 +31,7 @@ nav_order: 3
      - [Arch Linux](https://archlinux.org/download/)
      - [EndeavourOS](https://endeavouros.com/)
      - [ArcoLinux Plasma](https://sourceforge.net/projects/arcolinux-community-editions/files/plasma/)
+     - [Fedora Linux](https://fedoraproject.org/workstation/)
 
 3. **CPU Minimum Requirements:**
    - Virtualization Support
