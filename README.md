@@ -89,6 +89,16 @@
   <img src="./showcase/ProMacBigSur.png">
 </p>
 
+<h3 align="center">macOS Big Sur 11.0.0 Developer Preview 1 (20A4299v)</h3>
+<p align="center">
+  <img src="./showcase/110BigSurDP1MacPro71.png">
+</p>
+
+<h3 align="center">Mac OS X 10.16 (AppleInternal GoldenGateSpike 20A2314a)</h3>
+<p align="center">
+  <img src="./showcase/1016CataSurMacPro71.png">
+</p>
+
 <h3 align="center">Mac OS X Catalina 10.15.7</h3>
 <p align="center">
   <img src="./showcase/ProMacCatalina.png">
@@ -260,9 +270,9 @@
 
 5. Installing Docs dependencies, and running the server.
    - Run ``bundle install`` in your terminal window.
-   - Running ``bundle exec jekyll serve`` will build and run a live copy of the DarwinKVM docs on port 4000 by default.
+   - Running ``bundle exec jekyll serve --incremental`` will build and run a live copy of the DarwinKVM docs on port 4000 by default.
    - To change the port, you can specify the IP address and port to run on, allowing local mobile devices to also connect and preview DKVM Docs.
-      - ``bundle exec jekyll serve --host YOUR_IP_ADDRESS --port PORT``
+      - ``bundle exec jekyll serve --host YOUR_IP_ADDRESS --port PORT --incremental``
 
 <h4 align="center">You'll now be able to see the changes you make update live so you can work quickly and preview the final look of your Markdown files easily. Once you are done making your changes you can then proceed to submit a Pull Request for review, and eventual merge to Main.</h4>
 <h6 align="center">A big thanks to all contributors and future contributors! ꩓</h6>

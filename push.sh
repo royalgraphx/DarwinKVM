@@ -1,44 +1,39 @@
 #!/bin/bash
 
-git add --all
-echo "Enter Commit Details:"
-read varcommit
-
-coauthors=()
-add_coauthor() {
-  echo "Do you want to add a Co-Author? (yes/no)"
-  read response
-
-  if [ "$response" = "yes" ]; then
-    echo "Enter Co-Author's Name:"
-    read author_name
-    echo "Enter Co-Author's Email:"
-    read author_email
-
-    coauthors+=("Co-authored-by: $author_name <$author_email>")
-    
-    add_coauthor  # Recursive call for adding more co-authors
+# Function to check if the current branch tracks a remote branch
+check_tracking() {
+  if git rev-parse --abbrev-ref --symbolic-full-name @{u} &> /dev/null; then
+    return 0
+  else
+    echo "The current branch does not track a remote branch. Please set the upstream branch using:"
+    echo "git branch --set-upstream-to=<remote>/<branch> <branch>"
+    exit 1
   fi
 }
 
-add_coauthor
+# Function to check if there are uncommitted changes
+check_uncommitted_changes() {
+  if ! git diff-index --quiet HEAD --; then
+    echo "You have uncommitted changes. Please commit them before pushing."
+    exit 1
+  fi
+}
 
-# Construct the commit message with co-authors
-commit_message="$varcommit"
-for coauthor in "${coauthors[@]}"; do
-  commit_message+=""$'\n'$'\n'"$coauthor"
-done
+# Function to attempt to push changes
+attempt_push() {
+  if git push; then
+    echo "Changes pushed to the remote repository successfully."
+  else
+    echo "Failed to push changes. Please check your connection and remote repository status."
+    exit 1
+  fi
+}
 
-if [ "${#coauthors[@]}" -gt 0 ]; then
-  git commit -m "$commit_message"
-else
-  git commit -m "$varcommit"
-fi
+# Check if the current branch tracks a remote branch
+check_tracking
 
-git push
+# Check for uncommitted changes
+check_uncommitted_changes
 
-if [ "${#coauthors[@]}" -gt 0 ]; then
-  echo "Commit \"$varcommit\" with co-authors pushed successfully."
-else
-  echo "Commit \"$varcommit\" pushed successfully."
-fi
+# Attempt to push changes
+attempt_push
