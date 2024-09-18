@@ -231,14 +231,12 @@
 <p align="center">
   <img width="50%" height="50%" src="./Assets/discord-logo-white.png">
 </p>
-<h4 align="center">If you run into any issues, you can join the <a href="https://discord.gg/ryQFC8Vk7b">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. <a href="https://github.com/royalgraphx/Hexley">Hexley</a> provides our discord users with a multitude of commands to assist anyone who may need specific actions performed. Such features that Hexley offers aim to speed up the process with command such as:</h4>
+<h4 align="center">If you run into any issues, you can join the <a href="https://discord.gg/ryQFC8Vk7b">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. Hexley provides our discord users with a multitude of commands to assist anyone who may need specific actions performed. Such features that Hexley offers aim to speed up the process with command such as:</h4>
 
 <h6 align="center">/genplatinfo - Generates PlatformInfo for a given Mac model</h6>
+<h6 align="center">/checkcoverage - Allows to get a serial numbers Coverage status</h6>
 <h6 align="center">/pci - Find PCI devices by vendor ID and device ID.</h6>
 <h6 align="center">/usb - Find USB devices by vendor ID and device ID.</h6>
-<h6 align="center">/encodehex - Converts device ID to little-endian hex value.</h6>
-<h6 align="center">/decodehex - Decodes little-endian hex values into 0x0000 Format.</h6>
-<h6 align="center">/decodebase64 - Decodes Base64 to text.</h6>
 <h6 align="center">/link - Quickly link a URL for someone.</h6>
 <h6 align="center">/time - Displays the time of a given user.</h6>
 

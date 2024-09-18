@@ -11,7 +11,7 @@ nav_order: 2
 
 <h2 align="center">What is this for?</h2>
 
-<h5 align="center">This repository and its contents are to be an advanced guide for anyone looking to create powerful macOS Virtual Machines that can handle being daily driven, used for powerful applications, and those who want to get the maximum possible performance out of their systems for hosting a macOS guest. The guide covers configuring a variety of QEMU machines for (one day) the entire Mac OS X / macOS version list but it's main focus will always be supporting the latest macOS release until its eventual x86_64 death, whenever that is.</h5>
+<h5 align="center">This repository and its contents are to be an advanced guide for anyone looking to create powerful macOS Virtual Machines that can handle being daily driven, used for powerful applications, and those who want to get the maximum possible performance out of their systems for hosting a macOS guest. The guide covers configuring a variety of QEMU machines for the entire Mac OS X / macOS Major Release versions list but it's main focus will always be supporting the latest macOS release until its eventual x86_64 death, whenever that is.</h5>
 
 <h2 align="center">Who is this for?</h2>
 

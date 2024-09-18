@@ -22,7 +22,7 @@ nav_order: 3
    - <span style="color: #ffab52;">This is a must, don't bother if you're not getting GPU Acceleration, it's not worth it.</span>
      - Eventually we will add support for those without supported GPU's, but highly experimental.
    - [AMD GPU Support Table](../../infocenter/02-GPUSupport/01-AMD/) - Recommended for all, runs latest macOS and older OS X releases.
-   - [NVIDIA GPU Support Table](../../infocenter/02-GPUSupport/01-AMD/) - For Legacy OS X. <span style="color: #ffab52;">Highest Supported Version: High Sierra</span>
+   - [NVIDIA GPU Support Table](../../infocenter/02-GPUSupport/02-NVIDIA/) - For Legacy OS X. <span style="color: #ffab52;">Highest Supported Version: High Sierra</span> 
    - [Intel iGPU Support Table](../../infocenter/02-GPUSupport/03-Intel) - For Intel Laptops/Desktops with GVT-d/IOMMU/MUX Support
 
 2. **A Host running a Linux Distribution.**
