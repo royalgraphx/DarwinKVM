@@ -5,7 +5,11 @@
 # GNU General Public License v3.0
 #
 
-hdd_path="../DiskProvision/images/Macintosh.img"
+if [ -z "$1" ]; then
+    hdd_path="../DiskProvision/images/Macintosh.img"
+else
+    hdd_path="$1"
+fi
 iso_path="../DarwinFetch/downloads/10.2.0_6C115/Apple Mac OS X 10.2 (10.2.6C115)/Disc1.iso"
 iso2_path="../DarwinFetch/downloads/10.2.0_6C115/Apple Mac OS X 10.2 (10.2.6C115)/Disc2.iso"
 
@@ -14,7 +18,7 @@ iso2_path="../DarwinFetch/downloads/10.2.0_6C115/Apple Mac OS X 10.2 (10.2.6C115
 
 # Check if the HDD image exists
 if [ ! -f "$hdd_path" ]; then
-    echo "Could not open '$iso_path': No such file or directory"
+    echo "Could not open '$hdd_path': No such file or directory"
     exit 1
 fi
 

@@ -5,7 +5,11 @@
 # GNU General Public License v3.0
 #
 
-hdd_path="../DiskProvision/images/Macintosh.img"
+if [ -z "$1" ]; then
+    hdd_path="../DiskProvision/images/Macintosh.img"
+else
+    hdd_path="$1"
+fi
 iso_path="../DarwinFetch/downloads/10.3.0_7B850/Panther_CD1.toast_/Panther_Disc1.toast"
 iso2_path="../DarwinFetch/downloads/10.3.0_7B850/Panther_CD2.toast_/Panther_Disc2.toast"
 iso3_path="../DarwinFetch/downloads/10.3.0_7B850/Panther_CD3.toast__0/Panther_Disc3.toast"
@@ -15,7 +19,7 @@ iso3_path="../DarwinFetch/downloads/10.3.0_7B850/Panther_CD3.toast__0/Panther_Di
 
 # Check if the HDD image exists
 if [ ! -f "$hdd_path" ]; then
-    echo "Could not open '$iso_path': No such file or directory"
+    echo "Could not open '$hdd_path': No such file or directory"
     exit 1
 fi
 
