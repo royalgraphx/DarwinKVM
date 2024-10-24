@@ -5,12 +5,7 @@
 # GNU General Public License v3.0
 #
 
-if [ -z "$1" ]; then
-    hdd_path="../DiskProvision/images/Macintosh.img"
-else
-    hdd_path="$1"
-fi
-
+hdd_path="../DiskProvision/images/Macintosh.img"
 iso_path="../DarwinFetch/downloads/10.4.8_8L127/Mac OS X 10.4.8/Mac OS X 10.4.8.iso"
 
 # echo "HDD path is: $hdd_path"

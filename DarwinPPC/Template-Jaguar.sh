@@ -5,11 +5,7 @@
 # GNU General Public License v3.0
 #
 
-if [ -z "$1" ]; then
-    hdd_path="../DiskProvision/images/Macintosh.img"
-else
-    hdd_path="$1"
-fi
+hdd_path="../DiskProvision/images/Macintosh.img"
 iso_path="../DarwinFetch/downloads/10.2.0_6C115/Apple Mac OS X 10.2 (10.2.6C115)/Disc1.iso"
 iso2_path="../DarwinFetch/downloads/10.2.0_6C115/Apple Mac OS X 10.2 (10.2.6C115)/Disc2.iso"
 

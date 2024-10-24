@@ -5,11 +5,7 @@
 # GNU General Public License v3.0
 #
 
-if [ -z "$1" ]; then
-    hdd_path="../DiskProvision/images/Macintosh.img"
-else
-    hdd_path="$1"
-fi
+hdd_path="../DiskProvision/images/Macintosh.img"
 iso_path="../DarwinFetch/downloads/10.3.0_7B850/Panther_CD1.toast_/Panther_Disc1.toast"
 iso2_path="../DarwinFetch/downloads/10.3.0_7B850/Panther_CD2.toast_/Panther_Disc2.toast"
 iso3_path="../DarwinFetch/downloads/10.3.0_7B850/Panther_CD3.toast__0/Panther_Disc3.toast"
