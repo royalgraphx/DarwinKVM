@@ -18,7 +18,9 @@ Now go reboot into recoveryOS and run the following command: ```csrutil disable 
 
 This will disable SIP, and consent to the kext(s) for an extra failsafes.
 
-Now, reboot, download [this](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter/releases/download/V17/Wireless.USB.OC.Big.Sur.Adapter-V17.zip) and go run it. Reboot, and you should have working WLAN.
+Now, reboot, download [the WiFi utility](https://github.com/chris1111/Wireless-USB-OC-Big-Sur-Adapter/releases/download/V17/Wireless.USB.OC.Big.Sur.Adapter-V17.zip) and run it.
+
+You should have working WiFi now, signified by the blue/white WiFi icon in your status bar.
 
 ![](https://files.naymmm.lol/dkvm2.jpeg)
 
