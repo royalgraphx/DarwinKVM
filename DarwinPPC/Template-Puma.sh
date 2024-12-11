@@ -13,7 +13,7 @@ iso_path="../DarwinFetch/downloads/10.1.0_5G640/Apple Mac OS X 10.1 (10.1.5J34)/
 
 # Check if the HDD image exists
 if [ ! -f "$hdd_path" ]; then
-    echo "Could not open '$iso_path': No such file or directory"
+    echo "Could not open '$hdd_path': No such file or directory"
     exit 1
 fi
 

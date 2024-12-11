@@ -15,7 +15,7 @@ iso3_path="../DarwinFetch/downloads/10.3.0_7B850/Panther_CD3.toast__0/Panther_Di
 
 # Check if the HDD image exists
 if [ ! -f "$hdd_path" ]; then
-    echo "Could not open '$iso_path': No such file or directory"
+    echo "Could not open '$hdd_path': No such file or directory"
     exit 1
 fi
 
