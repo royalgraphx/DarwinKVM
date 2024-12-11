@@ -10,4 +10,4 @@ has_toc: true
   <img width="650" height="200" src="../../../assets/HeaderSonoma.png">
 </p>
 
-<h3 align="center">This guide targets the latest macOS!</h3>
+<h3 align="center">This guide targets the latest version of Sonoma!</h3>

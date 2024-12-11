@@ -17,12 +17,12 @@ Not much to say, this card has native support OOB.
 | --- | --- | --- | --- |
 | RX 6600 | Monterey (12) | Sequoia (15) | Does not require any kexts to work |
 | RX 6600 XT | Monterey (12) | Sequoia (15) | Does not require any kexts to work |
-| RX 6650 XT | Monterey (12) | Sequoia (15) | Needs device-id spoof to 0x73ff, <br> NRX negates this though. |
+| RX 6650 XT | Monterey (12) | Sequoia (15) | Needs device-id spoof to 0x73ff |
 
 # Navi 22
 
 {: .headsup }
-NootRX is required for these GPUs to function, they have no native macOS support. Be thankful!
+NootRX is required for these GPUs to function, they have no native macOS support.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
@@ -34,7 +34,7 @@ NootRX is required for these GPUs to function, they have no native macOS support
 # Navi 21
 
 {: .note }
-NootRX is recommended for these GPUs.
+WhateverGreen may be used for these GPUs in regards to fixing DRM content.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
@@ -47,7 +47,6 @@ NootRX is recommended for these GPUs.
 # Navi 10
 
 {: .note }
-
 WhateverGreen is required for these GPUs.
 
 | Card | Initial Support | Latest Support | Notes |

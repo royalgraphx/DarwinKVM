@@ -18,10 +18,25 @@
   <img width="650" height="200" src="./Assets/HeaderGallery.png">
 </p>
 
+<h3 align="center">macOS Sonoma 15.1.1 (Credits: @athleticat)</h3>
+<p align="center">
+  <img src="./showcase/athleticatMacPro71Seq1511.png">
+</p>
+
+<h3 align="center">macOS Sonoma 15.1 (Credits: @f0xb4t)</h3>
+<p align="center">
+  <img src="./showcase/f0xb4tMacPro71Seq151.png">
+</p>
+
 <h3 align="center">macOS Sequoia 15.0 Beta 1</h3>
 <p align="center">
   <img src="./showcase/HacProKVM15Beta.png">
   <img src="./showcase/HacProKVM15BetaAlt.png">
+</p>
+
+<h3 align="center"></h3>
+<p align="center">
+  <img src="./showcase/naymmmiscoolMacPro71Sonoma147.png">
 </p>
 
 <h3 align="center">macOS Sonoma 14.5</h3>
@@ -157,6 +172,11 @@
 <h3 align="center">Mac OS X Server Snow Leopard 10.6.8 on x86_64</h3>
 <p align="center">
   <img src="./showcase/ProMacSnowLeopardServer.png">
+</p>
+
+<h3 align="center">Mac OS X Snow Leopard 10.6.2 on i386 (AppleInternal Factory Mac Mini)</h3>
+<p align="center">
+  <img src="./showcase/MacMini31SnowLeopardFactory1062.png">
 </p>
 
 <h3 align="center">Mac OS X Snow Leopard Developer Preview 10A190 (10.6) on PowerPC</h3>

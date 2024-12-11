@@ -25,6 +25,7 @@ For example, Samsung NVMe should be using NVMeFix.kext for better voltage and te
 | ----- | ----- | ----- |
 | [Lilu](https://github.com/acidanthera/Lilu) | Required | A "patch engine", a lot of kexts depend on it for patching frameworks at kernel runtime. Required for AppleALC, WhateverGreen, VirtualSMC and many other kexts. Without Lilu, they will fail to inject. |
 | [AppleMCEReporterDisabler](https://github.com/acidanthera/bugtracker/files/3703498/AppleMCEReporterDisabler.kext.zip) | Required | Required on macOS 12.3 and later on AMD systems and dual-socket Intel systems, and on KVM VMs. |
+| [VMHide](https://github.com/Carnations-Botanica/VMHide) | Required | This must be used if you are planning to run macOS Sequoia. Apple ID will not work without this. |
 | [WhateverGreen](https://github.com/acidanthera/WhateverGreen) | Recommended | Used for graphics patching, DRM fixes, board ID checks, framebuffer fixes, etc; mostly only NVIDIA GPUs and older AMD GPUs (GCN 1-3, Polaris, maybe Vega) benefit from this kext. |
 | [NootRX](https://github.com/ChefKissInc/NootRX) | Recommended | Used for patching rDNA 2 GPUs, this should not be mixed with WhateverGreen. |
 | [NVMeFix](https://github.com/acidanthera/NVMeFix) | Optional | NVMeFix is a set of patches for the Apple NVMe storage driver, IONVMeFamily. Its goal is to improve compatibility and power management with non-Apple SSDs. |
