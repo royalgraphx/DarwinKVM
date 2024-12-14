@@ -18,12 +18,12 @@
   <img width="650" height="200" src="./Assets/HeaderGallery.png">
 </p>
 
-<h3 align="center">macOS Sonoma 15.1.1 (Credits: @athleticat)</h3>
+<h3 align="center">macOS Sequoia 15.1.1 (Credits: @athleticat)</h3>
 <p align="center">
   <img src="./showcase/athleticatMacPro71Seq1511.png">
 </p>
 
-<h3 align="center">macOS Sonoma 15.1 (Credits: @f0xb4t)</h3>
+<h3 align="center">macOS Sequoia 15.1 (Credits: @f0xb4t)</h3>
 <p align="center">
   <img src="./showcase/f0xb4tMacPro71Seq151.png">
 </p>
