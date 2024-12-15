@@ -29,10 +29,13 @@ Now, **before** the mouse and keyboard XML, copy and paste the following XML to 
 
 ```xml
 <input type="evdev">
-  <source dev="/dev/input/by-id/(mouse-path)">
+  <source dev="/dev/input/by-id/(keyboard-path)" grab="all" grabToggle="ctrl-ctrl" repeat="on"/>
 </input>
 <input type="evdev">
-  <source dev="/dev/input/by-id/(keyboard-path)" grab="all" grabToggle="ctrl-ctrl" repeat="on">
+  <source dev="/dev/input/by-id/(mouse-path)"/>
+</input>
+<input type="keyboard" bus="virtio">
+  <address type="pci" domain="0x0000" bus="0x0a" slot="0x00" function="0x7"/>
 </input>
 ```
 
@@ -52,9 +55,9 @@ Now, **before** the mouse and keyboard XML, copy and paste the following XML to 
 {: .note }
 > Remember to **'Apply'** when you finish!
 
-You should then see two 'Input' devices in the sidebar!
+You should then see two 'Input' devices and one extra 'Keyboard' device in the sidebar!
 
-Sample configuration for the mouse (should be similar for keyboard as well):
+Sample configuration for the keyboard (should be similar for mouse as well):
 
 <p align="center">
     <img src="../../../assets/VManEvdevInputDetails.png"/>
@@ -64,6 +67,9 @@ Sample configuration for the mouse (should be similar for keyboard as well):
     <img src="../../../assets/VManEvdevInputXML.png"/>
 </p>
 
-**Do not boot into DarwinKVM yet! We still need to configure the driver/kext for KB/M!**
+Now we need to add a mouse. To do this go to 'Add Hardware' then 'Input' then select 'USB Mouse'.
+
+If you are having issues once in MacOS with the cursor snapping back to the top left corner, remove and add the USB mouse while the virtual machine is running.
 
 ## You can now continue to the next <a href="../04-VoodooPS2">page</a>.
+
