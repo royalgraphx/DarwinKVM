@@ -17,8 +17,8 @@
       <feature enabled='no' name='enrolled-keys'/>
       <feature enabled='no' name='secure-boot'/>
     </firmware>
-    <loader readonly='yes' type='pflash'>/usr/share/edk2/x64/OVMF_CODE.fd</loader>
-    <nvram template='/usr/share/edk2/x64/OVMF_VARS.fd'>/var/lib/libvirt/qemu/nvram/DarwinKVM_VARS.fd</nvram>
+    <loader readonly='yes' type='pflash'>/usr/share/edk2/x64/OVMF_CODE.4m.fd</loader>
+    <nvram template='/usr/share/edk2/x64/OVMF_VARS.4m.fd'>/var/lib/libvirt/qemu/nvram/DarwinKVM_VARS.4m.fd</nvram>
     <boot dev="hd"/>
     <bootmenu enable='yes'/>
   </os>
