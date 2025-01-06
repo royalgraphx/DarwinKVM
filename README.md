@@ -34,7 +34,7 @@
   <img src="./showcase/HacProKVM15BetaAlt.png">
 </p>
 
-<h3 align="center"></h3>
+<h3 align="center">macOS Sonoma 14.7 (Credits: @naymmmiscool)</h3>
 <p align="center">
   <img src="./showcase/naymmmiscoolMacPro71Sonoma147.png">
 </p>
