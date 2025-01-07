@@ -3,7 +3,7 @@ layout: default
 title: Fedora Based
 parent: Package Installation
 grand_parent: Host Preparations
-nav_order: 1
+nav_order: 3
 ---
 
 # Fedora based Package Installation
