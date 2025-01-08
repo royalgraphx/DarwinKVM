@@ -47,6 +47,9 @@ permalink: /
   }
 </style>
 
+{: .headsup }
+The current version you are reading is under deprecation. While all of the information is still relevent and works as expected, I am no longer proud of all of the content and how it's currently structured, if you run into issues, I can help on Discord, while I begin to rewrite DarwinKVM. Look forward to much better documentation soon!
+
 <p align="center">
   <img src="./assets/DarwinKVMLogo.png" width="40%" height="40%" class="alignment_img">
 </p>
