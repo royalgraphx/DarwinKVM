@@ -1,6 +1,16 @@
 <!--
       Copyright (c) 2024 RoyalGraphX, BSD 3-Clause License
       Requires DUDK-Firmware package installed, to use custom OvmfPkg.
+
+      NOTE: When deciding on what CPU to use, reference the following chart depending on your
+      OpenCore PlatformInfo SMBIOS model identifier:
+
+      MacPro2,1
+      MacPro3,1 -> Conroe-v1
+      MacPro4,1 
+
+      MacPro5,1 -> Westmere-v2 (Default)
+
 -->
 
 <domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
