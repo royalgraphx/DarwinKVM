@@ -1,0 +1,8 @@
+Package: DUDK-Firmware
+Version: 1.0.0-1
+Section: utils
+Priority: optional
+Architecture: all
+Depends: ovmf
+Maintainer: RoyalGraphX <royalgraphx0@gmail.com>
+Description: Provides DUDK Firmware for DarwinKVM x86_64 Machines

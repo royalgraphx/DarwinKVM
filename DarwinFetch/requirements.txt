@@ -1,0 +1,5 @@
+tqdm
+py7zr
+click
+pyzstd
+requests

@@ -1,0 +1,114 @@
+[
+    {
+      "beta": false,
+      "build": "24B2082",
+      "version": "15.1",
+      "identifier": "XXX-XXXXX",
+      "name": "macOS Sequoia",
+      "command": "-b Mac-937A206F2EE63C01 -m 00000000000000000 -o downloads/15.1_24B2082/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "23D52",
+      "version": "14.3",
+      "identifier": "694-82102",
+      "name": "macOS Sonoma",
+      "command": "-b Mac-7BA5B2D9E42DDD94 -m 00000000000000000 -o downloads/14.3_23D52/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "22F80",
+      "version": "13.4",
+      "identifier": "042-01871",
+      "name": "macOS Ventura",
+      "command": "-b Mac-B4831CEBD52A0C4C -m 00000000000000000 -o downloads/13.4_22F80/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "21G82",
+      "version": "12.5",
+      "identifier": "694-54378",
+      "name": "macOS Monterey",
+      "command": "-b Mac-FFE5EF870D7BA81A -m 00000000000000000 -o downloads/12.5_21G82/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "12E6178j",
+      "version": "11.6",
+      "identifier": "694-35959",
+      "name": "macOS Big Sur",
+      "command": "-b Mac-42FD25EABCABB274 -m 00000000000000000 -o downloads/11.6_12E6178j/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "19G2536",
+      "version": "10.15.6",
+      "identifier": "2Z694-25616",
+      "name": "macOS Catalina",
+      "command": "-b Mac-00BE6ED71E35EB86 -m 00000000000000000 -o downloads/10.15.6_19G2536/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "18G84",
+      "version": "10.14.6",
+      "identifier": "041-94410",
+      "name": "Mac OS X Mojave",
+      "command": "-b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 -o downloads/10.14.6_18G84/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "9P107g",
+      "version": "10.13.6",
+      "identifier": "091-63921",
+      "name": "Mac OS X High Sierra",
+      "command": "-b Mac-BE088AF8C5EB4FA2 -m 00000000000J80300 -o downloads/10.13.6_9P107g/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "8V109d",
+      "version": "10.12.5",
+      "identifier": "061-31101",
+      "name": "Mac OS X Sierra",
+      "command": "-b Mac-77F17D7DA9285301 -m 00000000000J0DX00 -o downloads/10.12.5_8V109d/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "7D129b",
+      "version": "10.11.6",
+      "identifier": "061-41398",
+      "name": "Mac OS X El Capitan",
+      "command": "-b Mac-FFE5EF870D7BA81A -m 00000000000GQRX00 -o downloads/10.11.6_7D129b/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "6D543f",
+      "version": "10.10.5",
+      "identifier": "031-27489",
+      "name": "Mac OS X Yosemite",
+      "command": "-b Mac-E43C1C25D4880AD6 -m 00000000000GDVW00 -o downloads/10.10.5_6D543f/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "5A2053",
+      "version": "10.9.4",
+      "identifier": "031-10295",
+      "name": "Mac OS X Mavericks",
+      "command": "-b Mac-F60DEB81FF30ACF6 -m 00000000000FNN100 -o downloads/10.9.4_5A2053/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "4F250",
+      "version": "10.8.5",
+      "identifier": "031-10318",
+      "name": "Mac OS X Mountain Lion",
+      "command": "-b Mac-7DF2A3B5E5D671ED -m 00000000000F65100 -o downloads/10.8.5_4F250/com.apple.recovery.boot download"
+    },
+    {
+      "beta": false,
+      "build": "11E53",
+      "version": "10.7.4",
+      "identifier": "061-34076",
+      "name": "Mac OS X Lion",
+      "command": "-b Mac-7BA5B2DFE22DDD8C -m 00000000000KXPG00 -o downloads/10.7.4_11E53/com.apple.recovery.boot download"
+    }
+]

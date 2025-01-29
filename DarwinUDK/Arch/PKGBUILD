@@ -1,0 +1,15 @@
+pkgname="DUDK-Firmware"
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Provides DUDK Firmware for DarwinKVM x86_64 Machines"
+arch=('x86_64')
+url="http://docs.darwinkvm.com"
+license=('BSD')
+depends=()
+source=()
+md5sums=()
+
+package() {
+    cp -r "${srcdir}/pkg/usr" "${pkgdir}/usr"
+    install -Dm644 "${srcdir}/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

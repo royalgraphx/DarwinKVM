@@ -1,0 +1,35 @@
+{
+    "description": "x64 DarwinUDK Firmware for x86_64",
+    "interface-types": [
+        "uefi"
+    ],
+    "mapping": {
+        "device": "flash",
+        "executable": {
+            "filename": "/usr/share/DarwinUDK/x64/DUDK_CODE.fd",
+            "format": "raw"
+        },
+        "nvram-template": {
+            "filename": "/usr/share/DarwinUDK/x64/DUDK_VARS.fd",
+            "format": "raw"
+        }
+    },
+    "targets": [
+        {
+            "architecture": "x86_64",
+            "machines": [
+                "pc-i440fx-*",
+                "pc-q35-*"
+            ]
+        }
+    ],
+    "features": [
+        "acpi-s3",
+        "acpi-s4",
+        "amd-sev",
+        "verbose-dynamic"
+    ],
+    "tags": [
+
+    ]
+}
