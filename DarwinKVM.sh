@@ -43,7 +43,7 @@ fi
 
 # Define menu options
 MENU_OPTIONS=(
-    "Download Submodules"
+    "Download/Update Submodules"
     "System Report"
     "Dump IOMMU Table"
     "Exit"
@@ -56,7 +56,11 @@ show_menu() {
     echo "Quickly and interactively run various commands and scripts."
     echo "Copyright (c) 2024 2025 RoyalGraphX, Carnations Botanica"
     echo "$SHELL_NAME $ARCH Pre-Release $VERSION for $OS_NAME"
-    echo "Valid submodules found: $SUBMODULES_VALID"
+    if [[ $SUBMODULES_VALID -gt 0 ]]; then
+        echo "Valid submodules found: $SUBMODULES_VALID"
+    else
+        echo "No valid submodules found! Please select option 1 before continuing."
+    fi
     echo ""
     echo "Main Menu:"
 
@@ -111,7 +115,7 @@ while true; do
         selected_option="${MENU_OPTIONS[choice-1]}"
 
         case "$selected_option" in
-            "Download Submodules")
+            "Download/Update Submodules")
                 setupsubmods
                 ;;
             "System Report")
