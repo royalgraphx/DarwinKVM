@@ -1,0 +1,12 @@
+[submodule "extras/DiskProvision"]
+	path = extras/DiskProvision
+	url = https://github.com/royalgraphx/DiskProvision.git
+[submodule "extras/DarwinFetch"]
+	path = extras/DarwinFetch
+	url = https://github.com/royalgraphx/DarwinFetch.git
+[submodule "extras/DarwinOCPkg"]
+	path = extras/DarwinOCPkg
+	url = https://github.com/royalgraphx/DarwinOCPkg.git
+[submodule "extras/DUDK-Firmware"]
+	path = extras/DUDK-Firmware
+	url = https://github.com/royalgraphx/DUDK-Firmware.git
