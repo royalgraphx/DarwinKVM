@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Copyright (c) 2024 RoyalGraphX.
+# Copyright (c) 2024, 2025 RoyalGraphX.
 # GNU General Public License v3.0
 #
 

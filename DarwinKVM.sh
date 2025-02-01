@@ -57,6 +57,8 @@ MENU_OPTIONS=(
     "Launch GenSMBIOS"
     "Install/Uninstall RisingPrism sGPU Scripts"
     "Install/Uninstall akshaycodes VFIO-Script"
+    "Modify QEMU Hook Script"
+    "List Passthrough Devices via lspci"
     "Exit"
 )
 
@@ -151,7 +153,7 @@ iommu() {
     fi
 
     # Check if IOMMU is enabled by looking for relevant kernel messages
-    if ! sudo dmesg | grep -E "iommu"; then
+    if ! sudo dmesg | grep -E "iommu"&> /dev/null; then
         echo "Warning: IOMMU does not appear to be enabled on this system."
         read -rp "Press Enter to continue anyway, or Ctrl+C to exit..."
     fi
@@ -170,7 +172,83 @@ xmlimporter() {
         return 1
     fi
 
-    echo "This is currently WIP."
+    XML_DIR="$ROOT/xmls"
+
+    # Check if the directory exists
+    if [[ ! -d "$XML_DIR" ]]; then
+        echo "No XML directory found at $XML_DIR."
+        return 1
+    fi
+
+    # Find all .xml files
+    xml_files=()
+    while IFS= read -r -d '' file; do
+        xml_files+=("$file")
+    done < <(find "$XML_DIR" -maxdepth 1 -type f -name "*.xml" -print0)
+
+    # Check if any XML files were found
+    if [[ ${#xml_files[@]} -eq 0 ]]; then
+        echo "No XML files found in $XML_DIR."
+        return 1
+    fi
+
+    echo "Available XML files:"
+    for i in "${!xml_files[@]}"; do
+        echo "$((i+1)). ${xml_files[$i]##*/}"  # Display filename only
+    done
+
+    # Prompt user for selection
+    read -rp "Enter the number of the XML file to import: " choice
+
+    # Validate input
+    if ! [[ "$choice" =~ ^[0-9]+$ ]] || (( choice < 1 || choice > ${#xml_files[@]} )); then
+        echo "Invalid selection. Returning to main menu..."
+        return 1
+    fi
+
+    # Echo the chosen file
+    selected_file="${xml_files[$((choice-1))]}"
+    echo "You chose to import: $selected_file"
+
+    # Extract the VM name from the XML using a portable approach
+    if [[ "$(uname)" == "Darwin" ]]; then
+        # For macOS, use sed to extract the name
+        vm_name=$(sed -n 's/.*<name>\([^<]*\)<\/name>.*/\1/p' "$selected_file")
+    else
+        # For Linux, use grep and sed (same as before for Linux)
+        vm_name=$(grep -o '<name>[^<]*</name>' "$selected_file" | sed 's/<[^>]*>//g')
+    fi
+
+    if [[ -z "$vm_name" ]]; then
+        echo "No <name> tag found in the XML file."
+        return 1
+    fi
+
+    echo "The VM name defined in the XML is: $vm_name"
+
+    # Attempt to use virsh to check if the VM already exists
+    if sudo virsh dumpxml "$vm_name" &>/dev/null; then
+        echo "VM '$vm_name' already exists. Cannot import a duplicate XML."
+        return 1
+    else
+        echo "VM '$vm_name' does not exist. You can import it if you choose to."
+    fi
+
+    # Prompt user to confirm import to virt-manager
+    read -rp "Do you want to import this VM to virt-manager? (y/N): " user_input
+    user_input=$(echo "$user_input" | tr '[:upper:]' '[:lower:]')  # Normalize to lowercase
+
+    if [[ "$user_input" == "y" || "$user_input" == "yes" ]]; then
+        # Import the XML to virt-manager using virsh define
+        if sudo virsh --connect qemu:///system define "$selected_file"; then
+            echo "VM '$vm_name' has been successfully imported to virt-manager."
+        else
+            echo "Failed to import VM '$vm_name'."
+            return 1
+        fi
+    else
+        echo "Import cancelled. Returning to main menu..."
+    fi
 
 }
 
@@ -567,6 +645,75 @@ modify_avfio() {
     fi
 }
 
+# Function that tries to use Nano, then Vim, finally Vi, to edit QEMU Hook script
+modify_qemuhook() {
+    clear
+
+    # Ensure the OS is Linux
+    if [[ "$(uname)" != "Linux" ]]; then
+        echo "Modifying QEMU Hook script contents is only supported on Linux hosts."
+        return 1
+    fi
+
+    echo "Attempting to open QEMU hook script for editing..."
+
+    QEMU_HOOK_PATH="/etc/libvirt/hooks/qemu"
+
+    # Ensure the QEMU hook file exists
+    if [[ ! -f "$QEMU_HOOK_PATH" ]]; then
+        echo "Error: $QEMU_HOOK_PATH does not exist."
+        return 1
+    fi
+
+    # List of editors in priority order
+    EDITORS=("nano" "vim" "vi")
+
+    for editor in "${EDITORS[@]}"; do
+        if command -v "$editor" &> /dev/null; then
+            echo "Opening $QEMU_HOOK_PATH with $editor..."
+            sudo "$editor" "$QEMU_HOOK_PATH"
+            return $?  # Exit after successful edit
+        fi
+    done
+
+    echo "Error: No suitable text editor (nano, vim, vi) found on the system."
+    return 1
+
+    echo "Opened and modified QEMU Hook script successfully."
+}
+
+# Function that isolates VGA/Audio devices from lspci output
+list_pt_lspci() {
+    clear
+
+    # Ensure the OS is Linux
+    if [[ "$(uname)" != "Linux" ]]; then
+        echo "lspci dumping is only supported on Linux hosts."
+        return 1
+    fi
+    
+    echo "Listing VGA, Audio, and USB Controller devices from lspci output..."
+    echo ""
+
+    # Check if lspci is available
+    if ! command -v lspci &> /dev/null; then
+        echo "Error: lspci command not found. Please install pciutils."
+        return 1
+    fi
+
+    # List VGA and Audio devices with relevant details
+    lspci_output=$(lspci -nn | grep -Ei 'vga|3d|audio|usb')
+
+    if [[ -z "$lspci_output" ]]; then
+        echo "No VGA, Audio, or USB Controller devices found."
+        return 1
+    fi
+
+    echo "$lspci_output"
+    echo ""
+
+}
+
 # Main menu loop
 while true; do
     show_menu
@@ -606,6 +753,12 @@ while true; do
                 ;;
             "Install/Uninstall akshaycodes VFIO-Script")
                 modify_avfio
+                ;;
+            "Modify QEMU Hook Script")
+                modify_qemuhook
+                ;;
+            "List Passthrough Devices via lspci")
+                list_pt_lspci
                 ;;
             "Exit")
                 echo "Exiting...";

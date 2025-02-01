@@ -2,7 +2,7 @@
 #  MemInfoGen, script to parse Windows Host DMI Decode 
 #  Output for Custom Memory Mapping in macOS Guests.
 #
-#  Copyright (c) 2023 RoyalGraphX
+#  Copyright (c) 2023, 2024, 2025 RoyalGraphX
 #  BSD 3-Clause License
 #
 

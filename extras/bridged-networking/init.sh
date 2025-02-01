@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-#  Copyright (c) 2023 RoyalGraphX
+#  Copyright (c) 2023, 2024, 2025 RoyalGraphX
 #  BSD 3-Clause License
 #
 
