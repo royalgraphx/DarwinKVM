@@ -20,9 +20,11 @@ DISKPROVISION="$ROOT/extras/DiskProvision"
 DUDKFIRMWARE="$ROOT/extras/DUDK-Firmware"
 DARWINFETCH="$ROOT/extras/DarwinFetch"
 DARWINOCPKG="$ROOT/extras/DarwinOCPkg"
+PROPERTREE="$ROOT/extras/ProperTree"
+GENSMBIOS="$ROOT/extras/GenSMBIOS"
 
 # List of submodules that are supposed to be available to DKVM right now
-SUBMODULES=("$DISKPROVISION" "$DUDKFIRMWARE" "$DARWINFETCH" "$DARWINOCPKG")
+SUBMODULES=("$DISKPROVISION" "$DUDKFIRMWARE" "$DARWINFETCH" "$DARWINOCPKG" "$PROPERTREE" "$GENSMBIOS")
 
 # Determine amount of submodules that were found as valid paths
 SUBMODULES_VALID=0 # Set the int as 0 as a setup
@@ -46,6 +48,11 @@ MENU_OPTIONS=(
     "Download/Update Submodules"
     "System Report"
     "Dump IOMMU Table"
+    "Import XML to Virt-Manager"
+    "Launch DiskProvision"
+    "Launch DarwinFetch"
+    "Launch ProperTree"
+    "Launch GenSMBIOS"
     "Exit"
 )
 
@@ -56,10 +63,12 @@ show_menu() {
     echo "Quickly and interactively run various commands and scripts."
     echo "Copyright (c) 2024 2025 RoyalGraphX, Carnations Botanica"
     echo "$SHELL_NAME $ARCH Pre-Release $VERSION for $OS_NAME"
-    if [[ $SUBMODULES_VALID -gt 0 ]]; then
-        echo "Valid submodules found: $SUBMODULES_VALID"
-    else
+    if [[ $SUBMODULES_VALID -eq 0 ]]; then
         echo "No valid submodules found! Please select option 1 before continuing."
+    elif [[ $SUBMODULES_VALID -ge 4 ]]; then
+        echo "All submodules are valid and found!"
+    else
+        echo "Valid submodules found: $SUBMODULES_VALID (Some features may not work correctly.)"
     fi
     echo ""
     echo "Main Menu:"
@@ -76,7 +85,47 @@ show_menu() {
 # Function to ensure all submodules are setup and valid
 setupsubmods() {
     clear
-    echo "This option is still not available."
+    echo "Checking submodules..."
+    
+    # Ensure we are in a Git repository, and not a ZIP download
+    if [[ ! -d .git ]]; then
+        echo "Error: This is not a Git repository. Did you download as ZIP?"
+        echo "Ensure you are using 'git clone' in your terminal to download DarwinKVM."
+        return 1
+    fi
+
+    # Check if submodules are already initialized
+    if [[ -f .gitmodules ]]; then
+        echo "Updating submodules..."
+        git submodule update --init --recursive
+        
+        if [[ $? -eq 0 ]]; then
+            echo "Submodules updated successfully."
+        else
+            echo "Error: Failed to update submodules. Please check your Git setup."
+            return 1
+        fi
+    else
+        echo "No submodules found in .gitmodules. Creating the required submodules."
+        
+        # Add the currently required submodules
+        git submodule add https://github.com/royalgraphx/DiskProvision.git extras/DiskProvision
+        git submodule add https://github.com/royalgraphx/DUDK-Firmware.git extras/DUDK-Firmware
+        git submodule add https://github.com/royalgraphx/DarwinFetch.git extras/DarwinFetch
+        git submodule add https://github.com/royalgraphx/DarwinOCPkg.git extras/DarwinOCPkg
+        git submodule add https://github.com/corpnewt/ProperTree.git extras/ProperTree
+        git submodule add https://github.com/corpnewt/GenSMBIOS.git extras/GenSMBIOS
+        
+        # Initialize and update the repository/submodules
+        git submodule update --init --recursive
+
+        if [[ $? -eq 0 ]]; then
+            echo "Submodules are now setup!"
+        else
+            echo "Error: Failed to initialize submodules. Please check your Git setup."
+            return 1
+        fi
+    fi
 }
 
 # Function to check the host status and report its current states
@@ -105,6 +154,228 @@ iommu() {
     "$SHELL_NAME" ./scripts/iommu.sh
 }
 
+# The DarwinKVM XML Importer
+xmlimporter() {
+    clear
+
+    # Ensure the OS is Linux
+    if [[ "$(uname)" != "Linux" ]]; then
+        echo "Importing XMLs is only supported on Linux hosts."
+        return 1
+    fi
+
+    echo "This is currently WIP."
+
+}
+
+# Function to bootstrap and launch DiskProvision
+bootstrap_diskprovision() {
+    clear
+    echo "Bootstrapping DiskProvision..."
+
+    # Try to locate Python (prefer python3, fallback to python)
+    PYTHON_CMD=$(command -v python3 || command -v python)
+    if [[ -z "$PYTHON_CMD" ]]; then
+        echo "Error: Python is not installed. Please install Python to continue."
+        return 1
+    fi
+
+    echo "Using Python from: $PYTHON_CMD"
+
+    # Get the Python version
+    PYTHON_VERSION=$("$PYTHON_CMD" --version 2>&1)
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to retrieve Python version."
+        return 1
+    fi
+
+    echo "Python version: $PYTHON_VERSION"
+
+    # Construct the DiskProvision root path using $ROOT
+    DP_ROOT="$ROOT/extras/DiskProvision"
+    if [[ ! -d "$DP_ROOT" ]]; then
+        echo "Error: DiskProvision directory not found at $DP_ROOT"
+        echo "Please ensure the DiskProvision submodule is downloaded."
+        return 1
+    fi
+    echo "DiskProvision directory found at: $DP_ROOT"
+    
+    # Launch DiskProvision.sh in a new shell process and wait for it to exit
+    echo "DiskProvision bootstrap complete! Now launching..."
+    (
+        cd "$DP_ROOT" || { echo "Error: Failed to change directory to $DP_ROOT."; exit 1; }
+        # Execute the DiskProvision.sh script in a new shell
+        exec "$SHELL_NAME" DiskProvision.sh
+    )
+    EXIT_CODE=$?
+    if [[ $EXIT_CODE -ne 0 ]]; then
+        echo "Error: DiskProvision process exited with error code $EXIT_CODE."
+        return $EXIT_CODE
+    fi
+
+    echo "DiskProvision process completed successfully."
+
+}
+
+# Function to bootstrap and launch DarwinFetch
+bootstrap_darwinfetch() {
+    clear
+    echo "Bootstrapping DarwinFetch..."
+
+    # Try to locate Python (prefer python3, fallback to python)
+    PYTHON_CMD=$(command -v python3 || command -v python)
+    if [[ -z "$PYTHON_CMD" ]]; then
+        echo "Error: Python is not installed. Please install Python to continue."
+        return 1
+    fi
+
+    echo "Using Python from: $PYTHON_CMD"
+
+    # Get the Python version
+    PYTHON_VERSION=$("$PYTHON_CMD" --version 2>&1)
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to retrieve Python version."
+        return 1
+    fi
+
+    echo "Python version: $PYTHON_VERSION"
+
+    # Construct the DarwinFetch root path using $ROOT
+    DF_ROOT="$ROOT/extras/DarwinFetch"
+    if [[ ! -d "$DF_ROOT" ]]; then
+        echo "Error: DarwinFetch directory not found at $DF_ROOT."
+        echo "Please ensure the DarwinFetch submodule is downloaded."
+        return 1
+    fi
+    echo "DarwinFetch directory found at: $DF_ROOT"
+    
+    # Launch DarwinFetch.sh in a new shell process and wait for it to exit
+    echo "DarwinFetch bootstrap complete! Now launching..."
+    (
+        cd "$DF_ROOT" || { echo "Error: Failed to change directory to $DF_ROOT."; exit 1; }
+        # Execute the DarwinFetch.sh script in a new shell
+        exec "$SHELL_NAME" DarwinFetch.sh
+    )
+    EXIT_CODE=$?
+    if [[ $EXIT_CODE -ne 0 ]]; then
+        echo "Error: DarwinFetch process exited with error code $EXIT_CODE."
+        return $EXIT_CODE
+    fi
+
+    echo "DarwinFetch process completed successfully."
+
+}
+
+# Function to bootstrap and launch ProperTree
+bootstrap_propertree() {
+    clear
+    echo "Bootstrapping ProperTree..."
+
+    # Try to locate Python (prefer python3, fallback to python)
+    PYTHON_CMD=$(command -v python3 || command -v python)
+    if [[ -z "$PYTHON_CMD" ]]; then
+        echo "Error: Python is not installed. Please install Python to continue."
+        return 1
+    fi
+
+    echo "Using Python from: $PYTHON_CMD"
+
+    # Get the Python version
+    PYTHON_VERSION=$("$PYTHON_CMD" --version 2>&1)
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to retrieve Python version."
+        return 1
+    fi
+
+    echo "Python version: $PYTHON_VERSION"
+    
+    # Check for tkinter module
+    echo "Checking for tkinter support..."
+    "$PYTHON_CMD" -c "import tkinter" 2>/dev/null
+    if [[ $? -ne 0 ]]; then
+        echo "Error: tkinter module is not available in this Python installation."
+        echo "Please install tkinter. For example:"
+        echo "  On Ubuntu/Debian: sudo apt-get install python3-tk"
+        echo "  On Arch Linux:   sudo pacman -S tk"
+        return 1
+    fi
+    echo "tkinter module is available."
+
+ # Construct the ProperTree root path using $ROOT
+    PT_ROOT="$ROOT/extras/ProperTree"
+    if [[ ! -d "$PT_ROOT" ]]; then
+        echo "Error: ProperTree directory not found at $PT_ROOT."
+        echo "Please ensure the ProperTree submodule is downloaded."
+        return 1
+    fi
+    echo "ProperTree directory found at: $PT_ROOT"
+    
+    # Launch ProperTree.py and wait for it to exit
+    echo "ProperTree bootstrap complete! Now launching..."
+    (
+        cd "$PT_ROOT" || { echo "Error: Failed to change directory to $PT_ROOT."; exit 1; }
+        # Execute the ProperTree.py script
+        exec $PYTHON_CMD ProperTree.py
+    )
+    EXIT_CODE=$?
+    if [[ $EXIT_CODE -ne 0 ]]; then
+        echo "Error: ProperTree process exited with error code $EXIT_CODE."
+        return $EXIT_CODE
+    fi
+
+    echo "ProperTree process completed successfully."
+
+}
+
+# Function to bootstrap and launch GenSMBIOS
+bootstrap_gensmbios() {
+    clear
+    echo "Bootstrapping GenSMBIOS..."
+
+    # Try to locate Python (prefer python3, fallback to python)
+    PYTHON_CMD=$(command -v python3 || command -v python)
+    if [[ -z "$PYTHON_CMD" ]]; then
+        echo "Error: Python is not installed. Please install Python to continue."
+        return 1
+    fi
+
+    echo "Using Python from: $PYTHON_CMD"
+
+    # Get the Python version
+    PYTHON_VERSION=$("$PYTHON_CMD" --version 2>&1)
+    if [[ $? -ne 0 ]]; then
+        echo "Error: Failed to retrieve Python version."
+        return 1
+    fi
+
+    echo "Python version: $PYTHON_VERSION"
+
+    # Construct the GenSMBIOS root path using $ROOT
+    GSMB_ROOT="$ROOT/extras/GenSMBIOS"
+    if [[ ! -d "$GSMB_ROOT" ]]; then
+        echo "Error: GenSMBIOS directory not found at $GSMB_ROOT."
+        echo "Please ensure the GenSMBIOS submodule is downloaded."
+        return 1
+    fi
+    echo "GenSMBIOS directory found at: $GSMB_ROOT"
+    
+    # Launch GenSMBIOS.py and wait for it to exit
+    echo "GenSMBIOS bootstrap complete! Now launching..."
+    (
+        cd "$GSMB_ROOT" || { echo "Error: Failed to change directory to $GSMB_ROOT."; exit 1; }
+        # Execute the ProperTree.py script
+        exec $PYTHON_CMD GenSMBIOS.py
+    )
+    EXIT_CODE=$?
+    if [[ $EXIT_CODE -ne 0 ]]; then
+        echo "Error: GenSMBIOS process exited with error code $EXIT_CODE."
+        return $EXIT_CODE
+    fi
+
+    echo "GenSMBIOS process completed successfully."
+
+}
+
 # Main menu loop
 while true; do
     show_menu
@@ -123,6 +394,21 @@ while true; do
                 ;;
             "Dump IOMMU Table")
                 iommu
+                ;;
+            "Import XML to Virt-Manager")
+                xmlimporter
+                ;;
+            "Launch DiskProvision")
+                bootstrap_diskprovision
+                ;;
+            "Launch DarwinFetch")
+                bootstrap_darwinfetch
+                ;;
+            "Launch ProperTree")
+                bootstrap_propertree
+                ;;
+            "Launch GenSMBIOS")
+                bootstrap_gensmbios
                 ;;
             "Exit")
                 echo "Exiting...";

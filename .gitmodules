@@ -10,3 +10,9 @@
 [submodule "extras/DUDK-Firmware"]
 	path = extras/DUDK-Firmware
 	url = https://github.com/royalgraphx/DUDK-Firmware.git
+[submodule "extras/ProperTree"]
+	path = extras/ProperTree
+	url = https://github.com/corpnewt/ProperTree
+[submodule "extras/GenSMBIOS"]
+	path = extras/GenSMBIOS
+	url = https://github.com/corpnewt/GenSMBIOS
