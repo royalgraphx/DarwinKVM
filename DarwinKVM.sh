@@ -22,9 +22,11 @@ DARWINFETCH="$ROOT/extras/DarwinFetch"
 DARWINOCPKG="$ROOT/extras/DarwinOCPkg"
 PROPERTREE="$ROOT/extras/ProperTree"
 GENSMBIOS="$ROOT/extras/GenSMBIOS"
+RPSGPUPT="$ROOT/extras/single-gpu-passthrough"
+AVFIO="$ROOT/extras/vfio-script"
 
 # List of submodules that are supposed to be available to DKVM right now
-SUBMODULES=("$DISKPROVISION" "$DUDKFIRMWARE" "$DARWINFETCH" "$DARWINOCPKG" "$PROPERTREE" "$GENSMBIOS")
+SUBMODULES=("$DISKPROVISION" "$DUDKFIRMWARE" "$DARWINFETCH" "$DARWINOCPKG" "$PROPERTREE" "$GENSMBIOS" "$RPSGPUPT" "$AVFIO")
 
 # Determine amount of submodules that were found as valid paths
 SUBMODULES_VALID=0 # Set the int as 0 as a setup
@@ -67,8 +69,8 @@ show_menu() {
     echo "$SHELL_NAME $ARCH Pre-Release $VERSION for $OS_NAME"
     if [[ $SUBMODULES_VALID -eq 0 ]]; then
         echo "No valid submodules found! Please select option 1 before continuing."
-    elif [[ $SUBMODULES_VALID -ge 4 ]]; then
-        echo "All submodules are valid and found!"
+    elif [[ $SUBMODULES_VALID -ge 8 ]]; then
+        echo "All $SUBMODULES_VALID submodules are valid and found!"
     else
         echo "Valid submodules found: $SUBMODULES_VALID (Some features may not work correctly.)"
     fi
@@ -117,6 +119,8 @@ setupsubmods() {
         git submodule add https://github.com/royalgraphx/DarwinOCPkg.git extras/DarwinOCPkg
         git submodule add https://github.com/corpnewt/ProperTree.git extras/ProperTree
         git submodule add https://github.com/corpnewt/GenSMBIOS.git extras/GenSMBIOS
+        git submodule add https://gitlab.com/risingprismtv/single-gpu-passthrough.git extras/single-gpu-passthrough
+        git submodule add https://gitlab.com/akshaycodes/vfio-script.git extras/vfio-script
         
         # Initialize and update the repository/submodules
         git submodule update --init --recursive
@@ -381,13 +385,186 @@ bootstrap_gensmbios() {
 # Function to install/uninstall RisingPrism Single GPU passthrough
 modify_rpsgpu() {
     clear
-    echo "This is a work in progress"
+
+    # Ensure the OS is Linux
+    if [[ "$(uname)" != "Linux" ]]; then
+        echo "Installing RisingPrism GPU scripts is only supported on Linux hosts."
+        return 1
+    fi
+
+    echo "Checking installation status of RisingPrism Single GPU passthrough..."
+    echo ""
+
+    # Construct the single-gpu-passthrough root path using $ROOT
+    RPSGPUPT_ROOT="$ROOT/extras/single-gpu-passthrough"
+    if [[ ! -d "$RPSGPUPT_ROOT" ]]; then
+        echo "Error: single-gpu-passthrough directory not found at $RPSGPUPT_ROOT."
+        echo "Please ensure the single-gpu-passthrough submodule is downloaded."
+        return 1
+    fi
+    echo "single-gpu-passthrough directory found at: $RPSGPUPT_ROOT"
+
+    REQUIRED_FILES=(
+        "/etc/systemd/system/libvirt-nosleep@.service"
+        "/usr/local/bin/vfio-startup"
+        "/usr/local/bin/vfio-teardown"
+        "/etc/libvirt/hooks/qemu"
+    )
+
+    ALL_FOUND=true
+
+    for file in "${REQUIRED_FILES[@]}"; do
+        if [[ -f "$file" ]]; then
+            echo "Successfully Found: $file"
+        else
+            echo "Missing: $file"
+            ALL_FOUND=false
+        fi
+    done
+
+    echo ""
+    if [[ "$ALL_FOUND" == true ]]; then
+        echo "All files are present."
+        echo "Routing to uninstallation process..."
+
+        # List the required files that will be removed
+        echo "The following files will be removed:"
+        for file in "${REQUIRED_FILES[@]}"; do
+            echo "  $file"
+        done
+        echo ""
+
+        # Prompt the user for confirmation (default is No)
+        read -rp "Are you sure you want to delete these files? (y/N): " confirmation
+        # Convert response to lowercase for consistency
+        confirmation=${confirmation,,}
+        if [[ "$confirmation" == "y" || "$confirmation" == "yes" ]]; then
+            echo "Removing files..."
+            for file in "${REQUIRED_FILES[@]}"; do
+                # Use sudo to remove each file or directory
+                sudo rm -rf "$file"
+                if [[ $? -eq 0 ]]; then
+                    echo "Removed: $file"
+                else
+                    echo "Failed to remove: $file"
+                    echo "Ensure you delete the file manually."
+                fi
+            done
+            echo "Uninstallation process completed."
+        else
+            echo "Uninstallation cancelled."
+        fi
+    else
+        echo "Routing to installation process..."
+        
+        # Launch install_hooks.sh in a new shell process and wait for it to exit
+        (
+            cd "$RPSGPUPT_ROOT" || { echo "Error: Failed to change directory to $RPSGPUPT_ROOT."; exit 1; }
+            # Ensure the install_hooks.sh script is executable
+            chmod +x install_hooks.sh
+            # Execute the install_hooks.sh script in a new shell w sudo
+            exec sudo "$SHELL_NAME" ./install_hooks.sh
+        )
+        EXIT_CODE=$?
+        if [[ $EXIT_CODE -ne 0 ]]; then
+            echo "Error: install_hooks.sh process exited with error code $EXIT_CODE."
+            return $EXIT_CODE
+        fi
+            
+        echo "Installation process completed."
+    fi
 }
 
-# Function to install/uninstall akshaycodes VFIO-Script's
+# Function to install/uninstall akshaycodes VFIO-Script
 modify_avfio() {
     clear
-    echo "This is a work in progress"
+
+    # Ensure the OS is Linux
+    if [[ "$(uname)" != "Linux" ]]; then
+        echo "Installing akshaycodes VFIO script is only supported on Linux hosts."
+        return 1
+    fi
+
+    echo "Checking installation status of akshaycodes VFIO-Script..."
+    echo ""
+
+    # Construct the vfio-script root path using $ROOT
+    AVFIO_ROOT="$ROOT/extras/vfio-script"
+    if [[ ! -d "$AVFIO_ROOT" ]]; then
+        echo "Error: vfio-script directory not found at $AVFIO_ROOT."
+        echo "Please ensure the vfio-script submodule is downloaded."
+        return 1
+    fi
+    echo "vfio-script directory found at: $AVFIO_ROOT"
+
+    REQUIRED_FILES=(
+        "/etc/systemd/system/libvirt-nosleep@.service"
+        "/etc/libvirt/hooks/qemu"
+        "/bin/vfio-script.sh"
+    )
+
+    ALL_FOUND=true
+
+    for file in "${REQUIRED_FILES[@]}"; do
+        if [[ -f "$file" ]]; then
+            echo "Successfully Found: $file"
+        else
+            echo "Missing: $file"
+            ALL_FOUND=false
+        fi
+    done
+
+    echo ""
+    if [[ "$ALL_FOUND" == true ]]; then
+        echo "All files are present."
+        echo "Routing to uninstallation process..."
+
+        # List the required files that will be removed
+        echo "The following files will be removed:"
+        for file in "${REQUIRED_FILES[@]}"; do
+            echo "  $file"
+        done
+        echo ""
+
+        # Prompt the user for confirmation (default is No)
+        read -rp "Are you sure you want to delete these files? (y/N): " confirmation
+        # Convert response to lowercase for consistency
+        confirmation=${confirmation,,}
+        if [[ "$confirmation" == "y" || "$confirmation" == "yes" ]]; then
+            echo "Removing files..."
+            for file in "${REQUIRED_FILES[@]}"; do
+                # Use sudo to remove each file or directory
+                sudo rm -rf "$file"
+                if [[ $? -eq 0 ]]; then
+                    echo "Removed: $file"
+                else
+                    echo "Failed to remove: $file"
+                    echo "Ensure you delete the file manually."
+                fi
+            done
+            echo "Uninstallation process completed."
+        else
+            echo "Uninstallation cancelled."
+        fi
+    else
+        echo "Routing to installation process..."
+
+        # Launch vfio_script_install.sh in a new shell process and wait for it to exit
+        (
+            cd "$AVFIO_ROOT" || { echo "Error: Failed to change directory to $AVFIO_ROOT."; exit 1; }
+            # Ensure the vfio_script_install.sh script is executable
+            chmod +x vfio_script_install.sh
+            # Execute the vfio_script_install.sh script in a new shell with sudo
+            exec sudo "$SHELL_NAME" ./vfio_script_install.sh
+        )
+        EXIT_CODE=$?
+        if [[ $EXIT_CODE -ne 0 ]]; then
+            echo "Error: vfio_script_install.sh process exited with error code $EXIT_CODE."
+            return $EXIT_CODE
+        fi
+
+        echo "Installation process completed."
+    fi
 }
 
 # Main menu loop
