@@ -16,3 +16,9 @@
 [submodule "extras/GenSMBIOS"]
 	path = extras/GenSMBIOS
 	url = https://github.com/corpnewt/GenSMBIOS
+[submodule "extras/vfio-script"]
+	path = extras/vfio-script
+	url = https://gitlab.com/akshaycodes/vfio-script.git
+[submodule "extras/single-gpu-passthrough"]
+	path = extras/single-gpu-passthrough
+	url = https://gitlab.com/risingprismtv/single-gpu-passthrough.git

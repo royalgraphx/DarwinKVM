@@ -53,6 +53,8 @@ MENU_OPTIONS=(
     "Launch DarwinFetch"
     "Launch ProperTree"
     "Launch GenSMBIOS"
+    "Install/Uninstall RisingPrism sGPU Scripts"
+    "Install/Uninstall akshaycodes VFIO-Script"
     "Exit"
 )
 
@@ -376,6 +378,18 @@ bootstrap_gensmbios() {
 
 }
 
+# Function to install/uninstall RisingPrism Single GPU passthrough
+modify_rpsgpu() {
+    clear
+    echo "This is a work in progress"
+}
+
+# Function to install/uninstall akshaycodes VFIO-Script's
+modify_avfio() {
+    clear
+    echo "This is a work in progress"
+}
+
 # Main menu loop
 while true; do
     show_menu
@@ -409,6 +423,12 @@ while true; do
                 ;;
             "Launch GenSMBIOS")
                 bootstrap_gensmbios
+                ;;
+            "Install/Uninstall RisingPrism sGPU Scripts")
+                modify_rpsgpu
+                ;;
+            "Install/Uninstall akshaycodes VFIO-Script")
+                modify_avfio
                 ;;
             "Exit")
                 echo "Exiting...";
