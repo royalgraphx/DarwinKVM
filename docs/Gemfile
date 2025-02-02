@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem "jekyll", "~> 4.3.2" # installed by `gem jekyll`
+gem "logger" # logger was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 3.5.0.
+gem "ostruct" # ostruct was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 3.5.0.
 gem "csv" # csv was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 3.4.0.
 gem "base64" # base64 was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 3.4.0.
 gem "bigdecimal" # bigdecimal was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 3.4.0.
