@@ -59,6 +59,7 @@ MENU_OPTIONS=(
     "Install/Uninstall akshaycodes VFIO-Script"
     "Modify QEMU Hook Script"
     "List Passthrough Devices via lspci"
+    "Overclock via cpupower command"
     "Exit"
 )
 
@@ -714,6 +715,41 @@ list_pt_lspci() {
 
 }
 
+# Function to call cpupower.sh from scripts
+oc_cpu_cpupower() {
+    clear
+
+    # Ensure the OS is Linux
+    if [[ "$(uname)" != "Linux" ]]; then
+        echo "lspci dumping is only supported on Linux hosts."
+        return 1
+    fi
+
+    # Construct the scripts root path using $ROOT
+    SCRIPTS_ROOT="$ROOT/scripts"
+    if [[ ! -d "$SCRIPTS_ROOT" ]]; then
+        echo "Error: Scripts directory not found at $SCRIPTS_ROOT"
+        echo "Please ensure the scripts folder exists."
+        return 1
+    fi
+    echo "Scripts directory found at: $SCRIPTS_ROOT"
+    
+    # Launch cpupower.sh in a new shell process and wait for it to exit
+    (
+        cd "$SCRIPTS_ROOT" || { echo "Error: Failed to change directory to $SCRIPTS_ROOT."; exit 1; }
+        # Execute the cpupower.sh script in a new shell
+        exec "$SHELL_NAME" cpupower.sh
+    )
+    EXIT_CODE=$?
+    if [[ $EXIT_CODE -ne 0 ]]; then
+        echo "Error: cpupower process exited with error code $EXIT_CODE."
+        return $EXIT_CODE
+    fi
+
+    echo "cpupower process completed successfully."
+
+}
+
 # Main menu loop
 while true; do
     show_menu
@@ -759,6 +795,9 @@ while true; do
                 ;;
             "List Passthrough Devices via lspci")
                 list_pt_lspci
+                ;;
+            "Overclock via cpupower command")
+                oc_cpu_cpupower
                 ;;
             "Exit")
                 echo "Exiting...";

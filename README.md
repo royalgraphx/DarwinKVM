@@ -1,21 +1,24 @@
 <p align="center">
-  <img width="40%" height="40%" src="./Assets/DarwinKVMLogo.png">
+  <img width="40%" height="40%" src="./assets/DarwinKVMLogo.png">
 </p>
 
 <p align="center">
-  <img width="80%" height="80%" src="./Assets/HeaderTextOnly.png">
+  <img width="80%" height="80%" src="./assets/HeaderTextOnly.png">
 </p>
 
-<h3 align="center">An Advanced Guide for running macOS within QEMU/KVM</h3>
-<h5 align="center">EFI guides, GPU Passthrough guides, Display Overrides for incompatible monitors, Custom Memory Mapping, Custom USB Mapping, Fake Core Count for incompatible CPU Topology, Host CPU Overclocking, Host Network Bridge for VM visibility, AMD GPU Zero-RPM Disable and custom sPPT Fan Curve, as well as many more advanced tutorials ready to further perfect your macOS experience!</h5>
-
-<h3 align="center">This is the git repo, follow the guide <a href="https://docs.darwinkvm.com/">here!</a></h2>
-<h5 align="center">PATIENCE! This is NOT a Pre-Built EFI! You are responsible for creating it!</h5>
+<h3 align="center">An Advanced Guide for running macOS within QEMU</h3>
+<h5 align="center">Host Requirements, Host Configuration, Setting Expectations, GRUB and systemd-boot Support, Package Configuration, Bridged Networking using systemd, IOMMU Viability, x86_64 and PowerPC Support, OpenCore for Q35 as Mac Pro models, Hardware Compatibility Charts, DarwinFetch + DiskProvision, Virt-Manager XMLs, Single and Dual GPU Setup passthrough, QEMU and macOS Debugging, Fake Core Count for incompatible CPU Topologies, CPU Thread Pinning, VirtIO Thread for disk images, Motherboard Audio passthrough, Bridged Networking on Ethernet, KB/M Sharing via Evdev, Custom Memory Mapping, USB Controller Mapping, Display Overrides, sPPT / Zero-RPM Disable, Legacy NVIDIA Patching, VMHide Kernel Extension for macOS Sequoia. Welcome to DarwinKVM!</h5>
 
 </br>
+<hr>
+</br>
+<h3 align="center">This is the git repo, Follow the Docs <a href="https://docs.darwinkvm.com/">here!</a></h3>
+<h5 align="center">This is NOT a Pre-Built EFI! You are responsible for creating one reading the documentation above.</h5>
+</br>
+<hr>
 
 <p align="center">
-  <img width="650" height="200" src="./Assets/HeaderGallery.png">
+  <img width="650" height="200" src="./assets/HeaderGallery.png">
 </p>
 
 <h3 align="center">macOS Sequoia 15.1.1 (Credits: @athleticat)</h3>
@@ -249,7 +252,7 @@
 <h1 align="center">Need Help?</h1>
 </br>
 <p align="center">
-  <img width="50%" height="50%" src="./Assets/discord-logo-white.png">
+  <img width="50%" height="50%" src="./assets/discord-logo-white.png">
 </p>
 <h4 align="center">If you run into any issues, you can join the <a href="https://discord.gg/ryQFC8Vk7b">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. Hexley provides our discord users with a multitude of commands to assist anyone who may need specific actions performed. Such features that Hexley offers aim to speed up the process with command such as:</h4>
 
@@ -265,7 +268,7 @@
 <h1 align="center">Contributing to the Documentation</h1>
 
 <h4 align="center">If you have any changes or improvements you'd like to contribute for review and merge, to update misinformation or outdated information, as well as maybe even adding whole new pages, you can follow the general outline below to get a local copy of the documentation running.</h4>
-<h6 align="center">Instructions written for macOS hosts but is adoptable to other OS's.</h6>
+<h6 align="center">Instructions written for macOS hosts but is adoptable to other OSs.</h6>
 
 </br>
 
