@@ -3,12 +3,14 @@
 #
 # DarwinKVM project's Menu Script.
 #
-# Copyright (c) 2025 RoyalGraphX, Carnations Botanica
+# Copyright (c) 2025 RoyalGraphX
+# Copyright (c) 2025 Carnations Botanica
 # BSD 3-Clause License, see LICENSE for more information.
 #
 
-# Script version
+# Script Variables
 VERSION="0.0.1"
+isInternalUser=true
 
 # Detect basic system details
 SHELL_NAME=$(basename "$SHELL") # Get shell name
@@ -45,7 +47,9 @@ else
     OS_NAME="Unknown OS (Support is not expected!)"
 fi
 
-# Define menu options
+# Construct the main menu
+
+# Define public options
 MENU_OPTIONS=(
     "Download/Update Submodules"
     "System Report"
@@ -60,8 +64,18 @@ MENU_OPTIONS=(
     "Modify QEMU Hook Script"
     "List Passthrough Devices via lspci"
     "Overclock via cpupower command"
-    "Create New Local Commit"
-    "Push Local Changes to Github"
+)
+
+# Append carnationsinternal options if isInternalUser is true
+if [[ "$isInternalUser" == true ]]; then
+    MENU_OPTIONS+=(
+        "Create New Local Commit"
+        "Push Local Changes to Github"
+    )
+fi
+
+# finally, add the Exit option
+MENU_OPTIONS+=(
     "Exit"
 )
 
@@ -781,6 +795,34 @@ commit_changes() {
 
 }
 
+# Function to call push.sh from scripts
+push_changes() {
+    clear
+
+    # Construct the scripts root path using $ROOT
+    SCRIPTS_ROOT="$ROOT/scripts"
+    if [[ ! -d "$SCRIPTS_ROOT" ]]; then
+        echo "Error: Scripts directory not found at $SCRIPTS_ROOT"
+        echo "Please ensure the scripts folder exists."
+        return 1
+    fi
+    echo "Scripts directory found at: $SCRIPTS_ROOT"
+    
+    # Launch push.sh in a new shell process and wait for it to exit
+    (
+        cd "$SCRIPTS_ROOT" || { echo "Error: Failed to change directory to $SCRIPTS_ROOT."; exit 1; }
+        # Execute the push.sh script in a new shell
+        exec "$SHELL_NAME" push.sh
+    )
+    EXIT_CODE=$?
+    if [[ $EXIT_CODE -ne 0 ]]; then
+        echo "Error: commit process exited with error code $EXIT_CODE."
+        return $EXIT_CODE
+    fi
+
+    echo "commit process completed successfully."
+
+}
 
 # Main menu loop
 while true; do
@@ -833,6 +875,9 @@ while true; do
                 ;;
             "Create New Local Commit")
                 commit_changes
+                ;;
+            "Push Local Changes to Github")
+                push_changes
                 ;;
             "Exit")
                 echo "Exiting...";
