@@ -1,12 +1,25 @@
 ---
 layout: default
 title: Setting Expectations
-parent: Welcome to DarwinKVM!
+parent: Welcome
 nav_order: 4
 ---
 
+<style>
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    margin: 10px;
+  }
+</style>
+
 <p align="center">
-  <img width="650" height="200" src="../../assets/HeaderSettingExpectations.png">
+  <img width="650" height="200" src="../../assets/Headers/HeaderSettingExpectations.png">
 </p>
 
 <h2 align="center">Virtual or Bare Metal?</h2>
@@ -113,5 +126,11 @@ nav_order: 4
 
 <h5 align="center">Simply put, we can utilize Virt-Manager or CLI QEMU to organize multiple PowerPC versions, we utilize the mac99 machine type to boot various validated install images that boot properly. Includes information for manually running in CLI and customizing variables of the virtual machine in Virt-Manager.</h5>
 
-<br>
-<h2 align="center">You can now proceed to the <a href="04-DocsExplained.html">Docs Layout</a> page!</h2>
+<h2 align="center">
+  <br>
+  <div class="navigation-container">
+    <a class="nav-button" href="02-Requirements.html">&larr; Back</a>
+    <a class="nav-button" href="04-DocsExplained.html">Next Page &rarr;</a>
+  </div>
+  <br>
+</h2>

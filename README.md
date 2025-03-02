@@ -1,9 +1,9 @@
 <p align="center">
-  <img width="40%" height="40%" src="./assets/DarwinKVMLogo.png">
+  <img width="40%" height="40%" src="./docs/assets/royalgraphx/DarwinKVMLogo.png">
 </p>
 
 <p align="center">
-  <img width="80%" height="80%" src="./assets/HeaderTextOnly.png">
+  <img width="80%" height="80%" src="./docs/assets/DarwinKVM/HeaderTextOnly.png">
 </p>
 
 <h3 align="center">An Advanced Guide for running macOS within QEMU</h3>
@@ -18,233 +18,233 @@
 <hr>
 
 <p align="center">
-  <img width="650" height="200" src="./assets/HeaderGallery.png">
+  <img width="650" height="200" src="./docs/assets/Headers/HeaderGallery.png">
 </p>
 
 <h3 align="center">macOS Sequoia 15.1.1 (Credits: @athleticat)</h3>
 <p align="center">
-  <img src="./showcase/athleticatMacPro71Seq1511.png">
+  <img src="./docs/gallery/athleticatMacPro71Seq1511.png">
 </p>
 
 <h3 align="center">macOS Sequoia 15.1 (Credits: @f0xb4t)</h3>
 <p align="center">
-  <img src="./showcase/f0xb4tMacPro71Seq151.png">
+  <img src="./docs/gallery/f0xb4tMacPro71Seq151.png">
 </p>
 
 <h3 align="center">macOS Sequoia 15.0 Beta 1</h3>
 <p align="center">
-  <img src="./showcase/HacProKVM15Beta.png">
-  <img src="./showcase/HacProKVM15BetaAlt.png">
+  <img src="./docs/gallery/HacProKVM15Beta.png">
+  <img src="./docs/gallery/HacProKVM15BetaAlt.png">
 </p>
 
 <h3 align="center">macOS Sonoma 14.7 (Credits: @naymmmiscool)</h3>
 <p align="center">
-  <img src="./showcase/naymmmiscoolMacPro71Sonoma147.png">
+  <img src="./docs/gallery/naymmmiscoolMacPro71Sonoma147.png">
 </p>
 
 <h3 align="center">macOS Sonoma 14.5</h3>
 <p align="center">
-  <img src="./showcase/HacProKVM145.png">
+  <img src="./docs/gallery/HacProKVM145.png">
 </p>
 
 <h3 align="center">macOS Sonoma 14.4 Beta</h3>
 <p align="center">
-  <img src="./showcase/HacProKVM144Beta.png">
+  <img src="./docs/gallery/HacProKVM144Beta.png">
 </p>
 
 <h3 align="center">macOS Sonoma 14.3</h3>
 <p align="center">
-  <img src="./showcase/HacProKVM143.png">
+  <img src="./docs/gallery/HacProKVM143.png">
 </p>
 
 <h3 align="center">macOS Sonoma 14.2.1 (Credits: @heliokroger)</h3>
 <p align="center">
-  <img src="./showcase/Helio1421.png">
+  <img src="./docs/gallery/Helio1421.png">
 </p>
 
 <h3 align="center">macOS Sonoma 14.1</h3>
 <p align="center">
-  <img src="./showcase/HacProKVM141.png">
+  <img src="./docs/gallery/HacProKVM141.png">
 </p>
 
 <h3 align="center">macOS Sonoma 14.1 (Credits: @Haxi0)</h3>
 <p align="center">
-  <img src="./showcase/haxi0DKVM.png">
+  <img src="./docs/gallery/haxi0DKVM.png">
 </p>
 
 <h3 align="center">macOS Sonoma 14.0</h3>
 <p align="center">
-  <img src="./showcase/HacProKVM140.png">
+  <img src="./docs/gallery/HacProKVM140.png">
 </p>
 
 <h3 align="center">macOS Ventura 13.5.1</h3>
 <p align="center">
-  <img src="./showcase/HacProKVM1351.png">
+  <img src="./docs/gallery/HacProKVM1351.png">
 </p>
 
 <h3 align="center">macOS Ventura 13.5 + NVIDIA GPU (Credits: @Zormeister)</h3>
 <p align="center">
-  <img src="./showcase/ZormDKVMnvidia.png">
+  <img src="./docs/gallery/ZormDKVMnvidia.png">
 </p>
 
 <h3 align="center">macOS Ventura 13.5 (Credits: @Rowlul)</h3>
 <p align="center">
-  <img src="./showcase/kaggsterDKVM135.png">
+  <img src="./docs/gallery/kaggsterDKVM135.png">
 </p>
 
 <h3 align="center">macOS Ventura 13.4</h3>
 <p align="center">
-  <img src="./showcase/HacProKVM134.png">
+  <img src="./docs/gallery/HacProKVM134.png">
 </p>
 
 <h3 align="center">macOS Monterey 12.7.5</h3>
 <p align="center">
-  <img src="./showcase/ProMacMonterey.png">
+  <img src="./docs/gallery/ProMacMonterey.png">
 </p>
 
 <h3 align="center">macOS Big Sur 11.7.10</h3>
 <p align="center">
-  <img src="./showcase/ProMacBigSur.png">
+  <img src="./docs/gallery/ProMacBigSur.png">
 </p>
 
 <h3 align="center">macOS Big Sur 11.0.0 Developer Preview 1 (20A4299v)</h3>
 <p align="center">
-  <img src="./showcase/110BigSurDP1MacPro71.png">
+  <img src="./docs/gallery/110BigSurDP1MacPro71.png">
 </p>
 
 <h3 align="center">Mac OS X 10.16 (AppleInternal GoldenGateSpike 20A2314a)</h3>
 <p align="center">
-  <img src="./showcase/1016CataSurMacPro71.png">
+  <img src="./docs/gallery/1016CataSurMacPro71.png">
 </p>
 
 <h3 align="center">Mac OS X Catalina 10.15.7</h3>
 <p align="center">
-  <img src="./showcase/ProMacCatalina.png">
+  <img src="./docs/gallery/ProMacCatalina.png">
 </p>
 
 <h3 align="center">Mac OS X Mojave 10.14.4</h3>
 <p align="center">
-  <img src="./showcase/ProMacMojave.png">
+  <img src="./docs/gallery/ProMacMojave.png">
 </p>
 
 <h3 align="center">Mac OS X High Sierra 10.13.6</h3>
 <p align="center">
-  <img src="./showcase/HacProKVM10136.png">
+  <img src="./docs/gallery/HacProKVM10136.png">
 </p>
 
 <h3 align="center">Mac OS X Sierra 10.12.5 (AppleInternal Phoenix 16F5049f)</h3>
 <p align="center">
-  <img src="./showcase/ProMacSierraInternal.png">
+  <img src="./docs/gallery/ProMacSierraInternal.png">
 </p>
 
 <h3 align="center">Mac OS X Sierra 10.12</h3>
 <p align="center">
-  <img src="./showcase/ProMacSierra.png">
+  <img src="./docs/gallery/ProMacSierra.png">
 </p>
 
 <h3 align="center">Mac OS X El Capitan 10.11.6</h3>
 <p align="center">
-  <img src="./showcase/ProMacTheCaptain.png">
+  <img src="./docs/gallery/ProMacTheCaptain.png">
 </p>
 
 <h3 align="center">Mac OS X Yosemite 10.10</h3>
 <p align="center">
-  <img src="./showcase/ProMacYosemite.png">
+  <img src="./docs/gallery/ProMacYosemite.png">
 </p>
 
 <h3 align="center">Mac OS X Mavericks 10.9.5</h3>
 <p align="center">
-  <img src="./showcase/ProMacMavericks.png">
+  <img src="./docs/gallery/ProMacMavericks.png">
 </p>
 
 <h3 align="center">Mac OS X Mountain Lion 10.8.5</h3>
 <p align="center">
-  <img src="./showcase/ProMacMountainLion.png">
+  <img src="./docs/gallery/ProMacMountainLion.png">
 </p>
 
 <h3 align="center">Mac OS X Lion 10.7.5</h3>
 <p align="center">
-  <img src="./showcase/ProMacLion.png">
+  <img src="./docs/gallery/ProMacLion.png">
 </p>
 
 <h3 align="center">Mac OS X Snow Leopard 10.6.8 on x86_64</h3>
 <p align="center">
-  <img src="./showcase/ProMacSnowLeopard.png">
+  <img src="./docs/gallery/ProMacSnowLeopard.png">
 </p>
 
 <h3 align="center">Mac OS X Server Snow Leopard 10.6.8 on x86_64</h3>
 <p align="center">
-  <img src="./showcase/ProMacSnowLeopardServer.png">
+  <img src="./docs/gallery/ProMacSnowLeopardServer.png">
 </p>
 
 <h3 align="center">Mac OS X Snow Leopard 10.6.2 on i386 (AppleInternal Factory Mac Mini)</h3>
 <p align="center">
-  <img src="./showcase/MacMini31SnowLeopardFactory1062.png">
+  <img src="./docs/gallery/MacMini31SnowLeopardFactory1062.png">
 </p>
 
 <h3 align="center">Mac OS X Snow Leopard Developer Preview 10A190 (10.6) on PowerPC</h3>
 <p align="center">
-  <img src="./showcase/PowerMacSnowLeopard.png">
+  <img src="./docs/gallery/PowerMacSnowLeopard.png">
 </p>
 
 <h3 align="center">Mac OS X Leopard 10.5.8 on x86_64</h3>
 <p align="center">
-  <img src="./showcase/MacPro41Leopard1058.png">
+  <img src="./docs/gallery/MacPro41Leopard1058.png">
 </p>
 
 <h3 align="center">Mac OS X Server Leopard 10.5 on x86_64</h3>
 <p align="center">
-  <img src="./showcase/MacPro41LeopardServer105.png">
+  <img src="./docs/gallery/MacPro41LeopardServer105.png">
 </p>
 
 <h3 align="center">Mac OS X Leopard 10.5.4 on PowerPC</h3>
 <p align="center">
-  <img src="./showcase/PowerMacLeopard.png">
+  <img src="./docs/gallery/PowerMacLeopard.png">
 </p>
 
 <h3 align="center">Mac OS X Tiger 10.4.11 on x86_64</h3>
 <p align="center">
-  <img src="./showcase/MacPro21Tiger10411.png">
+  <img src="./docs/gallery/MacPro21Tiger10411.png">
 </p>
 
 <h3 align="center">Mac OS X Server Tiger 10.4.11 on x86_64</h3>
 <p align="center">
-  <img src="./showcase/MacPro11TigerServer10411.png">
+  <img src="./docs/gallery/MacPro11TigerServer10411.png">
 </p>
 
 <h3 align="center">Mac OS X Tiger 10.4.7 on x86_64</h3>
 <p align="center">
-  <img src="./showcase/MacPro11Tiger1047.png">
+  <img src="./docs/gallery/MacPro11Tiger1047.png">
 </p>
 
 <h3 align="center">Mac OS X Tiger 10.4.1 (8B1025, ADP2,1) on x86_64</h3>
 <p align="center">
-  <img src="./showcase/ADP21-1041.png">
+  <img src="./docs/gallery/ADP21-1041.png">
 </p>
 
 <h3 align="center">Mac OS X Tiger 10.4.11 on PowerPC</h3>
 <p align="center">
-  <img src="./showcase/PowerMacTiger.png">
+  <img src="./docs/gallery/PowerMacTiger.png">
 </p>
 
 <h3 align="center">Mac OS X Panther 10.3</h3>
 <p align="center">
-  <img src="./showcase/PowerMacPanther.png">
+  <img src="./docs/gallery/PowerMacPanther.png">
 </p>
 
 <h3 align="center">Mac OS X Jaguar 10.2</h3>
 <p align="center">
-  <img src="./showcase/PowerMacJaguar.png">
+  <img src="./docs/gallery/PowerMacJaguar.png">
 </p>
 
 <h3 align="center">Mac OS X Puma 10.1</h3>
 <p align="center">
-  <img src="./showcase/PowerMacPuma.png">
+  <img src="./docs/gallery/PowerMacPuma.png">
 </p>
 
 <h3 align="center">Mac OS X Cheetah 10.0.3</h3>
 <p align="center">
-  <img src="./showcase/PowerMacCheetah.png">
+  <img src="./docs/gallery/PowerMacCheetah.png">
 </p>
 
 </br>
@@ -252,7 +252,7 @@
 <h1 align="center">Need Help?</h1>
 </br>
 <p align="center">
-  <img width="50%" height="50%" src="./assets/discord-logo-white.png">
+  <img width="50%" height="50%" src="./docs/assets/Discord/discord-logo-white.png">
 </p>
 <h4 align="center">If you run into any issues, you can join the <a href="https://discord.gg/ryQFC8Vk7b">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. Hexley provides our discord users with a multitude of commands to assist anyone who may need specific actions performed. Such features that Hexley offers aim to speed up the process with command such as:</h4>
 
@@ -266,7 +266,10 @@
 </br>
 
 <h1 align="center">Contributing to the Documentation</h1>
-
+</br>
+<p align="center">
+  <img width="30%" height="30%" src="./docs/assets/GitHub/GitHub_Logo_White.png">
+</p>
 <h4 align="center">If you have any changes or improvements you'd like to contribute for review and merge, to update misinformation or outdated information, as well as maybe even adding whole new pages, you can follow the general outline below to get a local copy of the documentation running.</h4>
 <h6 align="center">Instructions written for macOS hosts but is adoptable to other OSs.</h6>
 

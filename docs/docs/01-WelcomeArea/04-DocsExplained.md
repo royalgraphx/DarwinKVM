@@ -1,22 +1,22 @@
 ---
 layout: default
 title: Docs Layout Overview
-parent: Welcome to DarwinKVM!
+parent: Welcome
 nav_order: 5
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../assets/HeaderDocsLayout.png">
+  <img width="650" height="200" src="../../assets/Headers/HeaderDocsLayout.png">
 </p>
 
 <h3 align="center">If you lose your spot, reference this typical workflow for latest macOS:</h3>
 
 <br>
 
-**1. Welcome to DarwinKVM!**
+**1. Welcome**
    - Meet Requirements
      - Check GPU Compatibility
-   - Learn about the Docs Structure <span style="color: #ffab52;"><-- You are here!</span>
+   - Learn about the Docs Structure <span style="color: #bfa6ff;"><-- You are here!</span>
 
 **2. [Host Preparations](../02-HostPreparations/index)**
    - Check and Enable BIOS Settings
@@ -24,7 +24,7 @@ nav_order: 5
    - Package Installation according to your system
    - Virtual Machine Networking explained
    - Libvirtd Configuration
-   - IOMMU Viability, <span style="color: #ffab52;">if you require ACS patches this would be the time to do so.</span>
+   - IOMMU Viability, <span style="color: #bfa6ff;">if you require ACS patches this would be the time to do so.</span>
 
 **3. [DiskProvision](../03-DiskProvision/index)**
   - Introduction and Learning
@@ -46,7 +46,7 @@ nav_order: 5
   - Initial Setup until reaching the Desktop.
 
 **7. GPU Passthrough**
-  - <span style="color: #ffab52;">Depending on how many GPU's you have on your system, follow the appropriate guide.</span>
+  - <span style="color: #bfa6ff;">Depending on how many GPU's you have on your system, follow the appropriate guide.</span>
   - [Single GPU Passthrough](../../infocenter/08-sGPUpt/index)
   - [Dual GPU Passthrough](../../infocenter/09-dGPUpt/index)
 

@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Welcome to DarwinKVM!
-nav_order: 1
-description: "An advanced guide for running Mac OS / Mac OS X / macOS on QEMU/KVM with GPU Passthrough."
+title: Welcome
+description: "The advanced guide for running Mac OS X / macOS within QEMU."
 has_children: true
 has_toc: false
 permalink: /
+nav_order: 1
 ---
 
 <style>
@@ -45,23 +45,43 @@ permalink: /
       text-align: center;
       top: -20px;
   }
+
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    margin: 10px;
+  }
+
 </style>
 
-{: .headsup }
-The current version you are reading is under deprecation. While all of the information is still relevent and works as expected, I am no longer proud of all of the content and how it's currently structured, if you run into issues, I can help on Discord, while I begin to rewrite DarwinKVM. Look forward to much better documentation soon!
-
 <p align="center">
-  <img src="./assets/DarwinKVMLogo.png" width="40%" height="40%" class="alignment_img">
+  <img src="./assets/royalgraphx/DarwinKVMLogo.png" width="40%" height="40%">
 </p>
+<br>
+<br>
 
+<!--
 <p align="center">
-  <img width="650" height="200" src="./assets/HeaderTextOnly.png" class="alignment_img_alt">
+  <img width="650" height="200" src="./assets/DarwinKVM/HeaderTextOnly.png" class="alignment_img_alt">
 </p>
+-->
 
-<h3 class="tagline">An Advanced Guide for running macOS within QEMU/KVM</h3>
+<h3 class="tagline">The Advanced Guide for running Mac OS X / macOS within QEMU</h3>
 <h5 class="help-text">If you run into any issues, you can join the <a href="https://discord.gg/ryQFC8Vk7b">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. Hexley provides our discord users with a multitude of commands to assist anyone who may need specific actions performed.</h5>
 <div style="display: flex; justify-content: center; align-items: center;">
-    <iframe src="https://discord.com/widget?id=1131552514412654683&theme=dark" width="400" height="300" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <iframe src="https://discord.com/widget?id=1131552514412654683&theme=dark" width="400" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 </div>
 
-<h2 align="center">You can now proceed to the <a href="docs/01-WelcomeArea/01-About.html">About</a> page!</h2>
+<h2 align="center">
+  <br>
+  <div class="navigation-container">
+    <a class="nav-button" href="https://github.com/royalgraphx/DarwinKVM">&larr; Github</a>
+    <a class="nav-button" href="docs/01-WelcomeArea/01-About.html">Next Page &rarr;</a>
+  </div>
+  <br>
+</h2>

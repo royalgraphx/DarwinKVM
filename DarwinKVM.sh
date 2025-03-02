@@ -60,6 +60,8 @@ MENU_OPTIONS=(
     "Modify QEMU Hook Script"
     "List Passthrough Devices via lspci"
     "Overclock via cpupower command"
+    "Create New Local Commit"
+    "Push Local Changes to Github"
     "Exit"
 )
 
@@ -750,6 +752,36 @@ oc_cpu_cpupower() {
 
 }
 
+# Function to call commit.sh from scripts
+commit_changes() {
+    clear
+
+    # Construct the scripts root path using $ROOT
+    SCRIPTS_ROOT="$ROOT/scripts"
+    if [[ ! -d "$SCRIPTS_ROOT" ]]; then
+        echo "Error: Scripts directory not found at $SCRIPTS_ROOT"
+        echo "Please ensure the scripts folder exists."
+        return 1
+    fi
+    echo "Scripts directory found at: $SCRIPTS_ROOT"
+    
+    # Launch commit.sh in a new shell process and wait for it to exit
+    (
+        cd "$SCRIPTS_ROOT" || { echo "Error: Failed to change directory to $SCRIPTS_ROOT."; exit 1; }
+        # Execute the commit.sh script in a new shell
+        exec "$SHELL_NAME" commit.sh
+    )
+    EXIT_CODE=$?
+    if [[ $EXIT_CODE -ne 0 ]]; then
+        echo "Error: commit process exited with error code $EXIT_CODE."
+        return $EXIT_CODE
+    fi
+
+    echo "commit process completed successfully."
+
+}
+
+
 # Main menu loop
 while true; do
     show_menu
@@ -798,6 +830,9 @@ while true; do
                 ;;
             "Overclock via cpupower command")
                 oc_cpu_cpupower
+                ;;
+            "Create New Local Commit")
+                commit_changes
                 ;;
             "Exit")
                 echo "Exiting...";
