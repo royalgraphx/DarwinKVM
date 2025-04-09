@@ -1,0 +1,74 @@
+<!--
+
+      Copyright (c) 2024, 2025 RoyalGraphX, BSD 3-Clause License
+      Copyright (c) 2025 Carnations Botanica, BSD 3-Clause License
+      Requires DUDK-Firmware package installed, to use HfsPlusLegacy.efi successfully.
+
+      NOTE: When deciding on what CPU to use, reference the following chart depending on your
+      OpenCore PlatformInfo SMBIOS model identifier:
+
+      MacPro2,1
+      MacPro3,1 -> Conroe-v1
+      MacPro4,1 
+
+      MacPro5,1 -> Westmere-v2 (Default)
+
+      Try to leave the rdrand CPU extension forced. When emulating a legacy system, we want to make
+      sure the guest is aware it can use RDRAND because the CPUID overlay will not have it.
+      HfsLegacy is for CPUs without RDRAND, and if misconfigured and HfsPlus is used, hopefully the
+      addition will prevent failure of HfsPlus for those who did not read enough/properly.
+
+-->
+
+<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+  <name>LegacyDarwinKVM (MacPro5,1)</name>
+  <description>This virtual machine is a DarwinKVM MacPro5,1 using a Westmere-v2 CPUID mask.</description>
+  <uuid>8faaaa11-1203-4c31-82d2-13bedb5955c8</uuid>
+  <memory unit='KiB'>8388608</memory>
+  <currentMemory unit='KiB'>8388608</currentMemory>
+  <memoryBacking>
+    <nosharepages/>
+  </memoryBacking>
+  <vcpu placement='static'>8</vcpu>
+  <os>
+    <type arch='x86_64' machine='q35'>hvm</type>
+    <loader readonly='yes' type='pflash'>/usr/share/DarwinUDK/x64/DUDK_CODE.fd</loader>
+    <nvram template='/usr/share/DarwinUDK/x64/DUDK_VARS.fd'>/var/lib/libvirt/qemu/nvram/LegacyDarwinKVM_VARS.fd</nvram>
+    <boot dev="hd"/>
+    <bootmenu enable='yes'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+  </features>
+  <cpu mode='host-passthrough' check='none' migratable='on'>
+    <topology sockets='1' dies='1' cores='4' threads='2'/>
+    <cache mode='passthrough'/>
+  </cpu>
+  <clock offset='utc'>
+    <timer name='rtc' tickpolicy='catchup'/>
+    <timer name='pit' tickpolicy='delay'/>
+    <timer name='hpet' present='yes'/>
+    <timer name='tsc' present='yes' mode='native'/>
+  </clock>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>restart</on_crash>
+  <devices>
+    <emulator>/usr/bin/qemu-system-x86_64</emulator>
+    <memballoon model='none'/>
+  </devices>
+  <qemu:commandline>
+    <qemu:arg value='-global'/>
+    <qemu:arg value='ICH9-LPC.acpi-pci-hotplug-with-bridge-support=off'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='isa-applesmc,osk=ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc'/>
+    <qemu:arg value='-cpu'/>
+    <qemu:arg value='Westmere-v2,vendor=GenuineIntel,+rdrand'/>
+    <qemu:arg value='-usb'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='usb-tablet'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='usb-kbd'/>
+  </qemu:commandline>
+</domain>

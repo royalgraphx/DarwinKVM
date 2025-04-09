@@ -52,7 +52,9 @@ GEM
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    logger (1.6.5)
     mercenary (0.4.0)
+    ostruct (0.6.1)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (5.0.4)
@@ -86,6 +88,8 @@ DEPENDENCIES
   csv
   jekyll (~> 4.3.2)
   just-the-docs (= 0.5.3)
+  logger
+  ostruct
 
 BUNDLED WITH
-   2.5.23
+   2.6.3

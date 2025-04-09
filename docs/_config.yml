@@ -1,13 +1,20 @@
-title: DarwinKVM Docs
-description: An advanced guide for running Mac OS / Mac OS X / macOS on QEMU/KVM with GPU Passthrough.
+title: DarwinKVM
+description: The advanced guide for running Mac OS X / macOS on QEMU with GPU Passthrough.
 theme: just-the-docs
 color_scheme: custom
-favicon_ico: "/assets/favicon.ico"
+favicon_ico: "/assets/DarwinKVM/favicon.ico"
 nav_sort: case_sensitive
+back_to_top: false
+back_to_top_text: "Unused"
 
-url: https://royalgraphx.github.io/DarwinKVM/docs
+url: https://docs.darwinkvm.com/
 
-callouts_opacity: 0.4
+# Google Analytics Tracking (optional)
+# Supports a CSV of tracking ID strings (eg. "UA-1234567-89,G-1AB234CDE5")
+ga_tracking: G-TXJ6SN6254
+ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
+
+callouts_opacity: 0.3
 callouts:
   highlight:
     color: canary
@@ -26,15 +33,24 @@ callouts:
   headsup:
     title: Heads Up!
     color: heads-up
+  internalnote:
+    title: Note for CarnationsInternal
+    color: carnations-purple
 
 # set up collections
 
 # Define Jekyll collections
 collections:
-  infocenter:
+  host:
     permalink: "/:collection/:path/"
     output: true
-  installguides:
+  hypervisor:
+    permalink: "/:collection/:path/"
+    output: true
+  opencore:
+    permalink: "/:collection/:path/"
+    output: true
+  virtman:
     permalink: "/:collection/:path/"
     output: true
   writeups:
@@ -43,18 +59,28 @@ collections:
 
 just_the_docs:
   collections:
-    infocenter:
-      name: INFO CENTER
+    host:
+      name: HOST HARDWARE
       nav_exclude: false
       nav_fold: false
       search_exclude: false
-    installguides:
-      name: INSTALL GUIDES
+    hypervisor:
+      name: HYPERVISOR CONFIGURATION
+      nav_exclude: false
+      nav_fold: false
+      search_exclude: false
+    opencore:
+      name: OPENCORE CONFIGURATION
+      nav_exclude: false
+      nav_fold: false
+      search_exclude: false
+    virtman:
+      name: VMM CONFIGURATION
       nav_exclude: false
       nav_fold: false
       search_exclude: false
     writeups:
-      name: WRITE UPS
+      name: WRITE-UPS
       nav_exclude: false
       nav_fold: false
       search_exclude: false
@@ -65,6 +91,9 @@ include:
  - _sass
  - _layouts
  - _includes
+
+# Set a path/url to a logo that will be displayed instead of the title
+# logo: "assets/DarwinKVM/CornerLogo.png"
 
 # External navigation links
 nav_external_links:

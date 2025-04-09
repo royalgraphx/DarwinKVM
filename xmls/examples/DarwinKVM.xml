@@ -1,0 +1,95 @@
+<!--
+
+      Copyright (c) 2024, 2025 RoyalGraphX, BSD 3-Clause License
+      Copyright (c) 2025 Carnations Botanica, BSD 3-Clause License
+
+      This XML is provided to you by both RoyalGraphX and Carnations Botanica in an effort
+      to streamline the learning of crafting and managing various kinds of guests, and how
+      defining your QEMU binary, whether that is via Virt-Manager or a ton of arguments to
+      the QEMU binary in CLI has a drastic effect on what is actually created by QEMU itself
+
+      If you're still using older CPU values, you need to seriously update them. Not everything
+      is a Penryn Q35 machine. The CPU flag essentially layers or masks a specific CPUID dump of
+      the selected CPU on top of your current one, and that is what is presented to the guest.
+      There is no reason, on this earth, to be using outdated CPUIDs for a machine you are
+      trying to define, for the modern day. MacPro7,1 has a Xeon CPU. Cascade Lake **is** the off
+      shelf CPU of the MacPro7,1 which is what we are trying to define and mimick in this definition.
+      This XML is bare bones, and defines the machine in the most minimal way to be similar enough.
+
+      Okay rant over. Sick of seeing -cpu Penryn or -cpu Haswell-NoTSX, if a user is having TSC sync
+      issues, then you need to compile a custom kernel, as it's an issue with the host, not the guest.
+
+
+      By default, this definition is already multithreaded. 1 socket, 4 cores, 2 threads. This assumes
+      that the least threads required to properly run this guest is 8 threads. This assumption was chosen
+      in case there is a large number of users who consistently do not have 14 or 16 threads leading
+      to more users having to manually edit this prior to import. When you reach sections about updating
+      CPU Topology, maintain 1 socket and 2 threads. No real-world Mac has ever had a multithreaded CPU
+      that contains more than 2 threads in each core. Equally, do not use 8 sockets, 1 core 1 thread.
+      You do not have 8 AMD or Intel CPUs on your motherboard.
+
+      If all of this sounds extremely obvious and makes a ton of sense now that you think about it...
+      yeah it's supposed to make sense. QEMU is a full system emulator, define it like a real machine,
+      the machine you're trying to mimic or emulate.
+
+      The smallest flag, can have drastic effects on the guest.
+
+-->
+
+<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+  <name>DarwinKVM (MacPro7,1)</name>
+  <description>This virtual machine is a DarwinKVM MacPro7,1 using Cascadelake-Server.</description>
+  <uuid>c44e7384-bc74-4d3e-b6ce-5a6148296fe8</uuid>
+  <memory unit='KiB'>8388608</memory>
+  <currentMemory unit='KiB'>8388608</currentMemory>
+  <memoryBacking>
+    <nosharepages/>
+  </memoryBacking>
+  <vcpu placement='static'>8</vcpu>
+  <os firmware='efi'>
+    <type arch='x86_64' machine='q35'>hvm</type>
+    <firmware>
+      <feature enabled='no' name='enrolled-keys'/>
+      <feature enabled='no' name='secure-boot'/>
+    </firmware>
+    <loader readonly='yes' type='pflash'>/usr/share/edk2/x64/OVMF_CODE.4m.fd</loader>
+    <nvram template='/usr/share/edk2/x64/OVMF_VARS.4m.fd'>/var/lib/libvirt/qemu/nvram/DarwinKVM_VARS.4m.fd</nvram>
+    <boot dev="hd"/>
+    <bootmenu enable='yes'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+  </features>
+  <cpu mode='host-passthrough' check='none' migratable='on'>
+    <topology sockets='1' dies='1' cores='4' threads='2'/>
+    <cache mode='passthrough'/>
+  </cpu>
+  <clock offset='utc'>
+    <timer name='rtc' tickpolicy='catchup'/>
+    <timer name='pit' tickpolicy='delay'/>
+    <timer name='hpet' present='yes'/>
+    <timer name='tsc' present='yes' mode='native'/>
+  </clock>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>restart</on_crash>
+  <devices>
+    <emulator>/usr/bin/qemu-system-x86_64</emulator>
+    <watchdog model='itco' action='none'/>
+    <memballoon model='none'/>
+  </devices>
+  <qemu:commandline>
+    <qemu:arg value='-global'/>
+    <qemu:arg value='ICH9-LPC.acpi-pci-hotplug-with-bridge-support=off'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='isa-applesmc,osk=ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc'/>
+    <qemu:arg value='-usb'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='usb-tablet'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='usb-kbd'/>
+    <qemu:arg value='-cpu'/>
+    <qemu:arg value='Cascadelake-Server,vendor=GenuineIntel'/>
+  </qemu:commandline>
+</domain>

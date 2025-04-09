@@ -1,8 +1,10 @@
 ---
 layout: default
 title: KB/M sharing with Evdev
-nav_order: 7
+description: "Placeholder"
 has_children: true
+has_toc: true
+nav_order: 7
 ---
 
 <p align="center">
