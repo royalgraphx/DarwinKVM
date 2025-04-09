@@ -6,6 +6,24 @@ has_children: false
 has_toc: false
 ---
 
+<style>
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    margin: 10px;
+  }
+
+  .top-button {
+    margin: 10px;
+    align: center;
+  }
+</style>
+
 <p align="center">
   <img width="650" height="200" src="../../assets/Headers/HeaderChangelog.png">
 </p>
@@ -24,29 +42,29 @@ All notable changes to this project will be documented in this file. The format 
 
 ---
 
-## [Commit Name]
-### Version@Branch
-#### By Commit Author
+## Complete Base DKVM Resources
+### Prerelease@royalStaging
+#### By royalgraphx
 
-## [Version~Type] - YYYY-MM-DD
+## [3.0.0~prerelease] - 2025-04-09
 
 ### Added
--
+- A crapton of stuff.
 
 ### Changed
--
+- Everything.
 
 ### Fixed
--
+- Stuff.
 
 ### Deprecated
--
+- A ton of pages.
 
 ### Removed
--
+- A ton of images on accident.
 
 ### Security
--
+- All of it.
 
 ---
 
@@ -77,3 +95,11 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Security
 -
+
+<h2 align="center">
+  <br>
+  <div>
+    <a class="top-button" href="#">&uarr; Go to the Top &uarr;</a>
+  </div>
+  <br>
+</h2>

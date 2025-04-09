@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Setting Expectations
+description: "Explaining several basic issues with Virtual Machines and how to navigate them. Properly configuring the host machine is the number one requirement and you can't move past this section without understanding it fully or else you'll struggle the rest of the way."
 parent: Welcome
-nav_order: 4
+nav_order: 3
 ---
 
 <style>
@@ -16,115 +17,68 @@ nav_order: 4
   .nav-button {
     margin: 10px;
   }
+
+  .image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  .image-item {
+    text-align: center;
+    max-width: 300px;
+    margin: 0 10px;
+  }
+
+  .image-item img {
+    max-width: 100%;
+    height: auto;
+  }
 </style>
 
 <p align="center">
   <img width="650" height="200" src="../../assets/Headers/HeaderSettingExpectations.png">
 </p>
 
-<h2 align="center">Virtual or Bare Metal?</h2>
-<h5 align="center">A Virtual Machine is no different but carries several advantages for those on AMD CPU's as it is possible to spoof to an Intel CPU Vendor String, fixing several issues that can occur with software such as Discord or various Adobe applications. If you are on an Intel CPU, but find that you are on an unsupported generation or have hardware on your motherboard that you cannot get around, utilizing DarwinKVM will allow you to simply require a supported GPU.</h5>
+<h2 align="center">Why Linux?</h2>
+<h5 align="center">You at the moment have a choice when it comes to what software to use for hosting virtual machines, and how. The program you decide to use, has a <code>Type</code>. The idea of a <code>Type 1</code> or <code>Type 2</code> hypervisor, is simply the level of granular control you have over the guest. There is much debate on what defines a Type 1 hypervisor specifically but what makes a piece of software Type 1 or 2 is actually the ability to give physical hardware to the guest. To have that much control, is to be Type 1. In that sense, using Windows and VirtualBox or VMWare Player/Workstation, are Type 2 hypervisors because the host (Windows) does not allow for PCIe passthrough. This limits how far you can take the guest machine because you are stuck with the emulated hardware that your software provides you. As you'll learn later, OS X / macOS require a graphics card that is Metal supported (or OpenGL on older releases) for the operating system to be usable.</h5>
 <br>
 
-<h2 align="center">What are the differences between this and other similar projects?</h2>
-<h5 align="center">The major distinction is that this is not something you can use right away, as you must read a fair amount first. Virt-Manager, QEMU, GPU Passthrough, OpenCore, Kexts, config.plist, OVMF... these things already exist. They're all either software/files, guides, or concepts of Linux/macOS. We're putting all of these things together.</h5>
+<h2 align="center">What happens without a supported GPU?</h2>
+<div class="image-container">
+  <div class="image-item">
+    <h3>VESA / VGA</h3>
+    <a href="../../assets/Carnations/HighSierraNoGPUAccel.gif" target="_blank">
+      <img src="../../assets/Carnations/HighSierraNoGPUAccel.gif" alt="VESA / VGA">
+    </a>
+  </div>
+  <div class="image-item">
+    <h3>AMD RX 6600 8GB</h3>
+    <a href="../../assets/Carnations/SonomaGPUAccel.gif" target="_blank">
+      <img src="../../assets/Carnations/SonomaGPUAccel.gif" alt="AMD RX 6600 8GB">
+    </a>
+  </div>
+</div>
+<h4 align="center"><i>These are both QEMU virtual machine guests on AMD hardware</i></h4>
+<br>
+<h5 align="center">When you run the Mac operating system without a properly supported graphics card, you are running the entire OS in VESA / VGA mode. This means you have 0 graphics acceleration, it is being done via CPU rendering, which as you can see above is a non usable experience. Imagine if your Windows PC did not have a graphics card, that's basically what you're doing to your OS X / macOS guest. Virtual Machine softwares do not provide guests with emulated graphics cards that are complex and capable of rendering 3D. Most software provide a basic VGA or SVGA compatible GPU, and VGA Display for output. The Mac operating system heavily relies on a GPU to properly use, because every Mac has always <i>had</i> a GPU that worked (iGPU, or dGPU), and makes heavy use of it for things like Drop Shadows, Gaussian Blur, Dock Transparency, Minimizing/Maximizing animations, and other Aqua effects. <i>The experience is much worse than non accelerated Windows, and is considered to be unusable in this state as it is not intended to be in VGA fallback on any Apple hardware.</i></h5>
+
+<h5 align="center">This is actually why VirtualBox and VMware are not supported platforms for hosting OS X / macOS guests (Not to mention the fact that they require Unlockers, and the respective companies do not provide support for running the Mac operating system as guests). With the requirement of a real natively supported GPU, means the requirement of a Type 1 Hypervisor that can do PCIe passthrough, which is essentially used to move a real GPU to the Virtual Machine, which can only be done with platforms like Hyper-V on Windows Server and KVM on Linux hosts. For this project, we use Linux as it already comes with kernel modules for PCIe passthrough. Moving forward, we expect you to be using a modern Linux host and kernel.</h5>
 <br>
 
-<h2 align="center">What are the differences between QEMU and other programs such as VirtualBox, VMWare, and Hyper-V?</h2>
-<h5 align="center">If you are on a Windows host, you at the moment like others on other operating systems, have a choice when it comes to hosting virtual machines. The program you decide to use, has a Type. The idea of a Type 1 or Type 2 hypervisor, is simply the level of granular control you have over the guest. There is much debate on what defines a Type 1 hypervisor. Regardless of your opinion on what makes a Type 1 or 2 hypervisor specifically that, we are all unanimously in agreement that VirtualBox and VMWare Player/Workstation, are Type 2 hypervisors.</h5>
+<h2 align="center">So, Virtual or Bare Metal?</h2>
+<h5 align="center">If you suddenly thought, I want to run OS X / macOS as a VM and don't have much experience with advanced virtual machine management and usage along with background understanding of the logic for extending the hardware of your Virtual Machines, then it's going to be very understandably tough to understand and come to terms with limitations that cannot be circumvented. For starters, when it comes to managing a Hypervisor machine, your goal is to <code>containerize</code> various operating systems you already ran, run, or can run on your host hardware configuration. What this basically means is that, you first need to be able to run (or have the hardware to run) OS X / macOS natively on the host machine before you even consider using it as a virtual machine.</h5>
+<h5 align="center">That means your CPU, and GPU must both be supported on OS X / macOS prior to continuing with any configuration of DarwinKVM. Using Linux + QEMU carries several advantages over bare metal under specific circumstances. The main point would be known as <code>Hardware Abstraction</code> which means that you are leveraging emulated hardware as a way to abstract or mitigate issues your own physical hardware would face if it was running the guest OS natively. On Intel CPUs newer than 10th Generation, you would get native power management and CPU clocking from using Linux as a host. On AMD CPUs, you can spoof as an Intel CPU to mitigate all AMD CPU related issues such as patching applications, and not requiring AMD Vanilla Patches.</h5>
+<h5 align="center">For both AMD and Intel, if you have multiple NVMes or SSDs, along with other pieces of hardware which do not play nice natively such as a motherboard, you can simply not pass that hardware through and leave it for Linux. An example would be an unsupported NVMe drive that Kernel Panics and you cannot disable via SSDTs, but that you instead use to run Linux and host a virtual raw <code>.img</code> file for the virtual machine's paravirtualized VirtIO NVMe. At the end of the day, this project enables you to simply require a GPU that is known to be natively supported by the OS X / macOS guest so that you can move it over and enjoy graphics acceleration on any release, even if that release is not able to run on bare metal. (i.e Snow Leopard on AMD with ATI GPU)</h5>
+<br>
 
-<h5 align="center">QEMU is a Type 1 hypervisor program. What this means for programs that are Type 2, is that you lack a very crucial feature: PCI Object/Device Passthrough. When you're creating virtual machines, we want to keep in mind that they are full machines. They have their own motherboard, their own CPU, their own RAM, their own disk drives, their own ethernet controller, their own USB Controllers. When you start a Machine in a program like VirtualBox, you are given a Machine that has its set of hardware. The most notable here is the Virtual Display. This is what you're seeing in the Window. A fake emulated display/screen, is connected to an emulated graphics card or device.</h5>
-
-<h5 align="center">This is what is limiting everyone on Type 2. macOS, has never had kexts for your emulated graphics card. Programs like VMWare Workstation, have VMWare Tools that actually have drivers/kexts written by VMWare for OS X / macOS that adds support for their emulated graphics card, the "VMWare SVGA-II". This allows VMWare to provide what is called a "Basic Framebuffer". This is a step above No Acceleration. Unfortunately, that is as far as that can go, because you still lack Metal API support.</h5>
-
-<h5 align="center">So here's where Linux and QEMU step in. On Linux, every device you have can potentially be PCI/PCIe based. Which means it appears in your systems IOMMU table. Devices in this table, can be given to Virtual Machines! This is thanks to many Linux Kernel Modules such as VFIO. This opens the world for us to create some incredibly powerful virtual machines, by giving them physical hardware! We can now take an emulated Virtual Machine, accelerate it with KVM (Kernel-Based Virtual Machine) so that it becomes Virtualization, and then we give it real physical devices! The most obvious is a real AMD dGPU. This immediately gives your Virtual Machine real full acceleration, it's genuinely a speck of dust away from native. Other non typical devices you wouldn't expect are USB Controllers! Yes, QEMU and many other programs have emulated USB Controllers, but they are unfortunately not USB Compliant, and lack the ability to transfer complex data, such as that from the Lighting to USB-C/USB cable from an iPhone for syncing!</h5>
+<h2 align="center">What are the differences between this and similar projects?</h2>
+<h5 align="center">The major distinction is that this is not something you can use right away. You must read a fair amount first. Virt-Manager, QEMU, PCIe Object passthrough, OpenCore Bootloader, Kexts, config.plist, OVMF... these things already exist. They're all either software/files, guides, or concepts of Linux/OS X/macOS. We're putting all of these things together in these Docs to help you build your own machine from scratch with security and learning in mind. The goal is to walk through the entire process from fresh Linux install to fully complete Hypervisor.</h5>
 <br>
 
 <h2 align="center">Do I have to read everything then?</h2>
-<h5 align="center">The Docs are broken up into nice sections for easily going through the process. In the next page you'll learn more about how to use the information here! It is not possible to say that you'll need to read all of them, as it will heavily depend on your harware but for the most part, the standardization of DarwinKVM allows for minimal post-setup.</h5>
-<br>
-
-<h2 align="center">How does DarwinKVM work on the latest macOS?</h2>
-
-<h5 align="center"><b>In this repository you're provided with:</b></h5>
-
-1. [**DarwinKVM.xml**](https://github.com/royalgraphx/DarwinKVM/blob/main/DarwinKVM.xml), which is a prepared Virt-Manager importable XML.
-   - Uses latest Q35 Machine Type provided by QEMU.
-   - Uses Intel Cascade Lake CPU Vendor String.
-   - Added Apple SMC chip for DSMOS, with it's key.
-   - Stripped of redundant controllers and devices.
-   - Disabled ACPI PCI Hotplug with Bridge Support.
-   - Instructions for maximizing performance for your system.
-
-2. [**DarwinOCPkg**](https://github.com/royalgraphx/DarwinOCPkg), a fork of [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) for KVM's.
-   - ACPI Folder preconfigured with SSDT's for QEMU Q35 Virtual Machines.
-   - OpenHfs+ shipped by default, but can swap out to [Hfs+](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi)
-   - Config.plist contains patches for QEMU/KVM Q35 Virtual Machines.
-
-3. [**DiskProvision**](https://github.com/royalgraphx/DiskProvision/)
-   - Tool to create, delete, mount, and unmount FAT32 .img/qcow2 files.
-   - Supports Linux hosts, and macOS hosts for easy virtual disk management.
-
-4. [**DarwinFetch**](https://github.com/royalgraphx/DarwinFetch), an all-in-one Mac OS installer downloader and image builder.
-   - Has support for downloading recoveryOS and Offline Installation disks.
-   - Maintains a list of direct download links of Apple's CDN for OS X / macOS files.
-
-<h5 align="center">We are creating a Cascade Lake Virtual Machine, which will use an OpenCore EFI .img we create with DiskProvision, that will then allow us to boot our custom Virtual Machine configuration and install macOS. Even though we are all following the same general outline... difference in hardware will still exist. Different GPU's, Audio Controllers, Host OS, Displays, IOMMU Groups... various things can and will be different so we must go in and further refine our machine. If for whatever reason you find something is broken on your system, take the time and effort to read the write-ups to continue perfecting your Virtual Machine.</h5>
-<br>
-
-<h2 align="center">How does DarwinKVM work on legacy Mac OS X?</h2>
-
-<h5 align="center">In this repository depending on the architecture...</h5>
-<br>
-
-<h3 align="center"><b>For x86_64</b></h3>
-
-1. [**DarwinLegacyKVM.xml**](https://github.com/royalgraphx/DarwinKVM/blob/main/DarwinLegacyKVM.xml), which is a prepared Virt-Manager importable XML.
-   - Uses latest Q35 Machine Type provided by QEMU.
-   - Uses Intel Westmere E56XX CPU Vendor String.
-   - Can swap for Intel Celeron (Conroe/Merom) CPU Vendor String.
-   - Added Apple SMC chip for DSMOS, with it's key.
-   - Stripped of redundant controllers and devices.
-   - Disabled ACPI PCI Hotplug with Bridge Support.
-   - Requires the use of custom OvmfPkg for Legacy Darwin targets.
-
-2. [**DarwinOCPkg**](https://github.com/royalgraphx/DarwinOCPkg), a fork of [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg) for KVM's.
-   - ACPI Folder preconfigured with SSDT's for QEMU Q35 Virtual Machines.
-
-3. [**DarwinUDK**](https://github.com/royalgraphx/DarwinUDK), a fork of [AUDK](https://github.com/acidanthera/audk) for KVM's.
-   - Relaxed security settings which allow for loading of older OS X boot.efi's which are seen as unsafe to boot. This can be built without modification by DarwinKVM contributors.
-   - Custom Boot Splash Icon for DarwinKVM representation.
-   - Supports both Arch and Debian based distributions, comes with both Pacman and APT packages!
-
-4. [**DarwinFetch**](https://github.com/royalgraphx/DarwinFetch), an all-in-one Mac OS installer downloader and image builder.
-   - Has support for downloading older Legacy Offline Installation disks.
-   - Maintains a list of direct download links of Apple's CDN for OS X / macOS files.
-
-<h5 align="center">We are creating a Westmere E56XX (or Celeron Conroe/Merom) based Virtual Machine, which will use an OpenCore EFI .img we create with DiskProvision, that will then allow us to boot our custom Virtual Machine configuration and install legacy Mac OS X releases. Even though we are all following the same general outline... difference in hardware will still exist. Different GPU's, Audio Controllers, Host OS, Displays, IOMMU Groups... various things can and will be different so we must go in and further refine our machine. If for whatever reason you find something is broken on your system, take the time and effort to read the write-ups to continue perfecting your Virtual Machine.</h5>
-
-<br>
-<h3 align="center"><b>For PowerPC</b></h3>
-
-1. [**DarwinPPC.xml**](https://github.com/royalgraphx/DarwinKVM/blob/main/DarwinPPC.xml), which is a prepared Virt-Manager importable XML.
-   - Due to libvirtd's XML validation, lots of configuration has been moved to qemu:args.
-   - Machine type set to mac99 for PowerMac3,1 SMBIOS information.
-   - Stripped of redundant controllers and devices.
-   - Instructions for defining disk images and variables.
-
-2. [**DarwinFetch**](https://github.com/royalgraphx/DarwinFetch), an all-in-one Mac OS installer downloader and image builder.
-   - Has support for downloading Mac OS X PowerPC Installation disks.
-   - Maintains a list of known good bootable PowerPC disk images.
-
-3. [**DiskProvision**](https://github.com/royalgraphx/DiskProvision/)
-   - Tool to create, delete, mount, and unmount FAT32 .img/qcow2 files.
-   - Supports Linux hosts, and macOS hosts for easy virtual disk management.
-
-4. **DarwinPPC CLI Templates**
-   - Folder containing templates for all PowerPC releases.
-   - Preconfigured to load Installation Media provided by DarwinFetch
-   - In-depth overview for user customizabilty
-
-<h5 align="center">Simply put, we can utilize Virt-Manager or CLI QEMU to organize multiple PowerPC versions, we utilize the mac99 machine type to boot various validated install images that boot properly. Includes information for manually running in CLI and customizing variables of the virtual machine in Virt-Manager.</h5>
+<h5 align="center">The Docs are broken up into nice sections for easily going through the process. In the next page you'll learn more about how to use the information here! It is not possible to say that you'll need to read all of them, as it will heavily depend on your harware but for the most part, the standardization of DarwinKVM allows for minimal post-setup. While the ordering being linear, helps keep you on track unless a skip is needed.</h5>
 
 <h2 align="center">
   <br>

@@ -1,16 +1,36 @@
 #!/bin/bash
 
 #
-# DarwinKVM project's Menu Script.
+# DarwinKVM project's Main Menu Script.
 #
 # Copyright (c) 2025 RoyalGraphX
 # Copyright (c) 2025 Carnations Botanica
 # BSD 3-Clause License, see LICENSE for more information.
 #
+# No, you cannot use my EFI or XML configurations in your prebuilts or repackage any of the content here.
+# All instances of related work, must point back to DarwinKVM if you use any information from here.
+# See LICENSE for more information. This is your only warning.
+#
 
 # Script Variables
-VERSION="0.0.1"
-isInternalUser=true
+VERSION="0.1.1"
+DEBUG=false
+isInternalUser=false
+
+l2c() {
+    local mode="$1"
+    shift
+    local message="$1"
+
+    case "$mode" in
+        INTRNL)
+            [[ "$isInternalUser" == true ]] && echo "[INTERNAL] $message"
+            ;;
+        DBG)
+            [[ "$DEBUG" == true ]] && echo "[DEBUG] $message"
+            ;;
+    esac
+}
 
 # Detect basic system details
 SHELL_NAME=$(basename "$SHELL") # Get shell name
@@ -42,9 +62,30 @@ done
 if [[ "$(uname)" == "Darwin" ]]; then
     OS_NAME="$(sw_vers -productName) $(sw_vers -productVersion)"
 elif [[ -f /etc/os-release ]]; then
-    OS_NAME=$(grep '^PRETTY_NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')
+    # Extract OS ID and PRETTY_NAME
+    OS_ID=$(grep '^ID=' /etc/os-release | cut -d= -f2 | tr -d '"')
+    OS_NAME_RAW=$(grep '^PRETTY_NAME=' /etc/os-release | cut -d= -f2 | tr -d '"')
+
+    # List of supported OSes
+    SUPPORTED_OSES=("arch" "fedora" "debian" "linuxmint" "ubuntu")
+
+    # Check if the detected OS is in the supported list
+    OS_SUPPORTED=false
+    for os in "${SUPPORTED_OSES[@]}"; do
+        if [[ "$OS_ID" == "$os" ]]; then
+            OS_SUPPORTED=true
+            break
+        fi
+    done
+
+    # Set OS_NAME accordingly
+    if [[ "$OS_SUPPORTED" == true ]]; then
+        OS_NAME="$OS_NAME_RAW"
+    else
+        OS_NAME="Unknown OS (Support cannot be expected!)"
+    fi
 else
-    OS_NAME="Unknown OS (Support is not expected!)"
+    OS_NAME="Unknown OS (Support cannot be expected!)"
 fi
 
 # Construct the main menu
@@ -54,6 +95,7 @@ MENU_OPTIONS=(
     "Download/Update Submodules"
     "System Report"
     "Dump IOMMU Table"
+    "Dynamic XML Configuration"
     "Import XML to Virt-Manager"
     "Launch DiskProvision"
     "Launch DarwinFetch"
@@ -82,9 +124,18 @@ MENU_OPTIONS+=(
 # Function to display the menu
 show_menu() {
     clear
-    echo "Welcome to DarwinKVM!"
+    if [[ "$isInternalUser" == true && "$DEBUG" == true ]]; then
+        echo "Welcome to DarwinKVM! [Internal User Options Enabled | Debug Mode Enabled]"
+    elif [[ "$isInternalUser" == true ]]; then
+        echo "Welcome to DarwinKVM! [Internal User Options Enabled]"
+    elif [[ "$DEBUG" == true ]]; then
+        echo "Welcome to DarwinKVM! [Debug Mode Enabled]"
+    else
+        echo "Welcome to DarwinKVM!"
+    fi
     echo "Quickly and interactively run various commands and scripts."
-    echo "Copyright (c) 2024 2025 RoyalGraphX, Carnations Botanica"
+    echo "Copyright (c) 2023 2024 2025 RoyalGraphX"
+    echo "Copyright (c) 2025 Carnations Botanica"
     echo "$SHELL_NAME $ARCH Pre-Release $VERSION for $OS_NAME"
     if [[ $SUBMODULES_VALID -eq 0 ]]; then
         echo "No valid submodules found! Please select option 1 before continuing."
@@ -94,7 +145,11 @@ show_menu() {
         echo "Valid submodules found: $SUBMODULES_VALID (Some features may not work correctly.)"
     fi
     echo ""
+    echo "WARNING: When it comes to automation, lots of options will use sudo!"
+    echo "If this is something you do not feel comfortable with, do it manually."
+    echo ""
     echo "Main Menu:"
+    echo ""
 
     # Loop through options dynamically, future proofing new options
     for i in "${!MENU_OPTIONS[@]}"; do
@@ -766,6 +821,569 @@ oc_cpu_cpupower() {
 
 }
 
+# The DarwinKVM Dynamic XML Configurator
+# Pulls host data to make unique XML like virt-man
+dynamic_xml() {
+    clear
+
+    # Ensure the OS is Linux
+    if [[ "$(uname)" != "Linux" ]]; then
+        echo "Dynamic XML is only supported on Linux hosts."
+        return 1
+    fi
+
+    # XML content collector
+    XML_CONTENT=""
+
+    # Create the comment header for the XML
+    create_header() {
+        XML_CONTENT+="<!--\n"
+        XML_CONTENT+="    This virtual machine definition was created dynamically by DarwinKVM\n"
+        XML_CONTENT+="    The model of this XML is set to: ${MODEL}\n"
+        XML_CONTENT+="-->\n\n"
+    }
+
+    create_domain_wrapper() {
+        XML_CONTENT+="<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>\n"
+    }
+
+    # Very simple branding, yknow.
+    create_domain_details() {
+        XML_CONTENT+="  <name>DarwinKVM-${MODEL_PRETTY}</name>\n"
+        XML_CONTENT+="  <description>This virtual machine is a DarwinKVM ${MODEL} using ${GUESTCPU}.</description>\n"
+        XML_CONTENT+="  <uuid>$(uuidgen)</uuid>\n"
+    }
+
+    # I need to actually test if memoryBacking will automatically place itself after import
+    create_memory() {
+        XML_CONTENT+="  <memory unit='KiB'>$RESERVED_MEMORY_KIB</memory>\n"
+        XML_CONTENT+="  <currentMemory unit='KiB'>$RESERVED_MEMORY_KIB</currentMemory>\n"
+        XML_CONTENT+="  <memoryBacking>\n"
+        XML_CONTENT+="    <nosharepages/>\n"
+        XML_CONTENT+="  </memoryBacking>\n"
+    }
+
+    create_vcpus() {
+        XML_CONTENT+="  <vcpu placement='static'>$VCPUS</vcpu>\n"
+    }
+
+    create_os() {
+        # Ensure MODEL_PRETTY is set based on MODEL
+        if [[ "$MODEL" == "MacPro7,1" ]]; then
+            MODEL_PRETTY="MP71"
+        elif [[ "$MODEL" == "MacPro5,1" ]]; then
+            MODEL_PRETTY="MP51"
+        elif [[ "$MODEL" == "MacPro4,1" ]]; then
+            MODEL_PRETTY="MP41"
+        elif [[ "$MODEL" == "MacPro3,1" ]]; then
+            MODEL_PRETTY="MP31"
+        elif [[ "$MODEL" == "MacPro2,1" ]]; then
+            MODEL_PRETTY="MP21"
+        else
+            MODEL_PRETTY="Unknown"
+        fi
+
+        # Check which OVMF files exist, prioritize .4m.fd over .fd
+        if [[ -n "$OVMF_CODE" && -n "$OVMF_VARS" ]]; then
+            # Determine which OVMF code and vars files to use based on what's found
+            if [[ -f "$OVMF_CODE" && "$OVMF_CODE" =~ \.4m\.fd$ ]]; then
+                CODE_FILE="$OVMF_CODE"
+                EXTENSION="4m.fd"
+            elif [[ -f "$OVMF_CODE" && "$OVMF_CODE" =~ \.fd$ ]]; then
+                CODE_FILE="$OVMF_CODE"
+                EXTENSION="fd"
+            else
+                l2c INTRNL "OVMF_CODE not found or not of correct format (.fd or .4m.fd)."
+                return
+            fi
+
+            if [[ -f "$OVMF_VARS" && "$OVMF_VARS" =~ \.4m\.fd$ ]]; then
+                VARS_FILE="$OVMF_VARS"
+            elif [[ -f "$OVMF_VARS" && "$OVMF_VARS" =~ \.fd$ ]]; then
+                VARS_FILE="$OVMF_VARS"
+            else
+                l2c INTRNL "OVMF_VARS not found or not of correct format (.fd or .4m.fd)."
+                return
+            fi
+
+            # Generate the dynamic nvram file name based on MODEL_PRETTY
+            NVRAM_FILE="/var/lib/libvirt/qemu/nvram/DarwinKVM_${MODEL_PRETTY}_VARS.${EXTENSION}"
+
+            # Now build the XML
+            XML_CONTENT+="  <os firmware='efi'>\n"
+            XML_CONTENT+="    <type arch='x86_64' machine='q35'>hvm</type>\n"
+            XML_CONTENT+="    <firmware>\n"
+            XML_CONTENT+="      <feature enabled='no' name='enrolled-keys'/>\n"
+            XML_CONTENT+="      <feature enabled='no' name='secure-boot'/>\n"
+            XML_CONTENT+="    </firmware>\n"
+            XML_CONTENT+="    <loader readonly='yes' type='pflash'>$CODE_FILE</loader>\n"
+            XML_CONTENT+="    <nvram template='$VARS_FILE'>$NVRAM_FILE</nvram>\n"
+            XML_CONTENT+="    <boot dev='hd'/>\n"
+            XML_CONTENT+="    <bootmenu enable='yes'/>\n"
+            XML_CONTENT+="  </os>\n"
+        else
+            l2c INTRNL "OVMF firmware files are missing, skipping the OS section. Check this out!!!"
+        fi
+    }
+
+    get_cpu_info() {
+        l2c INTRNL "Beginning CPU detection routine."
+
+        # Try using lscpu first
+        if command -v lscpu &> /dev/null; then
+            CPU_NAME=$(lscpu | grep "Model name" | sed 's/Model name: *//')
+            CPU_VENDOR=$(lscpu | grep "Vendor ID" | sed 's/Vendor ID: *//')
+            CPU_PHYSICAL_CORES=$(lscpu | grep "^Core(s) per socket" | awk '{print $4}')
+            CPU_THREADS_PER_CORE=$(lscpu | grep "Thread(s) per core" | awk '{print $4}')
+            CPU_LOGICAL_CORES=$(lscpu | grep "^CPU(s):" | awk '{print $2}')
+        else
+            # Fallback to /proc/cpuinfo
+            CPU_NAME=$(grep -m 1 "model name" /proc/cpuinfo | sed 's/model name *: *//')
+            CPU_VENDOR=$(grep -m 1 "vendor_id" /proc/cpuinfo | sed 's/vendor_id *: *//')
+            CPU_PHYSICAL_CORES=$(grep "cpu cores" /proc/cpuinfo | awk -F': ' '{print $2}' | head -n1)
+            CPU_THREADS_PER_CORE=$(( $(grep -c "^processor" /proc/cpuinfo) / CPU_PHYSICAL_CORES ))
+            CPU_LOGICAL_CORES=$(grep -c "^processor" /proc/cpuinfo)
+        fi
+
+        l2c INTRNL "CPU Name: $CPU_NAME"
+        l2c INTRNL "CPU Vendor: $CPU_VENDOR"
+        l2c INTRNL "Physical Cores: $CPU_PHYSICAL_CORES"
+        l2c INTRNL "Threads per Core: $CPU_THREADS_PER_CORE"
+        l2c INTRNL "Logical Cores: $CPU_LOGICAL_CORES"
+
+        # Determine reserved resources based on physical cores
+        # XNU-compatible core/thread topology enforcement
+        if [ "$CPU_PHYSICAL_CORES" -le 4 ]; then
+            RESERVED_PHYSICAL_CORES=2  # 4 vCPUs (2 cores, 2 threads)
+        elif [ "$CPU_PHYSICAL_CORES" -ge 8 ] && [ "$CPU_PHYSICAL_CORES" -lt 16 ]; then
+            RESERVED_PHYSICAL_CORES=4  # 8 vCPUs (4 cores, 2 threads)
+        elif [ "$CPU_PHYSICAL_CORES" -ge 16 ]; then
+            RESERVED_PHYSICAL_CORES=8  # 16 vCPUs (8 cores, 2 threads)
+        else
+            # For CPUs with 5-7 cores, fallback to 2 cores, 2 threads
+            RESERVED_PHYSICAL_CORES=2
+        fi
+
+        # Always reserve 2 threads
+        RESERVED_THREADS=2
+
+        # Calculate reserved logical cores (reserved physical cores * threads per core)
+        RESERVED_LOGICAL_CORES=$(( RESERVED_PHYSICAL_CORES * CPU_THREADS_PER_CORE ))
+
+        # Calculate vCPUs (reserved physical cores * reserved threads)
+        VCPUS=$(( RESERVED_PHYSICAL_CORES * RESERVED_THREADS ))
+
+        # Log the reserved resources
+        l2c INTRNL "Reserved Physical Cores: $RESERVED_PHYSICAL_CORES"
+        l2c INTRNL "Reserved Threads: $RESERVED_THREADS"
+        l2c INTRNL "Reserved Logical Cores: $RESERVED_LOGICAL_CORES"
+        l2c INTRNL "Reserved vCPUs: $VCPUS"
+
+    }
+
+    create_features() {
+        XML_CONTENT+="  <features>\n"
+        XML_CONTENT+="    <acpi/>\n"
+        XML_CONTENT+="    <apic/>\n"
+        XML_CONTENT+="  </features>\n"
+    }
+
+    create_cpu_features() {
+        XML_CONTENT+="  <cpu mode='host-passthrough' check='none' migratable='on'>\n"
+        XML_CONTENT+="    <topology sockets='1' dies='1' cores='$RESERVED_PHYSICAL_CORES' threads='$RESERVED_THREADS'/>\n"
+        XML_CONTENT+="    <cache mode='passthrough'/>\n"
+        
+        # If the vendor is AuthenticAMD, add the topoext feature
+        if [[ "$CPU_VENDOR" == "AuthenticAMD" ]]; then
+            XML_CONTENT+="    <feature policy='require' name='topoext'/>\n"
+        fi
+
+        XML_CONTENT+="  </cpu>\n"
+    }
+
+    create_clock_info() {
+        XML_CONTENT+="  <clock offset='utc'>\n"
+        XML_CONTENT+="    <timer name='rtc' tickpolicy='catchup'/>\n"
+        XML_CONTENT+="    <timer name='pit' tickpolicy='delay'/>\n"
+        XML_CONTENT+="    <timer name='hpet' present='yes'/>\n"
+        XML_CONTENT+="    <timer name='tsc' present='yes' mode='native'/>\n"
+        XML_CONTENT+="  </clock>\n"
+    }
+
+    create_on_states() {
+        XML_CONTENT+="  <on_poweroff>destroy</on_poweroff>\n"
+        XML_CONTENT+="  <on_reboot>restart</on_reboot>\n"
+        XML_CONTENT+="  <on_crash>restart</on_crash>\n"
+    }
+
+    create_devices() {
+        XML_CONTENT+="  <devices>\n"
+        XML_CONTENT+="    <emulator>/usr/bin/qemu-system-x86_64</emulator>\n"
+        XML_CONTENT+="    <watchdog model='itco' action='none'/>\n"
+        XML_CONTENT+="    <memballoon model='none'/>\n"
+        XML_CONTENT+="  </devices>\n"
+    }
+
+    create_qemu_args() {
+        XML_CONTENT+="  <qemu:commandline>\n"
+        XML_CONTENT+="    <qemu:arg value='-global'/>\n"
+        XML_CONTENT+="    <qemu:arg value='ICH9-LPC.acpi-pci-hotplug-with-bridge-support=off'/>\n"
+        XML_CONTENT+="    <qemu:arg value='-device'/>\n"
+        XML_CONTENT+="    <qemu:arg value='isa-applesmc,osk=ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc'/>\n"
+        XML_CONTENT+="    <qemu:arg value='-usb'/>\n"
+        XML_CONTENT+="    <qemu:arg value='-device'/>\n"
+        XML_CONTENT+="    <qemu:arg value='usb-tablet'/>\n"
+        XML_CONTENT+="    <qemu:arg value='-device'/>\n"
+        XML_CONTENT+="    <qemu:arg value='usb-kbd'/>\n"
+        XML_CONTENT+="    <qemu:arg value='-cpu'/>\n"
+        XML_CONTENT+="    <qemu:arg value='${GUESTCPU},vendor=GenuineIntel'/>\n"
+        XML_CONTENT+="  </qemu:commandline>\n"
+    }
+
+    ovmf_where() {
+        l2c INTRNL "Beginning EDK2 UEFI detection routine."
+
+        # Common locations for OVMF files
+        OVMF_PATHS=(
+            "/usr/share/OVMF"
+            "/usr/share/edk2/x64"
+            "/usr/share/qemu"
+            "/var/lib/libvirt/qemu"
+        )
+
+        OVMF_CODE=""
+        OVMF_VARS=""
+
+        for path in "${OVMF_PATHS[@]}"; do
+            # Prioritize 4m versions first
+            if [[ -f "$path/OVMF_CODE.4m.fd" ]]; then
+                OVMF_CODE="$path/OVMF_CODE.4m.fd"
+                l2c INTRNL "Found OVMF_CODE.4m.fd at: $OVMF_CODE"
+            elif [[ -f "$path/OVMF_CODE.fd" && -z "$OVMF_CODE" ]]; then
+                OVMF_CODE="$path/OVMF_CODE.fd"
+                l2c INTRNL "Found OVMF_CODE.fd at: $OVMF_CODE"
+            fi
+
+            if [[ -f "$path/OVMF_VARS.4m.fd" ]]; then
+                OVMF_VARS="$path/OVMF_VARS.4m.fd"
+                l2c INTRNL "Found OVMF_VARS.4m.fd at: $OVMF_VARS"
+            elif [[ -f "$path/OVMF_VARS.fd" && -z "$OVMF_VARS" ]]; then
+                OVMF_VARS="$path/OVMF_VARS.fd"
+                l2c INTRNL "Found OVMF_VARS.fd at: $OVMF_VARS"
+            fi
+        done
+
+        # If not found, log a message
+        if [[ -z "$OVMF_CODE" ]]; then
+            l2c INTRNL "OVMF_CODE not found in common locations."
+        fi
+        if [[ -z "$OVMF_VARS" ]]; then
+            l2c INTRNL "OVMF_VARS not found in common locations."
+        fi
+
+    }
+
+    get_memory_info() {
+        l2c INTRNL "Beginning memory detection routine."
+
+        # Get total memory in KiB
+        TOTAL_MEMORY_KIB=$(grep '^MemTotal' /proc/meminfo | awk '{print $2}')
+        
+        # Convert KiB to MB and GB using integer division
+        TOTAL_MEMORY_MB=$((TOTAL_MEMORY_KIB / 1024))
+        TOTAL_MEMORY_GB=$((TOTAL_MEMORY_MB / 1024))
+
+        # Calculate 1/4th of total memory
+        RESERVED_MEMORY_KIB=$((TOTAL_MEMORY_KIB / 4))
+        RESERVED_MEMORY_MB=$((TOTAL_MEMORY_MB / 4))
+        RESERVED_MEMORY_GB=$((TOTAL_MEMORY_GB / 4))
+
+        l2c INTRNL "Total Memory (in KiB): $TOTAL_MEMORY_KIB KiB"
+        l2c INTRNL "Total Memory (in MB): $TOTAL_MEMORY_MB MB"
+        l2c INTRNL "Total Memory (in GB): $TOTAL_MEMORY_GB GB"
+        
+        # Reserved memory output
+        l2c INTRNL "Reserved Memory (in KiB): $RESERVED_MEMORY_KIB KiB"
+        l2c INTRNL "Reserved Memory (in MB): $RESERVED_MEMORY_MB MB"
+        l2c INTRNL "Reserved Memory (in GB): $RESERVED_MEMORY_GB GB"
+
+    }
+
+    # Prompt user to select a Mac Pro model
+    select_mac_pro_model() {
+        echo "Select a Mac Pro model:"
+        echo ""
+        echo "1) MacPro7,1 (Catalina 10.15+)"
+        echo "2) MacPro5,1 (Mojave 10.14-)"
+        echo "3) MacPro4,1 (El Capitan 10.11-)"
+        echo "4) MacPro3,1 (El Capitan 10.11-)"
+        echo "5) MacPro2,1 (Mojave 10.7-)"
+        echo ""
+        echo "c) Cancel"
+        echo ""
+
+        read -p "Enter choice [1-5 or c]: " choice
+
+        case $choice in
+            1)
+                l2c INTRNL "MacPro7,1 selected."
+                mp71
+                ;;
+            2)
+                l2c INTRNL "MacPro5,1 selected."
+                mp51
+                ;;
+            3)
+                l2c INTRNL "MacPro4,1 selected."
+                mp41
+                ;;
+            4)
+                l2c INTRNL "MacPro3,1 selected."
+                mp31
+                ;;
+            5)
+                l2c INTRNL "MacPro2,1 selected."
+                mp21
+                ;;
+            c|C)
+                l2c INTRNL "Mac Pro model selection cancelled."
+                CANCEL=TRUE
+                return
+                ;;
+            *)
+                echo "Invalid choice. Please select 1 or 2."
+                select_mac_pro_model
+                ;;
+        esac
+    }
+
+    # Prompt and save XML to a file
+    save_xml() {
+        l2c INTRNL "XML Output is set to $XML_FILE_PATH"
+
+        if [[ -f "$XML_FILE_PATH" ]]; then
+            read -rp "XML file already exists at $XML_FILE_PATH. Overwrite? [y/N]: " CONFIRM
+            [[ "$CONFIRM" != "y" && "$CONFIRM" != "Y" ]] && {
+                l2c INTRNL "User aborted saving XML."
+                return 1
+            }
+        fi
+
+        echo -e "$XML_CONTENT" > "$XML_FILE_PATH"
+        l2c INTRNL "XML configuration saved to $XML_FILE_PATH"
+    }
+
+    # Placeholder split functions for each Mac Pro model
+    # You're probably wondering, why are they all split but doing the same thing?
+    # Because Bash lets you set variables. So, if a Mac Pro model requires something in
+    # any specific section such as the OS or CPU Features, I can define them within each
+    # function itself as its variables. This will be taken into account in each func
+    mp71() {
+        l2c INTRNL "Running MacPro7,1 configuration routine."
+        MODEL="MacPro7,1"
+        MODEL_PRETTY="MP71"
+        GUESTCPU="Cascadelake-Server" # Based on MacPro7,1 CPU (Xeon Server architecture)
+
+        # Generate XML components
+        create_header
+        create_domain_wrapper
+        create_domain_details
+        # Add memory section
+        create_memory
+        # Add vCPU section
+        create_vcpus
+        # Add OS section
+        create_os
+        # Add Features
+        create_features
+        # Add CPU Features
+        create_cpu_features
+        # Add Clock Timer settings
+        create_clock_info
+        # Add On States
+        create_on_states
+        # Add Devices block
+        create_devices
+        # Add QEMU custom args to set CPU and OSK
+        create_qemu_args
+
+        # Close domain wrapper
+        XML_CONTENT+="</domain>\n"
+
+         # Define the XML file path
+        XML_FILE_PATH="$ROOT/xmls/DarwinKVM-$MODEL_PRETTY.xml"
+    }
+
+    mp51() {
+        l2c INTRNL "Running MacPro5,1 configuration routine."
+        MODEL="MacPro5,1"
+        MODEL_PRETTY="MP51"
+        GUESTCPU="Westmere-v2"  # Based on MacPro5,1 CPU (Westmere architecture)
+
+        # Generate XML components
+        create_header
+        create_domain_wrapper
+        create_domain_details
+        # Add memory section
+        create_memory
+        # Add vCPU section
+        create_vcpus
+        # Add OS section
+        create_os
+        # Add Features
+        create_features
+        # Add CPU Features
+        create_cpu_features
+        # Add Clock Timer settings
+        create_clock_info
+        # Add On States
+        create_on_states
+        # Add Devices block
+        create_devices
+        # Add QEMU custom args to set CPU and OSK
+        create_qemu_args
+
+        # Close domain wrapper
+        XML_CONTENT+="</domain>\n"
+
+        # Define the XML file path
+        XML_FILE_PATH="$ROOT/xmls/DarwinKVM-$MODEL_PRETTY.xml"
+    }
+
+    mp41() {
+        l2c INTRNL "Running MacPro4,1 configuration routine."
+        MODEL="MacPro4,1"
+        MODEL_PRETTY="MP41"
+        GUESTCPU="Conroe-v1"  # Based on MacPro2,1 ; 3,1 ; 4,1 CPU (Conroe architecture)
+
+        # Generate XML components
+        create_header
+        create_domain_wrapper
+        create_domain_details
+        # Add memory section
+        create_memory
+        # Add vCPU section
+        create_vcpus
+        # Add OS section
+        create_os
+        # Add Features
+        create_features
+        # Add CPU Features
+        create_cpu_features
+        # Add Clock Timer settings
+        create_clock_info
+        # Add On States
+        create_on_states
+        # Add Devices block
+        create_devices
+        # Add QEMU custom args to set CPU and OSK
+        create_qemu_args
+
+        # Close domain wrapper
+        XML_CONTENT+="</domain>\n"
+
+        # Define the XML file path
+        XML_FILE_PATH="$ROOT/xmls/DarwinKVM-$MODEL_PRETTY.xml"
+    }
+
+    mp31() {
+        l2c INTRNL "Running MacPro3,1 configuration routine."
+        MODEL="MacPro3,1"
+        MODEL_PRETTY="MP31"
+        GUESTCPU="Conroe-v1"  # Based on MacPro2,1 ; 3,1 ; 4,1 CPU (Conroe architecture)
+
+        # Generate XML components
+        create_header
+        create_domain_wrapper
+        create_domain_details
+        # Add memory section
+        create_memory
+        # Add vCPU section
+        create_vcpus
+        # Add OS section
+        create_os
+        # Add Features
+        create_features
+        # Add CPU Features
+        create_cpu_features
+        # Add Clock Timer settings
+        create_clock_info
+        # Add On States
+        create_on_states
+        # Add Devices block
+        create_devices
+        # Add QEMU custom args to set CPU and OSK
+        create_qemu_args
+
+        # Close domain wrapper
+        XML_CONTENT+="</domain>\n"
+
+        # Define the XML file path
+        XML_FILE_PATH="$ROOT/xmls/DarwinKVM-$MODEL_PRETTY.xml"
+    }
+
+    mp21() {
+        l2c INTRNL "Running MacPro2,1 configuration routine."
+        MODEL="MacPro2,1"
+        MODEL_PRETTY="MP21"
+        GUESTCPU="Conroe-v1"  # Based on MacPro2,1 ; 3,1 ; 4,1 CPU (Conroe architecture)
+
+        # Generate XML components
+        create_header
+        create_domain_wrapper
+        create_domain_details
+        # Add memory section
+        create_memory
+        # Add vCPU section
+        create_vcpus
+        # Add OS section
+        create_os
+        # Add Features
+        create_features
+        # Add CPU Features
+        create_cpu_features
+        # Add Clock Timer settings
+        create_clock_info
+        # Add On States
+        create_on_states
+        # Add Devices block
+        create_devices
+        # Add QEMU custom args to set CPU and OSK
+        create_qemu_args
+
+        # Close domain wrapper
+        XML_CONTENT+="</domain>\n"
+
+        # Define the XML file path
+        XML_FILE_PATH="$ROOT/xmls/DarwinKVM-$MODEL_PRETTY.xml"
+    }
+
+    # Start system details detection routines
+    get_cpu_info
+    ovmf_where
+    get_memory_info
+
+    # Lets start building the XML
+    # Call the selection function
+    select_mac_pro_model
+
+    # Check if CANCEL is TRUE before proceeding
+    if [ "$CANCEL" = TRUE ]; then
+        echo "Process cancelled. No XML was created nor will be saved."
+        return  # Exit to prevent XML save
+    fi
+
+    # attempt to save the XML data to the file path
+    save_xml
+
+    # Prompt the user with the XML Importer UI
+    read -rp "Would you like to open the XML Importer UI? [y/N]: " LAUNCH_XML_UI
+    if [[ "$LAUNCH_XML_UI" == "y" || "$LAUNCH_XML_UI" == "Y" ]]; then
+        xmlimporter
+    fi
+
+}
+
 # Function to call commit.sh from scripts
 commit_changes() {
     clear
@@ -842,6 +1460,9 @@ while true; do
                 ;;
             "Dump IOMMU Table")
                 iommu
+                ;;
+            "Dynamic XML Configuration")
+                dynamic_xml
                 ;;
             "Import XML to Virt-Manager")
                 xmlimporter

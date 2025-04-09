@@ -1,5 +1,7 @@
 <!--
-      Copyright (c) 2024 RoyalGraphX, BSD 3-Clause License
+
+      Copyright (c) 2024, 2025 RoyalGraphX, BSD 3-Clause License
+      Copyright (c) 2025 Carnations Botanica, BSD 3-Clause License
 
       Theoretically, on a PowerPC architecture CPU, you can run this via KVM.
       Now, who has a G6 laying around? or a Wii, Wii U? Maybe an Xbox 360 running modern Linux... 

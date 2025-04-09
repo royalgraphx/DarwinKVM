@@ -9,12 +9,30 @@
             width: 100%;
         }
         .container img {
-            max-width: 150px; /* Adjust size as needed */
+            max-width: 150px; /* Desktop size */
         }
         .text {
             font-family: Arial, sans-serif;
             text-align: center;
             flex-grow: 1; /* Allows text to take the center space */
+        }
+
+        /* Mobile adjustments */
+        @media screen and (max-width: 969px) {
+            .container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .container img {
+                flex: 1 1 50%;
+                max-width: 100px; /* Adjust size for mobile */
+                order: 1; /* Ensure images appear first */
+            }
+            .text {
+                flex: 1 1 100%;
+                order: 2;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -22,7 +40,8 @@
 
 <div class="container">
     <!-- Left Image -->
-    <img src="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/refs/heads/main/docs/assets/royalgraphx/DarwinKVMLogo.png" alt="DarwinKVM Logo">
+    <img src="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/refs/heads/royalStaging/docs/assets/royalgraphx/DarwinKVMLogo.png" 
+         alt="DarwinKVM Logo">
 
     <!-- Centered Text -->
     <div class="text">
@@ -30,11 +49,12 @@
         Copyright &copy; 2023, 2024, 2025 RoyalGraphX</br>
         Copyright &copy; 2025 Carnations Botanica</br>
         Distributed by a <a href="https://github.com/royalgraphx/DarwinKVM/blob/main/LICENSE">BSD 3-Clause License</a></br>
-        Last Modified: Thu, 20 Feb 2025 3:56:18 CDT
+        Last Modified: Thu, 9 Apr 2025 15:45:02 CDT
     </div>
 
     <!-- Right Image -->
-    <img src="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/refs/heads/main/docs/assets/Carnations/Carnations_logo_1000px.png" alt="Carnations Logo">
+    <img src="https://raw.githubusercontent.com/royalgraphx/DarwinKVM/refs/heads/royalStaging/docs/assets/Carnations/Carnations_logo_1000px.png" 
+         alt="Carnations Logo">
 </div>
 
 </body>

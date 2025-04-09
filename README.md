@@ -6,8 +6,8 @@
   <img width="80%" height="80%" src="./docs/assets/DarwinKVM/HeaderTextOnly.png">
 </p>
 
-<h3 align="center">An Advanced Guide for running macOS within QEMU</h3>
-<h5 align="center">Host Requirements, Host Configuration, Setting Expectations, GRUB and systemd-boot Support, Package Configuration, Bridged Networking using systemd, IOMMU Viability, x86_64 and PowerPC Support, OpenCore for Q35 as Mac Pro models, Hardware Compatibility Charts, DarwinFetch + DiskProvision, Virt-Manager XMLs, Single and Dual GPU Setup passthrough, QEMU and macOS Debugging, Fake Core Count for incompatible CPU Topologies, CPU Thread Pinning, VirtIO Thread for disk images, Motherboard Audio passthrough, Bridged Networking on Ethernet, KB/M Sharing via Evdev, Custom Memory Mapping, USB Controller Mapping, Display Overrides, sPPT / Zero-RPM Disable, Legacy NVIDIA Patching, VMHide Kernel Extension for macOS Sequoia. Welcome to DarwinKVM!</h5>
+<h3 align="center">The Advanced Guide for running macOS within QEMU</h3>
+<h5 align="center">Host Requirements, Host Configuration, Setting Expectations, GRUB and systemd-boot Support, Package Configuration, Bridged Networking using systemd, IOMMU Viability, x86_64 and PowerPC Support, OpenCore for Q35 as Mac Pro models, Hardware Compatibility Charts, DarwinFetch + DiskProvision, Virt-Manager XMLs, Single and Dual GPU Setup passthrough, QEMU and macOS Debugging, Fake Core Count for incompatible CPU Topologies, CPU Thread Pinning, VirtIO Thread for disk images, Motherboard Audio passthrough, Bridged Networking on Ethernet, KB/M Sharing via Evdev, Custom Memory Mapping, USB Controller Mapping, Display Overrides, sPPT / Zero-RPM Disable, Legacy NVIDIA Patching, Home of the VMHide Kernel Extension for macOS Sequoia. Welcome to DarwinKVM!</h5>
 
 </br>
 <hr>
@@ -20,235 +20,375 @@
 <p align="center">
   <img width="650" height="200" src="./docs/assets/Headers/HeaderGallery.png">
 </p>
+<h2 align="center"><b>macOS Sequoia</b></h2>
+<h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
+<div>
+  <h3 align="center">
+    15.1.1 - WX 9100 16GB - x86_64 - Credits: @athleticat
+  </h3>
+  <a href=""><img src="./docs/gallery/Sequoia/athleticatMacPro71Seq1511.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    15.1 - RX 6650 XT 8GB - x86_64 - Credits: @f0xb4t
+  </h3>
+  <a href=""><img src="./docs/gallery/Sequoia/f0xb4tMacPro71Seq151.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    15.0 Beta 1 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Sequoia/HacProKVM15BetaAlt.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sequoia 15.1.1 (Credits: @athleticat)</h3>
-<p align="center">
-  <img src="./docs/gallery/athleticatMacPro71Seq1511.png">
-</p>
+<hr>
+<h2 align="center"><b>macOS Sonoma</b></h2>
+<h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
+<div>
+  <h3 align="center">
+    14.7 - RX 5700 XT 8GB - x86_64 - Credits: 
+    <a href="https://github.com/Naymmmm">@Naymmmm</a>
+  </h3>
+  <a href=""><img src="./docs/gallery/Sonoma/naymmmiscoolMacPro71Sonoma147.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    14.5 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Sonoma/HacProKVM145.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    14.4 Beta - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Sonoma/HacProKVM144Beta.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    14.3 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Sonoma/HacProKVM143.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    14.2.1 - RX 6750 XT 12GB - x86_64 - Credits: 
+    <a href="https://github.com/heliokroger">@heliokroger</a>
+  </h3>
+  <a href=""><img src="./docs/gallery/Sonoma/Helio1421.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    14.1 - RX 6800 XT 16GB - x86_64 - Credits: 
+    <a href="https://github.com/haxi0">@haxi0</a>
+  </h3>
+  <a href=""><img src="./docs/gallery/Sonoma/haxi0DKVM141.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    14.0 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Sonoma/HacProKVM140.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sequoia 15.1 (Credits: @f0xb4t)</h3>
-<p align="center">
-  <img src="./docs/gallery/f0xb4tMacPro71Seq151.png">
-</p>
+<hr>
+<h2 align="center"><b>macOS Ventura</b></h2>
+<h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
+<div>
+  <h3 align="center">
+    13.5.1 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Ventura/HacProKVM1351.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    13.5 - GTX 1050 Ti 4GB - x86_64 - Credits: 
+    <a href="https://github.com/Zormeister">@Zormeister</a>
+  </h3>
+  <a href=""><img src="./docs/gallery/Ventura/ZormDKVMnvidia.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    13.5 - RX 5600 XT 6GB - x86_64 - Credits: 
+    <a href="https://github.com/rolowilde">@rolowilde</a>
+  </h3>
+  <a href=""><img src="./docs/gallery/Ventura/kaggsterDKVM135.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    13.4 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Ventura/HacProKVM134.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sequoia 15.0 Beta 1</h3>
-<p align="center">
-  <img src="./docs/gallery/HacProKVM15Beta.png">
-  <img src="./docs/gallery/HacProKVM15BetaAlt.png">
-</p>
+<hr>
+<h2 align="center"><b>macOS Monterey</b></h2>
+<h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
+<div>
+  <h3 align="center">
+    12.7.5 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Monterey/ProMacMonterey.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sonoma 14.7 (Credits: @naymmmiscool)</h3>
-<p align="center">
-  <img src="./docs/gallery/naymmmiscoolMacPro71Sonoma147.png">
-</p>
+<hr>
+<h2 align="center"><b>macOS Big Sur</b></h2>
+<h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
+<div>
+  <h3 align="center">
+    11.7.10 - VESA / VGA Graphics - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/BigSur/ProMacBigSur.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    11.0.0 - Developer Preview 1 (20A4299v) - VESA / VGA Graphics - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/BigSur/110BigSurDP1MacPro71.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sonoma 14.5</h3>
-<p align="center">
-  <img src="./docs/gallery/HacProKVM145.png">
-</p>
+<hr>
+<h2 align="center"><b>macOS 10.16</b></h2>
+<h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
+<div>
+  <h3 align="center">
+    AppleInternal GoldenGateSpike (20A2314a) - VESA / VGA Graphics - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/1016/1016CataSurMacPro71.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sonoma 14.4 Beta</h3>
-<p align="center">
-  <img src="./docs/gallery/HacProKVM144Beta.png">
-</p>
+<hr>
+<h2 align="center"><b>macOS Catalina</b></h2>
+<h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
+<div>
+  <h3 align="center">
+    10.15.7 - VESA / VGA Graphics - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Catalina/ProMacCatalina.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sonoma 14.3</h3>
-<p align="center">
-  <img src="./docs/gallery/HacProKVM143.png">
-</p>
+<hr>
+<h2 align="center"><b>macOS Mojave</b></h2>
+<h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<div>
+  <h3 align="center">
+    10.14.4 - VESA / VGA Graphics - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Mojave/ProMacMojave.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sonoma 14.2.1 (Credits: @heliokroger)</h3>
-<p align="center">
-  <img src="./docs/gallery/Helio1421.png">
-</p>
+<hr>
+<h2 align="center"><b>macOS High Sierra</b></h2>
+<h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<div>
+  <h3 align="center">
+    10.13.6 - GTX 470 1280MB
+  </h3>
+  <a href=""><img src="./docs/gallery/HighSierra/HacProKVM10136.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sonoma 14.1</h3>
-<p align="center">
-  <img src="./docs/gallery/HacProKVM141.png">
-</p>
+<hr>
+<h2 align="center"><b>macOS Sierra</b></h2>
+<h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<div>
+  <h3 align="center">
+    10.12.5 - AppleInternal Phoenix (16F5049f) - GTX 470 1280MB
+  </h3>
+  <a href=""><img src="./docs/gallery/Sierra/ProMacSierraInternal.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.12 - VESA / VGA Graphics - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Sierra/ProMacSierra.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sonoma 14.1 (Credits: @Haxi0)</h3>
-<p align="center">
-  <img src="./docs/gallery/haxi0DKVM.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X El Capitan</b></h2>
+<h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<div>
+  <h3 align="center">
+    10.11.6 - VESA / VGA Graphics - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/ElCapitan/ProMacTheCaptain.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Sonoma 14.0</h3>
-<p align="center">
-  <img src="./docs/gallery/HacProKVM140.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Yosmite</b></h2>
+<h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<div>
+  <h3 align="center">
+    10.10 - VESA / VGA Graphics - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Yosemite/ProMacYosemite.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Ventura 13.5.1</h3>
-<p align="center">
-  <img src="./docs/gallery/HacProKVM1351.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Mavericks</b></h2>
+<h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<div>
+  <h3 align="center">
+    10.9.5 - VESA / VGA Graphics - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Mavericks/ProMacMavericks.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Ventura 13.5 + NVIDIA GPU (Credits: @Zormeister)</h3>
-<p align="center">
-  <img src="./docs/gallery/ZormDKVMnvidia.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Mountain Lion</b></h2>
+<h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<div>
+  <h3 align="center">
+    10.8.5 - VESA / VGA Graphics - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/MountainLion/ProMacMountainLion.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Ventura 13.5 (Credits: @Rowlul)</h3>
-<p align="center">
-  <img src="./docs/gallery/kaggsterDKVM135.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Lion</b></h2>
+<h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<div>
+  <h3 align="center">
+    10.7.5 - GTX 470 1280MB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Lion/ProMacLion.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Ventura 13.4</h3>
-<p align="center">
-  <img src="./docs/gallery/HacProKVM134.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Snow Leopard</b></h2>
+<h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<h5 align="center"><i>Xserve Xeon (2009) - Xserve3,1</i></h5>
+<h5 align="center"><i>Mac mini (2009) - Macmini3,1</i></h5>
+<h5 align="center"><i>PowerMac G4 AGP (1999) - PowerMac3,1</i></h5>
+<div>
+  <h3 align="center">
+    10.6.8 - ATI Radeon HD 5450 2GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/SnowLeopard/ProMacSnowLeopardHD5450-2.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.6.8 Server - ATI Radeon HD 5450 2GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/SnowLeopard/ProMacSnowLeopardServerHD5450.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.6.2 - AppleInternal Factory (10C540) - ATI Radeon HD 5450 2GB - i386
+  </h3>
+  <a href=""><img src="./docs/gallery/SnowLeopard/MacMini31SnowLeopardFactory1062.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.6 - Developer Preview 1 (10A190) - PowerPC
+  </h3>
+  <a href=""><img src="./docs/gallery/SnowLeopard/PowerMacSnowLeopard.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Monterey 12.7.5</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacMonterey.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Leopard</b></h2>
+<h5 align="center"><i>Mac Pro (2009) - MacPro4,1</i></h5>
+<h5 align="center"><i>Mac Pro (2008) - MacPro3,1</i></h5>
+<h5 align="center"><i>PowerMac G4 AGP (1999) - PowerMac3,1</i></h5>
+<div>
+  <h3 align="center">
+    10.5.8 - VESA / VGA Graphics - i386
+  </h3>
+  <a href=""><img src="./docs/gallery/Leopard/MacPro41Leopard1058.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.5.4 - VESA / VGA Graphics - PowerPC
+  </h3>
+  <a href=""><img src="./docs/gallery/Leopard/PowerMacLeopard.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.5 Server - VESA / VGA Graphics - i386
+  </h3>
+  <a href=""><img src="./docs/gallery/Leopard/MacPro41LeopardServer105.png" alt=""></a>
+</div>
 
-<h3 align="center">macOS Big Sur 11.7.10</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacBigSur.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Tiger</b></h2>
+<h5 align="center"><i>Mac Pro (2007) - MacPro2,1</i></h5>
+<h5 align="center"><i>Mac Pro (2006) - MacPro1,1</i></h5>
+<h5 align="center"><i>Apple Developer Transition Kit (2005) - ADP2,1</i></h5>
+<h5 align="center"><i>PowerMac G4 AGP (1999) - PowerMac3,1</i></h5>
 
-<h3 align="center">macOS Big Sur 11.0.0 Developer Preview 1 (20A4299v)</h3>
-<p align="center">
-  <img src="./docs/gallery/110BigSurDP1MacPro71.png">
-</p>
+<div>
+  <h3 align="center">
+    10.4.11 - VESA / VGA Graphics - i386
+  </h3>
+  <a href=""><img src="./docs/gallery/Tiger/MacPro21Tiger10411.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.4.11 Server - VESA / VGA Graphics - i386
+  </h3>
+  <a href=""><img src="./docs/gallery/Tiger/MacPro11TigerServer10411.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.4.11 - VESA / VGA Graphics - PowerPC
+  </h3>
+  <a href=""><img src="./docs/gallery/Tiger/PowerMacTiger.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.4.7 - VESA / VGA Graphics - i386
+  </h3>
+  <a href=""><img src="./docs/gallery/Tiger/MacPro11Tiger1047.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.4.1 - Apple DTK Build 8B1025 - VESA / VGA Graphics - i386
+  </h3>
+  <a href=""><img src="./docs/gallery/Tiger/ADP21-1041.png" alt=""></a>
+</div>
 
-<h3 align="center">Mac OS X 10.16 (AppleInternal GoldenGateSpike 20A2314a)</h3>
-<p align="center">
-  <img src="./docs/gallery/1016CataSurMacPro71.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Panther</b></h2>
+<h5 align="center"><i>PowerMac G4 AGP (1999) - PowerMac3,1</i></h5>
+<div>
+  <h3 align="center">
+    10.3 - VESA / VGA Graphics - PowerPC
+  </h3>
+  <a href=""><img src="./docs/gallery/Panther/PowerMacPanther.png" alt=""></a>
+</div>
 
-<h3 align="center">Mac OS X Catalina 10.15.7</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacCatalina.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Jaguar</b></h2>
+<h5 align="center"><i>PowerMac G4 AGP (1999) - PowerMac3,1</i></h5>
+<div>
+  <h3 align="center">
+    10.2 - VESA / VGA Graphics - PowerPC
+  </h3>
+  <a href=""><img src="./docs/gallery/Jaguar/PowerMacJaguar.png" alt=""></a>
+</div>
 
-<h3 align="center">Mac OS X Mojave 10.14.4</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacMojave.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Puma</b></h2>
+<h5 align="center"><i>PowerMac G4 AGP (1999) - PowerMac3,1</i></h5>
+<div>
+  <h3 align="center">
+    10.1 - VESA / VGA Graphics - PowerPC
+  </h3>
+  <a href=""><img src="./docs/gallery/Puma/PowerMacPuma.png" alt=""></a>
+</div>
 
-<h3 align="center">Mac OS X High Sierra 10.13.6</h3>
-<p align="center">
-  <img src="./docs/gallery/HacProKVM10136.png">
-</p>
+<hr>
+<h2 align="center"><b>Mac OS X Cheetah</b></h2>
+<h5 align="center"><i>PowerMac G4 AGP (1999) - PowerMac3,1</i></h5>
+<div>
+  <h3 align="center">
+    10.0.3 - VESA / VGA Graphics - PowerPC
+  </h3>
+  <a href=""><img src="./docs/gallery/Cheetah/PowerMacCheetah.png" alt=""></a>
+</div>
 
-<h3 align="center">Mac OS X Sierra 10.12.5 (AppleInternal Phoenix 16F5049f)</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacSierraInternal.png">
-</p>
-
-<h3 align="center">Mac OS X Sierra 10.12</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacSierra.png">
-</p>
-
-<h3 align="center">Mac OS X El Capitan 10.11.6</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacTheCaptain.png">
-</p>
-
-<h3 align="center">Mac OS X Yosemite 10.10</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacYosemite.png">
-</p>
-
-<h3 align="center">Mac OS X Mavericks 10.9.5</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacMavericks.png">
-</p>
-
-<h3 align="center">Mac OS X Mountain Lion 10.8.5</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacMountainLion.png">
-</p>
-
-<h3 align="center">Mac OS X Lion 10.7.5</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacLion.png">
-</p>
-
-<h3 align="center">Mac OS X Snow Leopard 10.6.8 on x86_64</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacSnowLeopard.png">
-</p>
-
-<h3 align="center">Mac OS X Server Snow Leopard 10.6.8 on x86_64</h3>
-<p align="center">
-  <img src="./docs/gallery/ProMacSnowLeopardServer.png">
-</p>
-
-<h3 align="center">Mac OS X Snow Leopard 10.6.2 on i386 (AppleInternal Factory Mac Mini)</h3>
-<p align="center">
-  <img src="./docs/gallery/MacMini31SnowLeopardFactory1062.png">
-</p>
-
-<h3 align="center">Mac OS X Snow Leopard Developer Preview 10A190 (10.6) on PowerPC</h3>
-<p align="center">
-  <img src="./docs/gallery/PowerMacSnowLeopard.png">
-</p>
-
-<h3 align="center">Mac OS X Leopard 10.5.8 on x86_64</h3>
-<p align="center">
-  <img src="./docs/gallery/MacPro41Leopard1058.png">
-</p>
-
-<h3 align="center">Mac OS X Server Leopard 10.5 on x86_64</h3>
-<p align="center">
-  <img src="./docs/gallery/MacPro41LeopardServer105.png">
-</p>
-
-<h3 align="center">Mac OS X Leopard 10.5.4 on PowerPC</h3>
-<p align="center">
-  <img src="./docs/gallery/PowerMacLeopard.png">
-</p>
-
-<h3 align="center">Mac OS X Tiger 10.4.11 on x86_64</h3>
-<p align="center">
-  <img src="./docs/gallery/MacPro21Tiger10411.png">
-</p>
-
-<h3 align="center">Mac OS X Server Tiger 10.4.11 on x86_64</h3>
-<p align="center">
-  <img src="./docs/gallery/MacPro11TigerServer10411.png">
-</p>
-
-<h3 align="center">Mac OS X Tiger 10.4.7 on x86_64</h3>
-<p align="center">
-  <img src="./docs/gallery/MacPro11Tiger1047.png">
-</p>
-
-<h3 align="center">Mac OS X Tiger 10.4.1 (8B1025, ADP2,1) on x86_64</h3>
-<p align="center">
-  <img src="./docs/gallery/ADP21-1041.png">
-</p>
-
-<h3 align="center">Mac OS X Tiger 10.4.11 on PowerPC</h3>
-<p align="center">
-  <img src="./docs/gallery/PowerMacTiger.png">
-</p>
-
-<h3 align="center">Mac OS X Panther 10.3</h3>
-<p align="center">
-  <img src="./docs/gallery/PowerMacPanther.png">
-</p>
-
-<h3 align="center">Mac OS X Jaguar 10.2</h3>
-<p align="center">
-  <img src="./docs/gallery/PowerMacJaguar.png">
-</p>
-
-<h3 align="center">Mac OS X Puma 10.1</h3>
-<p align="center">
-  <img src="./docs/gallery/PowerMacPuma.png">
-</p>
-
-<h3 align="center">Mac OS X Cheetah 10.0.3</h3>
-<p align="center">
-  <img src="./docs/gallery/PowerMacCheetah.png">
-</p>
-
+<hr>
 </br>
-
+</br>
+</br>
 <h1 align="center">Need Help?</h1>
 </br>
 <p align="center">

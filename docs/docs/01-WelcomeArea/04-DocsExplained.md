@@ -1,87 +1,149 @@
 ---
 layout: default
 title: Docs Layout Overview
+description: "Follow along with the DarwinKVM structure to easily build a fresh Hypervisor with OS X / macOS guests."
 parent: Welcome
-nav_order: 5
+nav_order: 4
 ---
+
+<style>
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    margin: 10px;
+  }
+</style>
 
 <p align="center">
   <img width="650" height="200" src="../../assets/Headers/HeaderDocsLayout.png">
 </p>
 
-<h3 align="center">If you lose your spot, reference this typical workflow for latest macOS:</h3>
-
+<h3 align="center">Overview of the DarwinKVM process is as follows</h3>
 <br>
 
-**1. Welcome**
-   - Meet Requirements
-     - Check GPU Compatibility
-   - Learn about the Docs Structure <span style="color: #bfa6ff;"><-- You are here!</span>
+{: .note }
+This is the Table of Contents! You can scroll through to get an idea of every page in DarwinKVM.
 
-**2. [Host Preparations](../02-HostPreparations/index)**
-   - Check and Enable BIOS Settings
-   - Set Kernel Parameters according to your system
-   - Package Installation according to your system
-   - Virtual Machine Networking explained
-   - Libvirtd Configuration
-   - IOMMU Viability, <span style="color: #bfa6ff;">if you require ACS patches this would be the time to do so.</span>
+<h2><b>Welcome Area</b></h2>
+- [About This Project](01-About)
+- [Requirements](02-Requirements)
+- [Setting Expectations](03-SettingExpectations)
+- [Docs Layout Overview](04-DocsExplained) <- You are currently here!
 
-**3. [DiskProvision](../03-DiskProvision/index)**
-  - Introduction and Learning
-  - Create OpenCore Disk Image
+<h2><b>1. Host Hardware</b></h2>
+- [Hardware Limitations]()
+- [Know Your Hardware]()
+- [Compatibility Charts]()
+  - [CPU Support Check]()
+  - [GPU Support Check]()
+    - [AMD GPU Support Chart]()
+    - [NVIDIA GPU Support Chart]()
+- [Post-Check Recap]()
 
-**4. [Gathering Files for OpenCore](../../infocenter/01-FileOverview/index)**
-  - Read through what all of the directories do
-  - There is a section dedicated to determine needed kexts
+<h2><b>2. Hypervisor Configuration</b></h2>
+- [Understanding Tasks]()
+- [Cloning the Repo]()
+- [BIOS Configuration]()
+- [Kernel Parameters]()
+  - [GRUB Configuration]()
+  - [systemd-boot Configuration]()
+- [Package Installation]()
+  - [Arch Based]()
+  - [Debian Based]()
+  - [Fedora Based]()
+  - [Nobara Project]()
+- [Package Configuration]()
+- [Networking Configuration]()
+- [IOMMU Viability]()
+- [Guest Target Architecture]()
+  - [i386/x86_64]()
+  - [PowerPC]()
 
-**4. [Configure OpenCore for target macOS](../04-GuestSupport/index)**
-  - Simply choose an Install Guide from the left-hand side!
+<h2><b>3. OpenCore Configuration</b></h2>
+- [Understanding Tasks]()
+- [DiskProvision]()
+  - [Image Creation]()
+  - [<i>Extended Info</i>]()
+- [Using DarwinOCPkg]()
+- [EFI Layout Config]()
+  - [ACPI]()
+  - [Drivers]()
+  - [Kexts]()
+  - [Resources]()
+  - [Tools]()
+- [ProperTree Usage]()
+- [OpenCore Configurations]()
+  - [MacPro7,1]()
+  - [MacPro5,1 or Older]()
+- [Fetching Installer]()
+  - [recoveryOS]()
+  - [Full / Offline]()
+  - [PowerPC]()
 
-**5. [Fetching Installer](../../infocenter/06-FetchingInstaller/index)**
-  - You may either get a [Recovery](../../infocenter/06-FetchingInstaller/01-Recovery/index) or [Offline](../../infocenter/06-FetchingInstaller/02-Offline/index) based Installer.
+<h2><b>4. Virtual Machine Manager Configuration</b></h2>
+- [Understanding Tasks]()
+- [First VMM Launch]()
+- [XML Importer]()
+- [Initial Configuration]()
+  - [MacPro7,1]()
+    - [Configuring Display]()
+    - [Configuring Storage Drives]()
+    - [Configure NIC]()
+    - [Finished Overview]()
+  - [MacPro5,1 or Older]()
+    - [Configuring Display]()
+    - [Configuring Storage Drives]()
+    - [Configure NIC]()
+    - [Finished Overview]()
+- [GPU Passthrough]()
+  - [Single GPU Passthrough]()
+    - [Script Installation]()
+    - [Hook Modification]()
+    - [Configuring Virt-Manager]()
+    - [Complete!]()
+  - [Dual GPU Passthrough]()
+    - [Finding Device IDs]()
+    - [Setting Kernel Parameters]()
+      - [GRUB Configuration]()
+      - [systemd-boot Configuration]()
+    - [Configuring modprobe]()
+    - [Configuring Virt-Manager]()
+    - [Complete!]()
 
-**6. [Import XML and Configure Virtual Machine](../../infocenter/07-XML/index)**
-  - Adding base devices
-  - Installing Mac OS X / macOS
-  - Initial Setup until reaching the Desktop.
+<hr>
 
-**7. GPU Passthrough**
-  - <span style="color: #bfa6ff;">Depending on how many GPU's you have on your system, follow the appropriate guide.</span>
-  - [Single GPU Passthrough](../../infocenter/08-sGPUpt/index)
-  - [Dual GPU Passthrough](../../infocenter/09-dGPUpt/index)
+{: .note }
+This is the Post-Installation section of the Docs. This involves fixing up some slight cosmetic stuff, as well as optimizing the virtual machine further.
 
-**8. Further Optimizations (Completely Optional/Dependent on You)**
-  - [Fake Core Count](../../writeups/01-FakeCoreCount/index)
-  - [Thread Pinning](../../writeups/02-ThreadPinning/index)
-  - [VirtIO Thread for Virtio Disks](../../writeups/03-VirtIOThread/index)
-  - [Front/Rear Motherboard Audio](../../writeups/05-MotherboardAudio/index)
-  - [RestrictEvents Usage](../../writeups/08-RestrictEvents/index)
+<h2><b>Write-Ups</b></h2>
+- [Table of Contents]()
+- [Custom Memory Mapping]()
+- [Fake Core Count]()
+- [Thread Pinning]()
+- [VirtIO Threads]()
+- [Motherboard Audio]()
+- [KB/M Sharing with Evdev]()
+- [USB Mapping]()
+- [RestrictEvents Usage]()
+- [DeviceProperties]()
+- [sPPT / Zero-RPM Disable]()
+- [Display Overrides]()
+- [Bridged Networking]()
+- [Host Overclocking]()
+- [Legacy NVIDIA Patching]()
 
-<h5 align="center">If you are attempting to run the latest macOS, the above flow is what it would look like for you. If you are attempting to do legacy copies of Mac OS or Mac OS X your workflow may look a little different. I hope that giving a basic outline of the steps helps those understand where to go after creating and mounting their OpenCore disk image file. If you're ready to begin, go ahead!</h5>
+<h3 align="center">When you are ready to continue, you may.</h3>
 
-<br>
-<h3 align="center">Please, reference this workflow for PowerPC Virtual Machines:</h3>
-<br>
-
-**1. Welcome to DarwinKVM!**
-   - You could've used any other source
-   - Thanks for coming here!
-
-**2. [Host Preparations](../02-HostPreparations/index)**
-   - Check and Enable BIOS Settings
-   - Set Kernel Parameters according to your system (if on Linux)
-   - Package Installation according to your system (if on Linux)
-   - Virtual Machine Networking explained (if on Linux)
-   - Libvirtd Configuration (if on Linux)
-
-**2. View [Guest Support Table](../04-GuestSupport/index)**
-   - Choose your target supported version of OS X for PowerPC Architecture 
-
-**3. Follow instructions for your choice of method!**
-   - Create a disk image for OS X to install to
-   - May involve downloading more than one install disk image
-   - CLI is applicable for all host operating systems
-   - Make sure you are following PPC instructions for Universal installers
-
-<br>
-<h2 align="center">You can now proceed to the <a href="../02-HostPreparations/">Host Preparations</a> section!</h2>
+<h2 align="center">
+  <br>
+  <div class="navigation-container">
+    <a class="nav-button" href="03-SettingExpectations.html">&larr; Back</a>
+    <a class="nav-button" href="../../host/01-HardwareLimitations/">Next Page &rarr;</a>
+  </div>
+  <br>
+</h2>
