@@ -13,7 +13,7 @@
 #
 
 # Script Variables
-VERSION="0.1.1"
+VERSION="0.1.2"
 DEBUG=false
 isInternalUser=false
 
@@ -111,6 +111,7 @@ MENU_OPTIONS=(
 # Append carnationsinternal options if isInternalUser is true
 if [[ "$isInternalUser" == true ]]; then
     MENU_OPTIONS+=(
+        "Update Submodules for EUs (Rebase)"
         "Create New Local Commit"
         "Push Local Changes to Github"
     )
@@ -1210,6 +1211,9 @@ dynamic_xml() {
         # Close domain wrapper
         XML_CONTENT+="</domain>\n"
 
+        # Print the formatted XML content
+        echo -e "$XML_CONTENT"
+
          # Define the XML file path
         XML_FILE_PATH="$ROOT/xmls/DarwinKVM-$MODEL_PRETTY.xml"
     }
@@ -1245,6 +1249,9 @@ dynamic_xml() {
 
         # Close domain wrapper
         XML_CONTENT+="</domain>\n"
+
+        # Print the formatted XML content
+        echo -e "$XML_CONTENT"
 
         # Define the XML file path
         XML_FILE_PATH="$ROOT/xmls/DarwinKVM-$MODEL_PRETTY.xml"
@@ -1282,6 +1289,9 @@ dynamic_xml() {
         # Close domain wrapper
         XML_CONTENT+="</domain>\n"
 
+        # Print the formatted XML content
+        echo -e "$XML_CONTENT"
+
         # Define the XML file path
         XML_FILE_PATH="$ROOT/xmls/DarwinKVM-$MODEL_PRETTY.xml"
     }
@@ -1317,6 +1327,9 @@ dynamic_xml() {
 
         # Close domain wrapper
         XML_CONTENT+="</domain>\n"
+
+        # Print the formatted XML content
+        echo -e "$XML_CONTENT"
 
         # Define the XML file path
         XML_FILE_PATH="$ROOT/xmls/DarwinKVM-$MODEL_PRETTY.xml"
@@ -1354,6 +1367,9 @@ dynamic_xml() {
         # Close domain wrapper
         XML_CONTENT+="</domain>\n"
 
+        # Print the formatted XML content
+        echo -e "$XML_CONTENT"
+
         # Define the XML file path
         XML_FILE_PATH="$ROOT/xmls/DarwinKVM-$MODEL_PRETTY.xml"
     }
@@ -1381,6 +1397,16 @@ dynamic_xml() {
     if [[ "$LAUNCH_XML_UI" == "y" || "$LAUNCH_XML_UI" == "Y" ]]; then
         xmlimporter
     fi
+
+}
+
+# Internal Function to update submodules for everyone else
+submods_update_internal() {
+    clear
+
+    echo "Updating Git submodules..."
+    git submodule update --remote --rebase
+    echo "Submodules updated successfully."
 
 }
 
@@ -1493,6 +1519,9 @@ while true; do
                 ;;
             "Overclock via cpupower command")
                 oc_cpu_cpupower
+                ;;
+            "Update Submodules for EUs (Rebase)")
+                submods_update_internal
                 ;;
             "Create New Local Commit")
                 commit_changes
