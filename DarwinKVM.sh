@@ -13,7 +13,7 @@
 #
 
 # Script Variables
-VERSION="0.1.2"
+VERSION="0.1.4"
 DEBUG=false
 isInternalUser=false
 
@@ -114,6 +114,7 @@ if [[ "$isInternalUser" == true ]]; then
         "Update Submodules for EUs (Rebase)"
         "Create New Local Commit"
         "Push Local Changes to Github"
+        "Repair Ruby Environment"
     )
 fi
 
@@ -884,34 +885,55 @@ dynamic_xml() {
             MODEL_PRETTY="Unknown"
         fi
 
-        # Check which OVMF files exist, prioritize .4m.fd over .fd
+        # Check which OVMF files exist, prioritize .4m.fd over others
         if [[ -n "$OVMF_CODE" && -n "$OVMF_VARS" ]]; then
-            # Determine which OVMF code and vars files to use based on what's found
+            # Determine which OVMF code file to use
             if [[ -f "$OVMF_CODE" && "$OVMF_CODE" =~ \.4m\.fd$ ]]; then
                 CODE_FILE="$OVMF_CODE"
                 EXTENSION="4m.fd"
             elif [[ -f "$OVMF_CODE" && "$OVMF_CODE" =~ \.fd$ ]]; then
                 CODE_FILE="$OVMF_CODE"
                 EXTENSION="fd"
+            elif [[ -f "$OVMF_CODE" ]]; then
+                CODE_FILE="$OVMF_CODE"
+                EXTENSION="${OVMF_CODE##*.}"
+                l2c INTRNL "Using fallback OVMF_CODE file with extension: .$EXTENSION"
             else
-                l2c INTRNL "OVMF_CODE not found or not of correct format (.fd or .4m.fd)."
+                l2c INTRNL "OVMF_CODE not found or not a valid .fd variant."
                 return
             fi
 
+            # Determine which OVMF vars file to use
             if [[ -f "$OVMF_VARS" && "$OVMF_VARS" =~ \.4m\.fd$ ]]; then
                 VARS_FILE="$OVMF_VARS"
             elif [[ -f "$OVMF_VARS" && "$OVMF_VARS" =~ \.fd$ ]]; then
                 VARS_FILE="$OVMF_VARS"
+            elif [[ -f "$OVMF_VARS" ]]; then
+                VARS_FILE="$OVMF_VARS"
+                l2c INTRNL "Using fallback OVMF_VARS file with unknown variant." # eh, lets see if this helps more users oob
             else
-                l2c INTRNL "OVMF_VARS not found or not of correct format (.fd or .4m.fd)."
+                l2c INTRNL "OVMF_VARS not found or not a valid .fd variant. This will cause issues during import!"
                 return
             fi
 
             # Generate the dynamic nvram file name based on MODEL_PRETTY
             NVRAM_FILE="/var/lib/libvirt/qemu/nvram/DarwinKVM_${MODEL_PRETTY}_VARS.${EXTENSION}"
 
-            # Now build the XML
-            XML_CONTENT+="  <os firmware='efi'>\n"
+            # Detect if libvirt supports 'firmware' attribute in <os> tag
+            LIBVIRT_VER=$(virsh --version 2>/dev/null || echo "0")
+            SUPPORTS_FIRMWARE_ATTR=0
+
+            # Firmware attribute support was added around libvirt 8.1.0-ish
+            if [[ "$LIBVIRT_VER" =~ ^[0-9]+$ ]] && [[ "$LIBVIRT_VER" -ge 8 ]]; then
+                SUPPORTS_FIRMWARE_ATTR=1
+            fi
+
+            # Begin XML
+            if [[ "$SUPPORTS_FIRMWARE_ATTR" -eq 1 ]]; then
+                XML_CONTENT+="  <os firmware='efi'>\n"
+            else
+                XML_CONTENT+="  <os>\n"
+            fi
             XML_CONTENT+="    <type arch='x86_64' machine='q35'>hvm</type>\n"
             XML_CONTENT+="    <firmware>\n"
             XML_CONTENT+="      <feature enabled='no' name='enrolled-keys'/>\n"
@@ -965,7 +987,10 @@ dynamic_xml() {
             RESERVED_PHYSICAL_CORES=2
         fi
 
-        # Always reserve 2 threads
+        # Always reserve 2 threads, thats what multithreaded/hyperthreading means, duh
+        # how calc vcpu total, SxCxT, where S is sockets, C is cores, T is threads
+        # legit, 1 socket, you only have 1 CPU, your cores, you need a nice power of 2
+        # boom, always 2 threads per core, hyperthreading/multithreaded, 1x8x2 = 16 vCPUs/Total Threads
         RESERVED_THREADS=2
 
         # Calculate reserved logical cores (reserved physical cores * threads per core)
@@ -975,6 +1000,7 @@ dynamic_xml() {
         VCPUS=$(( RESERVED_PHYSICAL_CORES * RESERVED_THREADS ))
 
         # Log the reserved resources
+        # basically, we do not take up the entire host machine, we make sure to leave a core, which is 2 threads to the host
         l2c INTRNL "Reserved Physical Cores: $RESERVED_PHYSICAL_CORES"
         l2c INTRNL "Reserved Threads: $RESERVED_THREADS"
         l2c INTRNL "Reserved Logical Cores: $RESERVED_LOGICAL_CORES"
@@ -1041,12 +1067,15 @@ dynamic_xml() {
         XML_CONTENT+="  </qemu:commandline>\n"
     }
 
-    ovmf_where() {
-        l2c INTRNL "Beginning EDK2 UEFI detection routine."
+ovmf_where() {
+    l2c INTRNL "Beginning EDK2 UEFI detection routine."
 
-        # Common locations for OVMF files
-        OVMF_PATHS=(
+    # Common locations for OVMF files across multiple distros
+    OVMF_PATHS=(
             "/usr/share/OVMF"
+            "/usr/share/ovmf"
+            "/usr/share/edk2/ovmf"
+            "/usr/share/edk2-ovmf"
             "/usr/share/edk2/x64"
             "/usr/share/qemu"
             "/var/lib/libvirt/qemu"
@@ -1072,14 +1101,37 @@ dynamic_xml() {
                 OVMF_VARS="$path/OVMF_VARS.fd"
                 l2c INTRNL "Found OVMF_VARS.fd at: $OVMF_VARS"
             fi
+
+            # Alternate variants (e.g., secure boot, distro-specific names)
+            if [[ -z "$OVMF_CODE" ]]; then
+                for alt_code in "OVMF_CODE.secboot.fd" "OVMF_CODE.ms.fd" "ovmf-x86_64-code.bin" "ovmf-x86_64-ms-code.bin"; do
+                    if [[ -f "$path/$alt_code" ]]; then
+                        OVMF_CODE="$path/$alt_code"
+                        l2c INTRNL "Found alternate OVMF_CODE at: $OVMF_CODE"
+                        break
+                    fi
+                done
+            fi
+
+            if [[ -z "$OVMF_VARS" ]]; then
+                for alt_vars in "OVMF_VARS.secboot.fd" "OVMF_VARS.ms.fd" "ovmf-x86_64-vars.bin" "ovmf-x86_64-ms-vars.bin"; do
+                    if [[ -f "$path/$alt_vars" ]]; then
+                        OVMF_VARS="$path/$alt_vars"
+                        l2c INTRNL "Found alternate OVMF_VARS at: $OVMF_VARS"
+                        break
+                    fi
+                done
+            fi
         done
 
         # If not found, log a message
         if [[ -z "$OVMF_CODE" ]]; then
             l2c INTRNL "OVMF_CODE not found in common locations."
+            echo "OVMF_CODE not found in common locations! This will cause problems later trying to import."
         fi
         if [[ -z "$OVMF_VARS" ]]; then
             l2c INTRNL "OVMF_VARS not found in common locations."
+            echo "OVMF_VARS not found in common locations! This will cause problems later trying to import."
         fi
 
     }
@@ -1468,6 +1520,37 @@ push_changes() {
 
 }
 
+# Function to call rwby.sh from scripts
+repair_ruby() {
+    clear
+
+    echo "Rwby process automation is not yet functional via Main Menu."
+
+    # Construct the scripts root path using $ROOT
+    # SCRIPTS_ROOT="$ROOT/scripts"
+    # if [[ ! -d "$SCRIPTS_ROOT" ]]; then
+    #     echo "Error: Scripts directory not found at $SCRIPTS_ROOT"
+    #     echo "Please ensure the scripts folder exists."
+    #     return 1
+    # fi
+    # echo "Scripts directory found at: $SCRIPTS_ROOT"
+    
+    # # Launch commit.sh in a new shell process and wait for it to exit
+    # (
+    #     cd "$SCRIPTS_ROOT" || { echo "Error: Failed to change directory to $SCRIPTS_ROOT."; exit 1; }
+    #     # Execute the commit.sh script in a new shell
+    #     exec "$SHELL_NAME" rwby.sh
+    # )
+    # EXIT_CODE=$?
+    # if [[ $EXIT_CODE -ne 0 ]]; then
+    #     echo "Error: Rwby process exited with error code $EXIT_CODE."
+    #     return $EXIT_CODE
+    # fi
+
+    # echo "Rwby process completed successfully."
+
+}
+
 # Main menu loop
 while true; do
     show_menu
@@ -1528,6 +1611,9 @@ while true; do
                 ;;
             "Push Local Changes to Github")
                 push_changes
+                ;;
+            "Repair Ruby Environment")
+                repair_ruby
                 ;;
             "Exit")
                 echo "Exiting...";
