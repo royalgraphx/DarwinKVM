@@ -1,10 +1,11 @@
 ---
 layout: default
-title: DiskProvision
+title: Using DiskProvision
+parent: Disk Image Creation
 description: "This is the overview section of DiskProvision usage and OpenCore .img creation."
-nav_order: 2
 has_children: true
 has_toc: false
+nav_order: 2
 ---
 
 <style>
@@ -22,7 +23,7 @@ has_toc: false
 </style>
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/Headers/Header-DiskProvision.png">
+  <img width="650" height="200" src="../../../../assets/Headers/Header-DiskProvision.png">
 </p>
 
 <h2 align="center">Why DiskProvision?</h2>
@@ -32,7 +33,7 @@ has_toc: false
 <h2 align="center">
   <br>
   <div class="navigation-container">
-    <a class="nav-button" href="../../01-Introduction">&larr; Back Page</a>
+    <a class="nav-button" href="../../index">&larr; Back Page</a>
     <a class="nav-button" href="../01-Image-Creation">Next Page &rarr;</a>
   </div>
   <br>

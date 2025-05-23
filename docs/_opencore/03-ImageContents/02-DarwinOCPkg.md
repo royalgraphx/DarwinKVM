@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Using DarwinOCPkg
+parent: Disk Image Contents
 description: "This page goes over the differences between OpenCorePkg and DarwinOCPkg provided by Carnations Botanica."
 nav_order: 3
 has_children: false
@@ -65,8 +66,8 @@ The screenshots in this page are currently out of date, and do not accurately de
 <h2 align="center">
   <br>
   <div class="navigation-container">
-    <a class="nav-button" href="../02-DiskProvision/01-Image-Creation">&larr; Back Page</a>
-    <a class="nav-button" href="../04-FilePlacement/index">Next Page &rarr;</a>
+    <a class="nav-button" href="../index">&larr; Back Page</a>
+    <a class="nav-button" href="../../04-FilePlacement/index">Next Page &rarr;</a>
   </div>
   <br>
 </h2>

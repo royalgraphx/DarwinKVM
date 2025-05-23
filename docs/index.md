@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Welcome
-description: "The advanced guide for running Mac OS X / macOS within QEMU."
+description: "The advanced guide for running Mac OS X / macOS within QEMU with GPU Passthrough."
 has_children: true
 has_toc: false
 permalink: /

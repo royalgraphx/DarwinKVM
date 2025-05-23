@@ -1,8 +1,9 @@
 ---
 layout: default
 title: "<i>Extended Info</i>"
+parent: Using DiskProvision
+grand_parent: Disk Image Creation
 description: "This is a hidden DiskProvision page going through more explaination of the inner workings and various options."
-parent: DiskProvision
 nav_order: 2
 has_children: false
 has_toc: false
@@ -23,7 +24,7 @@ has_toc: false
 </style>
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/Headers/Header-DiskProvision.png">
+  <img width="650" height="200" src="../../../../assets/Headers/Header-DiskProvision.png">
 </p>
 
 {: .internalnote }
@@ -86,7 +87,7 @@ This page is a secret! Not really. It's visible in the UI, but the Navigation Ba
   <br>
   <div class="navigation-container">
     <a class="nav-button" href="../index">&larr; Back Page</a>
-    <a class="nav-button" href="../../03-DarwinOCPkg">Next Page &rarr;</a>
+    <a class="nav-button" href="../../../03-ImageContents/index">Next Page &rarr;</a>
   </div>
   <br>
 </h2>

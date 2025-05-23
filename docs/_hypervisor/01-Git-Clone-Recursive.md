@@ -21,7 +21,7 @@ has_toc: false
 </style>
 
 <p align="center">
-  <img width="40%" height="40%" src="../../assets/Github/GitHub_Logo_White.png">
+  <img width="40%" height="40%" src="../../../assets/GitHub/GitHub_Logo_White.png">
 </p>
 
 <h2 align="center">How to properly Clone the Repository</h2>
