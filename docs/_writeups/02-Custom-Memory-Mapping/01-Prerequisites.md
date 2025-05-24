@@ -5,6 +5,19 @@ parent: Custom Memory Mapping
 nav_order: 1
 ---
 
+<style>
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    margin: 10px;
+  }
+</style>
+
 # Preparing VM RAM Configuration
 #### Proper CMM requires typical RAM amounts.
 
@@ -24,4 +37,11 @@ These are recommended guest sizes by myself, If you have 64GB on your Host machi
 | 128GB | 64GB, 4 Sticks of 32GB |
 | 256GB | 128GB, 4 Sticks of 64GB |
 
-## You can now continue to the next <a href="../02-MemoryMaps">page</a>.
+<h2 align="center">
+  <br>
+  <div class="navigation-container">
+    <a class="nav-button" href="../index">&larr; Back Page</a>
+    <a class="nav-button" href="../02-MemoryMaps">Next Page &rarr;</a>
+  </div>
+  <br>
+</h2>

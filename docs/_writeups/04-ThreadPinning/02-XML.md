@@ -5,6 +5,19 @@ parent: Thread Pinning
 nav_order: 2
 ---
 
+<style>
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    margin: 10px;
+  }
+</style>
+
 # Pinning the Threads
 #### Yeah, it's actually Thread Pinning, who would've thought?
 
@@ -113,4 +126,11 @@ That is all. This should automatically allocate starting from Core 2 (Thread 2. 
   <img src="../../../assets/lstopo-idealvmstart.png">
 </p>
 
-#### Thanks for reading!
+<br>
+<h2 align="center">
+  <br>
+  <div class="navigation-container">
+    <a class="nav-button" href="../../01-Introduction">&larr; Back to Write-Ups Table of Contents</a>
+  </div>
+  <br>
+</h2>

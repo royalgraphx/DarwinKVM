@@ -5,13 +5,26 @@ parent: Fake Core Count
 nav_order: 2
 ---
 
+<style>
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    margin: 10px;
+  }
+</style>
+
 # Setting up Fake Core Count
 #### Configures an 8 Core Guest, with only 14 threads on.
 
 Before setting this up, set the CPU section to 1 Socket, 8 Cores, 2 Threads.
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/VManFCorePage.png">
+  <img width="650" height="200" src="../../../assets/Virtual-Machine-Manager/VManFCorePage.png">
 </p>
 
 With this applied, we can now head to the XML area and make the following changes.
@@ -70,4 +83,11 @@ Example if you have a 6 core, 12 thread system.
 
 In this case, you can see we would have 12 threads, but because we subtract 2 to leave for the host, we end up only needing 10 enabled. If for whatever reason you have a system that exceeds 16 threads and you want to dedicate more of them, the next jump would be to create a Fake Core Count of 16 Cores 32 Threads, to utilize host systems that have 16-30 threads.
 
-#### Thanks for reading!
+<br>
+<h2 align="center">
+  <br>
+  <div class="navigation-container">
+    <a class="nav-button" href="../../01-Introduction">&larr; Back to Write-Ups Table of Contents</a>
+  </div>
+  <br>
+</h2>

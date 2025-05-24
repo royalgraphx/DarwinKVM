@@ -40,6 +40,86 @@ All notable changes to this project will be documented in this file. The format 
 
 <br>
 
+## [Commit Name]
+### Version@Branch
+#### By Commit Author
+
+## [Version~Type] - YYYY-MM-DD
+
+### Added
+-
+
+### Changed
+-
+
+### Fixed
+-
+
+### Deprecated
+-
+
+### Removed
+-
+
+### Security
+-
+
+<br>
+<hr>
+
+---
+
+## Replace DiskProvision and DarwinOCPkg + Begin Repair of Write-Ups
+### Prerelease@royalStaging
+#### By royalgraphx
+
+## [3.0.0~prerelease] - 2025-05-24
+
+### Added
+- New sections! Teaching users how to do things manually.
+
+### Changed
+- Structure of the OpenCore disk image setup routine.
+
+### Fixed
+- A few write-ups, with the new layouts.
+- Hopefully, Main Menu's ability to find OVMF and define OS block better.
+
+### Deprecated
+-
+
+### Removed
+-
+
+### Security
+-
+
+---
+
+## Complete Base DKVM Resources
+### Prerelease@royalStaging
+#### By royalgraphx
+
+## [3.0.0~prerelease] - 2025-04-09
+
+### Added
+- A crapton of stuff.
+
+### Changed
+- Everything.
+
+### Fixed
+- Stuff.
+
+### Deprecated
+- A ton of pages.
+
+### Removed
+- A ton of images on accident.
+
+### Security
+- All of it.
+
 ---
 
 ## Complete Base DKVM Resources

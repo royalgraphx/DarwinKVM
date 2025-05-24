@@ -5,6 +5,19 @@ parent: Custom Memory Mapping
 nav_order: 2
 ---
 
+<style>
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    margin: 10px;
+  }
+</style>
+
 # CustomMemoryMap[GB].plist
 #### DarwinKVM Includes a set of standardized maps.
 #### This section has been derived from the <a href="https://dortania.github.io/OpenCore-Post-Install/universal/memory.html">Fixing MacPro7,1 Memory Errors</a> section via <a href="https://dortania.github.io/OpenCore-Post-Install/">OpenCore Post-Install</a>. The included sets can be modified to your liking.
@@ -12,7 +25,7 @@ nav_order: 2
 For explaining the creation of these premade maps, we'll break down the sections.
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/PTMemMap32GBDefault.png">
+  <img width="650" height="200" src="../../../assets/DarwinKVM/PTMemMap32GBDefault.png">
 </p>
 
 {: .new }
@@ -237,41 +250,41 @@ Now that you've fully read though everything that was chosen and defined, we'll 
 ## Real RAM Sticks
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/PTMemRAMReal.png">
+  <img width="650" height="200" src="../../../assets/DarwinKVM/PTMemRAMReal.png">
 </p>
 
 ## Fake RAM Sticks
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/PTMemRAMFake.png">
+  <img width="650" height="200" src="../../../assets/DarwinKVM/PTMemRAMFake.png">
 </p>
 
 ## Empty DIMM Slots
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/PTMemRAMEmptyDIMM.png">
+  <img width="650" height="200" src="../../../assets/DarwinKVM/PTMemRAMEmptyDIMM.png">
 </p>
 
 ## Explaining RAM Layout
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/MemoryMapHostMobo.png">
+  <img width="650" height="200" src="../../../assets/DarwinKVM/MemoryMapHostMobo.png">
 </p>
 
 Just like on your typical motherboard, you would reference the manual to check for the optimal RAM layout. Typically being the Second and Fourth slot. MacPro7,1 also has a layout design. For simplicity and standardization, we will use 4 RAM Sticks. First, Third, Fifth, and 7th DIMM slot will have a stick. The other DIMM's will be empty.
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/PTMemMapLayout.png">
+  <img width="650" height="200" src="../../../assets/DarwinKVM/PTMemMapLayout.png">
 </p>
 
 Note the 6th device is there, just did not fit in the screenshot. This results in the following map below
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/MemoryMappedMacPro71.png">
+  <img width="650" height="200" src="../../../assets/DarwinKVM/MemoryMappedMacPro71.png">
 </p>
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/MemoryMapGuestLayout.png">
+  <img width="650" height="200" src="../../../assets/DarwinKVM/MemoryMapGuestLayout.png">
 </p>
 
 ## Customizing the 4 Mapped Sticks
@@ -290,4 +303,11 @@ If you need to change the size of the RAM Sticks, refer to the chart below.
 
 As you can see from above, to create your own map, you simply must update the MaxCapacity, and update the 4 Real RAM sticks to equal the total, as well as updating the RAM speed to yours. If you have standard RAM size, you can quickly use the included plists. If you need to modify the data, you now should understand how Memory Mapping works. Lets apply this to our OpenCore config.plist!
 
-## You can now continue to the next <a href="../03-AddingToConfig">page</a>.
+<h2 align="center">
+  <br>
+  <div class="navigation-container">
+    <a class="nav-button" href="../01-Prerequisites">&larr; Back Page</a>
+    <a class="nav-button" href="../03-AddingToConfig">Next Page &rarr;</a>
+  </div>
+  <br>
+</h2>

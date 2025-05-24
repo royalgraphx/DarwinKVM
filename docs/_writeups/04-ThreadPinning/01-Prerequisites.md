@@ -5,6 +5,19 @@ parent: Thread Pinning
 nav_order: 1
 ---
 
+<style>
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    margin: 10px;
+  }
+</style>
+
 # Planning the Pinning
 #### How to understand what we'll be doing and how to derive your own information.
 
@@ -32,4 +45,11 @@ This is an important distinction, because in the following page we'll be actuall
   <img src="../../../assets/lstopo-idealvmstart.png">
 </p>
 
-#### You can now continue to the next <a href="../02-XML">page</a>.
+<h2 align="center">
+  <br>
+  <div class="navigation-container">
+    <a class="nav-button" href="../index">&larr; Back Page</a>
+    <a class="nav-button" href="../02-XML">Next Page &rarr;</a>
+  </div>
+  <br>
+</h2>
