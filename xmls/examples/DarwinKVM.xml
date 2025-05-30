@@ -48,10 +48,6 @@
   <vcpu placement='static'>8</vcpu>
   <os firmware='efi'>
     <type arch='x86_64' machine='q35'>hvm</type>
-    <firmware>
-      <feature enabled='no' name='enrolled-keys'/>
-      <feature enabled='no' name='secure-boot'/>
-    </firmware>
     <loader readonly='yes' type='pflash'>/usr/share/edk2/x64/OVMF_CODE.4m.fd</loader>
     <nvram template='/usr/share/edk2/x64/OVMF_VARS.4m.fd'>/var/lib/libvirt/qemu/nvram/DarwinKVM_VARS.4m.fd</nvram>
     <boot dev="hd"/>
