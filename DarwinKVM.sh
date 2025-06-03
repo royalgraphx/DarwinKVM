@@ -935,10 +935,12 @@ dynamic_xml() {
                 XML_CONTENT+="  <os>\n"
             fi
             XML_CONTENT+="    <type arch='x86_64' machine='q35'>hvm</type>\n"
-            XML_CONTENT+="    <firmware>\n"
-            XML_CONTENT+="      <feature enabled='no' name='enrolled-keys'/>\n"
-            XML_CONTENT+="      <feature enabled='no' name='secure-boot'/>\n"
-            XML_CONTENT+="    </firmware>\n"
+            # Commented out to fix "error: cannot use feature-based firmware autoselection when firmware autoselection is disabled"
+            # on libvirtd >= v8.6.0 (https://github.com/libvirt/libvirt/commit/73c5ae55c7c3a5b26cc16ad85ecd57fc1d410b33)
+            # XML_CONTENT+="    <firmware>\n"
+            # XML_CONTENT+="      <feature enabled='no' name='enrolled-keys'/>\n"
+            # XML_CONTENT+="      <feature enabled='no' name='secure-boot'/>\n"
+            # XML_CONTENT+="    </firmware>\n"
             XML_CONTENT+="    <loader readonly='yes' type='pflash'>$CODE_FILE</loader>\n"
             XML_CONTENT+="    <nvram template='$VARS_FILE'>$NVRAM_FILE</nvram>\n"
             XML_CONTENT+="    <boot dev='hd'/>\n"
