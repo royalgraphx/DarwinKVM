@@ -32,16 +32,16 @@ Not much to say, this generation has native support OOB without the need for kex
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6800S | Monterey (12) | Sequoia (15) | Theoretically. This is a mobile dGPU. |
-| RX 6700S | Monterey (12) | Sequoia (15) | Theoretically. This is a mobile dGPU. |
-| RX 6650 XT | Monterey (12) | Sequoia (15) | Needs device-id spoof to 0x73ff.<br> NootRX changes the Device-ID. |
-| RX 6600 XT | Monterey (12) | Sequoia (15) | Does not require any kexts to work |
-| RX 6600 LE | Monterey (12) | Sequoia (15) | Does not require any kexts to work |
-| RX 6600S | Monterey (12) | Sequoia (15) | Does not require any kexts to work |
-| RX 6600 | Monterey (12) | Sequoia (15) | Does not require any kexts to work |
-| RX 6600M | Monterey (12) | Sequoia (15) | Rare on Laptops, but **does** work. |
-| Radeon Pro W6600X | Monterey (12) | Sequoia (15) | May require a device-id spoof |
-| Radeon PRO W6600 | Monterey (12) | Sequoia (15) | May require a device-id spoof |
+| RX 6800S | Monterey (12) | Tahoe (26) | Theoretically. This is a mobile dGPU. |
+| RX 6700S | Monterey (12) | Tahoe (26) | Theoretically. This is a mobile dGPU. |
+| RX 6650 XT | Monterey (12) | Tahoe (26) | Needs device-id spoof to 0x73ff.<br> NootRX changes the Device-ID. |
+| RX 6600 XT | Monterey (12) | Tahoe (26) | Does not require any kexts to work |
+| RX 6600 LE | Monterey (12) | Tahoe (26) | Does not require any kexts to work |
+| RX 6600S | Monterey (12) | Tahoe (26) | Does not require any kexts to work |
+| RX 6600 | Monterey (12) | Tahoe (26) | Does not require any kexts to work |
+| RX 6600M | Monterey (12) | Tahoe (26) | Rare on Laptops, but **does** work. |
+| Radeon Pro W6600X | Monterey (12) | Tahoe (26) | May require a device-id spoof |
+| Radeon PRO W6600 | Monterey (12) | Tahoe (26) | May require a device-id spoof |
 
 ## Navi 22
 
@@ -50,10 +50,10 @@ NootRX is required for these GPUs to function, they have no native macOS support
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 6750 GRE | Monterey (12) | Sequoia (15) |  |
-| RX 6750 XT | Monterey (12) | Sequoia (15) |  |
-| RX 6700 XT | Monterey (12) | Sequoia (15) |  |
-| RX 6700 | Monterey (12) | Sequoia (15) |  |
+| RX 6750 GRE | Monterey (12) | Tahoe (26) |  |
+| RX 6750 XT | Monterey (12) | Tahoe (26) |  |
+| RX 6700 XT | Monterey (12) | Tahoe (26) |  |
+| RX 6700 | Monterey (12) | Tahoe (26) |  |
 
 ## Navi 21
 
@@ -62,17 +62,17 @@ WhateverGreen is recommended for these GPUs in the case of DRM issues.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| Radeon RX 6900 XTX | Big Sur (11) | Sequoia (15) |  |
-| RX 6950 XT | Big Sur (11) | Sequoia (15) | Needs device-id spoof to 0x73bf.<br> NootRX changes the Device-ID. |
-| RX 6900 XTXH | Big Sur (11) | Sequoia (15) | |
-| RX 6900 XT | Big Sur (11) | Sequoia (15) |  |
-| RX 6800 XT | Big Sur (11) | Sequoia (15) |  |
-| Radeon PRO V620 | Big Sur (11) | Sequoia (15) | Theoretically. |
-| Radeon PRO W6900X | Big Sur (11) | Sequoia (15) |  |
-| Radeon PRO W6800 | Big Sur (11) | Sequoia (15) |  |
-| RX 6800 | Big Sur (11) | Sequoia (15) |  |
-| Radeon Pro W6800X Duo | Big Sur (11) | Sequoia (15) |  |
-| Radeon Pro W6800X | Big Sur (11) | Sequoia (15) |  |
+| Radeon RX 6900 XTX | Big Sur (11) | Tahoe (26) |  |
+| RX 6950 XT | Big Sur (11) | Tahoe (26) | Needs device-id spoof to 0x73bf.<br> NootRX changes the Device-ID. |
+| RX 6900 XTXH | Big Sur (11) | Tahoe (26) | |
+| RX 6900 XT | Big Sur (11) | Tahoe (26) |  |
+| RX 6800 XT | Big Sur (11) | Tahoe (26) |  |
+| Radeon PRO V620 | Big Sur (11) | Tahoe (26) | Theoretically. |
+| Radeon PRO W6900X | Big Sur (11) | Tahoe (26) |  |
+| Radeon PRO W6800 | Big Sur (11) | Tahoe (26) |  |
+| RX 6800 | Big Sur (11) | Tahoe (26) |  |
+| Radeon Pro W6800X Duo | Big Sur (11) | Tahoe (26) |  |
+| Radeon Pro W6800X | Big Sur (11) | Tahoe (26) |  |
 
 ## Navi 10
 
@@ -81,19 +81,19 @@ WhateverGreen is required for these GPUs.
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| Radeon Pro W5700X | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| RX 5700 XT 50th Anniversary | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| RX 5700 XT | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| Radeon Pro W5700XT | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| Radeon Pro W5700 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| RX 5700 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| RX 5600 XT | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| RX 5600 OEM | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| Radeon Pro 5700 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| RX 5600 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| RX 5500 XT | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| RX 5500 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
-| Radeon Pro W5500 | Catalina (10.15.1) | Sequoia (15) | Add agdpmod=pikera boot flag. |
+| Radeon Pro W5700X | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| RX 5700 XT 50th Anniversary | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| RX 5700 XT | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| Radeon Pro W5700XT | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| Radeon Pro W5700 | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| RX 5700 | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| RX 5600 XT | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| RX 5600 OEM | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| Radeon Pro 5700 | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| RX 5600 | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| RX 5500 XT | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| RX 5500 | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
+| Radeon Pro W5500 | Catalina (10.15.1) | Tahoe (26) | Add agdpmod=pikera boot flag. |
 
 ## Vega 20
 
@@ -102,13 +102,13 @@ All Vega based dedicated GPUs are natively supported in OS X and macOS with supp
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| Radeon Instinct MI60 | Mojave (10.14.5) | Sequoia (15) |  |
-| Radeon VII | Mojave (10.14.5) | Sequoia (15) |  |
-| Radeon Instinct MI50 | Mojave (10.14.5) | Sequoia (15) |  |
-| Radeon Pro Vega II Duo | Mojave (10.14.5) | Sequoia (15) |  |
-| Radeon Pro Vega II | Mojave (10.14.5) | Sequoia (15) |  |
-| Radeon Pro VII | Mojave (10.14.5) | Sequoia (15) |  |
-| Radeon Pro V420 | Mojave (10.14.5) | Sequoia (15) |  |
+| Radeon Instinct MI60 | Mojave (10.14.5) | Tahoe (26) |  |
+| Radeon VII | Mojave (10.14.5) | Tahoe (26) |  |
+| Radeon Instinct MI50 | Mojave (10.14.5) | Tahoe (26) |  |
+| Radeon Pro Vega II Duo | Mojave (10.14.5) | Tahoe (26) |  |
+| Radeon Pro Vega II | Mojave (10.14.5) | Tahoe (26) |  |
+| Radeon Pro VII | Mojave (10.14.5) | Tahoe (26) |  |
+| Radeon Pro V420 | Mojave (10.14.5) | Tahoe (26) |  |
 
 ## Vega 10
 
@@ -117,24 +117,24 @@ Vega 10 GPUs are natively supported in macOS. The only brand of GPUs to avoid wi
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX Vega 64 Liquid Cooling | High Sierra (10.13) | Sequoia (15) |  |
-| Vega Frontier Edition | High Sierra (10.13) | Sequoia (15) | Watercooled variant included |
-| RX Vega Nano | High Sierra (10.13) | Sequoia (15) |  |
-| RX Vega 64 Limited Edition | High Sierra (10.13) | Sequoia (15) |  |
-| RX Vega 64 | High Sierra (10.13) | Sequoia (15) |  |
-| Radeon Pro WX 9100 | High Sierra (10.13) | Sequoia (15) |  |
-| Radeon Pro WX 8200 | High Sierra (10.13) | Sequoia (15) |  |
-| Radeon Pro WX 8100 | High Sierra (10.13) | Sequoia (15) |  |
-| Radeon Pro V340 8 GB | High Sierra (10.13) | Sequoia (15) |  |
-| Radeon Pro V340 16 GB | High Sierra (10.13) | Sequoia (15) |  |
-| Radeon Pro V320 | High Sierra (10.13) | Sequoia (15) |  |
-| Radeon Pro SSG | High Sierra (10.13) | Sequoia (15) | Theoretically. |
-| Radeon Instinct MI25 | High Sierra (10.13) | Sequoia (15) | Theoretically. |
-| RX Vega 56 | High Sierra (10.13) | Sequoia (15) |  |
-| Radeon Pro Vega 64X | High Sierra (10.13) | Sequoia (15) |  |
-| Radeon Pro Vega 64 | High Sierra (10.13) | Sequoia (15) |  |
-| Radeon Pro Vega 56 | High Sierra (10.13) | Sequoia (15) | Theoretically. |
-| Radeon Pro Vega 48 | High Sierra (10.13) | Sequoia (15) | Theoretically. |
+| RX Vega 64 Liquid Cooling | High Sierra (10.13) | Tahoe (26) |  |
+| Vega Frontier Edition | High Sierra (10.13) | Tahoe (26) | Watercooled variant included |
+| RX Vega Nano | High Sierra (10.13) | Tahoe (26) |  |
+| RX Vega 64 Limited Edition | High Sierra (10.13) | Tahoe (26) |  |
+| RX Vega 64 | High Sierra (10.13) | Tahoe (26) |  |
+| Radeon Pro WX 9100 | High Sierra (10.13) | Tahoe (26) |  |
+| Radeon Pro WX 8200 | High Sierra (10.13) | Tahoe (26) |  |
+| Radeon Pro WX 8100 | High Sierra (10.13) | Tahoe (26) |  |
+| Radeon Pro V340 8 GB | High Sierra (10.13) | Tahoe (26) |  |
+| Radeon Pro V340 16 GB | High Sierra (10.13) | Tahoe (26) |  |
+| Radeon Pro V320 | High Sierra (10.13) | Tahoe (26) |  |
+| Radeon Pro SSG | High Sierra (10.13) | Tahoe (26) | Theoretically. |
+| Radeon Instinct MI25 | High Sierra (10.13) | Tahoe (26) | Theoretically. |
+| RX Vega 56 | High Sierra (10.13) | Tahoe (26) |  |
+| Radeon Pro Vega 64X | High Sierra (10.13) | Tahoe (26) |  |
+| Radeon Pro Vega 64 | High Sierra (10.13) | Tahoe (26) |  |
+| Radeon Pro Vega 56 | High Sierra (10.13) | Tahoe (26) | Theoretically. |
+| Radeon Pro Vega 48 | High Sierra (10.13) | Tahoe (26) | Theoretically. |
 
 ## Polaris 10 and 20
 
@@ -143,31 +143,31 @@ For Polaris, basically every model is supported. The only brands you should avoi
 
 | Card | Initial Support | Latest Support | Notes |
 | --- | --- | --- | --- |
-| RX 590 GME | Sierra (10.12) | Sequoia (15) |  |
-| RX 580X | Sierra (10.12) | Sequoia (15) |  |
-| RX 580 | Sierra (10.12) | Sequoia (15) |  |
-| RX 580G | Sierra (10.12) | Sequoia (15) |  |
-| RX 580 2048SP | Sierra (10.12) | Sequoia (15) | Requires custom VBIOS to appear as non SP variant. ID Spoofing will not resolve this. |
-| Radeon RX 570X | Sierra (10.12) | Sequoia (15) |  |
-| RX 570 | Sierra (10.12) | Sequoia (15) |  |
-| RX 570 X2 | Sierra (10.12) | Sequoia (15) |  |
-| RX 580 OEM | Sierra (10.12) | Sequoia (15) |  |
-| Radeon RX 480 | Sierra (10.12) | Sequoia (15) |  |
-| Radeon Pro WX 7100 | Sierra (10.12) | Sequoia (15) |  |
-| Radeon Pro V7350X2 | Sierra (10.12) | Sequoia (15) |  |
-| Radeon Pro V7300X | Sierra (10.12) | Sequoia (15) |  |
-| Radeon E9560 PCIe | Sierra (10.12) | Sequoia (15) | Theoretically, with a device-id spoof. |
-| Radeon Instinct MI6 | Sierra (10.12) | Sequoia (15) |  |
-| RX 560 XT | Sierra (10.12) | Sequoia (15) |  |
-| RX 470D | Sierra (10.12) | Sequoia (15) |  |
-| RX 470 | Sierra (10.12) | Sequoia (15) |  |
-| Radeon Pro 580X | Sierra (10.12) | Sequoia (15) |  |
-| Radeon Pro 580 | Sierra (10.12) | Sequoia (15) |  |
-| Radeon Pro 570X | Sierra (10.12) | Sequoia (15) |  |
-| Radeon Pro 570 | Sierra (10.12) | Sequoia (15) |  |
-| Radeon E9390 PCIe | Sierra (10.12) | Sequoia (15) | Theoretically, with a device-id spoof. |
-| Radeon Pro WX 5100 | Sierra (10.12) | Sequoia (15) |  |
-| Radeon Pro Duo Polaris | Sierra (10.12) | Sequoia (15) |  |
+| RX 590 GME | Sierra (10.12) | Tahoe (26) |  |
+| RX 580X | Sierra (10.12) | Tahoe (26) |  |
+| RX 580 | Sierra (10.12) | Tahoe (26) |  |
+| RX 580G | Sierra (10.12) | Tahoe (26) |  |
+| RX 580 2048SP | Sierra (10.12) | Tahoe (26) | Requires custom VBIOS to appear as non SP variant. ID Spoofing will not resolve this. |
+| Radeon RX 570X | Sierra (10.12) | Tahoe (26) |  |
+| RX 570 | Sierra (10.12) | Tahoe (26) |  |
+| RX 570 X2 | Sierra (10.12) | Tahoe (26) |  |
+| RX 580 OEM | Sierra (10.12) | Tahoe (26) |  |
+| Radeon RX 480 | Sierra (10.12) | Tahoe (26) |  |
+| Radeon Pro WX 7100 | Sierra (10.12) | Tahoe (26) |  |
+| Radeon Pro V7350X2 | Sierra (10.12) | Tahoe (26) |  |
+| Radeon Pro V7300X | Sierra (10.12) | Tahoe (26) |  |
+| Radeon E9560 PCIe | Sierra (10.12) | Tahoe (26) | Theoretically, with a device-id spoof. |
+| Radeon Instinct MI6 | Sierra (10.12) | Tahoe (26) |  |
+| RX 560 XT | Sierra (10.12) | Tahoe (26) |  |
+| RX 470D | Sierra (10.12) | Tahoe (26) |  |
+| RX 470 | Sierra (10.12) | Tahoe (26) |  |
+| Radeon Pro 580X | Sierra (10.12) | Tahoe (26) |  |
+| Radeon Pro 580 | Sierra (10.12) | Tahoe (26) |  |
+| Radeon Pro 570X | Sierra (10.12) | Tahoe (26) |  |
+| Radeon Pro 570 | Sierra (10.12) | Tahoe (26) |  |
+| Radeon E9390 PCIe | Sierra (10.12) | Tahoe (26) | Theoretically, with a device-id spoof. |
+| Radeon Pro WX 5100 | Sierra (10.12) | Tahoe (26) |  |
+| Radeon Pro Duo Polaris | Sierra (10.12) | Tahoe (26) |  |
 
 ## Lexa Core based GPUs
 

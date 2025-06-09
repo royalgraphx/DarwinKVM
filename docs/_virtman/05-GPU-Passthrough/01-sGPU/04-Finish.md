@@ -25,9 +25,9 @@ nav_order: 4
 
 <h2 align="center">For further customization, please refer to the write-ups!</h2>
 
-<h4 align="center">Enjoy a screenshot of Sequoia with an AMD Radeon Pro WX 9100 16GB</h4>
+<h4 align="center">Enjoy a screenshot of Tahoe with an AMD RX 6600 8GB</h4>
 
-<p align="center"><a href=""><img src="../../../../gallery/Sequoia/athleticatMacPro71Seq1511.png" alt=""></a></p>
+<p align="center"><a href=""><img src="../../../../gallery/Tahoe/HacPro26Beta.png" alt=""></a></p>
 
 <h2 align="center">
   <br>

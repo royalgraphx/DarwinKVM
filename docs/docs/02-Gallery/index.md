@@ -59,6 +59,16 @@ There are still screenshots that have yet to be updated with the ATI HD 5450. In
 <br>
 <br>
 <hr>
+<h2 align="center"><b>macOS Tahoe</b></h2>
+<h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
+<div>
+  <h3 align="center">
+    26.0.0 Developer Beta 1 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="../../gallery/Tahoe/HacPro26Beta.png" alt=""></a>
+</div>
+
+<hr>
 <h2 align="center"><b>macOS Sequoia</b></h2>
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
@@ -75,7 +85,7 @@ There are still screenshots that have yet to be updated with the ATI HD 5450. In
 </div>
 <div>
   <h3 align="center">
-    15.0 Beta 1 - RX 6600 8GB - x86_64
+    15.0 Developer Beta 1 - RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Sequoia/HacProKVM15BetaAlt.png" alt=""></a>
 </div>

@@ -7,7 +7,7 @@
 </p>
 
 <h3 align="center">The Advanced Guide for running macOS within QEMU</h3>
-<h5 align="center">Host Requirements, Host Configuration, Setting Expectations, GRUB and systemd-boot Support, Package Configuration, Bridged Networking using systemd, IOMMU Viability, x86_64 and PowerPC Support, OpenCore for Q35 as Mac Pro models, Hardware Compatibility Charts, DarwinFetch + DiskProvision, Virt-Manager XMLs, Single and Dual GPU Setup passthrough, QEMU and macOS Debugging, Fake Core Count for incompatible CPU Topologies, CPU Thread Pinning, VirtIO Thread for disk images, Motherboard Audio passthrough, Bridged Networking on Ethernet, KB/M Sharing via Evdev, Custom Memory Mapping, USB Controller Mapping, Display Overrides, sPPT / Zero-RPM Disable, Legacy NVIDIA Patching, Home of the VMHide Kernel Extension for macOS Sequoia. Welcome to DarwinKVM!</h5>
+<h5 align="center">Host Requirements, Host Configuration, Setting Expectations, GRUB and systemd-boot Support, Package Configuration, Bridged Networking using systemd, IOMMU Viability, x86_64 and PowerPC Support, OpenCore for Q35 as Mac Pro models, Hardware Compatibility Charts, DarwinFetch + DiskProvision, Virt-Manager XMLs, Single and Dual GPU Setup passthrough, QEMU and macOS Debugging, Fake Core Count for incompatible CPU Topologies, CPU Thread Pinning, VirtIO Thread for disk images, Motherboard Audio passthrough, Bridged Networking on Ethernet, KB/M Sharing via Evdev, Custom Memory Mapping, USB Controller Mapping, Display Overrides, sPPT / Zero-RPM Disable, Legacy NVIDIA Patching, Home of the VMHide Kernel Extension. Welcome to DarwinKVM!</h5>
 
 </br>
 <hr>
@@ -20,6 +20,16 @@
 <p align="center">
   <img width="650" height="200" src="./docs/assets/Headers/HeaderGallery.png">
 </p>
+
+<h2 align="center"><b>macOS Tahoe</b></h2>
+<h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
+<div>
+  <h3 align="center">
+    26.0.0 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Tahoe/HacPro26Beta.png" alt=""></a>
+</div>
+
 <h2 align="center"><b>macOS Sequoia</b></h2>
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
