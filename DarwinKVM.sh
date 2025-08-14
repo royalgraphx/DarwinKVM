@@ -8,8 +8,10 @@
 # BSD 3-Clause License, see LICENSE for more information.
 #
 # No, you cannot use my EFI or XML configurations in your prebuilts or repackage any of the content here.
-# All instances of related work, must point back to DarwinKVM if you use any information from here.
-# See LICENSE for more information. This is your only warning.
+# All instances of related work, must point back to DarwinKVM if you use any information the project.
+# See LICENSE for more information. This is your only warning. I want to stress that the entire point
+# and time I spend on this project, is directly about teaching and helping with proper support.
+# You will defeat the purpose of every hour of work i've spent, if you disobey these wishes.
 #
 
 # Script Variables
@@ -89,6 +91,10 @@ else
 fi
 
 # Construct the main menu
+if [[ -f ".internal" ]]; then
+    DEBUG=true
+    isInternalUser=true
+fi
 
 # Define public options
 MENU_OPTIONS=(
