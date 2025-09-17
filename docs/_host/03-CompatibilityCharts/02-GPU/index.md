@@ -47,6 +47,9 @@ If you are wondering if you can passthrough an Intel iGPU to a guest, due to the
 {: .warning }
 If your card falls under the Hopper (Datacenter GPUs), Blackwell (RTX 50xx), Ada Lovelace (RTX 40xx), Ampere (RTX 30xx) or Turing (RTX 20xx / GTX 16xx) generations of NVIDIA RTX, your card is completely unsupported. Your best options are using a supported Intel iGPU on baremetal, or purchasing an AMD dedicated Graphics Card if you are on an AMD CPU or Intel CPU newer than 10th Gen such as Rocket Lake. OpenCore Legacy Patcher will not solve this issue, RTX has never had any OS X or macOS support. (HS Release Date: 2017 / Turing (RTX) Release Date: 2018)
 
+{: .warning }
+If you are intending to run macOS Tahoe (26) be aware that you will need a [custom build of WhateverGreen that the Carnations Botanica team has pushed](https://github.com/Carnations-Botanica/WhateverGreen/actions/runs/17772496735), as a quick fix for kernel panics in the recoveryOS and Update phases in the latest release. You shouldn't be using a GPU while booting recoveryOS on DarwinKVM anyways, but if you do regardless, be aware you cannot boot recoveryOS or go through the update phases with the default WhateverGreen.
+
 {: .important }
 The NVIDIA support charts are mainly here for legacy OS X users for preservation, such cases include but are not limited to: Audio Engineers, Film Editors, and Photographers using legacy licensed software. As of High Sierra (10.13), all NVIDIA GPUs (except for Kepler, dropped in Big Sur due to Metal 1 support) were dropped from Mac OS X. High Sierra is no longer viable as an operating system, and if you only have NVIDIA graphics, you cannot use modern macOS. To put it in perspective, High Sierra is 10.13 and was released in 2017. Catalina was the last X release, version 10.15 in 2019. Big Sur was 11.0 in 2020. The newest release is macOS Tahoe which released in 2025 and is version 26.0+ and barely any software supports High Sierra anymore.
 

@@ -15,7 +15,7 @@
 #
 
 # Script Variables
-VERSION="0.1.4"
+VERSION="0.1.5"
 DEBUG=false
 isInternalUser=false
 
@@ -35,9 +35,40 @@ l2c() {
 }
 
 # Detect basic system details
-SHELL_NAME=$(basename "$SHELL") # Get shell name
-ARCH=$(uname -m) # Get system architecture
-ROOT=$(pwd) # We'll need this to make ``cd``ing around works reliably
+ROOT=$(pwd) # This command is POSIX-compliant and should not fail, works on macOS, Linux, and Windows (in compatible shells)
+case "$(uname -s)" in
+    Linux)
+        SHELL_NAME=$(basename "$SHELL")
+        ARCH=$(uname -m)
+        ;;
+    Darwin)
+        SHELL_NAME=$(basename "$SHELL")
+        ARCH=$(uname -m)
+        ;;
+    CYGWIN*|MINGW*|MSYS*)
+        # For Windows (Git Bash, MSYS, Cygwin)
+        # SHELL variable might not be reliably set, so we check the process name.
+        # Comspec is a reliable fallback for the default command prompt.
+        SHELL_NAME=${SHELL##*/}
+        if [ -z "$SHELL_NAME" ]; then
+            SHELL_NAME=${COMSPEC##*\\}
+        fi
+
+        # PROCESSOR_ARCHITECTURE is a reliable environment variable for architecture on Windows
+        if [ "$PROCESSOR_ARCHITECTURE" = "AMD64" ] || [ "$PROCESSOR_ARCHITECTURE" = "x64" ]; then
+            ARCH="x86_64"
+        elif [ "$PROCESSOR_ARCHITECTURE" = "x86" ]; then
+            ARCH="i686"
+        else
+            ARCH="unknown"
+        fi
+        ;;
+    *)
+        # Fallback for generic Unix-like/enough systems
+        SHELL_NAME=$(basename "$SHELL")
+        ARCH=$(uname -m)
+        ;;
+esac
 
 # Setup Submodule paths
 DISKPROVISION="$ROOT/extras/DiskProvision"
@@ -96,23 +127,77 @@ if [[ -f ".internal" ]]; then
     isInternalUser=true
 fi
 
-# Define public options
-MENU_OPTIONS=(
-    "Download/Update Submodules"
-    "System Report"
-    "Dump IOMMU Table"
-    "Dynamic XML Configuration"
-    "Import XML to Virt-Manager"
-    "Launch DiskProvision"
-    "Launch DarwinFetch"
-    "Launch ProperTree"
-    "Launch GenSMBIOS"
-    "Install/Uninstall RisingPrism sGPU Scripts"
-    "Install/Uninstall akshaycodes VFIO-Script"
-    "Modify QEMU Hook Script"
-    "List Passthrough Devices via lspci"
-    "Overclock via cpupower command"
-)
+# Conditionally define menu options based on the operating system
+if [[ "$(uname)" == "Linux" ]]; then
+    # On Linux, show all options, including system-specific ones.
+
+    # Check status for RisingPrism sGPU Scripts
+    RPSGPU_REQUIRED_FILES=(
+        "/etc/systemd/system/libvirt-nosleep@.service"
+        "/usr/local/bin/vfio-startup"
+        "/usr/local/bin/vfio-teardown"
+        "/etc/libvirt/hooks/qemu"
+    )
+    RPSGPU_INSTALLED=true
+    for file in "${RPSGPU_REQUIRED_FILES[@]}"; do
+        if [[ ! -f "$file" ]]; then
+            RPSGPU_INSTALLED=false
+            break
+        fi
+    done
+    if [[ "$RPSGPU_INSTALLED" == true ]]; then
+        RPSGPU_MENU_TEXT="Uninstall RisingPrism sGPU Scripts"
+    else
+        RPSGPU_MENU_TEXT="Install RisingPrism sGPU Scripts"
+    fi
+
+    # Check status for akshaycodes VFIO-Script
+    AVFIO_REQUIRED_FILES=(
+        "/etc/systemd/system/libvirt-nosleep@.service"
+        "/etc/libvirt/hooks/qemu"
+        "/bin/vfio-script.sh"
+    )
+    AVFIO_INSTALLED=true
+    for file in "${AVFIO_REQUIRED_FILES[@]}"; do
+        if [[ ! -f "$file" ]]; then
+            AVFIO_INSTALLED=false
+            break
+        fi
+    done
+    if [[ "$AVFIO_INSTALLED" == true ]]; then
+        AVFIO_MENU_TEXT="Uninstall akshaycodes VFIO-Script"
+    else
+        AVFIO_MENU_TEXT="Install akshaycodes VFIO-Script"
+    fi
+
+    # Define the full list of options for Linux
+    MENU_OPTIONS=(
+        "Download/Update Submodules"
+        "System Report"
+        "Dump IOMMU Table"
+        "Dynamic XML Configuration"
+        "Import XML to Virt-Manager"
+        "Launch DiskProvision"
+        "Launch DarwinFetch"
+        "Launch ProperTree"
+        "Launch GenSMBIOS"
+        "$RPSGPU_MENU_TEXT"
+        "$AVFIO_MENU_TEXT"
+        "Modify QEMU Hook Script"
+        "List Passthrough Devices via lspci"
+        "Overclock via cpupower command"
+    )
+else
+    # On non-Linux systems, show a reduced set of options
+    MENU_OPTIONS=(
+        "Download/Update Submodules"
+        "System Report"
+        "Launch DiskProvision"
+        "Launch DarwinFetch"
+        "Launch ProperTree"
+        "Launch GenSMBIOS"
+    )
+fi
 
 # Append carnationsinternal options if isInternalUser is true
 if [[ "$isInternalUser" == true ]]; then
@@ -132,6 +217,10 @@ MENU_OPTIONS+=(
 # Function to display the menu
 show_menu() {
     clear
+    l2c DBG "Root directory: $ROOT"
+    l2c DBG "Shell: $SHELL_NAME"
+    l2c DBG "Architecture: $ARCH"
+
     if [[ "$isInternalUser" == true && "$DEBUG" == true ]]; then
         echo "Welcome to DarwinKVM! [Internal User Options Enabled | Debug Mode Enabled]"
     elif [[ "$isInternalUser" == true ]]; then
@@ -165,7 +254,7 @@ show_menu() {
     done
 
     echo ""
-    echo "Select an option (1-${#MENU_OPTIONS[@]})" 
+    echo "Select an option (1-${#MENU_OPTIONS[@]})"
 }
 
 # Function to ensure all submodules are setup and valid
@@ -1596,10 +1685,10 @@ while true; do
             "Launch GenSMBIOS")
                 bootstrap_gensmbios
                 ;;
-            "Install/Uninstall RisingPrism sGPU Scripts")
+            *"RisingPrism sGPU Scripts")
                 modify_rpsgpu
                 ;;
-            "Install/Uninstall akshaycodes VFIO-Script")
+            *"akshaycodes VFIO-Script")
                 modify_avfio
                 ;;
             "Modify QEMU Hook Script")
