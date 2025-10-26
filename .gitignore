@@ -3,6 +3,7 @@
 .AppleDouble
 .LSOverride
 .internal
+.internal/*
 
 # Icon must end with two \r
 Icon

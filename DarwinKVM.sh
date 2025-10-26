@@ -122,7 +122,7 @@ else
 fi
 
 # Construct the main menu
-if [[ -f ".internal" ]]; then
+if [[ -e ".internal" ]]; then
     DEBUG=true
     isInternalUser=true
 fi
