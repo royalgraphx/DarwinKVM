@@ -29,31 +29,29 @@ has_toc: false
   <img width="650" height="200" src="../../assets/Headers/HeaderGallery.png">
 </p>
 
-{: .internalnote }
-There are still screenshots that have yet to be updated with the ATI HD 5450. In the meantime, the legacy VESA / VGA screenshots are still being used. They'll be replaced soon.
-
-
 <h2 align="center">Welcome!</h2>
 
-<h5 align="center">This page is meant to be scrolled until you reach the bottom. We've worked hard to successfully archive every single release of OS X / macOS for preservation on both PowerPC and Intel platforms and you too can run your own choice of any guest OS release! Check out what they look like here.</h5>
-<h5 align="center">The entries can have various (but not all) information:</h5>
+<h5 align="center">This page is meant to be scrolled until you reach the bottom. We've worked hard to successfully archive every single release of OS X / macOS for preservation on both PowerPC and Intel platforms and you too can run your own choice or required version of any release! Need proof? Check out what they look like here!</h5>
+<h5 align="center">The entries can have various (but not all) information tagged:</h5>
 
 <br>
 <h2 align="center"><b>Name of OS release</b></h2>
 <h5 align="center"><i>Mac Model (####) - ModelIdentifier#,#</i></h5>
+<h5 align="center"><i>Another supported Mac Model (####) - ModelIdentifier#,#</i></h5>
+  <h3 align="center">
+    Architecture - Mac Product Name - Credits: @username
+  </h3>
 <div>
   <h3 align="center">
     Product Version - Product Codename (Product Build Number) - Graphics Processing Unit
   </h3>
-  <h3 align="center">
-    Architecture - Mac Product Name - Credits: @username
-  </h3>
+  <a href=""><img src="../../gallery/Example/Example.png" alt=""></a>
 </div>
 <div>
 <br>
 <br>
 
-<h5 align="center">The entries can have multiple screenshots of the various versions of said release. The gallery is sorted by chronological order. 10.6.8 will appear above 10.6.4 and so on. We also have Server variants, and AppleInternal copies running under DarwinKVM showcased here. Preservation is key! Submit your very own screenshot via the Discord in the #showcase channel for consideration in the next update.</h5>
+<h5 align="center">The entries can have multiple screenshots of the various versions of said release. The gallery is sorted by chronological order. 10.6.8 will appear above 10.6.4 and so on. We also have Server variants, and AppleInternal copies running under DarwinKVM showcased here. Preservation is key! Submit your very own screenshot via the <a href="https://discord.gg/RC53DvQd3j">Discord</a> in the <a href="https://discord.com/channels/1131552514412654683/1140004584216072252">#showcase</a> channel for consideration in the next update.</h5>
 
 <br>
 <br>
@@ -184,18 +182,11 @@ There are still screenshots that have yet to be updated with the ATI HD 5450. In
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
-    11.7.10 - VESA / VGA Graphics - x86_64
+    11.7.10 - ATI Radeon HD 5450 2GB - x86_64
   </h3>
-  <a href=""><img src="../../gallery/BigSur/ProMacBigSur.png" alt=""></a>
-</div>
-<div>
-  <h3 align="center">
-    11.0.0 - Developer Preview 1 (20A4299v) - VESA / VGA Graphics - x86_64
-  </h3>
-  <a href=""><img src="../../gallery/BigSur/110BigSurDP1MacPro71.png" alt=""></a>
+  <a href=""><img src="../../gallery/BigSur/MP51BigSurATI.png" alt=""></a>
 </div>
 
-<hr>
 <h2 align="center"><b>macOS 10.16</b></h2>
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
@@ -210,9 +201,9 @@ There are still screenshots that have yet to be updated with the ATI HD 5450. In
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
-    10.15.7 - VESA / VGA Graphics - x86_64
+    10.15.7 - ATI Radeon HD 5450 2GB - x86_64
   </h3>
-  <a href=""><img src="../../gallery/Catalina/ProMacCatalina.png" alt=""></a>
+  <a href=""><img src="../../gallery/Catalina/MP51CatalinaATI.png" alt=""></a>
 </div>
 
 <hr>
@@ -220,9 +211,9 @@ There are still screenshots that have yet to be updated with the ATI HD 5450. In
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.14.4 - VESA / VGA Graphics - x86_64
+    10.14.4 - ATI Radeon HD 5450 2GB - x86_64
   </h3>
-  <a href=""><img src="../../gallery/Mojave/ProMacMojave.png" alt=""></a>
+  <a href=""><img src="../../gallery/Mojave/MP51MojaveATI.png" alt=""></a>
 </div>
 
 <hr>
@@ -294,6 +285,12 @@ There are still screenshots that have yet to be updated with the ATI HD 5450. In
 <hr>
 <h2 align="center"><b>Mac OS X Lion</b></h2>
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<div>
+  <h3 align="center">
+    10.7.5 - ATI Radeon HD 5450 2GB - x86_64
+  </h3>
+  <a href=""><img src="../../gallery/Lion/MP51LionATI.png" alt=""></a>
+</div>
 <div>
   <h3 align="center">
     10.7.5 - GTX 470 1280MB - x86_64

@@ -404,7 +404,7 @@
 <p align="center">
   <img width="50%" height="50%" src="./docs/assets/Discord/discord-logo-white.png">
 </p>
-<h4 align="center">If you run into any issues, you can join the <a href="https://discord.gg/ryQFC8Vk7b">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. Hexley provides our discord users with a multitude of commands to assist anyone who may need specific actions performed. Such features that Hexley offers aim to speed up the process with command such as:</h4>
+<h4 align="center">If you run into any issues, you can join the <a href="https://discord.gg/RC53DvQd3j">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. Hexley provides our discord users with a multitude of commands to assist anyone who may need specific actions performed. Such features that Hexley offers aim to speed up the process with command such as:</h4>
 
 <h6 align="center">/genplatinfo - Generates PlatformInfo for a given Mac model</h6>
 <h6 align="center">/checkcoverage - Allows to get a serial numbers Coverage status</h6>

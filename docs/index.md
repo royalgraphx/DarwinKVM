@@ -72,7 +72,7 @@ nav_order: 1
 -->
 
 <h3 class="tagline">The Advanced Guide for running Mac OS X / macOS within QEMU</h3>
-<h5 class="help-text">If you run into any issues, you can join the <a href="https://discord.gg/ryQFC8Vk7b">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. Hexley provides our discord users with a multitude of commands to assist anyone who may need specific actions performed.</h5>
+<h5 class="help-text">If you run into any issues, you can join the <a href="https://discord.gg/RC53DvQd3j">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. Hexley provides our discord users with a multitude of commands to assist anyone who may need specific actions performed.</h5>
 <div style="display: flex; justify-content: center; align-items: center;">
     <iframe src="https://discord.com/widget?id=1131552514412654683&theme=dark" width="400" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 </div>
