@@ -42,7 +42,7 @@ nav_order: 3
 <br>
 
 {: .warning }
-This is required to download OS X / macOS via recoveryOS! This is also how you provide Internet Access to the guest machine by sharing.
+This is required to download OS X / macOS via recoveryOS! This is also how you provide Internet Access to the guest machine by sharing it from the host using an appropriately emulated NIC controller that is supported by the OS release you wish to use.
 
 <h2 align="center">Using the Default Network</h2>
 <br>
@@ -70,10 +70,11 @@ This is required to download OS X / macOS via recoveryOS! This is also how you p
 
 <br>
 <p align="center">
-  <strong>For Mac OS X El Capitan (10.11+) and newer:</strong> Use <code><b>vmxnet3</b></code>.
-  <br><br>
+  <strong>For Mac OS X El Capitan (10.11+) and newer:</strong> Use <code><b>vmxnet3</b></code>.<br><br>
   <strong>For Mac OS X Yosemite (10.10+) and newer:</strong> Use <code><b>e1000e</b></code>.<br><br>
-  <strong>For Mac OS X Mountain Lion (10.8-) and older:</strong> Use <code><b>e1000</b></code>.
+  <strong>For Mac OS X Mavericks (10.9) only:</strong> Use <code><b>e1000-82545em</b></code>.<br><br>
+  <strong>For Mac OS X Snow Leopard (10.6+) and newer:</strong> Use <code><b>e1000</b></code>.<br><br>
+  <strong>For Mac OS X Leopard (10.5-) and older:</strong> Use <code><b>e1000-82545em</b></code>.
 </p>
 
 <br>

@@ -24,7 +24,7 @@ nav_order: 3
 <br>
 
 {: .warning }
-This is required to download OS X / macOS via recoveryOS! This is also how you provide Internet Access to the guest machine by sharing.
+This is required to download OS X / macOS via recoveryOS! This is also how you provide Internet Access to the guest machine by sharing it from the host using an appropriately emulated NIC controller that is supported by the OS release you wish to use.
 
 <h2 align="center">Using the Default Network</h2>
 <br>

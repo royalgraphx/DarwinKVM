@@ -23,13 +23,13 @@ nav_order: 2
 
 To begin, open your DarwinKVM window from Virt-Manager and head to the XML tab.
 
-If you've already done [Virtio IO Thread](../../13-VirtioIOThread/index) then you'll put this under
+If you've already done [Virtio IO Thread](../../05-VirtIOThread/index) then you'll put this under
 
 ```xml
 <iothreads>1</iothreads>
 ```
 
-If you've already done [Fake Core Count](../../07-FakeCoreCount/index) then you'll put this under
+If you've already done [Fake Core Count](../../03-FakeCoreCount/index) then you'll put this under
 
 ```xml
 <vcpus>
@@ -123,7 +123,7 @@ Don't forget! vCPU 13 is actually Thread 14! We start counting from 0 not 1.
 That is all. This should automatically allocate starting from Core 2 (Thread 2. LP #2), all the way up to the very last core on your system. Such as the image below shows.
 
 <p align="center">
-  <img src="../../../assets/lstopo-idealvmstart.png">
+  <img src="../../../assets/writeups/ThreadPinning/lstopo-idealvmstart.png">
 </p>
 
 <br>

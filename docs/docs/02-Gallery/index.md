@@ -61,6 +61,12 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
+    26.1 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="../../gallery/Tahoe/HacPro261.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
     26.0.0 Developer Beta 1 - RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Tahoe/HacPro26Beta.png" alt=""></a>

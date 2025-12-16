@@ -12,11 +12,11 @@ nav_order: 5
 Open up the installed Override plist file, you can do this via TextEdit or ProperTree.
 
 <p align="center">
-  <img src="../../../assets/OverridesHiDPI.png">
+  <img src="../../../assets/writeups/DisplayOverrides/OverridesHiDPI.png">
 </p>
 
 <p align="center">
-  <img src="../../../assets/OverridesHiDPIPT.png">
+  <img src="../../../assets/writeups/DisplayOverrides/OverridesHiDPIPT.png">
 </p>
 
 To understand what we added, you can open the file with TextEdit, to paste this section in
@@ -72,19 +72,19 @@ Once you've applied your changes, reboot macOS and you should now see the resolu
 ## Before
 
 <p align="center">
-  <img src="../../../assets/OverridesHiDPIBefore.png">
+  <img src="../../../assets/writeups/DisplayOverrides/OverridesHiDPIBefore.png">
 </p>
 
 ## After
 
 <p align="center">
-  <img src="../../../assets/OverridesHiDPIAfter.png">
+  <img src="../../../assets/writeups/DisplayOverrides/OverridesHiDPIAfter.png">
 </p>
 
 As you can see, this enabled the ability to use 2K on a 1080p TV Display.
 
 <p align="center">
-  <img src="../../../assets/Overrides2Kexample.png">
+  <img src="../../../assets/writeups/DisplayOverrides/Overrides2Kexample.png">
 </p>
 
 ## You can now return to the <a href="../index">Display Overrides</a> Table of Contents.

@@ -23,7 +23,7 @@ aplay -l
 Here is an example of what it will look like:
 
 <p align="center">
-  <img src="../../../assets/HWCheckALC.png">
+  <img src="../../../assets/writeups/MoboAudio/HWCheckALC.png">
 </p>
 
 As you can see, my audio codec is ``ALC1220``. Take note of this somewhere, as it will be needed later.

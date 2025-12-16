@@ -27,116 +27,190 @@ nav_order: 4
 <br>
 
 {: .note }
-This is the Table of Contents! You can scroll through to get an idea of every page in DarwinKVM.
+Welcome to the Table of Contents! You can scroll and browse through to get an idea of every page in DarwinKVM. Open a section by clicking the arrow. To go to any page, click on the title!
 
-<h2><b>Welcome Area</b></h2>
+<br>
+<details markdown="block">
+<summary>Welcome Area</summary>
+
 - [About This Project](01-About)
 - [Requirements](02-Requirements)
 - [Setting Expectations](03-SettingExpectations)
 - [Docs Layout Overview](04-DocsExplained) <- You are currently here!
 
-<h2><b>1. Host Hardware</b></h2>
-- [Hardware Limitations]()
-- [Know Your Hardware]()
-- [Compatibility Charts]()
-  - [CPU Support Check]()
-  - [GPU Support Check]()
-    - [AMD GPU Support Chart]()
-    - [NVIDIA GPU Support Chart]()
-- [Post-Check Recap]()
+</details>
 
-<h2><b>2. Hypervisor Configuration</b></h2>
-- [Understanding Tasks]()
-- [Cloning the Repo]()
-- [BIOS Configuration]()
-- [Kernel Parameters]()
-  - [GRUB Configuration]()
-  - [systemd-boot Configuration]()
-- [Package Installation]()
-  - [Arch Based]()
-  - [Debian Based]()
-  - [Fedora Based]()
-  - [Nobara Project]()
-- [Package Configuration]()
-- [Networking Configuration]()
-- [IOMMU Viability]()
-- [Guest Target Architecture]()
-  - [i386/x86_64]()
-  - [PowerPC]()
+<br>
+<details markdown="block">
+<summary>Host Hardware</summary>
 
-<h2><b>3. OpenCore Configuration</b></h2>
-- [Understanding Tasks]()
-- [DiskProvision]()
-  - [Image Creation]()
-  - [<i>Extended Info</i>]()
-- [Using DarwinOCPkg]()
-- [EFI Layout Config]()
-  - [ACPI]()
-  - [Drivers]()
-  - [Kexts]()
-  - [Resources]()
-  - [Tools]()
-- [ProperTree Usage]()
-- [OpenCore Configurations]()
-  - [MacPro7,1]()
-  - [MacPro5,1 or Older]()
-- [Fetching Installer]()
-  - [recoveryOS]()
-  - [Full / Offline]()
-  - [PowerPC]()
+- [Hardware Limitations](../../host/01-HardwareLimitations)
+- [Know Your Hardware](../../host/02-KnowYourHardware)
+- [Compatibility Charts](../../host/03-CompatibilityCharts/index)
+  - [CPU Support Check](../../host/03-CompatibilityCharts/01-CPU)
+  - [GPU Support Check](../../host/03-CompatibilityCharts/02-GPU/index)
+    - [AMD GPU Support Chart](../../host/03-CompatibilityCharts/02-GPU/01-AMD)
+    - [NVIDIA GPU Support Chart](../../host/03-CompatibilityCharts/02-GPU/02-NVIDIA)
+- [Post-Check Recap](../../host/04-PostCheck)
 
-<h2><b>4. Virtual Machine Manager Configuration</b></h2>
-- [Understanding Tasks]()
-- [First VMM Launch]()
-- [XML Importer]()
-- [Initial Configuration]()
-  - [MacPro7,1]()
-    - [Configuring Display]()
-    - [Configuring Storage Drives]()
-    - [Configure NIC]()
-    - [Finished Overview]()
-  - [MacPro5,1 or Older]()
-    - [Configuring Display]()
-    - [Configuring Storage Drives]()
-    - [Configure NIC]()
-    - [Finished Overview]()
-- [GPU Passthrough]()
-  - [Single GPU Passthrough]()
-    - [Script Installation]()
-    - [Hook Modification]()
-    - [Configuring Virt-Manager]()
-    - [Complete!]()
-  - [Dual GPU Passthrough]()
-    - [Finding Device IDs]()
-    - [Setting Kernel Parameters]()
-      - [GRUB Configuration]()
-      - [systemd-boot Configuration]()
-    - [Configuring modprobe]()
-    - [Configuring Virt-Manager]()
-    - [Complete!]()
+</details>
 
-<hr>
+<br>
+<details markdown="block">
+<summary>Hypervisor Configuration</summary>
+
+- [Understanding Tasks](../../hypervisor/00-Introduction/)
+- [Cloning the Repo](../../hypervisor/01-Git-Clone-Recursive/)
+- [BIOS Configuration](../../hypervisor/02-BIOS-Settings/)
+- [Kernel Parameters](../../hypervisor/03-Kernel-Parameters/index/)
+  - [GRUB Configuration](../../hypervisor/03-Kernel-Parameters/01-GRUB/)
+  - [systemd-boot Configuration](../../hypervisor/03-Kernel-Parameters/02-SysDBoot/)
+- [Package Installation](../../hypervisor/04-Package-Install/index/)
+  - [Arch Based](../../hypervisor/04-Package-Install/01-Arch/)
+  - [Debian Based](../../hypervisor/04-Package-Install/02-Debian/)
+  - [Fedora Based](../../hypervisor/04-Package-Install/03-Fedora/)
+  - [Nobara Project](../../hypervisor/04-Package-Install/04-Nobara/)
+- [Package Configuration](../../hypervisor/05-Package-Configuration/)
+- [Networking Configuration](../../hypervisor/06-Networking-Configuration/)
+- [IOMMU Viability](../../hypervisor/07-IOMMU-Viability/)
+- [Guest Target Architecture](../../hypervisor/08-Guest-Target-Decision/index/)
+  - [i386/x86_64](../../hypervisor/08-Guest-Target-Decision/01-x86_64/)
+  - [PowerPC](../../hypervisor/08-Guest-Target-Decision/02-PowerPC/)
+
+</details>
+
+<br>
+<details markdown="block">
+<summary>OpenCore Configuration</summary>
+
+- [Understanding Tasks](../../opencore/01-Introduction/)
+- [Disk Image Creation](../../opencore/02-ImageCreation/index/)
+  - [Using Terminal](../../opencore/02-ImageCreation/01-Terminal/index/)
+    - [Package Installation](../../opencore/02-ImageCreation/01-Terminal/01-PackageInstallation/)
+    - [Creation and Management](../../opencore/02-ImageCreation/01-Terminal/02-CreateAndManagement/)
+  - [Using DiskProvision](../../opencore/02-ImageCreation/02-DiskProvision/index)
+    - [Image Creation](../../opencore/02-ImageCreation/02-DiskProvision/01-Image-Creation/)
+    - [<i>Extended Info</i>](../../opencore/02-ImageCreation/02-DiskProvision/02-Extended-Usage/)
+- [Disk Image Contents](../../opencore/03-ImageContents/index/)
+  - [Using OpenCorePkg](../../opencore/03-ImageContents/01-OpenCorePkg/index/)
+    - [Sourcing OpenCorePkg](../../opencore/03-ImageContents/01-OpenCorePkg/01-SourceOCPKG/)
+    - [Base Changes for config.plist](../../opencore/03-ImageContents/01-OpenCorePkg/02-ConfigurationChanges)
+  - [Using DarwinOCPkg](../../opencore/03-ImageContents/02-DarwinOCPkg)
+- [EFI Layout Config](../../opencore/04-FilePlacement/index/)
+  - [ACPI](../../opencore/04-FilePlacement/01-ACPI/)
+  - [Drivers](../../opencore/04-FilePlacement/02-Drivers)
+  - [Kexts](../../opencore/04-FilePlacement/03-Kexts)
+  - [Resources](../../opencore/04-FilePlacement/04-Resources)
+  - [Tools](../../opencore/04-FilePlacement/05-Tools)
+- [ProperTree Usage](../../opencore/05-ProperTreeUI/)
+- [OpenCore Configurations](../../opencore/06-OpenCoreConfigurations/index/)
+  - [MacPro7,1](../../opencore/06-OpenCoreConfigurations/01-MacPro71/index/)
+  - [MacPro5,1 or Older](../../opencore/06-OpenCoreConfigurations/02-MacPro51/index/)
+- [Fetching Installer](../../opencore/07-FetchingInstaller/index/)
+  - [recoveryOS](../../opencore/07-FetchingInstaller/01-recoveryOS/index/)
+  - [Full / Offline](../../opencore/07-FetchingInstaller/02-Full/index/)
+  - [PowerPC](../../opencore/07-FetchingInstaller/03-PowerPC/)
+
+</details>
+
+<br>
+<details markdown="block">
+<summary>Virtual Machine Manager Configuration</summary>
+
+- [Understanding Tasks](../../virtman/01-Introduction/)
+- [First VMM Launch](../../virtman/02-VMM-First-Launch/)
+- [XML Importer](../../virtman/03-XML-Importer/)
+- [Initial Configuration](../../virtman/04-Initial-Configuration/index/)
+  - [MacPro7,1](../../virtman/04-Initial-Configuration/01-MacPro71/index/)
+    - [Configuring Display](../../virtman/04-Initial-Configuration/01-MacPro71/01-ConfigDisplay/)
+    - [Configuring Storage Drives](../../virtman/04-Initial-Configuration/01-MacPro71/02-ConfigDrives/)
+    - [Configure NIC](../../virtman/04-Initial-Configuration/01-MacPro71/03-ConfigNIC/)
+    - [Finished Overview](../../virtman/04-Initial-Configuration/01-MacPro71/04-Review/)
+  - [MacPro5,1 or Older](../../virtman/04-Initial-Configuration/02-MacPro51/index/)
+    - [Configuring Display](../../virtman/04-Initial-Configuration/02-MacPro51/01-ConfigDisplay/)
+    - [Configuring Storage Drives](../../virtman/04-Initial-Configuration/02-MacPro51/02-ConfigDrives/)
+    - [Configure NIC](../../virtman/04-Initial-Configuration/02-MacPro51/03-ConfigNIC/)
+    - [Finished Overview](../../virtman/04-Initial-Configuration/02-MacPro51/04-Review/)
+- [GPU Passthrough](../../virtman/05-GPU-Passthrough/index/)
+  - [Single GPU Passthrough](../../virtman/05-GPU-Passthrough/01-sGPU/index/)
+    - [Script Installation](../../virtman/05-GPU-Passthrough/01-sGPU/01-Installation/)
+    - [Hook Modification](../../virtman/05-GPU-Passthrough/01-sGPU/02-HookModification/)
+    - [Configuring Virt-Manager](../../virtman/05-GPU-Passthrough/01-sGPU/03-VirtManConf/)
+    - [Complete!](../../virtman/05-GPU-Passthrough/01-sGPU/04-Finish/)
+  - [Dual GPU Passthrough](../../virtman/05-GPU-Passthrough/02-dGPU/index/)
+    - [Finding Device IDs](../../virtman/05-GPU-Passthrough/02-dGPU/01-FindingDevIDs/)
+    - [Setting Kernel Parameters](../../virtman/05-GPU-Passthrough/02-dGPU/02-KernelParameters/index/)
+      - [GRUB Configuration](../../virtman/05-GPU-Passthrough/02-dGPU/02-KernelParameters/01-GRUB/)
+      - [systemd-boot Configuration](../../virtman/05-GPU-Passthrough/02-dGPU/02-KernelParameters/02-SysDBoot/)
+    - [Configuring modprobe](../../virtman/05-GPU-Passthrough/02-dGPU/03-ModProbeConf/)
+    - [Configuring Virt-Manager](../../virtman/05-GPU-Passthrough/02-dGPU/04-VirtManConf/)
+    - [Complete!](../../virtman/05-GPU-Passthrough/02-dGPU/05-Finish/)
+
+</details>
+
+<br>
+<details markdown="block">
+<summary>Virtual Machine Manager Configuration</summary>
+
+- [Understanding Tasks](../../virtman/01-Introduction/)
+- [First VMM Launch](../../virtman/02-VMM-First-Launch/)
+- [XML Importer](../../virtman/03-XML-Importer/)
+- [Initial Configuration](../../virtman/04-Initial-Configuration/index/)
+  - [MacPro7,1](../../virtman/04-Initial-Configuration/01-MacPro71/index/)
+    - [Configuring Display](../../virtman/04-Initial-Configuration/01-MacPro71/01-ConfigDisplay/)
+    - [Configuring Storage Drives](../../virtman/04-Initial-Configuration/01-MacPro71/02-ConfigDrives/)
+    - [Configure NIC](../../virtman/04-Initial-Configuration/01-MacPro71/03-ConfigNIC/)
+    - [Finished Overview](../../virtman/04-Initial-Configuration/01-MacPro71/04-Review/)
+  - [MacPro5,1 or Older](../../virtman/04-Initial-Configuration/02-MacPro51/index/)
+    - [Configuring Display](../../virtman/04-Initial-Configuration/02-MacPro51/01-ConfigDisplay/)
+    - [Configuring Storage Drives](../../virtman/04-Initial-Configuration/02-MacPro51/02-ConfigDrives/)
+    - [Configure NIC](../../virtman/04-Initial-Configuration/02-MacPro51/03-ConfigNIC/)
+    - [Finished Overview](../../virtman/04-Initial-Configuration/02-MacPro51/04-Review/)
+- [GPU Passthrough](../../virtman/05-GPU-Passthrough/index/)
+  - [Single GPU Passthrough](../../virtman/05-GPU-Passthrough/01-sGPU/index/)
+    - [Script Installation](../../virtman/05-GPU-Passthrough/01-sGPU/01-Installation/)
+    - [Hook Modification](../../virtman/05-GPU-Passthrough/01-sGPU/02-HookModification/)
+    - [Configuring Virt-Manager](../../virtman/05-GPU-Passthrough/01-sGPU/03-VirtManConf/)
+    - [Complete!](../../virtman/05-GPU-Passthrough/01-sGPU/04-Finish/)
+  - [Dual GPU Passthrough](../../virtman/05-GPU-Passthrough/02-dGPU/index/)
+    - [Finding Device IDs](../../virtman/05-GPU-Passthrough/02-dGPU/01-FindingDevIDs/)
+    - [Setting Kernel Parameters](../../virtman/05-GPU-Passthrough/02-dGPU/02-KernelParameters/index/)
+      - [GRUB Configuration](../../virtman/05-GPU-Passthrough/02-dGPU/02-KernelParameters/01-GRUB/)
+      - [systemd-boot Configuration](../../virtman/05-GPU-Passthrough/02-dGPU/02-KernelParameters/02-SysDBoot/)
+    - [Configuring modprobe](../../virtman/05-GPU-Passthrough/02-dGPU/03-ModProbeConf/)
+    - [Configuring Virt-Manager](../../virtman/05-GPU-Passthrough/02-dGPU/04-VirtManConf/)
+    - [Complete!](../../virtman/05-GPU-Passthrough/02-dGPU/05-Finish/)
+
+</details>
+
+<br>
+<details markdown="block">
+<summary>Write-Ups</summary>
 
 {: .note }
-This is the Post-Installation section of the Docs. This involves fixing up some slight cosmetic stuff, as well as optimizing the virtual machine further.
+This is the Post-Installation section of the Docs. This involves fixing up some slight cosmetic stuff, as well as optimizing the virtual machine host further by including various advanced hypervisor configuration information.
 
-<h2><b>Write-Ups</b></h2>
-- [Table of Contents]()
-- [Custom Memory Mapping]()
-- [Fake Core Count]()
-- [Thread Pinning]()
-- [VirtIO Threads]()
-- [Motherboard Audio]()
-- [KB/M Sharing with Evdev]()
-- [USB Mapping]()
-- [RestrictEvents Usage]()
-- [DeviceProperties]()
-- [sPPT / Zero-RPM Disable]()
-- [Display Overrides]()
-- [Bridged Networking]()
-- [Host Overclocking]()
-- [Legacy NVIDIA Patching]()
+<br>
 
+- [Table of Contents](../../writeups/01-Introduction/)
+- [Custom Memory Mapping](../../writeups/02-Custom-Memory-Mapping/index/)
+- [Fake Core Count](../../writeups/03-FakeCoreCount/index/)
+- [Thread Pinning](../../writeups/04-ThreadPinning/index/)
+- [VirtIO Threads](../../writeups/05-VirtIOThread/index/)
+- [Motherboard Audio](../../writeups/06-MotherboardAudio/index/)
+- [KB/M Sharing with Evdev](../../writeups/07-EvdevKBM/index/)
+- [USB Mapping](../../writeups/08-USB-Mapping/index/)
+- [RestrictEvents Usage](../../writeups/09-RestrictEvents/index/)
+- [DeviceProperties](../../writeups/10-DeviceProperties/index/)
+- [sPPT / Zero-RPM Disable](../../writeups/11-sPPT/index/)
+- [Display Overrides](../../writeups/12-DisplayOverrides/index/)
+- [Bridged Networking](../../writeups/13-Bridge/index/)
+- [Host Overclocking](../../writeups/14-HostOC/index/)
+- [Legacy NVIDIA Patching](../../writeups/15-OCLP/index/)
+
+</details>
+
+<br>
 <h3 align="center">When you are ready to continue, you may.</h3>
 
 <h2 align="center">

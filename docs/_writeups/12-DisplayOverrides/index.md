@@ -8,11 +8,11 @@ nav_order: 12
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/HeaderDisplayOverridesTextOnly.png">
+  <img width="650" height="200" src="../../../assets/Headers/HeaderDisplayOverrides.png">
 </p>
 
 {: .important }
-This information is thanks to <a href="https://github.com/mafredri">mafredri</a> and the <a href="https://github.com/mafredri/macos-display-overrides/tree/master">macos-display-overrides</a> repository on Github, you can cd to the directory included in this repo for more in depth information!
+This information is thanks to <a href="https://github.com/mafredri">mafredri</a> and the <a href="https://github.com/mafredri/macos-display-overrides/tree/master">macos-display-overrides</a> repository on Github.
 
 This guide will cover the basics of using macOS's Display Overrides ability to fix some issues with incompatible displays when using a hac. You'll first need to determine what is wrong with your current display. Possible fixes that are covered in this write-up are below.
 

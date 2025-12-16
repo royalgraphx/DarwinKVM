@@ -8,7 +8,7 @@ nav_order: 15
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/HeaderNVPatch.png">
+  <img width="650" height="200" src="../../../assets/Headers/HeaderNVPatch.png">
 </p>
 
 This writeup goes over how to get NVIDIA GPUs working on newer macOS versions via OpenCore Legacy Patcher.

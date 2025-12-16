@@ -8,7 +8,7 @@ nav_order: 6
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/HeaderMoboAudio.png">
+  <img width="650" height="200" src="../../../assets/Headers/HeaderMotherboardAudio.png">
 </p>
 
 {: .important }

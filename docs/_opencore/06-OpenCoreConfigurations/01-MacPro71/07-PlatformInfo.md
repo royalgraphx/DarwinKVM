@@ -43,7 +43,10 @@ Can be ignored for now. Documentation in progress.
 Make sure that you are using an invalid serial number! When visiting the [Check Device Coverage](https://checkcoverage.apple.com/) page on Apple's website, your serial number should not report an exising Mac, and you should get an error message such as "Please enter a valid serial number".
 
 {: .new }
-Hexley, in the DarwinKVM Discord can generate an SMBIOS on the fly via a slash command!
+> Hexley, in the DarwinKVM Discord can generate an SMBIOS on the fly via a slash command!
+> 
+> Try using <code>/genplatinfo MacPro7,1</code> !
+> 
 
 At this point in the guide, you'll need to open a terminal and an instance of [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS). You can do this from the Main Menu of DarwinKVMs script. Select option 1 for downloading MacSerial and Option 3 for generating SMBIOS. For this Cascade Lake example, we'll choose the MacPro7,1 SMBIOS.
 

@@ -23,7 +23,7 @@ Example of properly installed overrride
 ```
 
 <p align="center">
-  <img src="../../../assets/OverridesInstallation.png">
+  <img src="../../../assets/writeups/DisplayOverrides/OverridesInstallation.png">
 </p>
 
 <h2 align="center">Available Overrides</h2>

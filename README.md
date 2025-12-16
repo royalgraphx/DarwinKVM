@@ -25,6 +25,12 @@
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
+    26.1 - RX 6600 8GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Tahoe/HacPro261.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
     26.0.0 - RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="./docs/gallery/Tahoe/HacPro26Beta.png" alt=""></a>
@@ -145,15 +151,9 @@
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
-    11.7.10 - VESA / VGA Graphics - x86_64
+    11.7.10 - ATI HD 5450 2GB - x86_64
   </h3>
-  <a href=""><img src="./docs/gallery/BigSur/ProMacBigSur.png" alt=""></a>
-</div>
-<div>
-  <h3 align="center">
-    11.0.0 - Developer Preview 1 (20A4299v) - VESA / VGA Graphics - x86_64
-  </h3>
-  <a href=""><img src="./docs/gallery/BigSur/110BigSurDP1MacPro71.png" alt=""></a>
+  <a href=""><img src="./docs/gallery/BigSur/MP51BigSurATI.png" alt=""></a>
 </div>
 
 <hr>
@@ -171,9 +171,9 @@
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
-    10.15.7 - VESA / VGA Graphics - x86_64
+    10.15.7 - ATI Radeon HD 5450 2GB - x86_64
   </h3>
-  <a href=""><img src="./docs/gallery/Catalina/ProMacCatalina.png" alt=""></a>
+  <a href=""><img src="./docs/gallery/Catalina/MP51CatalinaATI.png" alt=""></a>
 </div>
 
 <hr>
@@ -181,9 +181,9 @@
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.14.4 - VESA / VGA Graphics - x86_64
+    10.14.4 - ATI Radeon HD 5450 2GB - x86_64
   </h3>
-  <a href=""><img src="./docs/gallery/Mojave/ProMacMojave.png" alt=""></a>
+  <a href=""><img src="./docs/gallery/Mojave/MP51MojaveATI.png" alt=""></a>
 </div>
 
 <hr>
@@ -255,6 +255,12 @@
 <hr>
 <h2 align="center"><b>Mac OS X Lion</b></h2>
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
+<div>
+  <h3 align="center">
+    10.7.5 - ATI Radeon HD 5450 2GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Lion/MP51LionATI.png" alt=""></a>
+</div>
 <div>
   <h3 align="center">
     10.7.5 - GTX 470 1280MB - x86_64

@@ -40,18 +40,18 @@ has_toc: false
 <h3 align="center">Time to add OpenCore!</h3>
 
 <br>
-<p align="center">This page allows you to choose between the Carnations Botanica maintained DarwinOCPkg, or use and configure the latest OpenCorePkg from Acidanthera, the creators/maintainers of the OpenCore bootloader. The recommended route is configuring OpenCorePkg manually from scratch, but for those who would prefer to have the content like SSDTs already created, you can use DarwinOCPkg.</p>
+<p align="center">This page allows you to choose between the Carnations Botanica maintained DarwinOCPkg, or learn how to use and configure the latest OpenCorePkg from Acidanthera, the creators/maintainers of the OpenCore bootloader. The recommended route is configuring using the included DarwinOCPkg, but for those who would prefer to learn how we created the configurations and how to do so, you can learn with the available secondary option.</p>
 
 <p align="center">
 
 <h2 align="center">
   <br>
   <div class="ocpkg-next-button-container">
-  <a class="ocpkg-next-button" href="../01-OpenCorePkg/index">OpenCorePkg &rarr;</a>
+  <a class="ocpkg-next-button" href="../02-DarwinOCPkg">DarwinOCPkg &rarr;</a>
   </div>
   <div class="navigation-container">
     <a class="nav-button" href="../../02-ImageCreation/index">&larr; Back Page</a>
-    <a class="nav-button" href="../02-DarwinOCPkg">DarwinOCPkg &rarr;</a>
+    <a class="nav-button" href="../01-OpenCorePkg/index">OpenCorePkg &rarr;</a>
   </div>
   <br>
 </h2>

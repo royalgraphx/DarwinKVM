@@ -36,6 +36,9 @@ has_toc: false
   <img width="650" height="200" src="../../../assets/Headers/HeaderPackageInstallation.png">
 </p>
 
+{: .warning }
+Be aware that various packages can cause issues when it comes to Single or Multi-GPU host configurations, avoid packages like: <code>OpenRGB</code>, <code>Docker</code>, and <code>openrazer-daemon</code>. Any package that creates a runtime or daemon service that persists forcefully and cannot be terminated by other PIDs, will cause issues when it comes to PCIe passthrough, not allowing VFIO to properly init.
+
 <h2 align="center">Time to install the required Packages!</h2>
 
 <br>

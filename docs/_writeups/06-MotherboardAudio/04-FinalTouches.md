@@ -13,7 +13,7 @@ Let's go ahead and clean this up by making the layout more permanent.
 Open [Hackintool](https://github.com/benbaker76/Hackintool) and navigate to the PCI Section.
 
 <p align="center">
-  <img src="../../../assets/HackinToolPCIFPA.png">
+  <img src="../../../assets/writeups/MoboAudio/HackinToolPCIFPA.png">
 </p>
 
 You'll be looking for a device that has ``HDEF`` in the IOReg Name. You'll be copying the Device Path for use next.
@@ -25,11 +25,11 @@ You'll need to open your OpenCore config.plist in ProperTree. Create a new child
 The name of the dictionary is going to be the PciRoot you just copied from Hackintool. You may or may not already be injecting other Device Properties, you can ignore my other one.
 
 <p align="center">
-  <img src="../../../assets/OpenCoreFPANewDevProp.png">
+  <img src="../../../assets/writeups/MoboAudio/OpenCoreFPANewDevProp.png">
 </p>
 
 <p align="center">
-  <img src="../../../assets/OpenCoreFPAFinished.png">
+  <img src="../../../assets/writeups/MoboAudio/OpenCoreFPAFinished.png">
 </p>
 
 You will then create a new child number under that dictionary, to hold the ``layout-id`` property. In this example, this was what I wrote:
@@ -43,7 +43,7 @@ This section of course is optional, you can continue to use the boot-arg, but...
 Don't forget to remove the boot-arg! Never use both!
 
 <p align="center">
-  <img src="../../../assets/OpenCoreFPARemoveBoot.png">
+  <img src="../../../assets/writeups/MoboAudio/OpenCoreFPARemoveBoot.png">
 </p>
 
 Reboot, verify everything is working as expected, and you now have FPA and RPA Audio!

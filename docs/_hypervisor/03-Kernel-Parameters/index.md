@@ -39,10 +39,10 @@ has_toc: false
 <h2 align="center">
   <br>
   <div class="systemd-next-button-container">
-    <a class="systemd-next-button" href="../02-SysDBoot">systemd-boot &rarr;</a>
+    <a class="systemd-next-button" href="../01-GRUB">GRUB bootloader &rarr;</a>
   </div>
   <div class="navigation-container">
     <a class="nav-button" href="../../02-BIOS-Settings">&larr; Back Page</a>
-    <a class="nav-button" href="../01-GRUB/">GRUB Bootloader &rarr;</a>
+    <a class="nav-button" href="../02-SysDBoot/">systemd-boot &rarr;</a>
   </div>
 <br>

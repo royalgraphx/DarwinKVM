@@ -11,31 +11,31 @@ nav_order: 2
 Let's open Virt-Manager and add a new device via PCI. Select your Audio Controller.
 
 <p align="center">
-  <img src="../../../assets/VManAddFPA.png">
+  <img src="../../../assets/writeups/MoboAudio/VManAddFPA.png">
 </p>
 
 Let's select it on the right-hand side and view the XML. There's an issue we must correct, the bus and slot are not where macOS/AppleALC expect it to be.
 
 <p align="center">
-  <img src="../../../assets/VManFPABeforeFix.png">
+  <img src="../../../assets/writeups/MoboAudio/VManFPABeforeFix.png">
 </p>
 
 To fix this issue, we must set the ``bus`` to ``0x00``. But we'll run into an issue, other devices will possibly be using it already, and won't allow us to use it. Instead we must slowly increment the slot that the Audio Controller is in, that the VM will see. Here is a failed attempt at trying to use the Audio controller in ``Bus 0x00`` and ``Slot 0x00``:
 
 <p align="center">
-  <img src="../../../assets/VManFPAAttempt.png">
+  <img src="../../../assets/writeups/MoboAudio/VManFPAAttempt.png">
 </p>
 
 The reason is actually because the SATA Controller which isn't removable, has ended up in ``Bus 0x00`` and ``Slot 0x1f`` as shown here:
 
 <p align="center">
-  <img src="../../../assets/VManFPAAttemptReason.png">
+  <img src="../../../assets/writeups/MoboAudio/VManFPAAttemptReason.png">
 </p>
 
 So let's go ahead and try the next available slot ``0x02``.
 
 <p align="center">
-  <img src="../../../assets/VManFPAAfterFix.png">
+  <img src="../../../assets/writeups/MoboAudio/VManFPAAfterFix.png">
 </p>
 
 That seems to have saved correctly! We've now assigned the Audio Controller to be put in the Virtual Machine at ``Bus 0x00`` and Slot ``0x02``. You may for whatever reason still need to count upward until you find a free slot. For those who do, here is a simple continuation...

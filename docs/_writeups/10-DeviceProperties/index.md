@@ -8,7 +8,7 @@ nav_order: 10
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/HeaderDeviceProperties.png">
+  <img width="650" height="200" src="../../../assets/Headers/HeaderDeviceProperties.png">
 </p>
 
 {: .warning }

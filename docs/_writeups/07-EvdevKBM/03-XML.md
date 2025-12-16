@@ -15,7 +15,7 @@ nav_order: 3
 First, let's remove the USB controller from the virtual machine.
 
 <p align="center">
-    <img src="../../../assets/VManRemoveUSBController.png"/>
+    <img src="../../../assets/writeups/EvDevKBM/VManRemoveUSBController.png"/>
 </p>
 
 Now, we need to edit the XML of the virtual machine. Go to Overview > XML, and scroll down until you see the following lines:
@@ -49,7 +49,7 @@ Now, **before** the mouse and keyboard XML, copy and paste the following XML to 
 
 
 <p align="center">
-    <img src="../../../assets/VManAddingEvdevDevices.png"/>
+    <img src="../../../assets/writeups/EvDevKBM/VManAddingEvdevDevices.png"/>
 </p>
 
 {: .note }
@@ -60,11 +60,11 @@ You should then see two 'Input' devices and one extra 'Keyboard' device in the s
 Sample configuration for the keyboard (should be similar for mouse as well):
 
 <p align="center">
-    <img src="../../../assets/VManEvdevInputDetails.png"/>
+    <img src="../../../assets/writeups/EvDevKBM/VManEvdevInputDetails.png"/>
 </p>
 
 <p align="center">
-    <img src="../../../assets/VManEvdevInputXML.png"/>
+    <img src="../../../assets/writeups/EvDevKBM/VManEvdevInputXML.png"/>
 </p>
 
 Now we need to add a mouse. To do this go to 'Add Hardware' then 'Input' then select 'USB Mouse'.

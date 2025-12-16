@@ -24,9 +24,6 @@ has_toc: false
   <img width="650" height="200" src="../../assets/Headers/Header-Write-Ups.png">
 </p>
 
-{: .internalnote }
-A lot of the following write-ups are still broken. Screenshots are not loading, there are various broken links, and overall things should be fixed soon. The core DarwinKVM experience is near complete, and was worth migrating over.
-
 <h5 align="center">Click on the name of any Write-Up to go through it!</h5>
 
 | **Name** | **Quick Description** |

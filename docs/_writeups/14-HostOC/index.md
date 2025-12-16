@@ -8,7 +8,7 @@ nav_order: 14
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/HeaderHostOC.png">
+  <img width="650" height="200" src="../../../assets/Headers/HeaderHostOC.png">
 </p>
 
 {: .new }

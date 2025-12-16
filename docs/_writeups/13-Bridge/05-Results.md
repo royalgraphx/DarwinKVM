@@ -35,7 +35,7 @@ You can now issue the ``ip a s`` command to see your working configuration! Here
 Now that we have our br0 functioning, let's go ahead and add it to the Virtual Machine, remove the old default network NIC, or if you have none that's good too. Select the "Add Hardware" button and choose the Network category on the left-hand side. You can now see your network source can be set to Bridge device. The device name given by the script is ``br0``. Of course don't forget to set the Device model as ``virtio``.
 
 <p align="center">
-  <img src="../../../assets/VManAddBridgeNIC.png">
+  <img src="../../../assets/writeups/BridgedNetworking/VManAddBridgeNIC.png">
 </p>
 
 # Functional Bridge results
@@ -43,19 +43,19 @@ Now that we have our br0 functioning, let's go ahead and add it to the Virtual M
 <h3 align="center">This is the guest macOS talking to devices on the broader network.</h3>
 
 <p align="center">
-  <img src="../../../assets/BridgeNetworkingHypervisorSSH.png">
+  <img src="../../../assets/writeups/BridgedNetworking/BridgeNetworkingHypervisorSSH.png">
 </p>
 
 <p align="center">
-  <img src="../../../assets/BridgeNetworkingLocalTerminal.png">
+  <img src="../../../assets/writeups/BridgedNetworking/BridgeNetworkingLocalTerminal.png">
 </p>
 
 <p align="center">
-  <img src="../../../assets/BridgeNetworkingRPI.png">
+  <img src="../../../assets/writeups/BridgedNetworking/BridgeNetworkingRPI.png">
 </p>
 
 <p align="center">
-  <img src="../../../assets/BridgeNetworkingRouterDash.png">
+  <img src="../../../assets/writeups/BridgedNetworking/BridgeNetworkingRouterDash.png">
 </p>
 
 #### Thanks for reading!

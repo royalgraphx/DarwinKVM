@@ -8,7 +8,7 @@ nav_order: 13
 ---
 
 <p align="center">
-  <img width="650" height="200" src="../../../assets/HeaderBridgeNetworkingTextOnly.png">
+  <img width="650" height="200" src="../../../assets/Headers/HeaderBridgeNetworking.png">
 </p>
 
 {: .warning }

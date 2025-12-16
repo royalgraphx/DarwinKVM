@@ -11,7 +11,7 @@ nav_order: 1
 Lets begin by getting [Hackintool](https://github.com/benbaker76/Hackintool/releases) onto our system. Choosing the latest release, we can then unzip and move the Hackintool.app to the Applications folder. Go ahead and launch the application.
 
 <p align="center">
-  <img src="../../../assets/HackintoolIdle.png">
+  <img src="../../../assets/writeups/DisplayOverrides/HackintoolIdle.png">
 </p>
 
 ## You can now continue to the next <a href="../02-DumpingDisplay">page</a>.

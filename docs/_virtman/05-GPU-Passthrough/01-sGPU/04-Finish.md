@@ -27,7 +27,7 @@ nav_order: 4
 
 <h4 align="center">Enjoy a screenshot of Tahoe with an AMD RX 6600 8GB</h4>
 
-<p align="center"><a href=""><img src="../../../../gallery/Tahoe/HacPro26Beta.png" alt=""></a></p>
+<p align="center"><a href=""><img src="../../../../gallery/Tahoe/HacPro261.png" alt=""></a></p>
 
 <h2 align="center">
   <br>
