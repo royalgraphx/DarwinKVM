@@ -217,7 +217,14 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.14.4 - ATI Radeon HD 5450 2GB - x86_64
+    10.14.6 - NVIDIA GeForce GTX 760 2GB - x86_64
+  </h3>
+  <a href=""><img src="../../gallery/Mojave/LexiMP51.png" alt=""></a>
+</div>
+
+<div>
+  <h3 align="center">
+    10.14.6 - ATI Radeon HD 5450 2GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Mojave/MP51MojaveATI.png" alt=""></a>
 </div>
@@ -237,15 +244,15 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.12.5 - AppleInternal Phoenix (16F5049f) - GTX 470 1280MB
+    10.12.6 - GTX 470 1280MB
   </h3>
-  <a href=""><img src="../../gallery/Sierra/ProMacSierraInternal.png" alt=""></a>
+  <a href=""><img src="../../gallery/Sierra/MP51SierraGTX.png" alt=""></a>
 </div>
 <div>
   <h3 align="center">
-    10.12 - VESA / VGA Graphics - x86_64
+    10.12.5 - AppleInternal Phoenix (16F5049f) - GTX 470 1280MB
   </h3>
-  <a href=""><img src="../../gallery/Sierra/ProMacSierra.png" alt=""></a>
+  <a href=""><img src="../../gallery/Sierra/ProMacSierraInternal.png" alt=""></a>
 </div>
 
 <hr>
@@ -253,9 +260,17 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.11.6 - VESA / VGA Graphics - x86_64
+    10.11.6 - ATI Radeon HD 5450 1GB - x86_64 - GPU Donated By: 
+    <a href="https://github.com/PJFrye">@PJFrye</a>
   </h3>
-  <a href=""><img src="../../gallery/ElCapitan/ProMacTheCaptain.png" alt=""></a>
+  <a href=""><img src="../../gallery/ElCapitan/MP51CaptainATIMatty.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.11.6 - NVIDIA GTX 760 2048MB - x86_64 - Credits: 
+    <a href="https://github.com/lexira1n">@lexira1n</a>
+  </h3>
+  <a href=""><img src="../../gallery/ElCapitan/ElCapLexiGTX.png" alt=""></a>
 </div>
 
 <hr>
@@ -263,9 +278,17 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.10 - VESA / VGA Graphics - x86_64
+    10.10.5 - ATI Radeon HD 5450 1GB - x86_64 - GPU Donated By: 
+    <a href="https://github.com/PJFrye">@PJFrye</a>
   </h3>
-  <a href=""><img src="../../gallery/Yosemite/ProMacYosemite.png" alt=""></a>
+  <a href=""><img src="../../gallery/Yosemite/MP51YosATIMatty.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.10.5 - NVIDIA GTX 760 2048MB - x86_64 - Credits: 
+    <a href="https://github.com/lexira1n">@lexira1n</a>
+  </h3>
+  <a href=""><img src="../../gallery/Yosemite/LexiYosGTX.png" alt=""></a>
 </div>
 
 <hr>
@@ -273,9 +296,17 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.9.5 - VESA / VGA Graphics - x86_64
+    10.9.5 - ATI Radeon HD 5450 1GB - x86_64 - GPU Donated By: 
+    <a href="https://github.com/PJFrye">@PJFrye</a>
   </h3>
-  <a href=""><img src="../../gallery/Mavericks/ProMacMavericks.png" alt=""></a>
+  <a href=""><img src="../../gallery/Mavericks/MP51MavericksATIMatty.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.9.5 - NVIDIA GTX 760 2048MB - x86_64 - Credits: 
+    <a href="https://github.com/lexira1n">@lexira1n</a>
+  </h3>
+  <a href=""><img src="../../gallery/Mavericks/LexiMavGTX.png" alt=""></a>
 </div>
 
 <hr>
@@ -283,9 +314,17 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.8.5 - VESA / VGA Graphics - x86_64
+    10.8.5 - ATI Radeon HD 5450 1GB - x86_64 - GPU Donated By: 
+    <a href="https://github.com/PJFrye">@PJFrye</a>
   </h3>
-  <a href=""><img src="../../gallery/MountainLion/ProMacMountainLion.png" alt=""></a>
+  <a href=""><img src="../../gallery/MountainLion/MP51MLATIMatty.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.8.5 - NVIDIA GTX 760 2048MB - x86_64 - Credits: 
+    <a href="https://github.com/lexira1n">@lexira1n</a>
+  </h3>
+  <a href=""><img src="../../gallery/MountainLion/LexiMLGTX.png" alt=""></a>
 </div>
 
 <hr>

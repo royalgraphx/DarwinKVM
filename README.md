@@ -21,6 +21,31 @@
   <img width="650" height="200" src="./docs/assets/Headers/HeaderGallery.png">
 </p>
 
+<h5 align="center">The entries can have various (but not all) information tagged:</h5>
+
+<br>
+<h2 align="center"><b>Name of OS release</b></h2>
+<h5 align="center"><i>Mac Model (####) - ModelIdentifier#,#</i></h5>
+<h5 align="center"><i>Another supported Mac Model (####) - ModelIdentifier#,#</i></h5>
+  <h3 align="center">
+    Architecture - Mac Product Name - Credits: @username
+  </h3>
+<div>
+  <h3 align="center">
+    Product Version - Product Codename (Product Build Number) - Graphics Processing Unit
+  </h3>
+  <a href=""><img src="./docs/gallery/Example/Example.png" alt=""></a>
+</div>
+<div>
+<br>
+<br>
+
+<h5 align="center">The entries can have multiple screenshots of the various versions of said release. The gallery is sorted by chronological order. 10.6.8 will appear above 10.6.4 and so on. We also have Server variants, and AppleInternal copies running under DarwinKVM showcased here. Preservation is key! Submit your very own screenshot via the <a href="https://discord.gg/RC53DvQd3j">Discord</a> in the <a href="https://discord.com/channels/1131552514412654683/1140004584216072252">#showcase</a> channel for consideration in the next update.</h5>
+
+<br>
+<br>
+<br>
+<hr>
 <h2 align="center"><b>macOS Tahoe</b></h2>
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
@@ -31,11 +56,12 @@
 </div>
 <div>
   <h3 align="center">
-    26.0.0 - RX 6600 8GB - x86_64
+    26.0.0 Developer Beta 1 - RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="./docs/gallery/Tahoe/HacPro26Beta.png" alt=""></a>
 </div>
 
+<hr>
 <h2 align="center"><b>macOS Sequoia</b></h2>
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
@@ -52,7 +78,7 @@
 </div>
 <div>
   <h3 align="center">
-    15.0 Beta 1 - RX 6600 8GB - x86_64
+    15.0 Developer Beta 1 - RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="./docs/gallery/Sequoia/HacProKVM15BetaAlt.png" alt=""></a>
 </div>
@@ -151,7 +177,7 @@
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
-    11.7.10 - ATI HD 5450 2GB - x86_64
+    11.7.10 - ATI Radeon HD 5450 2GB - x86_64
   </h3>
   <a href=""><img src="./docs/gallery/BigSur/MP51BigSurATI.png" alt=""></a>
 </div>
@@ -181,7 +207,14 @@
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.14.4 - ATI Radeon HD 5450 2GB - x86_64
+    10.14.6 - NVIDIA GeForce GTX 760 2GB - x86_64
+  </h3>
+  <a href=""><img src="./docs/gallery/Mojave/LexiMP51.png" alt=""></a>
+</div>
+
+<div>
+  <h3 align="center">
+    10.14.6 - ATI Radeon HD 5450 2GB - x86_64
   </h3>
   <a href=""><img src="./docs/gallery/Mojave/MP51MojaveATI.png" alt=""></a>
 </div>
@@ -201,15 +234,15 @@
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.12.5 - AppleInternal Phoenix (16F5049f) - GTX 470 1280MB
+    10.12.6 - GTX 470 1280MB
   </h3>
-  <a href=""><img src="./docs/gallery/Sierra/ProMacSierraInternal.png" alt=""></a>
+  <a href=""><img src="./docs/gallery/Sierra/MP51SierraGTX.png" alt=""></a>
 </div>
 <div>
   <h3 align="center">
-    10.12 - VESA / VGA Graphics - x86_64
+    10.12.5 - AppleInternal Phoenix (16F5049f) - GTX 470 1280MB
   </h3>
-  <a href=""><img src="./docs/gallery/Sierra/ProMacSierra.png" alt=""></a>
+  <a href=""><img src="./docs/gallery/Sierra/ProMacSierraInternal.png" alt=""></a>
 </div>
 
 <hr>
@@ -217,9 +250,17 @@
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.11.6 - VESA / VGA Graphics - x86_64
+    10.11.6 - ATI Radeon HD 5450 1GB - x86_64 - GPU Donated By: 
+    <a href="https://github.com/PJFrye">@PJFrye</a>
   </h3>
-  <a href=""><img src="./docs/gallery/ElCapitan/ProMacTheCaptain.png" alt=""></a>
+  <a href=""><img src="./docs/gallery/ElCapitan/MP51CaptainATIMatty.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.11.6 - NVIDIA GTX 760 2048MB - x86_64 - Credits: 
+    <a href="https://github.com/lexira1n">@lexira1n</a>
+  </h3>
+  <a href=""><img src="./docs/gallery/ElCapitan/ElCapLexiGTX.png" alt=""></a>
 </div>
 
 <hr>
@@ -227,9 +268,17 @@
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.10 - VESA / VGA Graphics - x86_64
+    10.10.5 - ATI Radeon HD 5450 1GB - x86_64 - GPU Donated By: 
+    <a href="https://github.com/PJFrye">@PJFrye</a>
   </h3>
-  <a href=""><img src="./docs/gallery/Yosemite/ProMacYosemite.png" alt=""></a>
+  <a href=""><img src="./docs/gallery/Yosemite/MP51YosATIMatty.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.10.5 - NVIDIA GTX 760 2048MB - x86_64 - Credits: 
+    <a href="https://github.com/lexira1n">@lexira1n</a>
+  </h3>
+  <a href=""><img src="./docs/gallery/Yosemite/LexiYosGTX.png" alt=""></a>
 </div>
 
 <hr>
@@ -237,9 +286,17 @@
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.9.5 - VESA / VGA Graphics - x86_64
+    10.9.5 - ATI Radeon HD 5450 1GB - x86_64 - GPU Donated By: 
+    <a href="https://github.com/PJFrye">@PJFrye</a>
   </h3>
-  <a href=""><img src="./docs/gallery/Mavericks/ProMacMavericks.png" alt=""></a>
+  <a href=""><img src="./docs/gallery/Mavericks/MP51MavericksATIMatty.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.9.5 - NVIDIA GTX 760 2048MB - x86_64 - Credits: 
+    <a href="https://github.com/lexira1n">@lexira1n</a>
+  </h3>
+  <a href=""><img src="./docs/gallery/Mavericks/LexiMavGTX.png" alt=""></a>
 </div>
 
 <hr>
@@ -247,9 +304,17 @@
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.8.5 - VESA / VGA Graphics - x86_64
+    10.8.5 - ATI Radeon HD 5450 1GB - x86_64 - GPU Donated By: 
+    <a href="https://github.com/PJFrye">@PJFrye</a>
   </h3>
-  <a href=""><img src="./docs/gallery/MountainLion/ProMacMountainLion.png" alt=""></a>
+  <a href=""><img src="./docs/gallery/MountainLion/MP51MLATIMatty.png" alt=""></a>
+</div>
+<div>
+  <h3 align="center">
+    10.8.5 - NVIDIA GTX 760 2048MB - x86_64 - Credits: 
+    <a href="https://github.com/lexira1n">@lexira1n</a>
+  </h3>
+  <a href=""><img src="./docs/gallery/MountainLion/LexiMLGTX.png" alt=""></a>
 </div>
 
 <hr>
