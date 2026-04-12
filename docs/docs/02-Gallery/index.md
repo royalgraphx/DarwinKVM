@@ -51,7 +51,7 @@ has_toc: false
 <br>
 <br>
 
-<h5 align="center">The entries can have multiple screenshots of the various versions of said release. The gallery is sorted by chronological order. 10.6.8 will appear above 10.6.4 and so on. We also have Server variants, and AppleInternal copies running under DarwinKVM showcased here. Preservation is key! Submit your very own screenshot via the <a href="https://discord.gg/RC53DvQd3j">Discord</a> in the <a href="https://discord.com/channels/1131552514412654683/1140004584216072252">#showcase</a> channel for consideration in the next update.</h5>
+<h5 align="center">The entries can have multiple screenshots of the various versions of said release. The gallery is sorted by chronological order. 10.6.8 will appear above 10.6.4 and so on. We also have Server variants, and AppleInternal copies running under DarwinKVM showcased here. Preservation is key! Submit your very own screenshot via the <a href="https://discord.gg/UjmHNbej4p">Discord</a> in the <a href="https://discord.com/channels/1131552514412654683/1140004584216072252">#showcase</a> channel for consideration in the next update.</h5>
 
 <br>
 <br>
@@ -61,7 +61,7 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
-    26.1 - RX 6600 8GB - x86_64
+    26.1 - AMD RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Tahoe/HacPro261.png" alt=""></a>
 </div>
@@ -77,13 +77,13 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
-    15.1.1 - WX 9100 16GB - x86_64 - Credits: @athleticat
+    15.1.1 - AMD WX 9100 16GB - x86_64 - Credits: @athleticat
   </h3>
   <a href=""><img src="../../gallery/Sequoia/athleticatMacPro71Seq1511.png" alt=""></a>
 </div>
 <div>
   <h3 align="center">
-    15.1 - RX 6650 XT 8GB - x86_64 - Credits: @f0xb4t
+    15.1 - AMD RX 6650 XT 8GB - x86_64 - Credits: @f0xb4t
   </h3>
   <a href=""><img src="../../gallery/Sequoia/f0xb4tMacPro71Seq151.png" alt=""></a>
 </div>
@@ -99,46 +99,46 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
-    14.7 - RX 5700 XT 8GB - x86_64 - Credits: 
+    14.7 - AMD RX 5700 XT 8GB - x86_64 - Credits: 
     <a href="https://github.com/Naymmmm">@Naymmmm</a>
   </h3>
   <a href=""><img src="../../gallery/Sonoma/naymmmiscoolMacPro71Sonoma147.png" alt=""></a>
 </div>
 <div>
   <h3 align="center">
-    14.5 - RX 6600 8GB - x86_64
+    14.5 - AMD RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Sonoma/HacProKVM145.png" alt=""></a>
 </div>
 <div>
   <h3 align="center">
-    14.4 Beta - RX 6600 8GB - x86_64
+    14.4 Beta - AMD RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Sonoma/HacProKVM144Beta.png" alt=""></a>
 </div>
 <div>
   <h3 align="center">
-    14.3 - RX 6600 8GB - x86_64
+    14.3 - AMD RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Sonoma/HacProKVM143.png" alt=""></a>
 </div>
 <div>
   <h3 align="center">
-    14.2.1 - RX 6750 XT 12GB - x86_64 - Credits: 
+    14.2.1 - AMD RX 6750 XT 12GB - x86_64 - Credits: 
     <a href="https://github.com/heliokroger">@heliokroger</a>
   </h3>
   <a href=""><img src="../../gallery/Sonoma/Helio1421.png" alt=""></a>
 </div>
 <div>
   <h3 align="center">
-    14.1 - RX 6800 XT 16GB - x86_64 - Credits: 
+    14.1 - AMD RX 6800 XT 16GB - x86_64 - Credits: 
     <a href="https://github.com/haxi0">@haxi0</a>
   </h3>
   <a href=""><img src="../../gallery/Sonoma/haxi0DKVM141.png" alt=""></a>
 </div>
 <div>
   <h3 align="center">
-    14.0 - RX 6600 8GB - x86_64
+    14.0 - AMD RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Sonoma/HacProKVM140.png" alt=""></a>
 </div>
@@ -148,7 +148,7 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
-    13.5.1 - RX 6600 8GB - x86_64
+    13.5.1 - AMD RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Ventura/HacProKVM1351.png" alt=""></a>
 </div>
@@ -168,7 +168,7 @@ has_toc: false
 </div>
 <div>
   <h3 align="center">
-    13.4 - RX 6600 8GB - x86_64
+    13.4 - AMD RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Ventura/HacProKVM134.png" alt=""></a>
 </div>
@@ -178,7 +178,7 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
 <div>
   <h3 align="center">
-    12.7.5 - RX 6600 8GB - x86_64
+    12.7.5 - AMD RX 6600 8GB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Monterey/ProMacMonterey.png" alt=""></a>
 </div>
@@ -205,6 +205,12 @@ has_toc: false
 <hr>
 <h2 align="center"><b>macOS Catalina</b></h2>
 <h5 align="center"><i>Mac Pro (2019) - MacPro7,1</i></h5>
+<div>
+  <h3 align="center">
+    10.15.8 - NVIDIA GeForce GT 720 2GB - x86_64
+  </h3>
+  <a href=""><img src="../../gallery/Catalina/YordanCatalina10158.png" alt=""></a>
+</div>
 <div>
   <h3 align="center">
     10.15.7 - ATI Radeon HD 5450 2GB - x86_64
@@ -234,7 +240,7 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.13.6 - GTX 470 1280MB
+    10.13.6 - NVIDIA GTX 470 1280MB - x86_64
   </h3>
   <a href=""><img src="../../gallery/HighSierra/HacProKVM10136.png" alt=""></a>
 </div>
@@ -244,7 +250,7 @@ has_toc: false
 <h5 align="center"><i>Mac Pro (2010) - MacPro5,1</i></h5>
 <div>
   <h3 align="center">
-    10.12.6 - GTX 470 1280MB
+    10.12.6 - NVIDIA GTX 470 1280MB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Sierra/MP51SierraGTX.png" alt=""></a>
 </div>
@@ -338,7 +344,7 @@ has_toc: false
 </div>
 <div>
   <h3 align="center">
-    10.7.5 - GTX 470 1280MB - x86_64
+    10.7.5 - NVIDIA GTX 470 1280MB - x86_64
   </h3>
   <a href=""><img src="../../gallery/Lion/ProMacLion.png" alt=""></a>
 </div>

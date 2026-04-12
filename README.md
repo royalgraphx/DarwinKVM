@@ -40,7 +40,7 @@
 <br>
 <br>
 
-<h5 align="center">The entries can have multiple screenshots of the various versions of said release. The gallery is sorted by chronological order. 10.6.8 will appear above 10.6.4 and so on. We also have Server variants, and AppleInternal copies running under DarwinKVM showcased here. Preservation is key! Submit your very own screenshot via the <a href="https://discord.gg/RC53DvQd3j">Discord</a> in the <a href="https://discord.com/channels/1131552514412654683/1140004584216072252">#showcase</a> channel for consideration in the next update.</h5>
+<h5 align="center">The entries can have multiple screenshots of the various versions of said release. The gallery is sorted by chronological order. 10.6.8 will appear above 10.6.4 and so on. We also have Server variants, and AppleInternal copies running under DarwinKVM showcased here. Preservation is key! Submit your very own screenshot via the <a href="https://discord.gg/UjmHNbej4p">Discord</a> in the <a href="https://discord.com/channels/1131552514412654683/1140004584216072252">#showcase</a> channel for consideration in the next update.</h5>
 
 <br>
 <br>
@@ -475,7 +475,7 @@
 <p align="center">
   <img width="50%" height="50%" src="./docs/assets/Discord/discord-logo-white.png">
 </p>
-<h4 align="center">If you run into any issues, you can join the <a href="https://discord.gg/RC53DvQd3j">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. Hexley provides our discord users with a multitude of commands to assist anyone who may need specific actions performed. Such features that Hexley offers aim to speed up the process with command such as:</h4>
+<h4 align="center">If you run into any issues, you can join the <a href="https://discord.gg/UjmHNbej4p">DarwinKVM</a> Discord server! Feel free to ping the <span style="color: #d48dff;">@Helpers</span> role within a help channel for support. Hexley provides our discord users with a multitude of commands to assist anyone who may need specific actions performed. Such features that Hexley offers aim to speed up the process with command such as:</h4>
 
 <h6 align="center">/genplatinfo - Generates PlatformInfo for a given Mac model</h6>
 <h6 align="center">/checkcoverage - Allows to get a serial numbers Coverage status</h6>
